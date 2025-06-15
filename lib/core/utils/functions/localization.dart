@@ -13,10 +13,10 @@ extension Localization on  Functions
     {
       if (locale.languageCode == 'ar') 
       {
-        return 'oflah';
+        return 'cairo';
       } else 
       {
-        return 'DTG';
+        return 'poppins';
       }
   }
 

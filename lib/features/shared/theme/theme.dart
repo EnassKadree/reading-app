@@ -15,7 +15,7 @@ class AppTheme {
   {
     // colors
     const primaryColor = ColorsConsts.purple;
-    const secondaryColor = ColorsConsts.pink;
+    const secondaryColor = ColorsConsts.gold;
     const scaffoldBackgroundColor = ColorsConsts.white;
     const surfaceContainer = Colors.white;
     const primaryContainer = Color(0xffD5D5D5);
@@ -23,7 +23,7 @@ class AppTheme {
 
     // theme light
     return ThemeData(
-      fontFamily: "poppins",
+      fontFamily: "cairo",
       scaffoldBackgroundColor: scaffoldBackgroundColor,
       iconTheme: const IconThemeData(size: 28, color: primaryColor),
       // color system
