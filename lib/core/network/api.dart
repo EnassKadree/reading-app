@@ -1,139 +1,76 @@
 import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
+import '../../features/shared/data/data_source.dart';
 
-
-class Api 
-{
-  Future<dynamic> postWithoutToken({required String url}) async 
+class Api {
+  Future<dynamic> fullPost(
+      {required String url, Map<String, dynamic>? body, String? token}) async
   {
-    Map<String, String> headers = 
-    {
+    String locale = DataSource().getLocale() ?? 'ar';
+    Map<String, String> headers = {
       'Accept': 'application/json',
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Accept-Language': locale,
+      if (token != null) 'Authorization': 'Bearer $token',
     };
+    http.Response response = await http.post(
+      Uri.parse(url),
+      headers: headers,
+      body: body,
+    );
+    Map<String, dynamic> responseData = jsonDecode(response.body);
 
-    http.Response response =
-        await http.post(Uri.parse(url), headers: headers);
-    Map<String, dynamic> data = jsonDecode(response.body);
-
-    if (response.statusCode == 200 || response.statusCode == 202)
-    {
-      return data;
-    } else 
-    {
-      throw Exception(data['message']);
-    }
-  }
-  Future<dynamic> postWithoutTokenWithBody({required String url, required body}) async 
-  {
-    Map<String, String> headers = 
-    {
-      'Accept': 'application/json',
-    };
-    http.Response response =
-        await http.post(Uri.parse(url), body: body, headers: headers);
-    Map<String, dynamic> data = jsonDecode(response.body);
-
-    if (response.statusCode == 200 || response.statusCode == 202)
-    {
-      return data;
-    } else 
-    {
-      throw Exception(data['message']);
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      return responseData;
+    } else {
+      throw Exception(responseData['message']);
     }
   }
 
-  Future<dynamic> getWithoutToken({required String url}) async 
+  Future<dynamic> postWithoutToken(
+      {required String url})
   {
-    Map<String, String> headers = 
-    {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-    };
-    http.Response response = await http.get(Uri.parse(url), headers: headers);
-
-    dynamic data = jsonDecode(response.body);
-
-    if (response.statusCode == 200 || response.statusCode == 202)
-    {
-      return data;
-    } else 
-    {
-      throw Exception(data['message']);
-    }
+    return fullPost(url: url);
   }
 
-  Future<dynamic> get({required String url, @required String? token}) async 
+  Future<dynamic> postWithoutTokenWithBody(
+      {required String url, required body})
   {
-    Map<String, String> headers = {};
-
-    if (token != null) 
-    {
-      headers.addAll(
-      {
-        'Accept': 'application/json',
-        'Authorization': 'Bearer $token',
-      });
-    }
-    http.Response response = await http.get(Uri.parse(url), headers: headers);
-    dynamic data = jsonDecode(response.body);
-
-    if (response.statusCode == 200 || response.statusCode == 202) {
-      return data;
-    } else
-    {
-      throw Exception(data['message']);
-    }
+    return fullPost(url: url, body: body);
   }
 
   Future<dynamic> post(
-      {required String url,
-      @required dynamic body,
-      @required String? token}) async {
-    Map<String, String> headers = {};
-    Map<String,dynamic> data = {};
+      {required String url, required body, required String? token})
+  {
+    return fullPost(url: url, body: body, token: token);
+  }
 
-    if (token != null) {
-      headers.addAll(
-        {
-          'Accept': 'application/json',
-          'Authorization': 'Bearer $token',
-        });
-    }
-    http.Response response =
-        await http.post(Uri.parse(url), body: body, headers: headers);
-      data = jsonDecode(response.body);
+  Future<dynamic> get(
+      {required String url, String? token}) async
+  {
+    String locale = DataSource().getLocale() ?? 'ar';
+
+    Map<String, String> headers = {
+      'Accept': 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Accept-Language': locale,
+      if (token != null) 'Authorization': 'Bearer $token',
+    };
+
+    http.Response response = await http.get(Uri.parse(url), headers: headers);
+
     if (response.statusCode == 200 || response.statusCode == 202) {
-      return data;
-    } 
-    else {
-      throw Exception(
-          data['message']);
+      return jsonDecode(response.body);
+    } else {
+      throw Exception('message: ${response.body}');
     }
   }
 
-  Future<dynamic> put(
-      {required String url,
-      @required dynamic body,
-      @required String? token}) async {
-    Map<String, String> headers = {};
-    headers.addAll({'Content-Type': 'application/x-www-form-urlencoded'});
-    if (token != null) {
-      headers.addAll({'Authorization': 'Bearer $token'});
-    }
-
-    http.Response response =
-        await http.put(Uri.parse(url), body: body, headers: headers);
-    if (response.statusCode == 200 || response.statusCode == 202) {
-      Map<String, dynamic> data = jsonDecode(response.body);
-      return data;
-    } else {
-      throw Exception(
-          'there is a problem with status code ${response.statusCode} with body ${jsonDecode(response.body)}');
-    }
+  Future<dynamic> getWithToken(
+      {required String url, required String token}) async
+  {
+    return get(url: url, token: token);
   }
 }

@@ -12,7 +12,6 @@ extension ListStringExtensions on List<String> {
     }
     return children;
   }
-
   List<Text> get toIndexWidget {
     List<Text> children = [];
     asMap().keys.map((index) {

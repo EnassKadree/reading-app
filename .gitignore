@@ -41,3 +41,12 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Ignore gradle wrapper properties
+gradle/wrapper/gradle-wrapper.properties
+
+# Ignore app-level build.gradle
+app/build.gradle
+
+# Ignore settings.gradle
+settings.gradle
