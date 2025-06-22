@@ -24,7 +24,7 @@ class RegisterPage extends StatelessWidget {
         (
           title: JsonConsts.register,
           onPressed: (){},
-        ).mainPadding,
+        ).mainPadding.staggerListVertical(0),
         body: const RegisterScreenBody()
       )
     );

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:lottie/lottie.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
 import 'package:reading_app/core/utils/extensions/string_extension.dart';
 import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
@@ -35,7 +35,7 @@ class RegisterScreenBody extends StatelessWidget {
               children: Functions().staggeredList
               ([
                 (height~/10).spaceH,
-                SvgPicture.asset(AssetsConsts.registerAsset, height: 150,),
+                Lottie.asset(AssetsConsts.registerAsset, height: 200),
                 12.spaceH,
                 Text(
                   JsonConsts.huroof.t(context),
