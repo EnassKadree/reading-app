@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:reading_app/features/auth/UI/screens/register_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -94,17 +95,7 @@ class MyApp extends StatelessWidget {
           },
         ),
       ),
-      child: const Home()
+      child: const RegisterPage()
     );
-  }
-}
-
-
-class Home extends StatelessWidget {
-  const Home({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }

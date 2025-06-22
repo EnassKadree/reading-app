@@ -20,10 +20,11 @@ class AppTheme {
     const surfaceContainer = Colors.white;
     const primaryContainer = Color(0xffD5D5D5);
     const secondaryContainer = Color(0xff888888);
+    const pink = ColorsConsts.pink;
 
     // theme light
     return ThemeData(
-      fontFamily: "cairo",
+      fontFamily: "poppins",
       scaffoldBackgroundColor: scaffoldBackgroundColor,
       iconTheme: const IconThemeData(size: 28, color: primaryColor),
       // color system
@@ -45,33 +46,34 @@ class AppTheme {
         titleTextStyle: TextStyle(
           color: Colors.black,
           fontSize: 20,
-          fontFamily: "DTG",
+          fontFamily: "poppins",
         ),
       ),
 
       //input decoration
       inputDecorationTheme: InputDecorationTheme
       (
-        fillColor: scaffoldBackgroundColor.withOpacity(.6),
+        fillColor: pink.withOpacity(.5).withBlue(255),
         filled: true,
-        hintStyle: TextStyle(color: secondaryContainer.withOpacity(.8), fontSize: 15),
+        contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 32),
+        hintStyle: TextStyle(color: primaryColor.withOpacity(.7), fontSize: 18),
         floatingLabelStyle: const TextStyle(color: primaryContainer, fontSize: 15),
         suffixIconColor: secondaryContainer,
         disabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: scaffoldBackgroundColor, width: 0),
-          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(color: Colors.transparent, width: 0),
+          borderRadius: BorderRadius.circular(32),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: scaffoldBackgroundColor, width: 0),
-          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(color: Colors.transparent, width: 0),
+          borderRadius: BorderRadius.circular(32),
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: const BorderSide(color: primaryColor, width: 1),
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(32),
         ),
         focusedErrorBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.red[900]!, width: 1),
-          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide(color: Colors.red[900]!, width: 0),
+          borderRadius: BorderRadius.circular(32),
         ),
       ),
 

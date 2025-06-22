@@ -1,1 +1,17 @@
-{}
+{
+    "huroof": "Huroof",
+    "welcome": "enter your email to signup to our platform",
+    "email": "email address",
+    "password": "strong password",
+    "register": "register",
+    "haveAnAccount" : "have an account?",
+    "next": "next",
+    "login": "login",
+    "language": "language",
+    "required": "field is required",
+    "passwordShort": "password is too short",
+    "passwordLong": "password is too long",
+    "invalidPhoneNumber": "phone not valid",
+    "successfully": "process done successfully!",
+    "ok": "ok!"
+}
