@@ -1,9 +1,10 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../core/utils/base/base_cubit.dart';
 
 part 'register_state.dart';
 
-class RegisterCubit extends Cubit<RegisterState> {
+class RegisterCubit extends BaseCubit<RegisterState> {
   RegisterCubit() : super(RegisterState());
 
   final TextEditingController emailController = TextEditingController();
@@ -17,6 +18,6 @@ class RegisterCubit extends Cubit<RegisterState> {
 
   Future<void> submit(String phone, String password) async 
   {
-
+      
   }
 }
