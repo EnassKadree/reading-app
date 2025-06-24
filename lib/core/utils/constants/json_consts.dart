@@ -1,5 +1,4 @@
-abstract class JsonConsts 
-{
+abstract class JsonConsts {
   // LANGUAGE CHOOSING
   static const String language = 'language';
   static const String preferredLanguage = 'preferredLanguage';
@@ -28,18 +27,26 @@ abstract class JsonConsts
   static const String agreeTerms = 'agreeTerms';
   static const String termsAndConditions = 'termsAndConditions';
   static const String next = 'next';
+
   // AUTH -> otp
   static const String alreadyAMember = 'alreadyAMember';
   static const String login = 'login';
   static const String almostThere = 'almostThere';
   static const String enterCode = 'enterCode';
-  static const String forVerification  = 'forVerification';
-  static const String didNtReceiveCode  = 'didNtReceiveCode';
-  static const String resendAgain  = 'resendAgain';
-  static const String requestNewCode  = 'requestNewCode';
-  static const String requestCode  = 'requestCode';
+  static const String forVerification = 'forVerification';
+  static const String didNtReceiveCode = 'didNtReceiveCode';
+  static const String resendAgain = 'resendAgain';
+  static const String requestNewCode = 'requestNewCode';
+  static const String requestCode = 'requestCode';
+
   // AUTH -> done otp
   static const String successfully = 'successfully';
   static const String accountActivated = 'accountActivated';
   static const String ok = 'ok';
+
+  //HOME PAGE
+  static const String activeChallenges = 'active_challenges';
+  static const String categories = 'categories';
+  static const String authors = 'authors';
+  static const String mostRatedBooks='most_rated_books';
 }

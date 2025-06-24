@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:reading_app/features/home/view/home_wrapper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-
 import 'features/shared/data/data_source.dart';
 import 'features/shared/localization/app_localization.dart';
 import 'features/shared/localization/locale_cubit.dart';
@@ -17,19 +17,15 @@ late SharedPreferences prefs;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   prefs = await SharedPreferences.getInstance();
-
   final User? user = DataSource().getUser();
   final String? savedTheme = DataSource().getTheme();
   final String? savedLocale = DataSource().getLocale();
   final userCubit = UserCubit();
-
   if (user != null) {
     userCubit.login(user);
   }
-
   final locale = savedLocale != null ? Locale(savedLocale) : const Locale('en');
   final theme = savedTheme == 'dark' ? Themes.dark : Themes.light;
-
   runApp(
     MultiBlocProvider(
       providers: [
@@ -94,7 +90,7 @@ class MyApp extends StatelessWidget {
           },
         ),
       ),
-      child: const Home()
+      child: const HomeWrapper()
     );
   }
 }

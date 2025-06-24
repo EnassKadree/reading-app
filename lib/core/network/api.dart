@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -93,7 +92,8 @@ class Api
   Future<dynamic> post(
       {required String url,
       @required dynamic body,
-      @required String? token}) async {
+      @required String? token}) async
+  {
     Map<String, String> headers = {};
     Map<String,dynamic> data = {};
 
@@ -119,7 +119,8 @@ class Api
   Future<dynamic> put(
       {required String url,
       @required dynamic body,
-      @required String? token}) async {
+      @required String? token}) async
+  {
     Map<String, String> headers = {};
     headers.addAll({'Content-Type': 'application/x-www-form-urlencoded'});
     if (token != null) {

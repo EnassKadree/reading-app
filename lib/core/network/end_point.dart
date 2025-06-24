@@ -1,4 +1,3 @@
-abstract class EndPoint 
+abstract class EndPoint
 {
-  
 }
