@@ -13,5 +13,12 @@
     "passwordLong": "password is too long",
     "invalidPhoneNumber": "phone not valid",
     "successfully": "process done successfully!",
-    "ok": "ok!"
+    "ok": "ok!",
+    "mylibrary":"My Library",
+    "bookInProgress":"Book in progress",
+    "favoriteBooks":"Favorite          books",
+    "completedBooks":"Completed books",
+    "booksToRead":"Books to           read",
+    "iHaveVisited":"I have visited",
+    "countriesInALiteraryWay":"countries in a literary way"
 }

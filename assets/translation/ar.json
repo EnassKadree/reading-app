@@ -13,5 +13,12 @@
     "passwordLong": "كلمة السر طويلة جداً",
     "invalidPhoneNumber": "صيغة الهاتف غير صحيحة",
     "successfully": "تمت العملية بنجاح!",
-    "ok": "موافق"
+    "ok": "موافق",
+    "mylibrary":"مكتبتي",
+    "bookInProgress":"التقدم في قرائتي",
+    "favoriteBooks":"الكتب المفضلة",
+    "completedBooks":"الكتب المنجزة",
+    "booksToRead":"كتب للقراءة",
+    "iHaveVisited":"لقد زرت",
+    "countriesInALiteraryWay":"دولٍ أدبيًا"
 }

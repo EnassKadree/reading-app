@@ -1,6 +1,4 @@
-abstract class JsonConsts 
-{
-
+abstract class JsonConsts {
   // AUTH
   // AUTH -> register
 
@@ -26,4 +24,13 @@ abstract class JsonConsts
   // AUTH -> done otp
   static const String successfully = 'successfully';
   static const String ok = 'ok';
+  //MYLIBRARY 
+  static const String mylibrary = 'mylibrary';
+  static const String bookInProgress = 'bookInProgress';
+  static const String favoriteBooks = 'favoriteBooks';
+  static const String completedBooks = 'completedBooks';
+  static const String booksToRead = 'booksToRead';
+    static const String iHaveVisited = 'iHaveVisited';
+
+    static const String countriesInALiteraryWay = 'countriesInALiteraryWay';
 }
