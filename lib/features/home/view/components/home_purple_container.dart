@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reading_app/core/utils/constants/styles_consts.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
@@ -17,9 +18,9 @@ class HomePurpleContainer extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: context.colorScheme.primary,
-        borderRadius: const BorderRadius.only(
-          bottomLeft: Radius.circular(40),
-          bottomRight: Radius.circular(40),
+        borderRadius:  BorderRadius.only(
+          bottomLeft: Radius.circular(40.r),
+          bottomRight: Radius.circular(40.r),
         ),
       ),
       child: Column(
@@ -31,9 +32,9 @@ class HomePurpleContainer extends StatelessWidget {
              textAlign: TextAlign.start,
            ).horizontalPadding,
           5.spaceH,
-          const SizedBox(
-            height: 130,
-            child: UserChallengesSection(),
+           SizedBox(
+            height: 130.h,
+            child: const UserChallengesSection(),
           ).verticalPadding,
           10.spaceH,
         ],

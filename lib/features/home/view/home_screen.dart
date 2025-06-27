@@ -38,7 +38,9 @@ class _HomeScreenState extends State<HomeScreen> {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            backgroundColor: context.colorScheme.primary,
+            flexibleSpace: Container(color:context.colorScheme.primary,),
+            elevation: 0,
+            floating: true,
             actions: [
               GestureDetector(
                 onTap: () {},
@@ -67,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
              Text(
                 JsonConsts.mostRatedBooks.t(context),
                 style: StylesConsts.f18W600Black.copyWith(fontSize: 23),
-              ).verticalPadding.horizontalPadding
+              ).mainPadding
             ],
           ),
           ),
