@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/constants/styles_consts.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
-import 'package:reading_app/core/utils/extensions/space_extension.dart';
 import 'package:reading_app/core/utils/extensions/string_extension.dart';
 import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/features/home/view/components/authors_section.dart';
-import 'package:reading_app/features/shared/widgets/book_card/book_card.dart';
 import 'package:reading_app/features/home/view/components/books_section.dart';
 import 'package:reading_app/features/home/view/components/categories_section.dart';
 
