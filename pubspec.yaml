@@ -39,7 +39,7 @@ dependencies:
   flutter_svg: ^2.1.0
   http: ^1.4.0
   iconsax: ^0.0.8
-  intl: ^0.19.0
+  intl: ^0.20.0
   lottie: ^3.2.0
   shared_preferences: ^2.5.3
 
@@ -60,7 +60,9 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/translation/
-    - assets/images/auth/
+    - assets/images/lottie/
+    - assets/images/png/
+    - assets/images/svg/
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
