@@ -11,73 +11,93 @@ class BookCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (BuildContext context) {
-        return BookFavoriteCubit();
-      },
-      child: Container(
-        padding: const EdgeInsets.all(10),
-        decoration: BoxDecoration(
-          border: BoxBorder.all(
-            color: context.colorScheme.secondary.withAlpha(120),
-            width: 2,
-          ),
-          borderRadius: BorderRadius.circular(20),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              height: 200,
-              width: 130,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withAlpha(160),
-                    blurRadius: 10,
-                    offset: const Offset(0, 3),
+        create: (BuildContext context) {
+          return BookFavoriteCubit();
+        },
+        child: Container(
+          alignment: Alignment.center,
+          child: Stack(
+            children: [
+              Positioned(
+                top: 110,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withAlpha(110),
+                          blurRadius: 10,
+                          offset: const Offset(0, 5),
+                        )
+                      ],),
+                  width: 165,
+                  height: 165,
+                ),
+              ),
+              Positioned(
+                left: 8,
+                child: Container(
+                  height: 210,
+                  width: 150,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withAlpha(160),
+                        blurRadius: 10,
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
                   ),
-                ],
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Image.asset(
-                  "assets/images/png/book 1.jpg",
-                  fit: BoxFit.fill,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Image.asset(
+                      "assets/images/png/book 1.jpg",
+                      fit: BoxFit.fill,
+                    ),
+                  ),
                 ),
               ),
-            ),
-            20.spaceH,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                10.spaceH,
-                const Text(
-                  "Love Story",
-                  style: StylesConsts.f18W600Black,
+              Positioned(
+                left: 10,
+                top: 216,
+                child: Column(
+
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        1.spaceW,
+                        const Text(
+                          "Love Story",
+                          style: StylesConsts.f16W600Black,
+                        ),
+                        20.spaceW,
+                        Icon(
+                          Icons.favorite_border_outlined,
+                          color: Colors.redAccent.withAlpha(180),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: List.generate(
+                        5,
+                        (index) => Icon(
+                          index < 3 ? Icons.star : Icons.star_border,
+                          color: Colors.yellow,
+                          size: 20,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-                25.spaceW,
-                Icon(
-                  Icons.favorite_border_outlined,
-                  color: Colors.redAccent.withAlpha(150),
-                ),
-              ],
-            ),
-            5.spaceH,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: List.generate(
-                5,
-                (index) => Icon(
-                  index < 3 ? Icons.star : Icons.star_border,
-                  color: Colors.yellow,
-                  size: 20,
-                ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
-      ),
-    );
+      );
   }
 }

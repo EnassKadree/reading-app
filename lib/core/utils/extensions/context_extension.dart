@@ -11,7 +11,7 @@ extension Context on BuildContext
   Future<T?> pushAndRemoveAll<T>(Widget page) {
     return Navigator.of(this).pushAndRemoveUntil<T>(
       SlideRight(page: page),
-      (route) => false,
+          (route) => false,
     );
   }
 

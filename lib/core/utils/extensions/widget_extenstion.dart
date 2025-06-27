@@ -10,7 +10,7 @@ extension WidgetExtension on Widget {
   Widget staggerListHorizontal(int index) =>
       AnimationConfiguration.staggeredList(
         position: index,
-        duration: const Duration(milliseconds: 350),
+        duration: const Duration(seconds: 3),
         child: SlideAnimation(
           horizontalOffset: 50.0,
           child: FadeInAnimation(

@@ -1,4 +1,3 @@
-
 import '../../../shared/models/book.dart';
 
 abstract class BooksStates {}

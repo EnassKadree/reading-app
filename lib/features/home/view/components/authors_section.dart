@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/constants/styles_consts.dart';
 import 'package:reading_app/core/utils/extensions/string_extension.dart';
@@ -18,20 +20,30 @@ class AuthorsSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-         JsonConsts.authors.t(context),
+          JsonConsts.authors.t(context),
           style: StylesConsts.f18W600Black.copyWith(fontSize: 23),
         ).verticalPadding.horizontalPadding,
         BlocBuilder<AuthorsCubit, AuthorsStates>(
           builder: (BuildContext context, AuthorsStates state) {
             return SizedBox(
-              height: 130,
-              child: ListView.builder(
+              height: 120.h,
+              child: AnimationLimiter(
+                child: ListView.builder(
                   scrollDirection: Axis.horizontal,
+                  itemCount: 15,
                   itemBuilder: (BuildContext context, index) {
-                    return  AuthorWidget(author: Author(id: 1, name: "Adonis", image: "assets/images/png/Adonis.png", country: "Syrian", numberOfBooks: 17));
+                    return AuthorWidget(
+                      author: Author(
+                        id: 1,
+                        name: "Adonis",
+                        image: "assets/images/png/Adonis.png",
+                        country: "Syrian",
+                        numberOfBooks: 17,
+                      ),
+                    ).staggerListVertical(index);
                   },
-
-                  itemCount: 15),
+                ),
+              ),
             );
           },
         ),

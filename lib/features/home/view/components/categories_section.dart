@@ -30,9 +30,7 @@ class CategoriesSection extends StatelessWidget {
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (BuildContext context, index) {
-                      return const IconTextWidget(text: "Sports",
-                        icon: Icons.sports_basketball,
-                        margin: 16,).staggerListVertical(index);
+                      return const IconTextWidget(text: "Sports", icon: Icons.sports_basketball,margin: 16,).staggerListVertical(index);
                     },
 
                     itemCount: 15),

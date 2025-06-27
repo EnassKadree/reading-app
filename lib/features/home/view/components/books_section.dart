@@ -10,18 +10,20 @@ class BooksSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<BooksCubit, BooksStates>(
       builder: (BuildContext context, BooksStates state) {
-        return SliverGrid(
-          delegate: SliverChildBuilderDelegate(
-                (BuildContext context, int index) {
-              return const BookCard();
-            },
-            childCount: 15,
-          ),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 20,
-            mainAxisSpacing: 20,
-            childAspectRatio:0.6,
+        return AnimationLimiter(
+          child: SliverGrid(
+            delegate: SliverChildBuilderDelegate(
+                  (BuildContext context, int index) {
+                return const BookCard().staggeredGrid(index);
+              },
+              childCount: 15,
+            ),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 20,
+              mainAxisSpacing: 20,
+              childAspectRatio:0.6,
+            ),
           ),
         );
       },

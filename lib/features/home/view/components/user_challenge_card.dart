@@ -15,24 +15,20 @@ class ActiveChallengeCard extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: context.colorScheme.surfaceContainer,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(20.r),
       ),
-      padding: const EdgeInsets.symmetric(
-        vertical: 10,
+      padding:  EdgeInsets.only(right: 16.w,
+        top: 16.h,bottom: 16.h
       ),
-      margin: const EdgeInsets.symmetric(horizontal: 16),
-      width: 310,
+      margin:  EdgeInsets.symmetric(horizontal: 16.w),
+     // width: 310,
       child: Row(
         children: [
-          SizedBox(
-            width: 100,
-            height: 100,
-            child: Lottie.asset(
-              AssetsConsts.activeChallengeIcon,
-              width: 120,
-              height: 120,
-              repeat: false,
-            ),
+          Lottie.asset(
+            AssetsConsts.activeChallengeIcon,
+            width: 120.w,
+            height: 120.h,
+            repeat: false,
           ),
           10.spaceH,
           Column(
@@ -44,7 +40,7 @@ class ActiveChallengeCard extends StatelessWidget {
               ),
               10.spaceH,
               SizedBox(
-                width: 170,
+                width: 170.w,
                 child: LinearProgressIndicator(
                   value: 0.6,
                   backgroundColor: Colors.grey[350],

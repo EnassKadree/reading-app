@@ -15,11 +15,11 @@ class IconTextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin:  EdgeInsets.symmetric(horizontal: margin) ,
-      padding: const EdgeInsets.symmetric(horizontal: 5),
-      height: 30,
+      padding:  EdgeInsets.symmetric(horizontal: 5.w),
+      height: 30.h,
       decoration: BoxDecoration(
         border: BoxBorder.all(color: context.colorScheme.secondary, width: 1.7),
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(15.r),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
