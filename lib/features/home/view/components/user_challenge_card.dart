@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:reading_app/core/utils/constants/assets_consts.dart';
 import 'package:reading_app/core/utils/constants/styles_consts.dart';

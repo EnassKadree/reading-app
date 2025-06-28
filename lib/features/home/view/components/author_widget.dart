@@ -4,8 +4,9 @@ import 'package:reading_app/core/utils/constants/styles_consts.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
 import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
-import 'package:reading_app/features/author_details/ui/author_details_screen.dart';
 import 'package:reading_app/features/shared/models/author.dart';
+
+import '../../../author_details/view/author_details_screen.dart';
 
 class AuthorWidget extends StatelessWidget {
   const AuthorWidget({ required this.author,super.key});
