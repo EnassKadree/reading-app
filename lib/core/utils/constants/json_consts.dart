@@ -1,4 +1,4 @@
-abstract class JsonConsts 
+abstract class JsonConsts
 {
 
   // AUTH
@@ -29,4 +29,11 @@ abstract class JsonConsts
   // AUTH -> done otp
   static const String successfully = 'successfully';
   static const String ok = 'ok';
+
+  //HOME PAGE
+  static const String activeChallenges = 'active_challenges';
+  static const String categories = 'categories';
+  static const String authors = 'authors';
+  static const String mostRatedBooks='most_rated_books';
+
 }

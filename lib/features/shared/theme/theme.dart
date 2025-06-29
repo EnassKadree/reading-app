@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../core/utils/constants/colors_consts.dart';
 
 class AppTheme {
@@ -10,12 +9,13 @@ class AppTheme {
   static late Color surfaceContainer;
   static late Color secondaryContainer;
   static late Color primaryContainer;
-
+ static late Color tertiaryColor;
   static ThemeData get lightTheme 
   {
     // colors
     const primaryColor = ColorsConsts.purple;
     const secondaryColor = ColorsConsts.gold;
+    const tertiaryColor=ColorsConsts.pink;
     const scaffoldBackgroundColor = ColorsConsts.white;
     const surfaceContainer = Colors.white;
     const primaryContainer = Color(0xffD5D5D5);
@@ -31,6 +31,7 @@ class AppTheme {
       colorScheme: const ColorScheme.light(
         primary: primaryColor,
         secondary: secondaryColor,
+        tertiary: tertiaryColor,
         surfaceContainer: surfaceContainer,
         brightness: Brightness.light,
         secondaryContainer: secondaryContainer,
@@ -49,7 +50,6 @@ class AppTheme {
           fontFamily: "poppins",
         ),
       ),
-
       //input decoration
       inputDecorationTheme: InputDecorationTheme
       (
@@ -76,7 +76,6 @@ class AppTheme {
           borderRadius: BorderRadius.circular(32),
         ),
       ),
-
       //elevation ElevatedButton
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
@@ -88,7 +87,6 @@ class AppTheme {
           ),
         ),
       ),
-
       checkboxTheme: const CheckboxThemeData
       (
         shape: RoundedRectangleBorder
@@ -109,7 +107,8 @@ class AppTheme {
   }
 
   // theme dark
-  static ThemeData get darkTheme {
+  static ThemeData get darkTheme
+  {
     //colors
     primaryColor = const Color.fromARGB(255, 121, 87, 199);
     secondaryColor = const Color(0xff8B704E).withOpacity(0.1);
@@ -131,7 +130,6 @@ class AppTheme {
         secondaryContainer: secondaryContainer,
         primaryContainer: primaryContainer,
       ),
-
       //input decoration
       inputDecorationTheme: InputDecorationTheme(
         hintStyle: TextStyle(color: secondaryContainer, fontSize: 15),
