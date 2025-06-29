@@ -11,8 +11,11 @@ abstract class JsonConsts
   static const String register = 'register';
   static const String haveAnAccount = 'haveAnAccount';
 
+  // AUTH -> login
   static const String next = 'next';
   static const String login = 'login';
+  static const String welcomeBack = 'welcomeBack';
+  static const String dontHaveAnAccount = 'dontHaveAnAccount';
 
   // LANGUAGE CHOOSING
   static const String language = 'language';

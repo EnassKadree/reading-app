@@ -13,5 +13,7 @@
     "passwordLong": "password is too long",
     "invalidPhoneNumber": "phone not valid",
     "successfully": "process done successfully!",
-    "ok": "ok!"
+    "ok": "ok!",
+    "welcomeBack": "Welcome Back! enter your info to login",
+    "dontHaveAnAccount": "don't have an account?"
 }
