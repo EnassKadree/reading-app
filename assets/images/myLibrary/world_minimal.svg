@@ -1,0 +1,6 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500">
+  <path id="US" d="M100,100 L200,100 L200,200 L100,200 Z" fill="#cccccc"/>
+  <path id="SA" d="M400,200 L500,200 L500,300 L400,300 Z" fill="#cccccc"/>
+  <path id="EG" d="M600,100 L700,100 L700,200 L600,200 Z" fill="#cccccc"/>
+</svg>

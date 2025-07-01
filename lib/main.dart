@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:reading_app/features/auth/UI/screens/register_page.dart';
-import 'package:reading_app/features/my_library/UI/screens/my_library.dart';
+import 'package:reading_app/features/my_library/UI/widgets/my_library_body.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+// ignore: depend_on_referenced_packages
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'features/shared/data/data_source.dart';
@@ -54,49 +54,50 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(402, 874),
-      builder: (context, child) => BlocListener<LocaleCubit, Locale>(
-        listener: (context, state) {
-          WidgetsBinding.instance.addPostFrameCallback((_) {});
-        },
-        child: BlocBuilder<ThemeCubit, Themes>(
-          builder: (context, theme) {
-            return BlocBuilder<LocaleCubit, Locale>(
-              builder: (context, locale) {
-                return MaterialApp(
-                  debugShowCheckedModeBanner: false,
-                  theme: AppTheme.lightTheme,
-                  darkTheme: AppTheme.darkTheme,
-                  themeMode:
-                      theme == Themes.dark ? ThemeMode.dark : ThemeMode.light,
-                  localizationsDelegates: const [
-                    AppLocalizations.delegate,
-                    GlobalMaterialLocalizations.delegate,
-                    GlobalWidgetsLocalizations.delegate,
-                    GlobalCupertinoLocalizations.delegate,
-                  ],
-                  supportedLocales: const [
-                    Locale('en', ''),
-                    Locale('ar', ''),
-                  ],
-                  locale: locale,
-                  localeResolutionCallback: (locale, supportedLocales) {
-                    if (locale == null) return supportedLocales.first;
-                    for (var supportedLocale in supportedLocales) {
-                      if (supportedLocale.languageCode == locale.languageCode) {
-                        return supportedLocale;
-                      }
-                    }
-                    return supportedLocales.first;
-                  },
-                  home: child,
-                );
+        designSize: const Size(402, 874),
+        builder: (context, child) => BlocListener<LocaleCubit, Locale>(
+              listener: (context, state) {
+                WidgetsBinding.instance.addPostFrameCallback((_) {});
               },
-            );
-          },
-        ),
-      ),
-      child: const MyLibraryPage()
-    );
+              child: BlocBuilder<ThemeCubit, Themes>(
+                builder: (context, theme) {
+                  return BlocBuilder<LocaleCubit, Locale>(
+                    builder: (context, locale) {
+                      return MaterialApp(
+                        debugShowCheckedModeBanner: false,
+                        theme: AppTheme.lightTheme,
+                        darkTheme: AppTheme.darkTheme,
+                        themeMode: theme == Themes.dark
+                            ? ThemeMode.dark
+                            : ThemeMode.light,
+                        localizationsDelegates: const [
+                          AppLocalizations.delegate,
+                          GlobalMaterialLocalizations.delegate,
+                          GlobalWidgetsLocalizations.delegate,
+                          GlobalCupertinoLocalizations.delegate,
+                        ],
+                        supportedLocales: const [
+                          Locale('en', ''),
+                          Locale('ar', ''),
+                        ],
+                        locale: locale,
+                        localeResolutionCallback: (locale, supportedLocales) {
+                          if (locale == null) return supportedLocales.first;
+                          for (var supportedLocale in supportedLocales) {
+                            if (supportedLocale.languageCode ==
+                                locale.languageCode) {
+                              return supportedLocale;
+                            }
+                          }
+                          return supportedLocales.first;
+                        },
+                        home: child,
+                      );
+                    },
+                  );
+                },
+              ),
+            ),
+        child: const MyLibraryBody());
   }
 }
