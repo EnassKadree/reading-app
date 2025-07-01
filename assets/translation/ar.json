@@ -32,6 +32,16 @@
     "invalidPhoneNumber": "صيغة الهاتف غير صحيحة",
     "successfully": "تمت العملية بنجاح!",
     "ok": "موافق",
+<<<<<<< HEAD
     "welcomeBack": "أهلاً مجدداً! أدخل معلوماتك لتسجيل الدخول",
     "dontHaveAnAccount": "تمتلك حساباً بالفعل؟"
+=======
+    "mylibrary":"مكتبتي",
+    "bookInProgress":"التقدم في قرائتي",
+    "favoriteBooks":"الكتب المفضلة",
+    "completedBooks":"الكتب المنجزة",
+    "booksToRead":"كتب للقراءة",
+    "iHaveVisited":"لقد زرت",
+    "countriesInALiteraryWay":"دولٍ أدبيًا"
+>>>>>>> myLibrary
 }

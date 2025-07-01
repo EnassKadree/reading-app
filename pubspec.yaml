@@ -37,9 +37,11 @@ dependencies:
   flutter_screenutil: ^5.9.3
   flutter_staggered_animations: ^1.1.1
   flutter_svg: ^2.1.0
+  xml: ^6.5.0
+  path_drawing: ^1.0.1
   http: ^1.4.0
   iconsax: ^0.0.8
-  intl: ^0.20.0
+  intl: ^0.19.0
   lottie: ^3.2.0
   modal_progress_hud_nsn: ^0.5.1
   shared_preferences: ^2.5.3
@@ -59,8 +61,13 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+
+  assets:
+    - assets/translation/
+    - assets/images/auth/
+    - images/a_dot_burr.jpeg
+    - assets/images/myLibrary/
+
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

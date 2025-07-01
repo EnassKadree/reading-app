@@ -33,6 +33,16 @@
     "invalidPhoneNumber": "phone not valid",
     "successfully": "process done successfully!",
     "ok": "ok!",
+<<<<<<< HEAD
     "welcomeBack": "Welcome Back! enter your info to login",
     "dontHaveAnAccount": "don't have an account?"
+=======
+    "mylibrary":"My Library",
+    "bookInProgress":"Book in progress",
+    "favoriteBooks":"Favorite          books",
+    "completedBooks":"Completed books",
+    "booksToRead":"Books to           read",
+    "iHaveVisited":"I have visited",
+    "countriesInALiteraryWay":"countries in a literary way"
+>>>>>>> myLibrary
 }
