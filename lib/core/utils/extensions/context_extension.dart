@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'animated_route.dart';
 
-extension Context on BuildContext
-{
-
+extension Context on BuildContext {
   Future<T?> push<T>(Widget page) {
     return Navigator.of(this).push<T>(SlideRight(page: page));
   }
@@ -11,7 +9,7 @@ extension Context on BuildContext
   Future<T?> pushAndRemoveAll<T>(Widget page) {
     return Navigator.of(this).pushAndRemoveUntil<T>(
       SlideRight(page: page),
-          (route) => false,
+      (route) => false,
     );
   }
 
@@ -22,6 +20,7 @@ extension Context on BuildContext
   void pop<T>([T? result]) {
     Navigator.of(this).pop<T>(result);
   }
+
   /// is dark mode currently enabled?
   bool get isDarkMode => Theme.of(this).brightness == Brightness.dark;
 

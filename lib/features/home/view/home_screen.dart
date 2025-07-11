@@ -24,6 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
     searchController = TextEditingController();
     super.initState();
   }
+
   @override
   void dispose() {
     searchController.dispose();
@@ -36,7 +37,9 @@ class _HomeScreenState extends State<HomeScreen> {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            flexibleSpace: Container(color:context.colorScheme.primary,),
+            flexibleSpace: Container(
+              color: context.colorScheme.primary,
+            ),
             elevation: 0,
             floating: true,
             actions: [
@@ -45,35 +48,36 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Icon(
                   Icons.search,
                   color: context.colorScheme.surfaceContainer,
-                ),),
+                ),
+              ),
               GestureDetector(
                 onTap: () {},
                 child: Icon(
                   Icons.list,
                   color: context.colorScheme.surfaceContainer,
-                ),).horizontalPadding,
-
+                ),
+              ).horizontalPadding,
             ],
           ),
           SliverToBoxAdapter(
             child: HomePurpleContainer(searchController: searchController),
           ),
           SliverToBoxAdapter(
-              child:  Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-               const CategoriesSection(),
-               const AuthorsSection(),
-             Text(
-                JsonConsts.mostRatedBooks.t(context),
-                style: StylesConsts.f18W600Black.copyWith(fontSize: 23),
-             ).mainPadding,],
-          ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const CategoriesSection(),
+                const AuthorsSection(),
+                Text(
+                  JsonConsts.mostRatedBooks.t(context),
+                  style: StylesConsts.f18W600Black.copyWith(fontSize: 23),
+                ).mainPadding,
+              ],
+            ),
           ),
           const SliverPadding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            sliver  : BooksSection())
-
+              padding: EdgeInsets.symmetric(horizontal: 16),
+              sliver: BooksSection())
         ],
       ),
     );

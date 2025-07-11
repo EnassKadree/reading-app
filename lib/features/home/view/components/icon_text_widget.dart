@@ -20,12 +20,12 @@ class IconTextWidget extends StatelessWidget {
       padding:  EdgeInsets.symmetric(horizontal: 5.w),
       height: 30.h,
       decoration: BoxDecoration(
-        border: BoxBorder.all(color: context.colorScheme.secondary, width: 1.7),
+        border: Border.all(color: context.colorScheme.secondary, width: 1.7),
         borderRadius: BorderRadius.circular(15.r),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        spacing: 5,
+      //  spacing: 5,
         children: [
           Icon(icon, size: iconSize, color: context.colorScheme.secondary),
           Text(

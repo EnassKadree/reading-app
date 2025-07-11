@@ -17,7 +17,7 @@
   "passwordLong": "password is too long",
   "invalidPhoneNumber": "phone not valid",
   "successfully": "process done successfully!",
-  "ok": "ok!"
+  "ok": "ok!",
     "huroof": "Huroof",
     "welcome": "enter your email to signup to our platform",
     "email": "email address",
@@ -33,10 +33,10 @@
     "invalidPhoneNumber": "phone not valid",
     "successfully": "process done successfully!",
     "ok": "ok!",
-<<<<<<< HEAD
+
     "welcomeBack": "Welcome Back! enter your info to login",
-    "dontHaveAnAccount": "don't have an account?"
-=======
+    "dontHaveAnAccount": "don't have an account?",
+
     "mylibrary":"My Library",
     "bookInProgress":"Book in progress",
     "favoriteBooks":"Favorite          books",
@@ -44,5 +44,5 @@
     "booksToRead":"Books to           read",
     "iHaveVisited":"I have visited",
     "countriesInALiteraryWay":"countries in a literary way"
->>>>>>> myLibrary
+
 }

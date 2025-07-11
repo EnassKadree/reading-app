@@ -16,7 +16,7 @@
   "passwordLong": "كلمة السر طويلة جداً",
   "invalidPhoneNumber": "صيغة الهاتف غير صحيحة",
   "successfully": "تمت العملية بنجاح!",
-  "ok": "موافق"
+  "ok": "موافق",
     "huroof": "حُرُوف",
     "welcome": "أدخل بريدك الإلكتروني للانضمام لمنصتنا",
     "email": "البريد الإلكتروني",
@@ -32,10 +32,10 @@
     "invalidPhoneNumber": "صيغة الهاتف غير صحيحة",
     "successfully": "تمت العملية بنجاح!",
     "ok": "موافق",
-<<<<<<< HEAD
+
     "welcomeBack": "أهلاً مجدداً! أدخل معلوماتك لتسجيل الدخول",
-    "dontHaveAnAccount": "تمتلك حساباً بالفعل؟"
-=======
+    "dontHaveAnAccount": "تمتلك حساباً بالفعل؟",
+
     "mylibrary":"مكتبتي",
     "bookInProgress":"التقدم في قرائتي",
     "favoriteBooks":"الكتب المفضلة",
@@ -43,5 +43,5 @@
     "booksToRead":"كتب للقراءة",
     "iHaveVisited":"لقد زرت",
     "countriesInALiteraryWay":"دولٍ أدبيًا"
->>>>>>> myLibrary
+
 }

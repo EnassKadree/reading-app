@@ -2,7 +2,7 @@ name: reading_app
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -45,6 +45,7 @@ dependencies:
   lottie: ^3.2.0
   modal_progress_hud_nsn: ^0.5.1
   shared_preferences: ^2.5.3
+  
 
 dev_dependencies:
   flutter_lints: ^4.0.0
@@ -55,7 +56,6 @@ dev_dependencies:
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -64,9 +64,9 @@ flutter:
 
   assets:
     - assets/translation/
-    - assets/images/auth/
-    - images/a_dot_burr.jpeg
     - assets/images/myLibrary/
+    - assets/images/png/
+    - assets/images/lottie/
 
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -79,7 +79,6 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-
     - family: cairo
       fonts:
         - asset: assets/fonts/Cairo-ExtraBold.ttf
