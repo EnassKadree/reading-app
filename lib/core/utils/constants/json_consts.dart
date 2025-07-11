@@ -1,5 +1,4 @@
-abstract class JsonConsts
-{
+abstract class JsonConsts {
 
   // AUTH
   // AUTH -> register
@@ -11,8 +10,11 @@ abstract class JsonConsts
   static const String register = 'register';
   static const String haveAnAccount = 'haveAnAccount';
 
+  // AUTH -> login
   static const String next = 'next';
   static const String login = 'login';
+  static const String welcomeBack = 'welcomeBack';
+  static const String dontHaveAnAccount = 'dontHaveAnAccount';
 
   // LANGUAGE CHOOSING
   static const String language = 'language';
@@ -32,5 +34,14 @@ abstract class JsonConsts
   static const String categories = 'categories';
   static const String authors = 'authors';
   static const String mostRatedBooks='most_rated_books';
+   //MYLIBRARY 
+  static const String mylibrary = 'mylibrary';
+  static const String bookInProgress = 'bookInProgress';
+  static const String favoriteBooks = 'favoriteBooks';
+  static const String completedBooks = 'completedBooks';
+  static const String booksToRead = 'booksToRead';
+    static const String iHaveVisited = 'iHaveVisited';
+
+    static const String countriesInALiteraryWay = 'countriesInALiteraryWay';
 
 }

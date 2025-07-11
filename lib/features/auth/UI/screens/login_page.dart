@@ -12,8 +12,8 @@ import '../../../../core/utils/constants/json_consts.dart';
 import '../../../../core/utils/functions/functions.dart';
 
 
-class RegisterPage extends StatelessWidget {
-  const RegisterPage({super.key});
+class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) 
@@ -32,17 +32,18 @@ class RegisterPage extends StatelessWidget {
           {
             return CustomOutlinedButton
             (
-              title: JsonConsts.register,
+              title: JsonConsts.login,
               onPressed: ()
-              {context.read<RegisterCubit>().submit(isRegister: true);},
+              {context.read<RegisterCubit>().submit(isRegister: false);},
             ).mainPadding.staggerListVertical(0);
           }
         ),
         body: AuthScreenBody
         (
-          greeting: JsonConsts.welcome,
+          isRegister: false,
+          greeting: JsonConsts.welcomeBack,
           lottieAsset: AssetsConsts.registerAsset,
-          onSuccess: () => Functions().showSnackBar(context, 'success'),
+          onSuccess: () =>  Functions().showSnackBar(context, 'success'),
         )
       )
     );

@@ -17,5 +17,32 @@
   "passwordLong": "password is too long",
   "invalidPhoneNumber": "phone not valid",
   "successfully": "process done successfully!",
-  "ok": "ok!"
+  "ok": "ok!",
+    "huroof": "Huroof",
+    "welcome": "enter your email to signup to our platform",
+    "email": "email address",
+    "password": "strong password",
+    "register": "register",
+    "haveAnAccount" : "have an account?",
+    "next": "next",
+    "login": "login",
+    "language": "language",
+    "required": "field is required",
+    "passwordShort": "password is too short",
+    "passwordLong": "password is too long",
+    "invalidPhoneNumber": "phone not valid",
+    "successfully": "process done successfully!",
+    "ok": "ok!",
+
+    "welcomeBack": "Welcome Back! enter your info to login",
+    "dontHaveAnAccount": "don't have an account?",
+
+    "mylibrary":"My Library",
+    "bookInProgress":"Book in progress",
+    "favoriteBooks":"Favorite          books",
+    "completedBooks":"Completed books",
+    "booksToRead":"Books to           read",
+    "iHaveVisited":"I have visited",
+    "countriesInALiteraryWay":"countries in a literary way"
+
 }

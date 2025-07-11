@@ -2,9 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:reading_app/features/auth/logic/password/password_visibility_cubit.dart';
 
 import '../../../../core/utils/functions/functions.dart';
-import '../../logic/cubit/register_cubit.dart';
 
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
@@ -39,7 +39,7 @@ class CustomTextFormField extends StatelessWidget {
         suffixIcon: type == TextInputType.visiblePassword ? 
           InkWell
           (
-            onTap: () => context.read<RegisterCubit>().togglePasswordVisibility(),
+            onTap: () => context.read<PasswordVisibilityCubit>().toggleVisibility(),
             child: Icon(obscureText? Iconsax.eye : Iconsax.eye_slash)
           ) : null
       ),

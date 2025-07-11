@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
+import 'package:reading_app/core/utils/extensions/string_extension.dart';
 
 import '../../../core/utils/constants/styles_consts.dart';
 
@@ -24,7 +25,7 @@ class CustomOutlinedButton extends StatelessWidget {
         elevation: 0,
       ),
       onPressed: onPressed, 
-      child: Text(title, style: StylesConsts.introText,)
+      child: Text(title.t(context), style: StylesConsts.introText,)
     );
   }
 }
