@@ -17,7 +17,7 @@ class HomeWrapper extends StatelessWidget {
       },
       ),
       BlocProvider(create: (BuildContext context) {
-        return CategoriesCubit();
+        return CategoriesCubit()..getCategories();
       },
       ),
       BlocProvider(create: (BuildContext context) {

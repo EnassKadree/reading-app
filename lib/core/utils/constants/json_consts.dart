@@ -34,14 +34,14 @@ abstract class JsonConsts {
   static const String categories = 'categories';
   static const String authors = 'authors';
   static const String mostRatedBooks='most_rated_books';
-   //MYLIBRARY 
-  static const String mylibrary = 'mylibrary';
+   //MY LIBRARY
+  static const String myLibrary = 'library';
   static const String bookInProgress = 'bookInProgress';
   static const String favoriteBooks = 'favoriteBooks';
   static const String completedBooks = 'completedBooks';
   static const String booksToRead = 'booksToRead';
-    static const String iHaveVisited = 'iHaveVisited';
-
-    static const String countriesInALiteraryWay = 'countriesInALiteraryWay';
-
+  static const String iHaveVisited = 'iHaveVisited';
+  static const String countriesInALiteraryWay = 'countriesInALiteraryWay';
+  //Exception
+  static const String pleaseLogIn ='please_log_in_first';
 }

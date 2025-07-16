@@ -60,7 +60,8 @@ abstract class BaseCubit<State> extends Cubit<State> {
     SocketException e,
     Function(E) emit,
     E Function(String) failureStateBuilder,
-  ) {
+  )
+  {
     if (e.osError != null && e.osError!.message.contains('Failed host lookup')) {
       emit(failureStateBuilder('لا يوجد اتصال بالإنترنت'));
     } else {

@@ -11,7 +11,8 @@ class User {
     };
   }
 
-  factory User.fromMap(Map<String, dynamic> map) {
+  factory User.fromMap(Map<String, dynamic> map)
+  {
     return User(
       accessToken: map['token'],
     );

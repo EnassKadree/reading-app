@@ -23,7 +23,7 @@ class MyLibraryBody extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              JsonConsts.mylibrary.t(context),
+              JsonConsts.myLibrary.t(context),
               style:
                   StylesConsts.headerTxt.copyWith(color: ColorsConsts.purple),
             ),
