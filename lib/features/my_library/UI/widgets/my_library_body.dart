@@ -10,24 +10,20 @@ import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/features/my_library/UI/screens/book_in_progrees.dart';
 import 'package:reading_app/features/my_library/UI/widgets/book_card_mylib.dart';
 import 'package:reading_app/features/my_library/UI/widgets/svg_interactive_map.dart';
+import 'package:reading_app/features/shared/widgets/sliver_app_bar.dart';
 
 class MyLibraryBody extends StatelessWidget {
   const MyLibraryBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.all(18),
-        child: Column(
+    return CustomScrollView(
+      slivers: [
+        const SliverBar(title: "My Library",),
+        SliverToBoxAdapter(
+          child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              JsonConsts.mylibrary.t(context),
-              style:
-                  StylesConsts.headerTxt.copyWith(color: ColorsConsts.purple),
-            ),
-            24.spaceH,
             AnimationLimiter(
               child: GridView.count(
                 crossAxisCount: 2,
@@ -107,8 +103,9 @@ class MyLibraryBody extends StatelessWidget {
               ),
             ),
           ],
-        ),
-      ),
+        ).mainPadding,)
+      ],
+
     );
   }
 }
