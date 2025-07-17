@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:reading_app/core/utils/constants/colors_consts.dart';
 import 'package:reading_app/core/utils/constants/json_consts.dart';
@@ -10,20 +11,26 @@ import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/features/my_library/UI/screens/book_in_progrees.dart';
 import 'package:reading_app/features/my_library/UI/widgets/book_card_mylib.dart';
 import 'package:reading_app/features/my_library/UI/widgets/svg_interactive_map.dart';
-import 'package:reading_app/features/shared/widgets/sliver_app_bar.dart';
+import 'package:reading_app/features/my_library/services/book_pdf/book_pdf_cubit.dart';
+import 'package:reading_app/features/my_library/services/in_read/in_read_cubit.dart';
 
 class MyLibraryBody extends StatelessWidget {
   const MyLibraryBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: [
-        const SliverBar(title: "My Library",),
-        SliverToBoxAdapter(
-          child: Column(
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.all(18),
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Text(
+              JsonConsts.mylibrary.t(context),
+              style:
+                  StylesConsts.headerTxt.copyWith(color: ColorsConsts.purple),
+            ),
+            24.spaceH,
             AnimationLimiter(
               child: GridView.count(
                 crossAxisCount: 2,
@@ -38,7 +45,16 @@ class MyLibraryBody extends StatelessWidget {
                     icon: Icons.bookmark_outline,
                     isLeftImage: true,
                     onTap: () {
-                      context.push(const BookInProgrees());
+                      context.push(
+                        MultiBlocProvider(
+                          providers: [
+                            BlocProvider(
+                                create: (_) => InReadCubit()..getInReadBooks()),
+                            BlocProvider(create: (_) => BookPdfCubit()),
+                          ],
+                          child: const BookInProgrees(),
+                        ),
+                      );
                     },
                   ).staggeredGrid(0),
                   BookCard(
@@ -103,9 +119,8 @@ class MyLibraryBody extends StatelessWidget {
               ),
             ),
           ],
-        ).mainPadding,)
-      ],
-
+        ),
+      ),
     );
   }
 }

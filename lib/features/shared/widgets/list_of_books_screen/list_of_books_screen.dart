@@ -12,7 +12,7 @@ class ListOfBooksScreen extends StatelessWidget {
       {required this.title,  this.bookList, super.key});
 
   final String title;
-  final List<Book>? bookList;
+  final List<BookModel>? bookList;
 
   @override
   Widget build(BuildContext context) {
