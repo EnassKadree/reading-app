@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:reading_app/features/home/main_layout.dart';
 import 'package:reading_app/features/home/view/home_wrapper.dart';
 import 'package:reading_app/features/my_library/UI/screens/my_library.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -96,7 +97,7 @@ class MyApp extends StatelessWidget {
           },
         ),
       ),
-      child: const MyLibraryPage()
+      child: const MainLayoutWrapper()
     );
   }
 }

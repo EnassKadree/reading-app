@@ -24,6 +24,7 @@ class AppTheme {
 
     // theme light
     return ThemeData(
+      useMaterial3: false,
       fontFamily: "poppins",
       scaffoldBackgroundColor: scaffoldBackgroundColor,
       iconTheme: const IconThemeData(size: 28, color: primaryColor),
@@ -96,12 +97,12 @@ class AppTheme {
         ),
         side: BorderSide(width: 1,color: Colors.grey),
       ),
-      floatingActionButtonTheme: const FloatingActionButtonThemeData
-      (
-        backgroundColor: primaryColor,
-        iconSize: 32,
-        shape: CircleBorder(),
-      )
+
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        backgroundColor: Colors.purple,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white70,
+      ),
     );
 
   }

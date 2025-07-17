@@ -16,17 +16,13 @@ class MyLibraryBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.all(18),
-        child: Column(
+    return CustomScrollView(
+      slivers: [
+        const SliverBar(title: "My Library",),
+        SliverToBoxAdapter(
+          child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              JsonConsts.myLibrary.t(context),
-              style:
-                  StylesConsts.headerTxt.copyWith(color: ColorsConsts.purple),
-            ),
             24.spaceH,
             AnimationLimiter(
               child: GridView.count(

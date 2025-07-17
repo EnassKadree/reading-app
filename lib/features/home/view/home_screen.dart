@@ -7,6 +7,7 @@ import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/features/home/view/components/authors_section.dart';
 import 'package:reading_app/features/home/view/components/books_section.dart';
 import 'package:reading_app/features/home/view/components/categories_section.dart';
+import 'package:reading_app/features/shared/widgets/sliver_app_bar.dart';
 
 import 'components/home_purple_container.dart';
 
@@ -24,7 +25,6 @@ class _HomeScreenState extends State<HomeScreen> {
     searchController = TextEditingController();
     super.initState();
   }
-
   @override
   void dispose() {
     searchController.dispose();
@@ -36,34 +36,12 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          SliverAppBar(
-            flexibleSpace: Container(
-              color: context.colorScheme.primary,
-            ),
-            elevation: 0,
-            floating: true,
-            actions: [
-              GestureDetector(
-                onTap: () {},
-                child: Icon(
-                  Icons.search,
-                  color: context.colorScheme.surfaceContainer,
-                ),
-              ),
-              GestureDetector(
-                onTap: () {},
-                child: Icon(
-                  Icons.list,
-                  color: context.colorScheme.surfaceContainer,
-                ),
-              ).horizontalPadding,
-            ],
-          ),
+        SliverBar(),
           SliverToBoxAdapter(
             child: HomePurpleContainer(searchController: searchController),
           ),
           SliverToBoxAdapter(
-            child: Column(
+            child:  Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const CategoriesSection(),
@@ -71,13 +49,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 Text(
                   JsonConsts.mostRatedBooks.t(context),
                   style: StylesConsts.f18W600Black.copyWith(fontSize: 23),
-                ).mainPadding,
-              ],
+                ).mainPadding,],
             ),
           ),
           const SliverPadding(
               padding: EdgeInsets.symmetric(horizontal: 16),
-              sliver: BooksSection())
+              sliver  : BooksSection())
         ],
       ),
     );
