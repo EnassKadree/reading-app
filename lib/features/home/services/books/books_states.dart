@@ -7,7 +7,7 @@ class BooksInitial extends BooksStates {}
 class BooksLoading extends BooksStates {}
 
 class BooksSuccess extends BooksStates {
-  final List<Book> books;
+  final List<BookModel> books;
 
   BooksSuccess(this.books);
 }

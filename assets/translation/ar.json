@@ -17,21 +17,7 @@
   "invalidPhoneNumber": "صيغة الهاتف غير صحيحة",
   "successfully": "تمت العملية بنجاح!",
   "ok": "موافق",
-    "huroof": "حُرُوف",
-    "welcome": "أدخل بريدك الإلكتروني للانضمام لمنصتنا",
-    "email": "البريد الإلكتروني",
-    "password": "كلمة السر",
-    "register": "تسجيل الحساب",
-    "haveAnAccount" : "تمتلك حساباً بالفعل؟",
-    "next": "التالي",
-    "login": "تسجيل الدخول",
-    "language": "اللغة",
-    "required": "الحقل مطلوب",
-    "passwordShort": "كلمة السر قصيرة جداً",
-    "passwordLong": "كلمة السر طويلة جداً",
-    "invalidPhoneNumber": "صيغة الهاتف غير صحيحة",
-    "successfully": "تمت العملية بنجاح!",
-    "ok": "موافق",
+   
 
     "welcomeBack": "أهلاً مجدداً! أدخل معلوماتك لتسجيل الدخول",
     "dontHaveAnAccount": "تمتلك حساباً بالفعل؟",
@@ -42,6 +28,7 @@
     "completedBooks":"الكتب المنجزة",
     "booksToRead":"كتب للقراءة",
     "iHaveVisited":"لقد زرت",
-    "countriesInALiteraryWay":"دولٍ أدبيًا"
-
+    "countriesInALiteraryWay":"دولٍ أدبيًا",
+"thereAreCurrentlyNoBooks":"لا يوجد حاليًا أي كتب في قائمة القراءة الخاصة بك.",
+"bookDownloadFailed":"فشل تحميل الكتاب "
 }

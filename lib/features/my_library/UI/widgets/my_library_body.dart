@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:reading_app/core/utils/constants/colors_consts.dart';
 import 'package:reading_app/core/utils/constants/json_consts.dart';
@@ -10,6 +11,8 @@ import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/features/my_library/UI/screens/book_in_progrees.dart';
 import 'package:reading_app/features/my_library/UI/widgets/book_card_mylib.dart';
 import 'package:reading_app/features/my_library/UI/widgets/svg_interactive_map.dart';
+import 'package:reading_app/features/my_library/services/book_pdf/book_pdf_cubit.dart';
+import 'package:reading_app/features/my_library/services/in_read/in_read_cubit.dart';
 
 class MyLibraryBody extends StatelessWidget {
   const MyLibraryBody({super.key});
@@ -42,7 +45,16 @@ class MyLibraryBody extends StatelessWidget {
                     icon: Icons.bookmark_outline,
                     isLeftImage: true,
                     onTap: () {
-                      context.push(const BookInProgrees());
+                      context.push(
+                        MultiBlocProvider(
+                          providers: [
+                            BlocProvider(
+                                create: (_) => InReadCubit()..getInReadBooks()),
+                            BlocProvider(create: (_) => BookPdfCubit()),
+                          ],
+                          child: const BookInProgrees(),
+                        ),
+                      );
                     },
                   ).staggeredGrid(0),
                   BookCard(

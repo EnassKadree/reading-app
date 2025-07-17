@@ -3,21 +3,7 @@
   "categories":"Categories",
   "authors":  "Authors",
   "most_rated_books": "Most Rated Books",
-  "huroof": "Huroof",
-  "welcome": "enter your email to signup to our platform",
-  "email": "email address",
-  "password": "strong password",
-  "register": "register",
-  "haveAnAccount" : "have an account?",
-  "next": "next",
-  "login": "login",
-  "language": "language",
-  "required": "field is required",
-  "passwordShort": "password is too short",
-  "passwordLong": "password is too long",
-  "invalidPhoneNumber": "phone not valid",
-  "successfully": "process done successfully!",
-  "ok": "ok!",
+
     "huroof": "Huroof",
     "welcome": "enter your email to signup to our platform",
     "email": "email address",
@@ -40,9 +26,11 @@
     "mylibrary":"My Library",
     "bookInProgress":"Book in progress",
     "favoriteBooks":"Favorite          books",
-    "completedBooks":"Completed books",
+    "completedBooks":"Completed       books",
     "booksToRead":"Books to           read",
     "iHaveVisited":"I have visited",
-    "countriesInALiteraryWay":"countries in a literary way"
+    "countriesInALiteraryWay":"countries in a literary way",
+    "thereAreCurrentlyNoBooks":"There are currently no books in your reading list.",
+    "bookDownloadFailed":"Book download failed"
 
 }
