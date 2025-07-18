@@ -1,4 +1,3 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reading_app/core/lists/dummy_books.dart';
@@ -7,34 +6,34 @@ import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/constants/styles_consts.dart';
 import 'package:reading_app/core/utils/extensions/string_extension.dart';
 import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
-import 'package:reading_app/features/my_library/services/to_read/to_read_cubit.dart';
+import 'package:reading_app/features/my_library/services/complered_books/completed_books_cubit.dart';
 import 'package:reading_app/features/shared/widgets/list_of_books_screen/list_of_books_screen.dart';
 import 'package:reading_app/features/shared/widgets/something_went_wrong.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
-class BooksToReadBuilder extends StatelessWidget {
-  const BooksToReadBuilder({super.key});
+class CompletedBooksBuilder extends StatelessWidget {
+  const CompletedBooksBuilder({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ToReadCubit, ToReadState>(
+    return BlocBuilder<CompletedBooksCubit, CompletedBooksState>(
       builder: (context, state) {
-        if (state is ToReadLoading) {
+        if (state is CompletedBooksLoading) {
           return SliverList(
             delegate: SliverChildBuilderDelegate(
               (context, index) => Skeletonizer(
                 enabled: true,
                 child: ListOfBooksSliver(
                   bookList: dummyBook,
-                  title: JsonConsts.booksToRead.t(context),
+                  title: JsonConsts.completedBooks.t(context),
                 ),
               ),
-              childCount: dummyBook.length,
+              childCount:dummyBook.length,
             ),
           );
         }
 
-        if (state is ToReadSuccess) {
+        if (state is CompletedBooksSuccess) {
           final books = state.books;
 
           if (books.isEmpty) {
@@ -65,7 +64,7 @@ class BooksToReadBuilder extends StatelessWidget {
 
         return SliverToBoxAdapter(
           child: SomeThingWentWrongWidget(
-            onPressed: () => context.read<ToReadCubit>().getToReadBooks(),
+            onPressed: () => context.read<CompletedBooksCubit>().getCompletedBooks(),
           ),
         );
       },

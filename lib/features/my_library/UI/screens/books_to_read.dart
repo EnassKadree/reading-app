@@ -12,7 +12,7 @@ class BooksToRead extends StatelessWidget {
     return Scaffold(
         body: CustomScrollView(slivers: [
       SliverBar(
-        title: JsonConsts.bookInProgress.t(context),
+        title: JsonConsts.booksToRead.t(context),
         backButtonVisibility: true,
         searchVisibility: false,
         menuVisibility: false,
