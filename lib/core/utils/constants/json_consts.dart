@@ -41,6 +41,6 @@ abstract class JsonConsts {
   static const String booksToRead = 'booksToRead';
   static const String iHaveVisited = 'iHaveVisited';
   static const String countriesInALiteraryWay = 'countriesInALiteraryWay';
-   static const String thereAreCurrentlyNoBooks = 'thereAreCurrentlyNoBooks';
+   static const String ThereAreNoBooksCurrently = 'ThereAreNoBooksCurrently';
     static const String bookDownloadFailed = 'bookDownloadFailed';
 }

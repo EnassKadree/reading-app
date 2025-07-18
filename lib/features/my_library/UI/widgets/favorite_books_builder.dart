@@ -6,26 +6,26 @@ import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/constants/styles_consts.dart';
 import 'package:reading_app/core/utils/extensions/string_extension.dart';
 import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
-import 'package:reading_app/features/my_library/services/complered_books/completed_books_cubit.dart';
+import 'package:reading_app/features/my_library/services/favorite_books/favorite_books_cubit.dart';
 import 'package:reading_app/features/shared/widgets/list_of_books_screen/list_of_books_screen.dart';
 import 'package:reading_app/features/shared/widgets/something_went_wrong.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
-class CompletedBooksBuilder extends StatelessWidget {
-  const CompletedBooksBuilder({super.key});
+class FavoriteBooksBuilder extends StatelessWidget {
+  const FavoriteBooksBuilder({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CompletedBooksCubit, CompletedBooksState>(
+    return BlocBuilder<FavoriteBooksCubit, FavoriteBooksState>(
       builder: (context, state) {
-        if (state is CompletedBooksLoading) {
+        if (state is FavoriteBooksLoading) {
           return SliverList(
             delegate: SliverChildBuilderDelegate(
               (context, index) => Skeletonizer(
                 enabled: true,
                 child: ListOfBooksSliver(
                   bookList: dummyBook,
-                  title: JsonConsts.completedBooks.t(context),
+                  title: JsonConsts.favoriteBooks.t(context),
                 ),
               ),
               childCount:dummyBook.length,
@@ -33,7 +33,7 @@ class CompletedBooksBuilder extends StatelessWidget {
           );
         }
 
-        if (state is CompletedBooksSuccess) {
+        if (state is FavoriteBooksSuccess) {
           final books = state.books;
 
           if (books.isEmpty) {
@@ -64,7 +64,7 @@ class CompletedBooksBuilder extends StatelessWidget {
 
         return SliverToBoxAdapter(
           child: SomeThingWentWrongWidget(
-            onPressed: () => context.read<CompletedBooksCubit>().getCompletedBooks(),
+            onPressed: () => context.read<FavoriteBooksCubit>().getFavoriteBooks(),
           ),
         );
       },

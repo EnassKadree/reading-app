@@ -38,7 +38,7 @@ class BooksInProgressBuilder extends StatelessWidget {
             return SliverFillRemaining(
               child: Center(
                 child: Text(
-                  JsonConsts.thereAreCurrentlyNoBooks.t(context),
+                  JsonConsts.ThereAreNoBooksCurrently.t(context),
                   style: StylesConsts.f18W600Black
                       .copyWith(color: ColorsConsts.purple),
                 ),

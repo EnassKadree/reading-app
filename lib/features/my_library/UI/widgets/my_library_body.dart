@@ -11,10 +11,12 @@ import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/features/my_library/UI/screens/book_in_progrees.dart';
 import 'package:reading_app/features/my_library/UI/screens/books_to_read.dart';
 import 'package:reading_app/features/my_library/UI/screens/completed_books.dart';
+import 'package:reading_app/features/my_library/UI/screens/favorite_books.dart';
 import 'package:reading_app/features/my_library/UI/widgets/book_card_mylib.dart';
 import 'package:reading_app/features/my_library/UI/widgets/svg_interactive_map.dart';
 import 'package:reading_app/features/my_library/services/book_pdf/book_pdf_cubit.dart';
 import 'package:reading_app/features/my_library/services/complered_books/completed_books_cubit.dart';
+import 'package:reading_app/features/my_library/services/favorite_books/favorite_books_cubit.dart';
 import 'package:reading_app/features/my_library/services/in_read/in_read_cubit.dart';
 import 'package:reading_app/features/my_library/services/to_read/to_read_cubit.dart';
 
@@ -64,7 +66,12 @@ class MyLibraryBody extends StatelessWidget {
                   BookCard(
                     title: JsonConsts.favoriteBooks.t(context),
                     icon: Icons.favorite_border,
-                    onTap: () {},
+                    onTap: () {
+                      context.push(BlocProvider(
+                          create: (context) =>
+                              FavoriteBooksCubit()..getFavoriteBooks(),
+                          child: const FavoriteBooks()));
+                    },
                   ).staggeredGrid(1),
                   BookCard(
                     title: JsonConsts.booksToRead.t(context),

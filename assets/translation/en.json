@@ -30,7 +30,7 @@
     "booksToRead":"Books to           read",
     "iHaveVisited":"I have visited",
     "countriesInALiteraryWay":"countries in a literary way",
-    "thereAreCurrentlyNoBooks":"There are currently no books in your reading list.",
+    "ThereAreNoBooksCurrently":"There are no books currently",
     "bookDownloadFailed":"Book download failed"
 
 }
