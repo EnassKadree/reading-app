@@ -1,4 +1,4 @@
-import 'package:bloc/bloc.dart';
+// ignore: depend_on_referenced_packages
 import 'package:meta/meta.dart';
 import 'package:reading_app/core/network/api.dart';
 import 'package:reading_app/core/network/end_point.dart';

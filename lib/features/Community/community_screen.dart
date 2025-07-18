@@ -6,6 +6,6 @@ class CommunityScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListOfBooksScreen(title: "sport");
+    return  Container();
   }
 }

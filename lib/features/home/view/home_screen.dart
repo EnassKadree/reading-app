@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/constants/styles_consts.dart';
-import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/string_extension.dart';
 import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/features/home/view/components/authors_section.dart';
@@ -25,6 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
     searchController = TextEditingController();
     super.initState();
   }
+
   @override
   void dispose() {
     searchController.dispose();
@@ -36,12 +36,12 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-        SliverBar(),
+          SliverBar(),
           SliverToBoxAdapter(
             child: HomePurpleContainer(searchController: searchController),
           ),
           SliverToBoxAdapter(
-            child:  Column(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const CategoriesSection(),
@@ -49,12 +49,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 Text(
                   JsonConsts.mostRatedBooks.t(context),
                   style: StylesConsts.f18W600Black.copyWith(fontSize: 23),
-                ).mainPadding,],
+                ).mainPadding,
+              ],
             ),
           ),
           const SliverPadding(
               padding: EdgeInsets.symmetric(horizontal: 16),
-              sliver  : BooksSection())
+              sliver: BooksSection())
         ],
       ),
     );

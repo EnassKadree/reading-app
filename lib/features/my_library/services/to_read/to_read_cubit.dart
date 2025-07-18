@@ -1,17 +1,18 @@
 import 'package:meta/meta.dart';
 import 'package:reading_app/core/network/api.dart';
 import 'package:reading_app/core/network/end_point.dart';
+import 'package:reading_app/core/utils/base/base_cubit.dart';
 import 'package:reading_app/features/shared/models/book.dart';
 import 'package:reading_app/features/shared/user/user_model.dart';
-import 'package:reading_app/core/utils/base/base_cubit.dart';
-part 'in_read_state.dart';
 
-class InReadCubit extends BaseCubit<InReadState> {
-  InReadCubit() : super(InReadInitial());
-final String inReadEndPoint = '${EndPoint.booksBaseUrl}${EndPoint.inRead}';
+part 'to_read_state.dart';
 
-  Future<void> getInReadBooks() async {
-    emit(InReadLoading());
+class ToReadCubit extends BaseCubit<ToReadState> {
+  ToReadCubit() : super(ToReadInitial());
+  final String inReadEndPoint = '${EndPoint.booksBaseUrl}${EndPoint.toRead}';
+
+  Future<void> getToReadBooks() async {
+    emit(ToReadLoading());
 
     await executeWithCatch(
       action: () async {
@@ -28,10 +29,12 @@ final String inReadEndPoint = '${EndPoint.booksBaseUrl}${EndPoint.inRead}';
           
         );
 
-        emit(InReadSuccess(books));
+        emit(ToReadSuccess(books));
       },
       emit: emit,
-      failureStateBuilder: (message) => InReadFailure(message),
+      failureStateBuilder: (message) => ToReadFailure(message),
     );
   }
+
+
 }

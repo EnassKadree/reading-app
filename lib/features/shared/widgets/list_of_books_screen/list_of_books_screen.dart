@@ -7,43 +7,37 @@ import 'package:reading_app/features/shared/widgets/sliver_app_bar.dart';
 
 import '../book_card/book_card.dart';
 
-class ListOfBooksScreen extends StatelessWidget {
-  const ListOfBooksScreen(
-      {required this.title,  this.bookList, super.key});
+class ListOfBooksSliver extends StatelessWidget {
+  const ListOfBooksSliver({
+    required this.title,
+    required this.bookList,
+    super.key,
+  });
 
   final String title;
-  final List<BookModel>? bookList;
+  final List<BookModel> bookList;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: CustomScrollView(
-        slivers: [
-          SliverBar(
-            title: title,
+    return 
+        AnimationLimiter(
+          child: GridView.builder(
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            padding: EdgeInsets.symmetric(horizontal: 20.w),
+            itemCount: bookList.length,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 20,
+              mainAxisSpacing: 20,
+              childAspectRatio: 0.6,
+            ),
+            itemBuilder: (context, index) {
+              return BookCard(book: bookList[index]).staggeredGrid(index);
+            },
           ),
-          SliverPadding(
-            padding: EdgeInsets.symmetric(vertical: 30.h,horizontal: 20.w),
-            sliver: AnimationLimiter(
-                child: SliverGrid(
-                  delegate: SliverChildBuilderDelegate(
-                    (BuildContext context, int index) {
-                      return const BookCard().staggeredGrid(index);
-                    },
-                    childCount: 20,
-                  ),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 20,
-                    mainAxisSpacing: 20,
-                    childAspectRatio: 0.6,
-                  ),
-                ),
-              ),
-          ),
-
-        ],
-      ),
-    );
+        );
+     
+    
   }
 }

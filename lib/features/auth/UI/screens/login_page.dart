@@ -6,7 +6,7 @@ import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/features/auth/UI/widgets/auth_screen_body.dart';
 import 'package:reading_app/features/auth/logic/password/password_visibility_cubit.dart';
 import 'package:reading_app/features/auth/logic/register/register_cubit.dart';
-import 'package:reading_app/features/my_library/UI/screens/my_library.dart';
+import 'package:reading_app/features/home/main_layout.dart';
 import 'package:reading_app/features/shared/widgets/custom_button.dart';
 
 import '../../../../core/utils/constants/assets_consts.dart';
@@ -43,7 +43,7 @@ class LoginPage extends StatelessWidget {
               onSuccess: () {
                 Functions().showSnackBar(context, 'success');
 
-                context.push(const MyLibraryPage());
+                context.push(const MainLayoutWrapper());
               },
             )));
   }

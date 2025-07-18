@@ -20,10 +20,10 @@ class CustomNavigationBar extends StatelessWidget {
           onTap: (index) => context.read<BottomNavCubit>().updateTab(index),
           items: [
             BottomNavigationBarItem( backgroundColor:context.colorScheme.primary,icon: const Icon(Iconsax.home), label: ""),
-             BottomNavigationBarItem(backgroundColor:context.colorScheme.primary,icon: Icon(Iconsax.book_square), label: "."),
-             BottomNavigationBarItem(backgroundColor:context.colorScheme.primary,icon: Icon(Iconsax.medal), label: ".."),
-             BottomNavigationBarItem(backgroundColor:context.colorScheme.primary,icon: Icon(Iconsax.people), label: "...."),
-              BottomNavigationBarItem(backgroundColor:context.colorScheme.primary,icon: Icon(Iconsax.profile_add), label: "..."),
+             BottomNavigationBarItem(backgroundColor:context.colorScheme.primary,icon: const Icon(Iconsax.book_square), label: "."),
+             BottomNavigationBarItem(backgroundColor:context.colorScheme.primary,icon: const Icon(Iconsax.medal), label: ".."),
+             BottomNavigationBarItem(backgroundColor:context.colorScheme.primary,icon: const Icon(Iconsax.people), label: "...."),
+              BottomNavigationBarItem(backgroundColor:context.colorScheme.primary,icon: const Icon(Iconsax.profile_add), label: "..."),
 
           ],
         );

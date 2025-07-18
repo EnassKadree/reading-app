@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:reading_app/core/lists/dummy_books.dart';
 import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/features/home/services/books/books_cubit.dart';
 import 'package:reading_app/features/home/services/books/books_states.dart';
@@ -17,7 +17,7 @@ class BooksSection extends StatelessWidget {
           child: SliverGrid(
             delegate: SliverChildBuilderDelegate(
                   (BuildContext context, int index) {
-                return const BookCard().staggeredGrid(index);
+                return  BookCard(book: dummyBook[1],).staggeredGrid(index);
               },
               childCount: 15,
             ),
