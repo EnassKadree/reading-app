@@ -19,18 +19,13 @@ class FavoriteBooksBuilder extends StatelessWidget {
     return BlocBuilder<FavoriteBooksCubit, FavoriteBooksState>(
       builder: (context, state) {
         if (state is FavoriteBooksLoading) {
-          return SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (context, index) => Skeletonizer(
-                enabled: true,
-                child: ListOfBooksSliver(
-                  bookList: dummyBook,
-                  title: JsonConsts.favoriteBooks.t(context),
-                ),
-              ),
-              childCount:dummyBook.length,
+          return SliverToBoxAdapter(
+              child: Skeletonizer(
+            enabled: true,
+            child: ListOfBooksSliver(
+              bookList: dummyBook,
             ),
-          );
+          ));
         }
 
         if (state is FavoriteBooksSuccess) {
@@ -48,23 +43,16 @@ class FavoriteBooksBuilder extends StatelessWidget {
             );
           }
 
-          return SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (context, index) {
-              
-                return ListOfBooksSliver(
-                  bookList: books,
-                  title: '',
-                ).staggerListHorizontal(index);
-              },
-              childCount: books.length,
-            ),
-          );
+          return SliverToBoxAdapter(
+              child: ListOfBooksSliver(
+            bookList: books,
+          ));
         }
 
         return SliverToBoxAdapter(
           child: SomeThingWentWrongWidget(
-            onPressed: () => context.read<FavoriteBooksCubit>().getFavoriteBooks(),
+            onPressed: () =>
+                context.read<FavoriteBooksCubit>().getFavoriteBooks(),
           ),
         );
       },

@@ -20,18 +20,13 @@ class BooksToReadBuilder extends StatelessWidget {
     return BlocBuilder<ToReadCubit, ToReadState>(
       builder: (context, state) {
         if (state is ToReadLoading) {
-          return SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (context, index) => Skeletonizer(
-                enabled: true,
-                child: ListOfBooksSliver(
-                  bookList: dummyBook,
-                  title: JsonConsts.booksToRead.t(context),
-                ),
-              ),
-              childCount: dummyBook.length,
+          return SliverToBoxAdapter(
+              child: Skeletonizer(
+            enabled: true,
+            child: ListOfBooksSliver(
+              bookList: dummyBook,
             ),
-          );
+          ));
         }
 
         if (state is ToReadSuccess) {
@@ -49,17 +44,11 @@ class BooksToReadBuilder extends StatelessWidget {
             );
           }
 
-          return SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (context, index) {
-              
-                return ListOfBooksSliver(
+          return SliverToBoxAdapter(
+           child:  ListOfBooksSliver(
                   bookList: books,
-                  title: '',
-                ).staggerListHorizontal(index);
-              },
-              childCount: books.length,
-            ),
+                )
+                
           );
         }
 

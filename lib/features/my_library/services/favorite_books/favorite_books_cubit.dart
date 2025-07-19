@@ -9,7 +9,7 @@ part 'favorite_books_state.dart';
 
 class FavoriteBooksCubit extends BaseCubit<FavoriteBooksState> {
   FavoriteBooksCubit() : super(FavoriteBooksInitial());
-final String FavoriteBooksEndPoint = '${EndPoint.booksBaseUrl}${EndPoint.favorites}';
+final String favoriteBooksEndPoint = '${EndPoint.booksBaseUrl}${EndPoint.favorites}';
 
   Future<void> getFavoriteBooks() async {
     emit(FavoriteBooksLoading());
@@ -19,7 +19,7 @@ final String FavoriteBooksEndPoint = '${EndPoint.booksBaseUrl}${EndPoint.favorit
         User user = await requireUser();
 
         Map<String, dynamic> response = await Api().get(
-          url: FavoriteBooksEndPoint,
+          url: favoriteBooksEndPoint,
           token: user.accessToken,
         );
 

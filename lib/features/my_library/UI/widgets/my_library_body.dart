@@ -13,9 +13,11 @@ import 'package:reading_app/features/my_library/UI/screens/books_to_read.dart';
 import 'package:reading_app/features/my_library/UI/screens/completed_books.dart';
 import 'package:reading_app/features/my_library/UI/screens/favorite_books.dart';
 import 'package:reading_app/features/my_library/UI/widgets/book_card_mylib.dart';
+import 'package:reading_app/features/my_library/UI/widgets/map_builder.dart';
 import 'package:reading_app/features/my_library/UI/widgets/svg_interactive_map.dart';
 import 'package:reading_app/features/my_library/services/book_pdf/book_pdf_cubit.dart';
 import 'package:reading_app/features/my_library/services/complered_books/completed_books_cubit.dart';
+import 'package:reading_app/features/my_library/services/country_book_count/country_book_count_cubit.dart';
 import 'package:reading_app/features/my_library/services/favorite_books/favorite_books_cubit.dart';
 import 'package:reading_app/features/my_library/services/in_read/in_read_cubit.dart';
 import 'package:reading_app/features/my_library/services/to_read/to_read_cubit.dart';
@@ -115,29 +117,26 @@ class MyLibraryBody extends StatelessWidget {
             ),
             12.spaceH,
             Container(
-              width: MediaQuery.of(context).size.width * 0.9,
-              height: MediaQuery.of(context).size.height * 0.25,
-              margin: const EdgeInsets.symmetric(horizontal: 16),
-              decoration: BoxDecoration(
-                color: ColorsConsts.white,
-                borderRadius: BorderRadius.circular(24),
-                boxShadow: const [
-                  BoxShadow(
-                    color: Colors.black12,
-                    blurRadius: 6,
-                    offset: Offset(0, 6),
-                  ),
-                ],
-              ),
-              clipBehavior: Clip.antiAlias,
-              child: const SvgInteractiveMap(
-                highlightedCountries: {
-                  'SY': 4,
-                  'FR': 10,
-                  'AU': 7,
-                },
-              ),
-            ),
+                width: MediaQuery.of(context).size.width * 0.9,
+                height: MediaQuery.of(context).size.height * 0.25,
+                margin: const EdgeInsets.symmetric(horizontal: 16),
+                decoration: BoxDecoration(
+                  color: ColorsConsts.white,
+                  borderRadius: BorderRadius.circular(24),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.black12,
+                      blurRadius: 6,
+                      offset: Offset(0, 6),
+                    ),
+                  ],
+                ),
+                clipBehavior: Clip.antiAlias,
+                child: BlocProvider(
+                  create: (context) =>
+                      CountryBookCountCubit()..getCountryBook(),
+                  child: const MapBuilder(),
+                )),
           ],
         ),
       ),

@@ -75,10 +75,11 @@ class BookDetailsCard extends StatelessWidget {
               ),
               8.spaceH,
               LinearProgressIndicator(
-                value: 10 / 100,
-                //             value:  (book.numberOfPages > 0)
-                // ? ((book.currentPage ?? 1) / book.numberOfPages.toDouble()).clamp(0.0, 1.0)
-                // : 0.0,
+                
+                value: (book.numberOfPages > 0)
+                    ? ((book.currentPage ?? 1) / book.numberOfPages.toDouble())
+                        .clamp(0.0, 1.0)
+                    : 0.0,
                 backgroundColor: Colors.grey.shade200,
                 color: ColorsConsts.purple,
                 minHeight: 6,
@@ -88,7 +89,7 @@ class BookDetailsCard extends StatelessWidget {
               Align(
                 alignment: Alignment.centerRight,
                 child: Text(
-                  '${book.currentPage??1} / ${book.numberOfPages}',
+                  '${book.currentPage ?? 1} / ${book.numberOfPages}',
                   style: TextStyle(
                     fontSize: 12,
                     color: Colors.grey[600],

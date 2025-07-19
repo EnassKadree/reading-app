@@ -19,16 +19,12 @@ class CompletedBooksBuilder extends StatelessWidget {
     return BlocBuilder<CompletedBooksCubit, CompletedBooksState>(
       builder: (context, state) {
         if (state is CompletedBooksLoading) {
-          return SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (context, index) => Skeletonizer(
-                enabled: true,
-                child: ListOfBooksSliver(
-                  bookList: dummyBook,
-                  title: JsonConsts.completedBooks.t(context),
-                ),
+          return SliverToBoxAdapter(
+            child: Skeletonizer(
+              enabled: true,
+              child: ListOfBooksSliver(
+                bookList: dummyBook,
               ),
-              childCount:dummyBook.length,
             ),
           );
         }
@@ -48,23 +44,16 @@ class CompletedBooksBuilder extends StatelessWidget {
             );
           }
 
-          return SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (context, index) {
-              
-                return ListOfBooksSliver(
-                  bookList: books,
-                  title: '',
-                ).staggerListHorizontal(index);
-              },
-              childCount: books.length,
-            ),
-          );
+          return SliverToBoxAdapter(
+              child: ListOfBooksSliver(
+            bookList: books,
+          ));
         }
 
         return SliverToBoxAdapter(
           child: SomeThingWentWrongWidget(
-            onPressed: () => context.read<CompletedBooksCubit>().getCompletedBooks(),
+            onPressed: () =>
+                context.read<CompletedBooksCubit>().getCompletedBooks(),
           ),
         );
       },

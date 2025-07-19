@@ -44,15 +44,19 @@ class BookCard extends StatelessWidget {
                 children: [
                   Icon(icon, color: ColorsConsts.purple),
                   12.spaceH,
-                  Text(
-                    title,
-                    textAlign: TextAlign.center,
-                    style: StylesConsts.introText.copyWith(
-                      color: ColorsConsts.purple,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 19,
-                    ),
-                  ),
+                  Column(
+                    children: _groupWords(title).map((line) {
+                      return Text(
+                        line,
+                        textAlign: TextAlign.center,
+                        style: StylesConsts.introText.copyWith(
+                          color: ColorsConsts.purple,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 19,
+                        ),
+                      );
+                    }).toList(),
+                  )
                 ],
               ),
             ),
@@ -78,4 +82,29 @@ class BookCard extends StatelessWidget {
       ),
     );
   }
+}
+
+List<String> _groupWords(String text) {
+  final shortWords = ['in', 'to'];
+  final words = text.split(' ');
+  List<String> result = [];
+
+  int i = 0;
+  while (i < words.length) {
+    if (i + 1 < words.length &&
+        shortWords.contains(words[i + 1].toLowerCase())) {
+      if (i + 2 < words.length) {
+        result.add('${words[i]} ${words[i + 1]}');
+        i += 2;
+      } else {
+        result.add(words[i]);
+        i++;
+      }
+    } else {
+      result.add(words[i]);
+      i++;
+    }
+  }
+
+  return result;
 }

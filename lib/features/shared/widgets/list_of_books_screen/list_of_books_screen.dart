@@ -9,12 +9,12 @@ import '../book_card/book_card.dart';
 
 class ListOfBooksSliver extends StatelessWidget {
   const ListOfBooksSliver({
-    required this.title,
+  
     required this.bookList,
     super.key,
   });
 
-  final String title;
+ 
   final List<BookModel> bookList;
 
   @override
