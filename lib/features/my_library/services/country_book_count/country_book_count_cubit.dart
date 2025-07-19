@@ -21,13 +21,13 @@ class CountryBookCountCubit extends BaseCubit<CountryBookCountState> {
             token: user.accessToken,
           );
 
-          List<CountryBookCountModel> books =
+          List<CountryBookCountModel> country =
               parseResponse<CountryBookCountModel>(
             response: response,
             fromJson: (data) => CountryBookCountModel.fromJson(data),
           );
 
-          emit(CountryBookCountSuccess(books));
+          emit(CountryBookCountSuccess(country));
         },
         emit: emit,
         failureStateBuilder: (message) => CountryBookCountFailure(message));
