@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:reading_app/features/shared/data/data_source.dart';
+import 'package:reading_app/features/shared/user/user_model.dart';
 
 
 abstract class BaseCubit<State> extends Cubit<State> {
@@ -47,13 +49,13 @@ abstract class BaseCubit<State> extends Cubit<State> {
   }
 
   // ! till we setup auth
-  // Future<User> requireUser() async {
-  //   User? user = UserDataSource().getUser();
-  //   if (user == null) {
-  //     throw Exception('يرجى تسجيل الدخول أولاً');
-  //   }
-  //   return user;
-  // }
+  Future<User> requireUser() async {
+    User? user = DataSource().getUser();
+    if (user == null) {
+      throw Exception('يرجى تسجيل الدخول أولاً');
+    }
+    return user;
+  }
 
   void handleSocketException<E>
   (

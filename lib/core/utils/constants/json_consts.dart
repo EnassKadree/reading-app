@@ -36,6 +36,8 @@ abstract class JsonConsts {
   static const String mostRatedBooks='most_rated_books';
    //MY LIBRARY
   static const String myLibrary = 'library';
+  //MYLIBRARY Book download failed
+  static const String mylibrary = 'mylibrary';
   static const String bookInProgress = 'bookInProgress';
   static const String favoriteBooks = 'favoriteBooks';
   static const String completedBooks = 'completedBooks';
@@ -44,4 +46,6 @@ abstract class JsonConsts {
   static const String countriesInALiteraryWay = 'countriesInALiteraryWay';
   //Exception
   static const String pleaseLogIn ='please_log_in_first';
+   static const String ThereAreNoBooksCurrently = 'ThereAreNoBooksCurrently';
+    static const String bookDownloadFailed = 'bookDownloadFailed';
 }

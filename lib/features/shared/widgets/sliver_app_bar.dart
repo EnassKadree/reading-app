@@ -6,19 +6,24 @@ import 'package:reading_app/core/utils/extensions/space_extension.dart';
 import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 
 class SliverBar extends StatelessWidget {
-  const SliverBar(
-      {this.backButtonVisibility = false,
-      this.searchVisibility = true,
-      this.title,
-      super.key});
+  const SliverBar({
+    this.title,
+    this.backButtonVisibility = false,
+    this.searchVisibility = true,
+    this.menuVisibility = true,
+    super.key,
+  });
 
+  final String? title;
   final bool? backButtonVisibility;
   final bool? searchVisibility;
-  final String? title;
+  final bool? menuVisibility;
 
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
+
+      automaticallyImplyLeading: false,
       flexibleSpace: Container(
         color: context.colorScheme.primary,
         height: 120,
@@ -58,6 +63,7 @@ class SliverBar extends StatelessWidget {
             color: context.colorScheme.surfaceContainer,
           ),
         ),
+        if (menuVisibility ?? true)
         GestureDetector(
           onTap: () {},
           child: Icon(

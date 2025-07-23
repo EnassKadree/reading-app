@@ -85,17 +85,17 @@ class BookCard extends StatelessWidget {
                       ),
                       20.spaceW,
                       BlocBuilder<BookFavoriteCubit,BookFavoriteStates>(
-                        builder: (BuildContext context ,BookFavoriteStates state) {
-                          return GestureDetector(
-                            onTap: (){
-                              context.read<BookFavoriteCubit>().addBookToFavorites();
-                            },
-                            child: Icon(
-                              (bookModel.isFavourite)?Icons.favorite: Icons.favorite_border_outlined,
-                              color: Colors.redAccent.withAlpha(180),
-                            ),
-                          );
-                        }
+                          builder: (BuildContext context ,BookFavoriteStates state) {
+                            return GestureDetector(
+                              onTap: (){
+                                context.read<BookFavoriteCubit>().addBookToFavorites();
+                              },
+                              child: Icon(
+                                (bookModel.isFavourite)?Icons.favorite: Icons.favorite_border_outlined,
+                                color: Colors.redAccent.withAlpha(180),
+                              ),
+                            );
+                          }
                       ),
                     ],
                   ),
@@ -104,7 +104,7 @@ class BookCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: List.generate(
                       5,
-                      (index) => Icon(
+                          (index) => Icon(
                         index < bookModel.starRate
                             ? Icons.star
                             : Icons.star_border,

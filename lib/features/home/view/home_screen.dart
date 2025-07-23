@@ -24,6 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
     searchController = TextEditingController();
     super.initState();
   }
+
   @override
   void dispose() {
     searchController.dispose();
@@ -35,12 +36,12 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-        SliverBar(),
+          SliverBar(),
           SliverToBoxAdapter(
             child: HomePurpleContainer(searchController: searchController),
           ),
           SliverToBoxAdapter(
-            child:  Column(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const CategoriesSection(),
@@ -48,12 +49,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 Text(
                   JsonConsts.mostRatedBooks.t(context),
                   style: StylesConsts.f18W600Black.copyWith(fontSize: 23),
-                ).mainPadding,],
+                ).mainPadding,
+              ],
             ),
           ),
           const SliverPadding(
               padding: EdgeInsets.symmetric(horizontal: 16),
-              sliver  : BooksSection())
+              sliver: BooksSection())
         ],
       ),
     );

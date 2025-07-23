@@ -25,21 +25,21 @@ class ListOfBooksScreen extends StatelessWidget {
           SliverPadding(
             padding: EdgeInsets.symmetric(vertical: 30.h,horizontal: 16.w),
             sliver: AnimationLimiter(
-                child: SliverGrid(
-                  delegate: SliverChildBuilderDelegate(
-                    (BuildContext context, int index) {
-                      return  BookCard(bookModel: bookList[index],).staggeredGrid(index);
-                    },
-                    childCount: bookList.length,
-                  ),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 15,
-                    mainAxisSpacing: 15,
-                    childAspectRatio: 0.6,
-                  ),
+              child: SliverGrid(
+                delegate: SliverChildBuilderDelegate(
+                      (BuildContext context, int index) {
+                    return  BookCard(bookModel: bookList[index],).staggeredGrid(index);
+                  },
+                  childCount: bookList.length,
+                ),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 15,
+                  mainAxisSpacing: 15,
+                  childAspectRatio: 0.6,
                 ),
               ),
+            ),
           ),
 
         ],

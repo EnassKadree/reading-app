@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reading_app/features/my_library/UI/widgets/map_painter.dart';
-import 'package:reading_app/features/my_library/map/cubit/map_cubit.dart';
-import 'package:reading_app/features/my_library/map/cubit/map_state.dart';
+import 'package:reading_app/features/my_library/services/map/map_cubit.dart';
+import 'package:reading_app/features/my_library/services/map/map_state.dart';
 
 class SvgInteractiveMap extends StatelessWidget {
   final Map<String, int> highlightedCountries;

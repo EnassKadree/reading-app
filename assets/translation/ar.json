@@ -17,14 +17,19 @@
   "invalidPhoneNumber": "صيغة الهاتف غير صحيحة",
   "successfully": "تمت العملية بنجاح!",
   "ok": "موافق",
-  "welcomeBack": "أهلاً مجدداً! أدخل معلوماتك لتسجيل الدخول",
-  "dontHaveAnAccount": "تمتلك حساباً بالفعل؟",
-  "myLibrary":"مكتبتي",
-  "bookInProgress":"التقدم في قرائتي",
-  "favoriteBooks":"الكتب المفضلة",
-  "completedBooks":"الكتب المنجزة",
-  "booksToRead":"كتب للقراءة",
-  "iHaveVisited":"لقد زرت",
-  "countriesInALiteraryWay":"دولٍ أدبيًا",
-  "please_log_in_first": "الرجاء تسجيل الدخول أولا"
+
+
+    "welcomeBack": "أهلاً مجدداً! أدخل معلوماتك لتسجيل الدخول",
+    "dontHaveAnAccount": "تمتلك حساباً بالفعل؟",
+  "please_log_in_first": "الرجاء تسجيل الدخول أولا",
+
+    "mylibrary":"مكتبتي",
+    "bookInProgress":"التقدم في قرائتي",
+    "favoriteBooks":"الكتب المفضلة",
+    "completedBooks":"الكتب المنجزة",
+    "booksToRead":"كتب للقراءة",
+    "iHaveVisited":"لقد زرت",
+    "countriesInALiteraryWay":"دولٍ أدبيًا",
+"ThereAreNoBooksCurrently":"لا يوجد حاليًا أي كتاب .",
+"bookDownloadFailed":"فشل تحميل الكتاب "
 }

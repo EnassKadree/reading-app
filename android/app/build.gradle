@@ -9,7 +9,7 @@ android {
     namespace = "com.example.reading_app"
 
     compileSdk = 35
-    ndkVersion = "27.0.11718014"
+    ndkVersion = "26.2.11394342"
 
 
 

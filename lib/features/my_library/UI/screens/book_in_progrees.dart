@@ -1,6 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
-import 'package:reading_app/features/my_library/UI/widgets/card_in_progress.dart';
+import 'package:reading_app/core/utils/constants/json_consts.dart';
+import 'package:reading_app/core/utils/extensions/string_extension.dart';
+import 'package:reading_app/features/my_library/UI/widgets/books_in_progress_builder.dart';
+import 'package:reading_app/features/shared/widgets/sliver_app_bar.dart';
 
 class BookInProgrees extends StatelessWidget {
   const BookInProgrees({super.key});
@@ -8,14 +11,17 @@ class BookInProgrees extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SizedBox(
-      height: MediaQuery.of(context).size.height / 1.0,
-      child: ListView.builder(
-        itemCount: 10,
-        itemBuilder: (context, index) {
-          return const CardInProgress().staggerListHorizontal(index);
-        },
+      body: CustomScrollView(
+        slivers: [
+          SliverBar(
+            title: JsonConsts.bookInProgress.t(context),
+            backButtonVisibility: true,
+            searchVisibility: false,
+            menuVisibility: false,
+          ),
+          const BooksInProgressBuilder(),
+        ],
       ),
-    ));
+    );
   }
 }

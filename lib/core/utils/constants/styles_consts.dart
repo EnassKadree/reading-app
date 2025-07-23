@@ -16,7 +16,7 @@ abstract class StylesConsts
       fontSize: 42,
       fontWeight: FontWeight.bold
   );
-  static final TextStyle descTxt = TextStyle
+  static const TextStyle descTxt = TextStyle
     (
       color: ColorsConsts.grey,
       fontSize: 14
