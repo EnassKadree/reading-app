@@ -6,7 +6,12 @@ import 'package:reading_app/core/utils/extensions/space_extension.dart';
 import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 
 class SliverBar extends StatelessWidget {
-  const SliverBar({ this.backButtonVisibility=false,this.searchVisibility = true, this.title, super.key});
+  const SliverBar(
+      {this.backButtonVisibility = false,
+      this.searchVisibility = true,
+      this.title,
+      super.key});
+
   final bool? backButtonVisibility;
   final bool? searchVisibility;
   final String? title;
@@ -15,27 +20,36 @@ class SliverBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverAppBar(
       flexibleSpace: Container(
-
         color: context.colorScheme.primary,
         height: 120,
         child: Padding(
-            padding: EdgeInsets.only(top: 20.h, left: 10.w),
-            child: Row(
-              children: [
-                Visibility( visible:backButtonVisibility??false,child: GestureDetector(onTap:(){context.pop();},child: Icon(Icons.keyboard_backspace,color: context.colorScheme.surfaceContainer, size: 20,))),
-                10.spaceW,
-                Text(
-                  title ?? "",
-                  style: StylesConsts.f30W500White
-                      .copyWith(color: context.colorScheme.surfaceContainer),
-                ),
-              ],
-            ),
+          padding: EdgeInsets.only(top: 35.h, left: 40.w),
+          child: Row(
+            children: [
+              10.spaceW,
+              Text(
+                title ?? "",
+                style: StylesConsts.f30W500White
+                    .copyWith(color: context.colorScheme.surfaceContainer),
+              ),
+            ],
+          ),
         ),
       ),
       elevation: 0,
       floating: true,
-
+      leading: Visibility(
+        visible: backButtonVisibility ?? false,
+        child: GestureDetector(
+          onTap: () {
+            context.pop();
+          },
+          child: Icon(
+            Icons.arrow_back,
+            color: context.colorScheme.surfaceContainer,
+          ),
+        ),
+      ),
       actions: [
         GestureDetector(
           onTap: () {},

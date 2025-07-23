@@ -8,7 +8,7 @@ class CategoriesInitial extends CategoriesStates {}
 class CategoriesLoading extends CategoriesStates {}
 
 class CategoriesSuccess extends CategoriesStates {
-  final List<Category> categories;
+  final List<CategoryModel> categories;
 
   CategoriesSuccess(this.categories);
 }

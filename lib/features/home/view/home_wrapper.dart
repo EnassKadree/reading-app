@@ -21,11 +21,11 @@ class HomeWrapper extends StatelessWidget {
       },
       ),
       BlocProvider(create: (BuildContext context) {
-        return AuthorsCubit();
+        return AuthorsCubit()..getAuthors();
       },
       ),
       BlocProvider(create: (BuildContext context) {
-        return BooksCubit();
+        return BooksCubit()..getBooks();
       },
       ),
     ], child: const HomeScreen());

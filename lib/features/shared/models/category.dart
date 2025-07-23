@@ -1,10 +1,10 @@
-class Category {
+class CategoryModel {
   int id;
   String name;
   String icon;
   bool isFollowed;
 
-  Category({
+  CategoryModel({
     required this.id,
     required this.name,
     required this.icon,
@@ -12,8 +12,8 @@ class Category {
   });
 
   // Factory method to create a Category from JSON
-  factory Category.fromJson(Map<String, dynamic> json) {
-    return Category(
+  factory CategoryModel.fromJson(Map<String, dynamic> json) {
+    return CategoryModel(
       id: json['id'],
       name: json['name'],
       icon: json['icon'],

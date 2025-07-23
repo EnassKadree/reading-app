@@ -10,6 +10,7 @@ import 'package:reading_app/features/home/services/authors/authors_cubit.dart';
 import 'package:reading_app/features/home/services/authors/authors_states.dart';
 import 'package:reading_app/features/home/view/components/author_widget.dart';
 import 'package:reading_app/features/shared/models/author.dart';
+import 'package:reading_app/features/shared/widgets/loading_screen.dart';
 
 class AuthorsSection extends StatelessWidget {
   const AuthorsSection({super.key});
@@ -25,26 +26,32 @@ class AuthorsSection extends StatelessWidget {
         ).verticalPadding.horizontalPadding,
         BlocBuilder<AuthorsCubit, AuthorsStates>(
           builder: (BuildContext context, AuthorsStates state) {
-            return SizedBox(
-              height: 120.h,
-              child: AnimationLimiter(
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 15,
-                  itemBuilder: (BuildContext context, index) {
-                    return AuthorWidget(
-                      author: Author(
-                        id: 1,
-                        name: "Adonis",
-                        image: "assets/images/png/Adonis.png",
-                        country: "Syrian",
-                        numberOfBooks: 17,
-                      ),
-                    ).staggerListVertical(index);
-                  },
+            if (state is AuthorsSuccess) {
+              List<Author> authors = state.authors;
+              return SizedBox(
+                height: 120.h,
+                child: AnimationLimiter(
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: authors.length,
+                    itemBuilder: (BuildContext context, index) {
+                      return AuthorWidget(
+                        author:authors[index]
+                      ).staggerListVertical(index);
+                    },
+                  ),
                 ),
-              ),
-            );
+              );
+            } else if (state is AuthorsLoading) {
+              return const LoadingScreen();
+            }
+            else {
+              return Container(
+                width: 200,
+                height: 10,
+                color: Colors.redAccent,
+              );
+            }
           },
         ),
       ],

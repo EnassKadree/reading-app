@@ -6,8 +6,7 @@ import '../../features/shared/data/data_source.dart';
 
 class Api {
   Future<dynamic> fullPost(
-      {required String url, Map<String, dynamic>? body, String? token}) async
-  {
+      {required String url, Map<String, dynamic>? body, String? token}) async {
     String locale = DataSource().getLocale() ?? 'ar';
     Map<String, String> headers = {
       'Accept': 'application/json',
@@ -29,27 +28,21 @@ class Api {
     }
   }
 
-  Future<dynamic> postWithoutToken(
-      {required String url})
-  {
+  Future<dynamic> postWithoutToken({required String url}) {
     return fullPost(url: url);
   }
 
   Future<dynamic> postWithoutTokenWithBody(
-      {required String url, required body})
-  {
+      {required String url, required body}) {
     return fullPost(url: url, body: body);
   }
 
   Future<dynamic> post(
-      {required String url, required body, required String? token})
-  {
+      {required String url, required body, required String? token}) {
     return fullPost(url: url, body: body, token: token);
   }
 
-  Future<dynamic> get(
-      {required String url, String? token}) async
-  {
+  Future<dynamic> get({required String url, String? token}) async {
     String locale = DataSource().getLocale() ?? 'ar';
 
     Map<String, String> headers = {
@@ -58,19 +51,21 @@ class Api {
       'Accept-Language': locale,
       if (token != null) 'Authorization': 'Bearer $token',
     };
-
+print("0000000000000000000000000000000");
     http.Response response = await http.get(Uri.parse(url), headers: headers);
-
+    print(response.body);
     if (response.statusCode == 200 || response.statusCode == 202) {
       return jsonDecode(response.body);
     } else {
+      print("---------------------------------------");
+      print(response.body);
       throw Exception('message: ${response.body}');
     }
   }
 
   Future<dynamic> getWithToken(
-      {required String url, required String token}) async
-  {
+      {required String url, required String token}) async {
     return get(url: url, token: token);
+
   }
 }

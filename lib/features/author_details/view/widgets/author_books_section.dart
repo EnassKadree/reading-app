@@ -2,14 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:reading_app/core/utils/constants/styles_consts.dart';
-import 'package:reading_app/core/utils/extensions/context_extension.dart';
-import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/features/author_details/service/author_books_cubit.dart';
 import 'package:reading_app/features/author_details/service/author_books_states.dart';
-
-import '../../../shared/widgets/book_card/book_card.dart';
-
 class AuthorBooksSection extends StatelessWidget {
   const AuthorBooksSection({super.key});
 
@@ -21,7 +15,8 @@ class AuthorBooksSection extends StatelessWidget {
           child: SliverGrid(
             delegate: SliverChildBuilderDelegate(
                   (BuildContext context, int index) {
-                return const BookCard().staggeredGrid(index);
+              //  return const BookCard().staggeredGrid(index);
+                    return const SizedBox();
               },
               childCount: 15,
             ),

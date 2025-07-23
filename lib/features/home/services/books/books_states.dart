@@ -1,4 +1,5 @@
-import '../../../shared/models/book.dart';
+
+import 'package:reading_app/features/shared/models/book.dart';
 
 abstract class BooksStates {}
 
@@ -7,7 +8,7 @@ class BooksInitial extends BooksStates {}
 class BooksLoading extends BooksStates {}
 
 class BooksSuccess extends BooksStates {
-  final List<Book> books;
+  final List<BookModel> books;
 
   BooksSuccess(this.books);
 }

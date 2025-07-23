@@ -15,7 +15,7 @@ final Author author;
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        Context(context).push(const AuthorDetailsScreen());
+        Context(context).push( AuthorDetailsScreen(author: author,));
       },
       child: Column(
         children: [
@@ -37,7 +37,8 @@ final Author author;
                     shape: BoxShape.circle,
                   ),
                   child: Image.asset(
-                    author.image,
+                    "assets/images/png/Adonis.png",
+                  //  author.image,
                     fit: BoxFit.cover,
                   ),
                 ),

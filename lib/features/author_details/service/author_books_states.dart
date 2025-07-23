@@ -7,7 +7,7 @@ class AuthorBooksInitial extends AuthorBooksStates {}
 class AuthorBooksLoading extends AuthorBooksStates {}
 
 class AuthorBooksSuccess extends AuthorBooksStates {
-  final List<Book> authorBooks;
+  final List<BookModel> authorBooks;
 
   AuthorBooksSuccess(this.authorBooks);
 }
