@@ -1,4 +1,3 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reading_app/core/lists/dummy_books.dart';
@@ -6,11 +5,11 @@ import 'package:reading_app/core/utils/constants/colors_consts.dart';
 import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/constants/styles_consts.dart';
 import 'package:reading_app/core/utils/extensions/string_extension.dart';
-import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/features/my_library/services/to_read/to_read_cubit.dart';
-import 'package:reading_app/features/shared/widgets/list_of_books_screen/list_of_books_screen.dart';
 import 'package:reading_app/features/shared/widgets/something_went_wrong.dart';
 import 'package:skeletonizer/skeletonizer.dart';
+
+import '../../../shared/widgets/list of books sliver.dart';
 
 class BooksToReadBuilder extends StatelessWidget {
   const BooksToReadBuilder({super.key});
@@ -36,7 +35,7 @@ class BooksToReadBuilder extends StatelessWidget {
             return SliverFillRemaining(
               child: Center(
                 child: Text(
-                  JsonConsts.ThereAreNoBooksCurrently.t(context),
+                  JsonConsts.thereAreNoBooksCurrently.t(context),
                   style: StylesConsts.f18W600Black
                       .copyWith(color: ColorsConsts.purple),
                 ),

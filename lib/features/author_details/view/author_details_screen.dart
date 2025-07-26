@@ -8,7 +8,7 @@ class AuthorDetailsScreen extends StatelessWidget {
  final Author author;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
   body: CustomScrollView(
     slivers: [
       SliverBar(backButtonVisibility: true,),

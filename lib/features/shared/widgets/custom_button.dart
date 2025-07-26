@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/string_extension.dart';
 
@@ -20,8 +21,8 @@ class CustomOutlinedButton extends StatelessWidget {
       (
         shadowColor: Colors.transparent,
         backgroundColor: context.theme.primaryColor, 
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
-        padding: const EdgeInsets.all(14),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.r)),
+        padding:  EdgeInsets.symmetric(horizontal: 14.h,vertical: 14.w),
         elevation: 0,
       ),
       onPressed: onPressed, 

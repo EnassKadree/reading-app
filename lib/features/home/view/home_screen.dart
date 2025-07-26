@@ -1,13 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/constants/styles_consts.dart';
 import 'package:reading_app/core/utils/extensions/string_extension.dart';
 import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
+import 'package:reading_app/features/home/services/authors/authors_states.dart';
+import 'package:reading_app/features/home/services/books/books_cubit.dart';
+import 'package:reading_app/features/home/services/books/books_states.dart';
+import 'package:reading_app/features/home/services/categories/categories_cubit.dart';
+import 'package:reading_app/features/home/services/categories/categories_states.dart';
 import 'package:reading_app/features/home/view/components/authors_section.dart';
 import 'package:reading_app/features/home/view/components/books_section.dart';
 import 'package:reading_app/features/home/view/components/categories_section.dart';
+import 'package:reading_app/features/shared/models/author.dart';
+import 'package:reading_app/features/shared/models/book.dart';
+import 'package:reading_app/features/shared/models/category.dart';
+import 'package:reading_app/features/shared/widgets/error_dialog.dart';
+import 'package:reading_app/features/shared/widgets/loading_screen.dart';
 import 'package:reading_app/features/shared/widgets/sliver_app_bar.dart';
-
+import '../services/authors/authors_cubit.dart';
 import 'components/home_purple_container.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -19,6 +30,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late TextEditingController searchController;
+
   @override
   void initState() {
     searchController = TextEditingController();
@@ -33,31 +45,69 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: CustomScrollView(
-        slivers: [
-          SliverBar(),
-          SliverToBoxAdapter(
-            child: HomePurpleContainer(searchController: searchController),
-          ),
-          SliverToBoxAdapter(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const CategoriesSection(),
-                const AuthorsSection(),
-                Text(
-                  JsonConsts.mostRatedBooks.t(context),
-                  style: StylesConsts.f18W600Black.copyWith(fontSize: 23),
-                ).mainPadding,
+    return BlocBuilder<CategoriesCubit, CategoriesStates>(
+        builder: (BuildContext context, CategoriesStates categoriesState) {
+      return BlocBuilder<AuthorsCubit, AuthorsStates>(
+          builder: (BuildContext context, AuthorsStates authorState) {
+        return BlocBuilder<BooksCubit, BooksStates>(
+            builder: (BuildContext context, BooksStates booksState) {
+          if (booksState is BooksLoading ||
+              authorState is AuthorsLoading ||
+              categoriesState is CategoriesLoading) {
+            return const LoadingScreen(
+            );
+          }
+          else if (booksState is BooksSuccess &&
+              authorState is AuthorsSuccess &&
+              categoriesState is CategoriesSuccess) {
+            List<BookModel>books=booksState.books;
+            List<Author>authors=authorState.authors;
+            List<CategoryModel>categories=categoriesState.categories;
+            return CustomScrollView(
+              slivers: [
+                const SliverBar(
+                  whiteColor: false,
+                ),
+                SliverList(
+                  delegate: SliverChildListDelegate(
+                    [
+                      HomePurpleContainer(searchController: searchController),
+                      Text(
+                        JsonConsts.categories.t(context),
+                        style: StylesConsts.f18W600Black.copyWith(fontSize: 23),
+                      ).mainPadding,
+                       CategoriesSection(categories: categories,),
+                       AuthorsSection(authors: authors,),
+                      Text(
+                        JsonConsts.mostRatedBooks.t(context),
+                        style: StylesConsts.f18W600Black.copyWith(fontSize: 23),
+                      ).mainPadding,
+                    ],
+                  ),
+                ),
+                 SliverPadding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    sliver: BooksSection(books:books ,)),
               ],
-            ),
-          ),
-          const SliverPadding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              sliver: BooksSection())
-        ],
-      ),
-    );
+            );
+          }
+          else {
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+            showCustomErrorDialog(
+                onPressed: (){
+                  Navigator.pop(context);
+              context.read<BooksCubit>().getBooks();
+              context.read<AuthorsCubit>().getAuthors();
+              context.read<CategoriesCubit>().getCategories();
+
+            },context: context,
+                message: "Error Happened ");
+            });
+            return const SizedBox();
+          }
+        }
+        );
+      });
+    });
   }
 }

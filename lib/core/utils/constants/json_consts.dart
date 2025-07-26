@@ -46,6 +46,6 @@ abstract class JsonConsts {
   static const String countriesInALiteraryWay = 'countriesInALiteraryWay';
   //Exception
   static const String pleaseLogIn ='please_log_in_first';
-   static const String ThereAreNoBooksCurrently = 'ThereAreNoBooksCurrently';
+   static const String thereAreNoBooksCurrently = 'ThereAreNoBooksCurrently';
     static const String bookDownloadFailed = 'bookDownloadFailed';
 }

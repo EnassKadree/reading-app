@@ -19,6 +19,7 @@ class ListOfBooksScreen extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverBar(
+            menuVisibility: true,
             backButtonVisibility: true,
             title: title,
           ),
@@ -32,10 +33,10 @@ class ListOfBooksScreen extends StatelessWidget {
                   },
                   childCount: bookList.length,
                 ),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  crossAxisSpacing: 15,
-                  mainAxisSpacing: 15,
+                  crossAxisSpacing: 10.w,
+                  mainAxisSpacing: 10.h,
                   childAspectRatio: 0.6,
                 ),
               ),

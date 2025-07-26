@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:reading_app/features/auth/UI/screens/register_page.dart';
 import 'package:reading_app/features/home/main_layout.dart';
-import 'package:reading_app/features/home/view/home_wrapper.dart';
-import 'package:reading_app/features/my_library/UI/screens/my_library.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-
 import 'features/shared/data/data_source.dart';
 import 'features/shared/localization/app_localization.dart';
 import 'features/shared/localization/locale_cubit.dart';
@@ -97,7 +95,7 @@ class MyApp extends StatelessWidget {
           },
         ),
       ),
-      child: const MainLayoutWrapper()
+      child: RegisterPage()
     );
   }
 }

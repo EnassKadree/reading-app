@@ -26,7 +26,8 @@ class BookImage extends StatelessWidget {
         ),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(10),
-          child: CustomNetworkImage(imageUrl: book.coverImage),
+       // child: Image.asset('assets/images/png/book 3.jpg',fit: BoxFit.fill,),
+         child: CustomNetworkImage(imageUrl: book.coverImage),
         ),
       ),
     );

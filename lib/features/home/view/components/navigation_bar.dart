@@ -12,18 +12,18 @@ class CustomNavigationBar extends StatelessWidget {
     return BlocBuilder<BottomNavCubit, int>(
       builder: (context, state) {
         return BottomNavigationBar(
-          unselectedItemColor: context.colorScheme.surfaceContainer.withAlpha(100),
-          selectedItemColor:  context.colorScheme.surfaceContainer,
+          unselectedItemColor: context.colorScheme.primary.withAlpha(100),
+          selectedItemColor:  context.colorScheme.primary,
           showSelectedLabels: false,
           showUnselectedLabels: false,
           currentIndex: state,
           onTap: (index) => context.read<BottomNavCubit>().updateTab(index),
           items: [
-            BottomNavigationBarItem( backgroundColor:context.colorScheme.primary,icon: const Icon(Iconsax.home), label: ""),
-             BottomNavigationBarItem(backgroundColor:context.colorScheme.primary,icon: const Icon(Iconsax.book_square), label: "."),
-             BottomNavigationBarItem(backgroundColor:context.colorScheme.primary,icon: const Icon(Iconsax.medal), label: ".."),
-             BottomNavigationBarItem(backgroundColor:context.colorScheme.primary,icon: const Icon(Iconsax.people), label: "...."),
-              BottomNavigationBarItem(backgroundColor:context.colorScheme.primary,icon: const Icon(Iconsax.profile_add), label: "..."),
+            BottomNavigationBarItem( backgroundColor:context.colorScheme.surfaceContainer,icon: const Icon(Iconsax.home), label: ""),
+             BottomNavigationBarItem(backgroundColor:context.colorScheme.surfaceContainer,icon: const Icon(Iconsax.book_square), label: "."),
+             BottomNavigationBarItem(backgroundColor:context.colorScheme.surfaceContainer,icon: const Icon(Iconsax.medal), label: ".."),
+             BottomNavigationBarItem(backgroundColor:context.colorScheme.surfaceContainer,icon: const Icon(Iconsax.people), label: "...."),
+              BottomNavigationBarItem(backgroundColor:context.colorScheme.surfaceContainer,icon: const Icon(Iconsax.profile_add), label: "..."),
 
           ],
         );

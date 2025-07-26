@@ -15,8 +15,8 @@ class MainLayout extends StatelessWidget {
     HomeWrapper(),
     MyLibraryPage(),
     ChallengesScreen(),
-    ProfileScreen(),
-    CommunityScreen()
+    CommunityScreen(),
+    ProfileScreen()
   ];
 
   @override

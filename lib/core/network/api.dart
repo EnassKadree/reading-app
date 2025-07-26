@@ -51,14 +51,12 @@ class Api {
       'Accept-Language': locale,
       if (token != null) 'Authorization': 'Bearer $token',
     };
-print("0000000000000000000000000000000");
+
     http.Response response = await http.get(Uri.parse(url), headers: headers);
-    print(response.body);
+
     if (response.statusCode == 200 || response.statusCode == 202) {
       return jsonDecode(response.body);
     } else {
-      print("---------------------------------------");
-      print(response.body);
       throw Exception('message: ${response.body}');
     }
   }

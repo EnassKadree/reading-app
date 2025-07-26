@@ -8,7 +8,6 @@ import 'package:reading_app/core/utils/extensions/string_extension.dart';
 import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/features/my_library/UI/widgets/card_in_progress/card_in_progress.dart';
 import 'package:reading_app/features/my_library/services/in_read/in_read_cubit.dart';
-import 'package:reading_app/features/shared/models/book.dart';
 import 'package:reading_app/features/shared/widgets/something_went_wrong.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
@@ -22,7 +21,7 @@ class BooksInProgressBuilder extends StatelessWidget {
         if (state is InReadLoading) {
           return SliverList(
             delegate: SliverChildBuilderDelegate(
-              (context, index) => Skeletonizer(
+                  (context, index) => Skeletonizer(
                 enabled: true,
                 child: CardInProgress(book: dummyBook[index]),
               ),
@@ -38,7 +37,7 @@ class BooksInProgressBuilder extends StatelessWidget {
             return SliverFillRemaining(
               child: Center(
                 child: Text(
-                  JsonConsts.ThereAreNoBooksCurrently.t(context),
+                  JsonConsts.thereAreNoBooksCurrently.t(context),
                   style: StylesConsts.f18W600Black
                       .copyWith(color: ColorsConsts.purple),
                 ),
@@ -48,7 +47,7 @@ class BooksInProgressBuilder extends StatelessWidget {
 
           return SliverList(
             delegate: SliverChildBuilderDelegate(
-              (context, index) {
+                  (context, index) {
                 final book = books[index];
                 return CardInProgress(book: book).staggerListHorizontal(index);
               },

@@ -19,7 +19,7 @@ class CustomNetworkImage extends StatelessWidget {
     return ClipRRect(
       borderRadius: const BorderRadius.all(Radius.circular(10)),
       child: Image.network(
-        imageUrl,
+        'assets/images/png/book 3.jpg',
         width: width,
         height: height,
         fit: fit,

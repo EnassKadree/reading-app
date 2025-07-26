@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
-import '../../../../core/utils/constants/styles_consts.dart';
+import '../../../core/utils/constants/styles_consts.dart';
 
 class IconTextWidget extends StatelessWidget {
   const IconTextWidget(
@@ -26,7 +26,7 @@ class IconTextWidget extends StatelessWidget {
         //  spacing: 5,
         children: [
           Icon(icon, size: iconSize, color: context.colorScheme.secondary),
-          2.spaceW,
+          4.spaceW,
           Text(
             text,
             style: StylesConsts.f16W600Black,

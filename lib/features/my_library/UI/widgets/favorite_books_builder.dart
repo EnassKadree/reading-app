@@ -5,11 +5,11 @@ import 'package:reading_app/core/utils/constants/colors_consts.dart';
 import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/constants/styles_consts.dart';
 import 'package:reading_app/core/utils/extensions/string_extension.dart';
-import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/features/my_library/services/favorite_books/favorite_books_cubit.dart';
-import 'package:reading_app/features/shared/widgets/list_of_books_screen/list_of_books_screen.dart';
 import 'package:reading_app/features/shared/widgets/something_went_wrong.dart';
 import 'package:skeletonizer/skeletonizer.dart';
+
+import '../../../shared/widgets/list of books sliver.dart';
 
 class FavoriteBooksBuilder extends StatelessWidget {
   const FavoriteBooksBuilder({super.key});
@@ -35,7 +35,7 @@ class FavoriteBooksBuilder extends StatelessWidget {
             return SliverFillRemaining(
               child: Center(
                 child: Text(
-                  JsonConsts.ThereAreNoBooksCurrently.t(context),
+                  JsonConsts.thereAreNoBooksCurrently.t(context),
                   style: StylesConsts.f18W600Black
                       .copyWith(color: ColorsConsts.purple),
                 ),

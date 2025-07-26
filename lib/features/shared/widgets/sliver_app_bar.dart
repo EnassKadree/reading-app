@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reading_app/core/utils/constants/styles_consts.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
-import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 
 class SliverBar extends StatelessWidget {
   const SliverBar({
@@ -11,6 +10,8 @@ class SliverBar extends StatelessWidget {
     this.backButtonVisibility = false,
     this.searchVisibility = true,
     this.menuVisibility = true,
+    this.whiteColor = true,
+    this.actionWidget,
     super.key,
   });
 
@@ -18,30 +19,38 @@ class SliverBar extends StatelessWidget {
   final bool? backButtonVisibility;
   final bool? searchVisibility;
   final bool? menuVisibility;
+  final bool? whiteColor;
+  final Widget? actionWidget;
 
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-
+      elevation: 10,
+      actionsPadding: const EdgeInsetsGeometry.directional(end: 16),
       automaticallyImplyLeading: false,
       flexibleSpace: Container(
-        color: context.colorScheme.primary,
+        color: (whiteColor == true)
+            ? context.colorScheme.surfaceContainer
+            : context.colorScheme.primary,
         height: 120,
         child: Padding(
           padding: EdgeInsets.only(top: 35.h, left: 40.w),
           child: Row(
             children: [
-              10.spaceW,
+              20.spaceW,
               Text(
                 title ?? "",
-                style: StylesConsts.f30W500White
-                    .copyWith(color: context.colorScheme.surfaceContainer),
+                style: StylesConsts.f30W500White.copyWith(
+                  color: (whiteColor != true)
+                      ? context.colorScheme.surfaceContainer
+                      : context.colorScheme.primary,
+                ),
               ),
             ],
           ),
         ),
       ),
-      elevation: 0,
+
       floating: true,
       leading: Visibility(
         visible: backButtonVisibility ?? false,
@@ -51,26 +60,36 @@ class SliverBar extends StatelessWidget {
           },
           child: Icon(
             Icons.arrow_back,
-            color: context.colorScheme.surfaceContainer,
+            color: (whiteColor != true)
+                ? context.colorScheme.surfaceContainer
+                : context.colorScheme.primary,
           ),
         ),
       ),
       actions: [
+        if (searchVisibility ?? true)
         GestureDetector(
           onTap: () {},
           child: Icon(
             Icons.search,
-            color: context.colorScheme.surfaceContainer,
+            color: (whiteColor != true)
+                ? context.colorScheme.surfaceContainer
+                : context.colorScheme.primary,
           ),
         ),
+        10.spaceW,
         if (menuVisibility ?? true)
-        GestureDetector(
-          onTap: () {},
-          child: Icon(
-            Icons.list,
-            color: context.colorScheme.surfaceContainer,
+          GestureDetector(
+            onTap: () {},
+            child: Icon(
+              Icons.list,
+              color: (whiteColor != true)
+                  ? context.colorScheme.surfaceContainer
+                  : context.colorScheme.primary,
+            ),
           ),
-        ).horizontalPadding,
+        10.spaceW,
+         actionWidget??const SizedBox()
       ],
     );
   }

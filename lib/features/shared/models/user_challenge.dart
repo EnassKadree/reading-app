@@ -1,7 +1,7 @@
 class UserChallenge {
   final int id;
-  final Map<String, String> title;
-  final Map<String, String> description;
+  final String title;
+  final String description;
   final int points;
   final int timeLeft;
   final int percentage;
@@ -18,8 +18,8 @@ class UserChallenge {
   factory UserChallenge.fromJson(Map<String, dynamic> json) {
     return UserChallenge(
       id: json['id'],
-      title: Map<String, String>.from(json['title']),
-      description: Map<String, String>.from(json['description']),
+      title: json['title'],
+      description:  json['description'],
       points: json['points'],
       timeLeft: json['time_left'],
       percentage: json['percentage'],
