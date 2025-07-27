@@ -3,8 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/features/shared/models/book.dart';
-import 'package:reading_app/features/shared/widgets/sliver_app_bar.dart';
-
 import '../book_card/book_card.dart';
 
 class ListOfBooksSliver extends StatelessWidget {
@@ -14,7 +12,7 @@ class ListOfBooksSliver extends StatelessWidget {
     super.key,
   });
 
- 
+
   final List<BookModel> bookList;
 
   @override
@@ -37,7 +35,7 @@ class ListOfBooksSliver extends StatelessWidget {
             },
           ),
         );
-     
+    
     
   }
 }

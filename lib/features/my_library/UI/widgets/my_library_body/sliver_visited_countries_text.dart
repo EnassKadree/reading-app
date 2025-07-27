@@ -25,6 +25,17 @@ class SliverVisitedCountriesText extends StatelessWidget {
                 child:
                     BlocBuilder<CountryBookCountCubit, CountryBookCountState>(
                   builder: (context, state) {
+                    if (state is CountryBookCountFailure) {
+                      print(state.message);
+                      return Text(
+                        maxLines: 2,
+                        "${JsonConsts.iHaveVisited.t(context)} 0 ${JsonConsts.countriesInALiteraryWay.t(context)}",
+                        style: StylesConsts.introText.copyWith(
+                          color: ColorsConsts.purple,
+                          fontStyle: FontStyle.normal,
+                        ),
+                      );
+                    }
                     final count = state is CountryBookCountSuccess
                         ? state.country.length
                         : 0;
