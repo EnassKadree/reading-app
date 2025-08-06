@@ -19,7 +19,6 @@ class BookDetailsCard extends StatelessWidget {
         onTap: () async {
           final cubit = context.read<BookPdfCubit>();
           await cubit.getBookPdf(book.id);
-
           final state = cubit.state;
           if (state is BookPdfSuccess) {
             final pdf = state.bookPdf;
@@ -27,7 +26,7 @@ class BookDetailsCard extends StatelessWidget {
             final lastPage = await context.push(
               PdfReaderScreen(
                 filePath: pdf.pdfUrl,
-                lastReadPage: book.currentPage ?? 1,
+                lastReadPage: book.currentPage ?? 10,
               ),
             );
 

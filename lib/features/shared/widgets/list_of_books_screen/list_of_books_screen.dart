@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:reading_app/core/utils/extensions/string_extension.dart';
 import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/features/shared/widgets/sliver_app_bar.dart';
+import '../../../../core/utils/constants/colors_consts.dart';
+import '../../../../core/utils/constants/json_consts.dart';
+import '../../../../core/utils/constants/styles_consts.dart';
 import '../../models/book.dart';
 import '../book_card/book_card.dart';
 

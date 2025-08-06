@@ -21,11 +21,13 @@ class UserChallengesSection extends StatelessWidget {
                  if(userChallenges.isNotEmpty) {
                    return  ActiveChallengeCard(userChallenge: UserChallenge(percentage :30,title: "Art challenge",points: 100,description: "mmmmm",timeLeft: 3,id: 5));
                  }
-                 else
+                 else {
                    return Container();
+                 }
                }
-           else
+           else {
                return  ActiveChallengeCard(userChallenge: UserChallenge(percentage :30,title: "Art challenge",points: 100,description: "mmmmm",timeLeft: 3,id: 5));
+             }
 
             },
             itemCount: 4);

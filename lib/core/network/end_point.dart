@@ -20,7 +20,6 @@ abstract class EndPoint
   static const bookpdf = '/book/getBookFile/';
   static const countryBook = '/country/get-trips';
    static const bookPdf = '/book/getBookFile/';
-   static const countryBook = '/country/get-trips';
 
 //BOOK DETAILS
   static const bookChallenge= '/mobile/books/GetBookChallenge/';
