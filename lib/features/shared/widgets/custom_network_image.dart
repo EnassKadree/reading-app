@@ -1,4 +1,6 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class CustomNetworkImage extends StatelessWidget {
   final String imageUrl;
@@ -18,27 +20,24 @@ class CustomNetworkImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: const BorderRadius.all(Radius.circular(10)),
-      child: Image.network(
-        'assets/images/png/book 3.jpg',
+      child: CachedNetworkImage(
+       imageUrl:  imageUrl ,
         width: width,
         height: height,
         fit: fit,
-        loadingBuilder: (context, child, loadingProgress) {
-          if (loadingProgress == null) return child;
-          return Container(
-            width: width,
-            height: height,
-            color: Colors.grey[300],
-            child: const Center(
-              child: CircularProgressIndicator(strokeWidth: 2),
+        placeholder: 
+              (context, url) => Skeletonizer(
+            child: Container(
+              width:width,
+              height: height,
+              color: Colors.white,
             ),
-          );
-        },
-        errorBuilder: (context, error, stackTrace) {
+          ),
+        errorWidget:  (context, url, error) {
           return Container(
             width: width,
             height: height,
-            color: Colors.grey[300],
+            color: Colors.grey[100],
             child: const Icon(Icons.broken_image, color: Colors.grey, size: 40),
           );
         },

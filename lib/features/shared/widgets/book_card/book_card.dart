@@ -4,16 +4,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reading_app/core/utils/constants/styles_consts.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
-import 'package:reading_app/features/book_details/view/book_details_screen.dart';
 import 'package:reading_app/features/shared/models/book.dart';
 import 'package:reading_app/features/shared/widgets/book_card/favorite_bloc/book_favorite_cubit.dart';
 import 'package:reading_app/features/shared/widgets/book_card/favorite_bloc/book_favorite_states.dart';
-
+import 'package:reading_app/features/shared/widgets/custom_network_image.dart';
+import '../../../book_details/view/book_details_wrapper.dart';
 class BookCard extends StatelessWidget {
   const BookCard({required this.bookModel, super.key});
-
   final BookModel bookModel;
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -21,7 +19,9 @@ class BookCard extends StatelessWidget {
         return BookFavoriteCubit();
       },
       child: GestureDetector(
-        onTap:(){ context.push(BookDetailsScreen(book: bookModel));},
+        onTap:(){
+          context.push(BookDetailsWrapper(book: bookModel));
+          },
         child: Container(
           alignment: Alignment.center,
           child: Stack(
@@ -61,10 +61,7 @@ class BookCard extends StatelessWidget {
                   ),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(20.r),
-                    child: Image.asset(
-                      "assets/images/png/book 1.jpg",
-                      fit: BoxFit.fill,
-                    ),
+                    child: CustomNetworkImage(imageUrl: bookModel.coverImage,fit: BoxFit.fill,)
                   ),
                 ),
               ),
@@ -95,7 +92,9 @@ class BookCard extends StatelessWidget {
                                   context.read<BookFavoriteCubit>().addBookToFavorites();
                                 },
                                 child: Icon(
-                                  (bookModel.isFavourite)?Icons.favorite: Icons.favorite_border_outlined,
+                                  (bookModel.isFavourite)?
+                                  Icons.favorite:
+                                  Icons.favorite_border_outlined,
                                   color: Colors.redAccent.withAlpha(180),
                                 ),
                               );

@@ -1,62 +1,43 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reading_app/core/lists/dummy_books.dart';
-import 'package:reading_app/core/utils/constants/colors_consts.dart';
 import 'package:reading_app/core/utils/constants/json_consts.dart';
-import 'package:reading_app/core/utils/constants/styles_consts.dart';
 import 'package:reading_app/core/utils/extensions/string_extension.dart';
 import 'package:reading_app/features/my_library/services/complered_books/completed_books_cubit.dart';
-import 'package:reading_app/features/shared/widgets/something_went_wrong.dart';
-import 'package:skeletonizer/skeletonizer.dart';
-
-import '../../../shared/widgets/list of books sliver.dart';
-
+import '../../../shared/widgets/error_dialog.dart';
+import '../../../shared/widgets/list_of_books_screen/list_of_books_screen.dart';
 class CompletedBooksBuilder extends StatelessWidget {
   const CompletedBooksBuilder({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CompletedBooksCubit, CompletedBooksState>(
+    return BlocConsumer<CompletedBooksCubit, CompletedBooksState>(
       builder: (context, state) {
         if (state is CompletedBooksLoading) {
-          return SliverToBoxAdapter(
-            child: Skeletonizer(
-              enabled: true,
-              child: ListOfBooksSliver(
+          return
+            ListOfBooksScreen(
+                title: JsonConsts.completedBooks.t(context),
                 bookList: dummyBook,
-              ),
-            ),
           );
         }
 
-        if (state is CompletedBooksSuccess) {
+        if (state is CompletedBooksSuccess) 
+        {
           final books = state.books;
-
-          if (books.isEmpty) {
-            return SliverFillRemaining(
-              child: Center(
-                child: Text(
-                  JsonConsts.thereAreNoBooksCurrently.t(context),
-                  style: StylesConsts.f18W600Black
-                      .copyWith(color: ColorsConsts.purple),
-                ),
-              ),
-            );
-          }
-
-          return SliverToBoxAdapter(
-              child: ListOfBooksSliver(
-            bookList: books,
-          ));
+          return ListOfBooksScreen(
+            title: JsonConsts.completedBooks.t(context),
+              bookList: books,
+                    );
         }
-
-        return SliverToBoxAdapter(
-          child: SomeThingWentWrongWidget(
-            onPressed: () =>
-                context.read<CompletedBooksCubit>().getCompletedBooks(),
-          ),
-        );
+        return const SliverPadding(padding: EdgeInsets.zero);
       },
+      listener: (context,state){
+        if (state is CompletedBooksFailure)
+          {
+            showCustomErrorDialog(message:state.message,context: context,onPressed: (){context.read<CompletedBooksCubit>().getCompletedBooks();});
+          }
+      },
+
     );
   }
 }

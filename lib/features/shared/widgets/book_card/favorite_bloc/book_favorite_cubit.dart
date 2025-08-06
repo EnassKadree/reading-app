@@ -5,6 +5,9 @@ class BookFavoriteCubit extends BaseCubit<BookFavoriteStates>
 {
   BookFavoriteCubit() : super(InitialFavoriteState());
 
- Future<void> addBookToFavorites()async{}
+ Future<void> addBookToFavorites()async
+ {
+
+ }
 }
 

@@ -33,7 +33,7 @@ class MyLibraryBody extends StatelessWidget {
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   children: [
-                    BookCard(
+                    MyLibraryCard(
                       title: JsonConsts.bookInProgress.t(context),
                       icon: Icons.bookmark_outline,
                       isLeftImage: true,
@@ -41,18 +41,18 @@ class MyLibraryBody extends StatelessWidget {
                         context.push(const BookInProgrees());
                       },
                     ).staggeredGrid(0),
-                    BookCard(
+                    MyLibraryCard(
                       title: JsonConsts.favoriteBooks.t(context),
                       icon: Icons.favorite_border,
                       onTap: () {},
                     ).staggeredGrid(1),
-                    BookCard(
+                    MyLibraryCard(
                       title: JsonConsts.booksToRead.t(context),
                       icon: Icons.menu_book,
                       isLeftImage: true,
                       onTap: () {},
                     ).staggeredGrid(2),
-                    BookCard(
+                    MyLibraryCard(
                       title: JsonConsts.completedBooks.t(context),
                       icon: Icons.emoji_events_outlined,
                       onTap: () {},

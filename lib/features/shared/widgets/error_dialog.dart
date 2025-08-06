@@ -58,7 +58,9 @@ Future<void> showCustomErrorDialog({
                     ),
                     padding: const EdgeInsets.symmetric(vertical: 16),
                   ),
-                  onPressed:onPressed(),
+                  onPressed:() {
+                    onPressed();
+                  },
                   child: Text(
                     buttonText,
                     style: const TextStyle(color: Colors.white),

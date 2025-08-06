@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/constants/styles_consts.dart';
+import 'package:reading_app/core/utils/extensions/space_extension.dart';
 import 'package:reading_app/core/utils/extensions/string_extension.dart';
 import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/features/home/services/authors/authors_states.dart';
@@ -76,8 +77,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         JsonConsts.categories.t(context),
                         style: StylesConsts.f18W600Black.copyWith(fontSize: 23),
                       ).mainPadding,
+                       5.spaceH,
                        CategoriesSection(categories: categories,),
+                      5.spaceH,
                        AuthorsSection(authors: authors,),
+                      5.spaceH,
                       Text(
                         JsonConsts.mostRatedBooks.t(context),
                         style: StylesConsts.f18W600Black.copyWith(fontSize: 23),
@@ -93,19 +97,23 @@ class _HomeScreenState extends State<HomeScreen> {
           }
           else {
             WidgetsBinding.instance.addPostFrameCallback((_) {
-            showCustomErrorDialog(
-                onPressed: (){
+              if (!mounted) return;  // Check if the widget is still mounted
+              showCustomErrorDialog(
+                onPressed: () {
                   Navigator.pop(context);
-              context.read<BooksCubit>().getBooks();
-              context.read<AuthorsCubit>().getAuthors();
-              context.read<CategoriesCubit>().getCategories();
-
-            },context: context,
-                message: "Error Happened ");
+                  context.read<BooksCubit>().getBooks();
+                  context.read<AuthorsCubit>().getAuthors();
+                  context.read<CategoriesCubit>().getCategories();
+                },
+                context: context,
+                message: "Error Happened",
+              );
             });
-            return const SizedBox();
+            return const SizedBox();  // Return an empty widget to continue the UI flow
           }
-        }
+
+
+            }
         );
       });
     });

@@ -4,12 +4,12 @@ import 'package:reading_app/core/utils/constants/colors_consts.dart';
 import 'package:reading_app/core/utils/constants/styles_consts.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
 
-class BookCard extends StatelessWidget {
+class MyLibraryCard extends StatelessWidget {
   final String title;
   final IconData icon;
   final bool isLeftImage;
   final VoidCallback? onTap;
-  const BookCard({
+  const MyLibraryCard({
     super.key,
     required this.title,
     required this.icon,

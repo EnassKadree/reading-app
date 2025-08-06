@@ -17,17 +17,20 @@ class HomeWrapper extends StatelessWidget {
       },
       ),
       BlocProvider(create: (BuildContext context) {
+
         return CategoriesCubit()..getCategories();
       },
       ),
       BlocProvider(create: (BuildContext context) {
+
         return AuthorsCubit()..getAuthors();
       },
       ),
       BlocProvider(create: (BuildContext context) {
+
         return BooksCubit()..getBooks();
       },
       ),
-    ], child: const HomeScreen());
+          ], child: const HomeScreen());
   }
 }

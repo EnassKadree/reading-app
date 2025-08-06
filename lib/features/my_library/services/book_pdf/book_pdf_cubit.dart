@@ -17,7 +17,7 @@ class BookPdfCubit extends BaseCubit<BookPdfState> {
     await executeWithCatch(
       action: () async {
         User user = await requireUser();
-        final String url = '${EndPoint.baseUrl}${EndPoint.bookpdf}$bookId';
+        final String url = '${EndPoint.baseUrl}${EndPoint.bookPdf}$bookId';
 
         final Map<String, dynamic> response = await Api().get(
           url: url,

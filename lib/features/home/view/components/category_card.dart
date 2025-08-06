@@ -36,7 +36,9 @@ class CategoryCard extends StatelessWidget {
               size: 15,
               color: context.colorScheme.secondary,
             ),
-            //  Image.network(category.icon),
+            // CachedNetworkImage(height: 15.h,width: 15.h,
+            //   imageUrl: category.icon,
+            // ),
             2.spaceW,
             Text(
               category.name,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reading_app/features/my_library/UI/widgets/map_painter.dart';
 import 'package:reading_app/features/my_library/services/map/map_cubit.dart';
 import 'package:reading_app/features/my_library/services/map/map_state.dart';
@@ -29,10 +30,10 @@ class SvgInteractiveMap extends StatelessWidget {
             child: FittedBox(
               fit: BoxFit.contain,
               child: SizedBox(
-                width: 1000,  // حجم الرسم الأصلي
-                height: 500,
+                width: 1000.w,
+                height: 500.h,
                 child: CustomPaint(
-                  size: const Size(1000, 500),
+                  size:  Size(1000.w, 500.h),
                   painter: MapPainter(
                     countryPaths: state.paths,
                     highlightedCountries: highlightedCountries,

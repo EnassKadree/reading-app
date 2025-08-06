@@ -21,7 +21,7 @@ class SliverBookCardGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cards = [
-      BookCard(
+      MyLibraryCard(
         title: JsonConsts.bookInProgress.t(context),
         icon: Icons.bookmark_outline,
         isLeftImage: true,
@@ -37,7 +37,7 @@ class SliverBookCardGrid extends StatelessWidget {
           );
         },
       ).staggeredGrid(0),
-      BookCard(
+      MyLibraryCard(
         title: JsonConsts.favoriteBooks.t(context),
         icon: Icons.favorite_border,
         onTap: () {
@@ -49,7 +49,7 @@ class SliverBookCardGrid extends StatelessWidget {
           );
         },
       ).staggeredGrid(1),
-      BookCard(
+      MyLibraryCard(
         title: JsonConsts.booksToRead.t(context),
         icon: Icons.menu_book,
         isLeftImage: true,
@@ -62,7 +62,7 @@ class SliverBookCardGrid extends StatelessWidget {
           );
         },
       ).staggeredGrid(2),
-      BookCard(
+      MyLibraryCard(
         title: JsonConsts.completedBooks.t(context),
         icon: Icons.emoji_events_outlined,
         onTap: () {
