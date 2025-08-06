@@ -17,6 +17,8 @@ abstract class EndPoint
   static const favorites = '/favorites';
   static const inRead = '/inread';
   static const completed = '/completed';
+  static const bookpdf = '/book/getBookFile/';
+  static const countryBook = '/country/get-trips';
    static const bookPdf = '/book/getBookFile/';
    static const countryBook = '/country/get-trips';
 
