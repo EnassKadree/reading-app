@@ -11,7 +11,6 @@ import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/features/book_details/service/book_challenge/book_challenge_cubit.dart';
 import 'package:reading_app/features/book_details/service/book_challenge/book_challenge_states.dart';
 import 'package:reading_app/features/book_details/view/components/book_challenge_container.dart';
-import 'package:reading_app/features/book_details/view/components/book_icon_text_number.dart';
 import 'package:reading_app/features/book_details/view/components/book_image_shader_mask.dart';
 import 'package:reading_app/features/book_details/view/components/scrollable_description_widget.dart';
 import 'package:reading_app/features/shared/widgets/error_dialog.dart';
