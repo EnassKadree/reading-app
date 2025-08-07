@@ -3,7 +3,7 @@
   "categories":"Categories",
   "authors":  "Authors",
   "most_rated_books": "Most Rated Books",
-    "huroof": "Huroof",
+    "huroof": "Huroof Platform",
     "welcome": "enter your email to signup to our platform",
     "email": "email address",
     "password": "strong password",
@@ -18,6 +18,8 @@
     "invalidPhoneNumber": "phone not valid",
     "successfully": "process done successfully!",
     "ok": "ok!",
+    "loginAccount": "Login Account",
+    "registerAccount": "Register Account",
 
     "welcomeBack": "Welcome Back! enter your info to login",
     "dontHaveAnAccount": "don't have an account?",

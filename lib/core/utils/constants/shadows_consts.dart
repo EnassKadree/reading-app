@@ -58,10 +58,10 @@ class ShadowsConsts {
   ];
   static List<BoxShadow>? xl3 = [
     BoxShadow(
-      color: customColor.withOpacity(0.14),
-      spreadRadius: -12,
-      blurRadius: 64,
-      offset: const Offset(0, 32),
+      color: customColor.withOpacity(0.3),
+      spreadRadius: 0,
+      blurRadius: 24,
+      offset: const Offset(0, 0),
     ),
   ];
 }

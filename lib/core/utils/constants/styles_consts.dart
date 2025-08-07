@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:reading_app/core/utils/constants/fonts_consts.dart';
 
 import 'colors_consts.dart';
 abstract class StylesConsts
@@ -22,9 +23,11 @@ abstract class StylesConsts
   TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500, color: Colors.black);
 
   static  TextStyle headerTxt = TextStyle
-    (
-      fontSize: 42.sp,
-      fontWeight: FontWeight.bold
+  (
+    fontSize: 48.sp,
+    fontWeight: FontWeight.bold,
+    fontFamily: FontsConsts.sansita,
+    height: .9
   );
   static  TextStyle descTxt = TextStyle
     (

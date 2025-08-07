@@ -58,27 +58,21 @@ class AppTheme {
         //input decoration
         inputDecorationTheme: InputDecorationTheme
           (
-          fillColor: pink.withOpacity(.5).withBlue(255),
-          filled: true,
-          contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 32),
-          hintStyle: TextStyle(color: primaryColor.withOpacity(.7), fontSize: 18),
+          contentPadding: const EdgeInsets.symmetric(vertical: 12),
+          hintStyle: TextStyle(color: primaryColor.withOpacity(.7), fontSize: 14),
           floatingLabelStyle: const TextStyle(color: primaryContainer, fontSize: 15),
           suffixIconColor: secondaryContainer,
-          disabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: Colors.transparent, width: 0),
-            borderRadius: BorderRadius.circular(32),
+          disabledBorder: const UnderlineInputBorder(
+            borderSide: BorderSide(color: Colors.transparent, width: 0),
           ),
-          enabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: Colors.transparent, width: 0),
-            borderRadius: BorderRadius.circular(32),
+          enabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: Colors.grey.withOpacity(.5), width: 2),
           ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: primaryColor, width: 1),
-            borderRadius: BorderRadius.circular(32),
+          focusedBorder: const UnderlineInputBorder(
+            borderSide: BorderSide(color: primaryColor, width: 2,),
           ),
-          focusedErrorBorder: OutlineInputBorder(
+          focusedErrorBorder: UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.red[900]!, width: 0),
-            borderRadius: BorderRadius.circular(32),
           ),
         ),
 

@@ -89,6 +89,16 @@ flutter:
         - asset: assets/fonts/Cairo-Light.ttf
           weight: 100
         - asset: assets/fonts/Cairo-Bold.ttf
+    - family: poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Poppins-Regular.ttf
+    - family: sansita
+      fonts:
+        - asset: assets/fonts/SansitaSwashed-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/SansitaSwashed-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
