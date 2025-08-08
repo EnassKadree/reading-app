@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:reading_app/features/auth/UI/screens/register_page.dart';
-import 'package:reading_app/features/home/main_layout.dart';
+import 'package:reading_app/core/utils/functions/functions.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'features/shared/data/data_source.dart';
@@ -95,7 +94,7 @@ class MyApp extends StatelessWidget {
           },
         ),
       ),
-      child: const RegisterPage()
+      child: Functions().buildHomeScreen(),
     );
   }
 }
