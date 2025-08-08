@@ -8,7 +8,6 @@ import 'package:reading_app/features/auth/logic/register/register_cubit.dart';
 
 import '../../../../core/utils/constants/assets_consts.dart';
 import '../../../../core/utils/constants/json_consts.dart';
-import '../../../../core/utils/functions/functions.dart';
 import '../../../home/main_layout.dart';
 
 
@@ -31,8 +30,7 @@ class RegisterPage extends StatelessWidget {
               (
               greeting: JsonConsts.welcome,
               lottieAsset: AssetsConsts.registerAsset,
-              onSuccess: (){Functions().showSnackBar(context, 'success');
-                context.pushReplacement(const MainLayoutWrapper());},
+              onSuccess: (){context.pushReplacement(const MainLayoutWrapper());},
             )
         )
     );
