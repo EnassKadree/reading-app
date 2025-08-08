@@ -1,5 +1,4 @@
 abstract class JsonConsts {
-
   // AUTH
   // AUTH -> register
   static const String huroof = 'huroof';
@@ -34,8 +33,8 @@ abstract class JsonConsts {
   static const String activeChallenges = 'active_challenges';
   static const String categories = 'categories';
   static const String authors = 'authors';
-  static const String mostRatedBooks='most_rated_books';
-   //MY LIBRARY
+  static const String mostRatedBooks = 'most_rated_books';
+  //MY LIBRARY
   static const String myLibrary = 'library';
   //MYLIBRARY Book download failed
   static const String mylibrary = 'mylibrary';
@@ -46,7 +45,18 @@ abstract class JsonConsts {
   static const String iHaveVisited = 'iHaveVisited';
   static const String countriesInALiteraryWay = 'countriesInALiteraryWay';
   //Exception
-  static const String pleaseLogIn ='please_log_in_first';
-   static const String thereAreNoBooksCurrently = 'ThereAreNoBooksCurrently';
-    static const String bookDownloadFailed = 'bookDownloadFailed';
+  static const String pleaseLogIn = 'please_log_in_first';
+  static const String thereAreNoBooksCurrently = 'ThereAreNoBooksCurrently';
+  static const String bookDownloadFailed = 'bookDownloadFailed';
+
+  // PROFILE
+  static const String profile = 'profile';
+  static const String favoriteQuote = 'favoriteQuote';
+  static const String bio = 'bio';
+  static const String readingStats = 'readingStats';
+  static const String books = 'books';
+  static const String countries = 'countries';
+  static const String challenges = 'challenges';
+  static const String points = 'points';
+  static const String badges = 'badges';
 }

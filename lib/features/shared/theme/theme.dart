@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reading_app/core/utils/constants/fonts_consts.dart';
 
 import '../../../core/utils/constants/colors_consts.dart';
 
@@ -12,23 +13,20 @@ class AppTheme {
   static late Color primaryContainer;
   static late Color tertiaryColor;
 
-
-  static ThemeData get lightTheme
-  {
+  static ThemeData get lightTheme {
     // colors
     const primaryColor = ColorsConsts.purple;
     const secondaryColor = ColorsConsts.gold;
-    const tertiaryColor=ColorsConsts.pink;
-    const scaffoldBackgroundColor = ColorsConsts.white;
+    const tertiaryColor = ColorsConsts.pink;
+    scaffoldBackgroundColor = Colors.grey[50]!;
     const surfaceContainer = Colors.white;
     const primaryContainer = Color(0xffD5D5D5);
     const secondaryContainer = Color(0xff888888);
     const pink = ColorsConsts.pink;
 
-
     // theme light
     return ThemeData(
-        fontFamily: "poppins",
+        fontFamily: FontsConsts.cairo,
         scaffoldBackgroundColor: scaffoldBackgroundColor,
         iconTheme: const IconThemeData(size: 28, color: primaryColor),
         // color system
@@ -42,34 +40,39 @@ class AppTheme {
           primaryContainer: primaryContainer,
         ),
         // appbar
-        appBarTheme: const AppBarTheme(
+        appBarTheme: AppBarTheme(
           shadowColor: Colors.black,
           backgroundColor: scaffoldBackgroundColor,
           surfaceTintColor: Colors.white,
           centerTitle: true,
-          iconTheme: IconThemeData(color: Colors.black),
-          titleTextStyle: TextStyle(
+          iconTheme: const IconThemeData(color: Colors.black),
+          titleTextStyle: const TextStyle(
             color: Colors.black,
             fontSize: 20,
-            fontFamily: "poppins",
+            fontFamily: FontsConsts.poppins,
           ),
         ),
 
         //input decoration
-        inputDecorationTheme: InputDecorationTheme
-          (
+        inputDecorationTheme: InputDecorationTheme(
           contentPadding: const EdgeInsets.symmetric(vertical: 12),
-          hintStyle: TextStyle(color: primaryColor.withOpacity(.7), fontSize: 14),
-          floatingLabelStyle: const TextStyle(color: primaryContainer, fontSize: 15),
+          hintStyle:
+              TextStyle(color: primaryColor.withOpacity(.7), fontSize: 14),
+          floatingLabelStyle:
+              const TextStyle(color: primaryContainer, fontSize: 15),
           suffixIconColor: secondaryContainer,
           disabledBorder: const UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.transparent, width: 0),
           ),
           enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.grey.withOpacity(.5), width: 2),
+            borderSide:
+                BorderSide(color: Colors.grey.withOpacity(.5), width: 2),
           ),
           focusedBorder: const UnderlineInputBorder(
-            borderSide: BorderSide(color: primaryColor, width: 2,),
+            borderSide: BorderSide(
+              color: primaryColor,
+              width: 2,
+            ),
           ),
           focusedErrorBorder: UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.red[900]!, width: 0),
@@ -87,24 +90,18 @@ class AppTheme {
             ),
           ),
         ),
-
-        checkboxTheme: const CheckboxThemeData
-          (
-          shape: RoundedRectangleBorder
-            (
+        checkboxTheme: const CheckboxThemeData(
+          shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(6)),
             //side: BorderSide(width: .5)
           ),
-          side: BorderSide(width: 1,color: Colors.grey),
+          side: BorderSide(width: 1, color: Colors.grey),
         ),
-        floatingActionButtonTheme: const FloatingActionButtonThemeData
-          (
+        floatingActionButtonTheme: const FloatingActionButtonThemeData(
           backgroundColor: primaryColor,
           iconSize: 32,
           shape: CircleBorder(),
-        )
-    );
-
+        ));
   }
 
   // theme dark

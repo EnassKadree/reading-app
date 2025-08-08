@@ -69,6 +69,8 @@ flutter:
     - assets/images/myLibrary/
     - assets/images/png/
     - assets/images/lottie/
+    - assets/images/profile/photo.jpg
+    - assets/images/profile/profile.jpeg
     - assets/pdf/book1.pdf
 
   #   - images/a_dot_ham.jpeg
