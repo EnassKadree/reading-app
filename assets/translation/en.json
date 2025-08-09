@@ -43,5 +43,16 @@
   "countries": "Countries",
   "challenges": "Challenges",
   "points": "Points",
-  "badges": "Badges"
+  "badges": "Badges",
+  "personalInformation": "Personal Information",
+  "firstName": "First Name",
+  "lastName": "Last Name",
+  "nickName": "Nickname",
+  "aboutYou": "About You",
+  "changePhoto": "Tap to change photo",
+  "save": "Save",
+  "setupProfile" : "Setup Profile",
+  "choosePhoto" : "Choose Photo",
+  "takeAPhoto" : "take a photo",
+  "chooseFromGallery" : "choose from gallery"
 }

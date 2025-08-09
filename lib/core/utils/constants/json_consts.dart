@@ -16,11 +16,26 @@ abstract class JsonConsts {
   static const String dontHaveAnAccount = 'dontHaveAnAccount';
   static const String loginAccount = 'loginAccount';
 
+  // AUTH -> setup profile
+  static const String personalInformation = 'personalInformation';
+  static const String firstName = 'firstName';
+  static const String lastName = 'lastName';
+  static const String nickName = 'nickName';
+  static const String aboutYou = 'aboutYou';
+  static const String changePhoto = 'changePhoto';
+  static const String save = 'save';
+  static const String setupProfile = 'setupProfile';
+  static const String choosePhoto = 'choosePhoto';
+  static const String takeAPhoto = 'takeAPhoto';
+  static const String chooseFromGallery = 'chooseFromGallery';
+
   // LANGUAGE CHOOSING
   static const String language = 'language';
 
   // VALIDATION
   static const String required = 'required';
+  static const String shortName = 'shortName';
+  static const String longName = 'longName';
   static const String passwordShort = 'passwordShort';
   static const String passwordLong = 'passwordLong';
   static const String invalidPhoneNumber = 'invalidPhoneNumber';

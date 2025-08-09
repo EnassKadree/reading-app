@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -27,29 +26,24 @@ class AuthForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container
-    (
+    return Container(
       margin: const EdgeInsets.symmetric(horizontal: 24),
       padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 32),
-      decoration: BoxDecoration
-      (
-        borderRadius: BorderRadius.circular(24.r),
-        boxShadow: ShadowsConsts.xl3,
-        color: context.colorScheme.surface
-      ),
-      child: Form
-      (
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(24.r),
+          boxShadow: ShadowsConsts.xl3,
+          color: context.colorScheme.surface),
+      child: Form(
         key: cubit.formKey,
-        child: Column
-        (
-          children: Functions().staggeredList(
-          [
+        child: Column(
+          children: Functions().staggeredList([
             32.spaceH,
-            Text
-            (
-              isRegister? JsonConsts.registerAccount.t(context) : JsonConsts.loginAccount.t(context),
-              style: StylesConsts.f23W600Yellow.copyWith(color: context.colorScheme.onSurface)
-            ),
+            Text(
+                isRegister
+                    ? JsonConsts.registerAccount.t(context)
+                    : JsonConsts.loginAccount.t(context),
+                style: StylesConsts.f23W600Yellow
+                    .copyWith(color: context.colorScheme.onSurface)),
             32.spaceH,
             CustomTextFormField(
               hint: JsonConsts.email.t(context),
@@ -68,14 +62,13 @@ class AuthForm extends StatelessWidget {
               },
             ),
             72.spaceH,
-            SizedBox
-            (
+            SizedBox(
               width: double.infinity,
-              child: CustomOutlinedButton
-              (
-              title: isRegister? JsonConsts.register : JsonConsts.login,
-              onPressed: ()
-              {context.read<RegisterCubit>().submit(isRegister: isRegister);},
+              child: CustomButton(
+                title: isRegister ? JsonConsts.register : JsonConsts.login,
+                onPressed: () {
+                  context.read<RegisterCubit>().submit(isRegister: isRegister);
+                },
               ),
             ),
             16.spaceH

@@ -1,25 +1,20 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:reading_app/core/utils/constants/assets_consts.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
 
-import '../../../shared/widgets/custom_network_image.dart';
 
 class ProfileCircleAvatar extends StatelessWidget {
   const ProfileCircleAvatar({
     super.key,
-    // required this.avatar,
+    this.imageFile,
   });
 
-  // final AvatarModel avatar;
+  final File? imageFile;
 
   @override
   Widget build(BuildContext context) {
-    // final controller = Get.find<AccountController>();
-    // return Obx(() {
-    //   final File? imageFile = controller.pickedImage.value;
-    //   final String avatarUrl = controller.profile?.avatar.preview ?? '';
     return Container(
       height: 104,
       decoration: BoxDecoration(
@@ -31,30 +26,35 @@ class ProfileCircleAvatar extends StatelessWidget {
       ),
       child: Container(
         margin: const EdgeInsets.all(5),
-        decoration: BoxDecoration(
-          color: context.colorScheme.surface,
+        decoration: const BoxDecoration(
+          color: Colors.transparent,
           shape: BoxShape.circle,
         ),
         child: CircleAvatar(
-          backgroundColor: context.colorScheme.surface,
+          backgroundColor: context.colorScheme.surface.withOpacity(.7),
           radius: 41,
-          child: ClipOval(child: Image.asset(AssetsConsts.profileAsset2)
-              // imageFile != null
-              // ? Image.file(
-              //     imageFile,
-              //     fit: BoxFit.cover,
-              //     width: MediaQuery.of(context).size.width / 5,
-              //     height: MediaQuery.of(context).size.width / 5,
-              //   )
-              // : CustomNetworkImage(
-              //     avatarUrl,
-              //     fit: BoxFit.cover,
-              //     width: MediaQuery.of(context).size.width / 5,
-              //   ),
-              ),
+          child: ClipOval(
+            child: imageFile != null
+            // ! ToDo: add custom network image
+                ? Image.file(
+                    imageFile!,
+                    fit: BoxFit.cover,
+                    width: 82,
+                    height: 82,
+                    errorBuilder: (context, error, stackTrace) {
+                      return Icon(
+                        Iconsax.user,
+                        color: context.colorScheme.primary,
+                      );
+                    },
+                  )
+                : Icon(
+                    Iconsax.user,
+                    color: context.colorScheme.primary,
+                  ),
+          ),
         ),
       ),
     );
-    // });
   }
 }

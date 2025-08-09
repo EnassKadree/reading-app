@@ -43,5 +43,16 @@
   "countries": "مدن",
   "challenges": "تحديات",
   "points": "نقاط",
-  "badges": "الإنجازات"
+  "badges": "الإنجازات",
+  "personalInformation": "معلومات شخصية",
+  "firstName": "الاسم الأول",
+  "lastName": "الاسم الأخير",
+  "nickName": "اللقب",
+  "aboutYou": "عنك",
+  "changePhoto": "انقر لتغيير الصورة",
+  "save": "حفظ",
+  "setupProfile" : "تعديل الحساب",
+  "choosePhoto" : "اختر صورة",
+  "takeAPhoto" : "التقط صورة",
+  "chooseFromGallery" : "اختر من المعرض"
 }

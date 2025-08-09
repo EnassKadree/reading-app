@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:reading_app/core/utils/constants/json_consts.dart';
+import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
 import 'package:reading_app/core/utils/extensions/string_extension.dart';
 
 import '../../../../core/utils/constants/colors_consts.dart';
 import '../../../../core/utils/constants/styles_consts.dart';
+import '../screens/setup_profile_screen.dart';
 import 'profile_circle_avatar.dart';
 
 class ProfileHeader extends StatelessWidget {
@@ -44,7 +46,9 @@ class ProfileHeader extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: () => context.push(const SetupProfileScreenWrapper(
+                        isSetup: false,
+                      )),
                       icon: const Icon(
                         Iconsax.edit,
                         color: Colors.white,

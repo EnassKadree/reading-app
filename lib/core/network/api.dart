@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:http/http.dart' as http;
 
@@ -25,6 +26,51 @@ class Api {
       return responseData;
     } else {
       throw Exception(responseData['message']);
+    }
+  }
+
+  Future<dynamic> postWithFile({
+    required String url,
+    required Map<String, String> fields,
+    required Map<String, File> files,
+    String? token,
+  }) async {
+    String locale = DataSource().getLocale() ?? 'ar';
+
+    var request = http.MultipartRequest('POST', Uri.parse(url));
+
+    // Add headers
+    request.headers.addAll({
+      'Accept': 'application/json',
+      'Accept-Language': locale,
+      if (token != null) 'Authorization': 'Bearer $token',
+    });
+
+    // Add text fields
+    request.fields.addAll(fields);
+
+    // Add files
+    for (var entry in files.entries) {
+      var stream = http.ByteStream(entry.value.openRead());
+      var length = await entry.value.length();
+      var multipartFile = http.MultipartFile(
+        entry.key,
+        stream,
+        length,
+        filename: entry.value.path.split('/').last,
+      );
+      request.files.add(multipartFile);
+    }
+
+    var streamedResponse = await request.send();
+    var response = await http.Response.fromStream(streamedResponse);
+
+    Map<String, dynamic> responseData = jsonDecode(response.body);
+
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      return responseData;
+    } else {
+      throw Exception(responseData['message'] ?? 'Upload failed');
     }
   }
 
@@ -64,6 +110,5 @@ class Api {
   Future<dynamic> getWithToken(
       {required String url, required String token}) async {
     return get(url: url, token: token);
-
   }
 }

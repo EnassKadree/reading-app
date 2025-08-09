@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:reading_app/core/utils/constants/styles_consts.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
@@ -50,7 +51,6 @@ class SliverBar extends StatelessWidget {
           ),
         ),
       ),
-
       floating: true,
       leading: Visibility(
         visible: backButtonVisibility ?? false,
@@ -68,28 +68,28 @@ class SliverBar extends StatelessWidget {
       ),
       actions: [
         if (searchVisibility ?? true)
-        GestureDetector(
-          onTap: () {},
-          child: Icon(
-            Icons.search,
-            color: (whiteColor != true)
-                ? context.colorScheme.surfaceContainer
-                : context.colorScheme.primary,
-          ),
-        ),
-        10.spaceW,
-        if (menuVisibility ?? true)
           GestureDetector(
             onTap: () {},
             child: Icon(
-              Icons.list,
+              Icons.search,
               color: (whiteColor != true)
                   ? context.colorScheme.surfaceContainer
                   : context.colorScheme.primary,
             ),
           ),
         10.spaceW,
-         actionWidget??const SizedBox()
+        if (menuVisibility ?? true)
+          GestureDetector(
+            onTap: () {},
+            child: Icon(
+              Iconsax.menu_1,
+              color: (whiteColor != true)
+                  ? context.colorScheme.surfaceContainer
+                  : context.colorScheme.primary,
+            ),
+          ),
+        10.spaceW,
+        actionWidget ?? const SizedBox()
       ],
     );
   }

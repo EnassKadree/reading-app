@@ -48,7 +48,6 @@ abstract class BaseCubit<State> extends Cubit<State> {
     }
   }
 
-  // ! till we setup auth
   Future<User> requireUser() async {
     User? user = DataSource().getUser();
     if (user == null) {
