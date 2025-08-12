@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
+import 'package:reading_app/core/utils/extensions/string_extension.dart';
 
 import '../../../../core/utils/constants/styles_consts.dart';
 
@@ -39,7 +41,7 @@ class BadgesContainer extends StatelessWidget {
                   ),
                   12.spaceW,
                   Text(
-                    'Achievements (${badges.length})',
+                    JsonConsts.badges.t(context),
                     style: StylesConsts.f18W600Black.copyWith(
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
@@ -47,13 +49,10 @@ class BadgesContainer extends StatelessWidget {
                   ),
                 ],
               ),
-              Text(
-                'more..',
-                style: StylesConsts.f15W400Grey.copyWith(
-                  fontSize: 14,
-                  color: Colors.blue[400],
-                ),
-              ),
+              const Icon(
+                Iconsax.arrow_down_1,
+                color: Colors.blue,
+              )
             ],
           ),
           20.spaceH,

@@ -29,8 +29,6 @@ abstract class JsonConsts {
   static const String takeAPhoto = 'takeAPhoto';
   static const String chooseFromGallery = 'chooseFromGallery';
 
-  // LANGUAGE CHOOSING
-  static const String language = 'language';
 
   // VALIDATION
   static const String required = 'required';
@@ -74,4 +72,10 @@ abstract class JsonConsts {
   static const String challenges = 'challenges';
   static const String points = 'points';
   static const String badges = 'badges';
+
+  // SETTINGS
+  static const String darkMode = 'darkMode';
+  static const String language = 'language';
+  static const String currentLanguage = 'currentLanguage';
+  static const String logout = 'logout';
 }

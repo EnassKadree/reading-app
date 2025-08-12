@@ -4,6 +4,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:reading_app/core/utils/constants/styles_consts.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
+import 'package:reading_app/core/utils/functions/functions.dart';
 
 class SliverBar extends StatelessWidget {
   const SliverBar({
@@ -80,7 +81,9 @@ class SliverBar extends StatelessWidget {
         10.spaceW,
         if (menuVisibility ?? true)
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Functions().showSettingsDialog(context);
+            },
             child: Icon(
               Iconsax.menu_1,
               color: (whiteColor != true)

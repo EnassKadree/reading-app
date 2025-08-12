@@ -10,7 +10,6 @@
   "haveAnAccount" : "تمتلك حساباً بالفعل؟",
   "next": "التالي",
   "login": "تسجيل الدخول",
-  "language": "اللغة",
   "required": "الحقل مطلوب",
   "passwordShort": "كلمة السر قصيرة جداً",
   "passwordLong": "كلمة السر طويلة جداً",
@@ -54,5 +53,9 @@
   "setupProfile" : "تعديل الحساب",
   "choosePhoto" : "اختر صورة",
   "takeAPhoto" : "التقط صورة",
-  "chooseFromGallery" : "اختر من المعرض"
+  "chooseFromGallery" : "اختر من المعرض",
+  "darkMode": "الوضع الليلي",
+  "language": "اللغة",
+  "currentLanguage": "العربية",
+  "logout": "تسجيل الخروج"
 }

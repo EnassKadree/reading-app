@@ -11,7 +11,6 @@
   "haveAnAccount" : "have an account?",
   "next": "next",
   "login": "login",
-  "language": "language",
   "required": "field is required",
   "passwordShort": "password is too short",
   "passwordLong": "password is too long",
@@ -54,5 +53,9 @@
   "setupProfile" : "Setup Profile",
   "choosePhoto" : "Choose Photo",
   "takeAPhoto" : "take a photo",
-  "chooseFromGallery" : "choose from gallery"
+  "chooseFromGallery" : "choose from gallery",
+  "darkMode": "Dark Mode",
+  "language": "language",
+  "currentLanguage": "English",
+  "logout": "Logout"
 }
