@@ -57,5 +57,8 @@
   "darkMode": "الوضع الليلي",
   "language": "اللغة",
   "currentLanguage": "العربية",
-  "logout": "تسجيل الخروج"
+  "logout": "تسجيل الخروج",
+  "home": "الرئيسة", 
+  "library": "المكتبة", 
+  "community": "المجتمع"
 }

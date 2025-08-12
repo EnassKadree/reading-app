@@ -5,9 +5,11 @@ import 'package:reading_app/core/utils/extensions/space_extension.dart';
 import 'package:reading_app/core/utils/extensions/string_extension.dart';
 
 import '../../../../core/utils/constants/styles_consts.dart';
+import '../../../shared/models/profile_model.dart';
 
 class StatsContainer extends StatelessWidget {
-  const StatsContainer({super.key});
+  const StatsContainer({super.key, required this.profile});
+  final ProfileModel profile;
 
   @override
   Widget build(BuildContext context) {
@@ -50,13 +52,14 @@ class StatsContainer extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              _buildStatItem(context, JsonConsts.books.t(context), '24', Iconsax.book, Colors.blue),
-              _buildStatItem(
-                  context, JsonConsts.countries.t(context), '12', Iconsax.global, Colors.green),
-              _buildStatItem(
-                  context, JsonConsts.challenges.t(context), '8', Iconsax.medal, Colors.purple),
-              _buildStatItem(
-                  context, JsonConsts.points.t(context), '1,250', Iconsax.star, Colors.orange),
+              _buildStatItem(context, JsonConsts.books.t(context), profile.booksNumber,
+                  Iconsax.book, Colors.blue),
+              _buildStatItem(context, JsonConsts.countries.t(context), profile.countriesNumber,
+                  Iconsax.global, Colors.green),
+              _buildStatItem(context, JsonConsts.challenges.t(context), profile.challengesNumber,
+                  Iconsax.medal, Colors.purple),
+              _buildStatItem(context, JsonConsts.points.t(context), profile.totalPoints,
+                  Iconsax.star, Colors.orange),
             ],
           ),
         ],
@@ -64,7 +67,7 @@ class StatsContainer extends StatelessWidget {
     );
   }
 
-  Widget _buildStatItem(BuildContext context, String label, String value,
+  Widget _buildStatItem(BuildContext context, String label, int value,
       IconData icon, Color color) {
     return Column(
       children: [
@@ -82,7 +85,7 @@ class StatsContainer extends StatelessWidget {
         ),
         8.spaceH,
         Text(
-          value,
+          value.toString(),
           style: StylesConsts.f18W600Black.copyWith(
               fontSize: 20, fontWeight: FontWeight.bold, color: color),
         ),

@@ -8,6 +8,7 @@ import 'package:reading_app/core/utils/functions/functions.dart';
 import 'package:reading_app/features/home/main_layout.dart';
 import 'package:reading_app/features/profile/UI/widgets/setup_profile_header.dart';
 import 'package:reading_app/features/profile/logic/setup/setup_profile_cubit.dart';
+import 'package:reading_app/features/shared/models/profile_model.dart';
 import 'package:reading_app/features/shared/widgets/custom_button.dart';
 import 'package:reading_app/features/shared/widgets/custom_progress_indicator.dart';
 
@@ -67,13 +68,15 @@ class SetupProfileScreen extends StatelessWidget {
 }
 
 class SetupProfileScreenWrapper extends StatelessWidget {
-  const SetupProfileScreenWrapper({super.key, required this.isSetup});
+  const SetupProfileScreenWrapper(
+      {super.key, required this.isSetup, this.profile});
   final bool isSetup;
+  final ProfileModel? profile;
 
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-        providers: [BlocProvider(create: (context) => SetupProfileCubit())],
+        providers: [BlocProvider(create: (context) => SetupProfileCubit(profile)..loadData())],
         child: SetupProfileScreen(isSetup: isSetup));
   }
 }

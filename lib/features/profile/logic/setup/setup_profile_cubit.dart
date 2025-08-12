@@ -5,13 +5,15 @@ import 'package:reading_app/core/utils/base/base_cubit.dart';
 
 import '../../../../core/network/api.dart';
 import '../../../../core/network/end_point.dart';
+import '../../../shared/models/profile_model.dart';
 import '../../../shared/user/user_model.dart';
 
 part 'setup_profile_state.dart';
 
 class SetupProfileCubit extends BaseCubit<SetupProfileState> {
-  SetupProfileCubit() : super(SetupProfileInitial());
+  SetupProfileCubit(this.profile) : super(SetupProfileInitial());
 
+  final ProfileModel? profile;
   final String setupProfileEndPoint =
       '${EndPoint.baseUrl}${EndPoint.setupProfile}';
   final formKey = GlobalKey<FormState>();
@@ -20,9 +22,21 @@ class SetupProfileCubit extends BaseCubit<SetupProfileState> {
   final TextEditingController nicknameController = TextEditingController();
   final TextEditingController bioController = TextEditingController();
   final TextEditingController quoteController = TextEditingController();
+  String? pictureUrl;
 
   File? selectedImage;
   final ImagePicker _imagePicker = ImagePicker();
+
+  void loadData() {
+    if (profile != null) {
+      firstNameController.text = profile!.firstName;
+      lastNameController.text = profile!.lastName;
+      nicknameController.text = profile!.nickname;
+      bioController.text = profile!.bio;
+      quoteController.text = profile!.quote;
+      pictureUrl = profile!.picture;
+    }
+  }
 
   Future<void> pickImageFromCamera() async {
     try {
@@ -93,7 +107,6 @@ class SetupProfileCubit extends BaseCubit<SetupProfileState> {
               token: user.accessToken,
             );
           }
-
           emit(SetupProfileSuccess());
         },
         emit: emit,

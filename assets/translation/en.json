@@ -57,5 +57,8 @@
   "darkMode": "Dark Mode",
   "language": "language",
   "currentLanguage": "English",
-  "logout": "Logout"
+  "logout": "Logout",
+  "home": "Home", 
+  "library": "Library", 
+  "community": "Community"
 }

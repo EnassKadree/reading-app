@@ -101,7 +101,17 @@ class AppTheme {
           backgroundColor: primaryColor,
           iconSize: 32,
           shape: CircleBorder(),
-        ));
+        ),
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+            backgroundColor: surfaceContainer,
+            elevation: 10,
+            unselectedItemColor: primaryColor.withAlpha(100),
+            selectedItemColor: primaryColor,
+            selectedIconTheme: const IconThemeData(size: 24),
+            unselectedIconTheme: const IconThemeData(size: 24),
+            showSelectedLabels: true,
+            showUnselectedLabels: true,
+            type: BottomNavigationBarType.fixed));
   }
 
   // theme dark

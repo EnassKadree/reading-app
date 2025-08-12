@@ -21,6 +21,8 @@ class Api {
       body: body,
     );
     Map<String, dynamic> responseData = jsonDecode(response.body);
+    print('-------------------------response--------------------------');
+    print(responseData.toString());
 
     if (response.statusCode == 200 || response.statusCode == 201) {
       return responseData;
@@ -66,6 +68,8 @@ class Api {
     var response = await http.Response.fromStream(streamedResponse);
 
     Map<String, dynamic> responseData = jsonDecode(response.body);
+    print('----------------response----------------------');
+    print(responseData.toString());
 
     if (response.statusCode == 200 || response.statusCode == 201) {
       return responseData;

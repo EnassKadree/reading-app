@@ -3,11 +3,14 @@ import 'package:iconsax/iconsax.dart';
 import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
 import 'package:reading_app/core/utils/extensions/string_extension.dart';
+import 'package:reading_app/features/shared/models/badge_model.dart';
+import 'package:reading_app/features/shared/widgets/custom_network_image.dart';
 
 import '../../../../core/utils/constants/styles_consts.dart';
 
 class BadgesContainer extends StatelessWidget {
-  const BadgesContainer({super.key});
+  const BadgesContainer({super.key, required this.badges});
+  final List<BadgeModel> badges;
 
   @override
   Widget build(BuildContext context) {
@@ -49,10 +52,6 @@ class BadgesContainer extends StatelessWidget {
                   ),
                 ],
               ),
-              const Icon(
-                Iconsax.arrow_down_1,
-                color: Colors.blue,
-              )
             ],
           ),
           20.spaceH,
@@ -72,86 +71,34 @@ class BadgesContainer extends StatelessWidget {
     );
   }
 
-  Widget _buildBadgeItem(BuildContext context, BadgeItem badge) {
+  Widget _buildBadgeItem(BuildContext context, BadgeModel badge) {
     return Container(
       width: 100,
       margin: const EdgeInsets.only(right: 16),
       child: Column(
         children: [
           Container(
-            width: 80,
-            height: 80,
-            decoration: BoxDecoration(
-              color: badge.isUnlocked ? badge.color : Colors.grey[300],
-              borderRadius: BorderRadius.circular(12),
-              boxShadow: [
-                BoxShadow(
-                  color: badge.isUnlocked
-                      ? badge.color.withOpacity(0.3)
-                      : Colors.grey.withOpacity(0.2),
-                  spreadRadius: 1,
-                  blurRadius: 4,
-                  offset: const Offset(0, 2),
-                ),
-              ],
-            ),
-            child: Stack(
-              children: [
-                // Background pattern for unlocked badges
-                if (badge.isUnlocked)
-                  Positioned(
-                    top: 8,
-                    left: 8,
-                    child: Container(
-                      width: 20,
-                      height: 20,
-                      decoration: BoxDecoration(
-                        color: badge.color.withOpacity(0.3),
-                        shape: BoxShape.circle,
-                      ),
-                    ),
+              width: 80,
+              height: 80,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.2),
+                    spreadRadius: 1,
+                    blurRadius: 4,
+                    offset: const Offset(0, 2),
                   ),
-                // Main icon
-                Center(
-                  child: Container(
-                    padding: const EdgeInsets.all(16),
-                    decoration: BoxDecoration(
-                      color: badge.isUnlocked
-                          ? Colors.white.withOpacity(0.9)
-                          : Colors.grey[200],
-                      shape: BoxShape.circle,
-                    ),
-                    child: Icon(
-                      badge.icon,
-                      color: badge.isUnlocked ? badge.color : Colors.grey[400],
-                      size: 24,
-                    ),
-                  ),
-                ),
-                // Decorative element for unlocked badges
-                if (badge.isUnlocked)
-                  Positioned(
-                    bottom: 8,
-                    right: 8,
-                    child: Container(
-                      width: 12,
-                      height: 12,
-                      decoration: BoxDecoration(
-                        color: badge.color.withOpacity(0.7),
-                        shape: BoxShape.circle,
-                      ),
-                    ),
-                  ),
-              ],
-            ),
-          ),
+                ],
+              ),
+              child: CustomNetworkImage(imageUrl: badge.icon)),
           8.spaceH,
           Text(
-            badge.name,
+            badge.title,
             style: StylesConsts.f15W400Grey.copyWith(
               fontSize: 11,
               fontWeight: FontWeight.w500,
-              color: badge.isUnlocked ? badge.color : Colors.grey[400],
+              color: Colors.grey,
             ),
             textAlign: TextAlign.center,
             maxLines: 2,
@@ -162,74 +109,3 @@ class BadgesContainer extends StatelessWidget {
     );
   }
 }
-
-class BadgeItem {
-  final String name;
-  final IconData icon;
-  final Color color;
-  final bool isUnlocked;
-
-  BadgeItem({
-    required this.name,
-    required this.icon,
-    required this.color,
-    required this.isUnlocked,
-  });
-}
-
-final List<BadgeItem> badges = [
-  BadgeItem(
-    name: 'First Book',
-    icon: Iconsax.book,
-    color: Colors.pink[400]!,
-    isUnlocked: true,
-  ),
-  BadgeItem(
-    name: 'Speed Reader',
-    icon: Iconsax.timer,
-    color: Colors.blue[400]!,
-    isUnlocked: true,
-  ),
-  BadgeItem(
-    name: 'Bookworm',
-    icon: Iconsax.book_square,
-    color: Colors.yellow[600]!,
-    isUnlocked: true,
-  ),
-  BadgeItem(
-    name: 'Global Explorer',
-    icon: Iconsax.global,
-    color: Colors.purple[400]!,
-    isUnlocked: true,
-  ),
-  BadgeItem(
-    name: 'Challenge Master',
-    icon: Iconsax.medal,
-    color: Colors.red[400]!,
-    isUnlocked: true,
-  ),
-  BadgeItem(
-    name: 'Streak Keeper',
-    icon: Iconsax.star,
-    color: Colors.amber[400]!,
-    isUnlocked: true,
-  ),
-  BadgeItem(
-    name: 'Night Owl',
-    icon: Iconsax.moon,
-    color: Colors.indigo[400]!,
-    isUnlocked: false,
-  ),
-  BadgeItem(
-    name: 'Early Bird',
-    icon: Iconsax.sun,
-    color: Colors.orange[400]!,
-    isUnlocked: false,
-  ),
-  BadgeItem(
-    name: 'Social Reader',
-    icon: Iconsax.people,
-    color: Colors.green[400]!,
-    isUnlocked: false,
-  ),
-];

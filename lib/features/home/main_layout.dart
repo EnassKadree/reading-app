@@ -12,20 +12,20 @@ class MainLayout extends StatelessWidget {
   const MainLayout({super.key});
 
   static const _pages = [
-    HomeWrapper(),
     MyLibraryPage(),
     ChallengesScreen(),
+    HomeWrapper(),
     CommunityScreen(),
-    ProfileScreen()
+    ProfileScreenWrapper()
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocBuilder<BottomNavCubit, int>(
-          builder: (BuildContext context, state) {
-        return _pages[state];
-      },
+        builder: (BuildContext context, state) {
+          return _pages[state];
+        },
       ),
       bottomNavigationBar: const CustomNavigationBar(),
     );
@@ -38,7 +38,9 @@ class MainLayoutWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(providers: [
-      BlocProvider(create: (context) => BottomNavCubit(),),
+      BlocProvider(
+        create: (context) => BottomNavCubit(),
+      ),
     ], child: const MainLayout());
   }
 }

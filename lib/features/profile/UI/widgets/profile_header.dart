@@ -7,13 +7,15 @@ import 'package:reading_app/core/utils/extensions/string_extension.dart';
 
 import '../../../../core/utils/constants/colors_consts.dart';
 import '../../../../core/utils/constants/styles_consts.dart';
+import '../../../shared/models/profile_model.dart';
 import '../screens/setup_profile_screen.dart';
 import 'profile_circle_avatar.dart';
 
 class ProfileHeader extends StatelessWidget {
-  const ProfileHeader({
-    super.key,
-  });
+  const ProfileHeader(
+      {super.key, this.editable = false, required this.profile});
+  final bool editable;
+  final ProfileModel profile;
 
   @override
   Widget build(BuildContext context) {
@@ -46,8 +48,9 @@ class ProfileHeader extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: IconButton(
-                      onPressed: () => context.push(const SetupProfileScreenWrapper(
+                      onPressed: () => context.push(SetupProfileScreenWrapper(
                         isSetup: false,
+                        profile: profile,
                       )),
                       icon: const Icon(
                         Iconsax.edit,
@@ -61,13 +64,13 @@ class ProfileHeader extends StatelessWidget {
               16.spaceH,
               Row(
                 children: [
-                  const ProfileCircleAvatar(),
+                  ProfileCircleAvatar(picture: profile.picture),
                   12.spaceW,
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Enass Al-Kadree',
+                        '${profile.firstName} ${profile.lastName}',
                         style: StylesConsts.f18W600Black.copyWith(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -76,7 +79,7 @@ class ProfileHeader extends StatelessWidget {
                       ),
                       4.spaceH,
                       Text(
-                        '@EnassOo',
+                        '@${profile.nickname}',
                         style: StylesConsts.f15W400Grey.copyWith(
                           color: Colors.white.withOpacity(0.8),
                           fontSize: 14,

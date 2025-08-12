@@ -1,62 +1,102 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:reading_app/core/lists/dummy_profile.dart';
 import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
 import 'package:reading_app/core/utils/extensions/string_extension.dart';
 import 'package:reading_app/features/profile/UI/widgets/stats_container.dart';
 import 'package:reading_app/features/profile/UI/widgets/badges_container.dart';
+import 'package:reading_app/features/shared/models/profile_model.dart';
+import 'package:reading_app/features/shared/widgets/something_went_wrong.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../core/utils/functions/functions.dart';
+import '../../logic/profile/profile_cubit.dart';
 import '../widgets/profile_header.dart';
 import '../widgets/profile_surface_container.dart';
 
 class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+  const ProfileScreen({super.key, this.userId});
+  final String? userId;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const ProfileHeader(),
-            Padding(
-              padding: const EdgeInsets.all(24.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: Functions().staggeredList([
-                  ProfileSurfaceContainer(
-                    icon: Icon(
-                      Iconsax.quote_down,
-                      color: Colors.blue[400],
-                      size: 24,
+      body: BlocBuilder<ProfileCubit, ProfileState>(
+        builder: (context, state) {
+          if (state is ProfileFailure) {
+            return Center(
+              child: SomeThingWentWrongWidget(onPressed: () {
+                context.read<ProfileCubit>().getProfile(userId: userId);
+              }),
+            );
+          }
+          ProfileModel data =
+              state is ProfileSuccess ? state.profile : dummyProfile;
+          return Skeletonizer(
+              enabled: state is ProfileLoading,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    ProfileHeader(
+                      editable: userId != null,
+                      profile: data,
                     ),
-                    title: JsonConsts.favoriteQuote.t(context),
-                    desc:
-                        'If you really want something, the whole universe will conspire to help you achieve it',
-                    isItalic: true,
-                  ),
-                  24.spaceH,
-                  ProfileSurfaceContainer(
-                      icon: Icon(
-                        Iconsax.user,
-                        color: Colors.purple[400],
-                        size: 24,
+                    Padding(
+                      padding: const EdgeInsets.all(24.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: Functions().staggeredList([
+                          ProfileSurfaceContainer(
+                            icon: Icon(
+                              Iconsax.quote_down,
+                              color: Colors.blue[400],
+                              size: 24,
+                            ),
+                            title: JsonConsts.favoriteQuote.t(context),
+                            desc: data.quote,
+                            isItalic: true,
+                          ),
+                          24.spaceH,
+                          ProfileSurfaceContainer(
+                              icon: Icon(
+                                Iconsax.user,
+                                color: Colors.purple[400],
+                                size: 24,
+                              ),
+                              title: JsonConsts.bio.t(context),
+                              desc: data.bio),
+                          24.spaceH,
+                          StatsContainer(
+                            profile: data,
+                          ),
+                          24.spaceH,
+                          BadgesContainer(
+                            badges: data.badges,
+                          ),
+                          32.spaceH,
+                        ]),
                       ),
-                      title: JsonConsts.bio.t(context),
-                      desc:
-                          'Passionate book lover and avid reader. I believe in the power of stories to transform lives and connect people across cultures.'),
-                  24.spaceH,
-                  const StatsContainer(),
-                  24.spaceH,
-                  const BadgesContainer(),
-                  32.spaceH,
-                ]),
-              ),
-            ),
-          ],
-        ),
+                    ),
+                  ],
+                ),
+              ));
+        },
       ),
+    );
+  }
+}
+
+class ProfileScreenWrapper extends StatelessWidget {
+  const ProfileScreenWrapper({super.key, this.userId});
+  final String? userId;
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => ProfileCubit()..getProfile(userId: userId),
+      child: ProfileScreen(userId: userId),
     );
   }
 }

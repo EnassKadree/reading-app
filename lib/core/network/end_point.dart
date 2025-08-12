@@ -1,17 +1,16 @@
-abstract class EndPoint
-{
+abstract class EndPoint {
   static const baseUrl = 'https://reading-app.up.railway.app/api';
   static const booksBaseUrl = '$baseUrl/mobile/books';
   static const register = '/register';
   static const login = '/login';
-  static const setupProfile = '/auth/setup-profile';
+  static const setupProfile = '/profile';
   //home
-  static const userChallenges ='/getchallenges';
+  static const userChallenges = '/getchallenges';
   static const categories = '/category/getCategories';
-  static const categoryBooks='/mobile/books/category-books/';
-  static const authors='/mobile/author/getAuthors';
-  static const authorBooks='/mobile/books/author-books/';
-  static const mostRatedBooks='/mobile/books/most-rated';
+  static const categoryBooks = '/mobile/books/category-books/';
+  static const authors = '/mobile/author/getAuthors';
+  static const authorBooks = '/mobile/books/author-books/';
+  static const mostRatedBooks = '/mobile/books/most-rated';
 
   //Mylibary /country/get-trips
   static const toRead = '/toread';
@@ -20,12 +19,14 @@ abstract class EndPoint
   static const completed = '/completed';
   static const bookpdf = '/book/getBookFile/';
   static const countryBook = '/country/get-trips';
-   static const bookPdf = '/book/getBookFile/';
+  static const bookPdf = '/book/getBookFile/';
+
+  // PROFILE
+  static const profile = '/mobile/reader/showProfile';
 
 //BOOK DETAILS
-  static const bookChallenge= '/mobile/books/GetBookChallenge/';
-   //
-  static const appLink= "https://play.google.com/store/apps/details?id=com.example.reading_app";
-
-
+  static const bookChallenge = '/mobile/books/GetBookChallenge/';
+  //
+  static const appLink =
+      "https://play.google.com/store/apps/details?id=com.example.reading_app";
 }

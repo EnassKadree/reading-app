@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reading_app/features/shared/data/data_source.dart';
 import 'package:reading_app/features/shared/user/user_model.dart';
 
-
 abstract class BaseCubit<State> extends Cubit<State> {
   BaseCubit(super.initialState);
 
@@ -15,31 +14,27 @@ abstract class BaseCubit<State> extends Cubit<State> {
     }
   }
 
-  Future<void> executeWithCatch<E>
-  ({
+  Future<void> executeWithCatch<E>({
     required Future<void> Function() action,
     required Function(E) emit,
     required E Function(String) failureStateBuilder,
-  }) async 
-  {
-    try 
-    {
+  }) async {
+    try {
       await action();
     } on SocketException catch (e) {
       handleSocketException(e, emit, failureStateBuilder);
     } catch (e) {
+      print('====================errror===================');
+      print(e.toString());
       handleGenericException(e, emit, failureStateBuilder);
     }
   }
 
-  List<T> parseResponse<T>
-  ({
+  List<T> parseResponse<T>({
     required Map<String, dynamic> response,
     required T Function(Map<String, dynamic>) fromJson,
-  }) 
-  {
-    if (response['data'] is List) 
-    {
+  }) {
+    if (response['data'] is List) {
       return (response['data'] as List)
           .map((data) => fromJson(data as Map<String, dynamic>))
           .toList();
@@ -56,14 +51,13 @@ abstract class BaseCubit<State> extends Cubit<State> {
     return user;
   }
 
-  void handleSocketException<E>
-  (
+  void handleSocketException<E>(
     SocketException e,
     Function(E) emit,
     E Function(String) failureStateBuilder,
-  )
-  {
-    if (e.osError != null && e.osError!.message.contains('Failed host lookup')) {
+  ) {
+    if (e.osError != null &&
+        e.osError!.message.contains('Failed host lookup')) {
       emit(failureStateBuilder('لا يوجد اتصال بالإنترنت'));
     } else {
       emit(failureStateBuilder('خطأ في الاتصال بالشبكة'));
