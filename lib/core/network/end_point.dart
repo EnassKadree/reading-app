@@ -23,7 +23,8 @@ abstract class EndPoint {
 
   // PROFILE
   static const profile = '/mobile/reader/showProfile';
-  static const setupProfile = '/profile';
+  static const setupProfile = '/auth/setup-profile';
+  static const editProfile = '/auth/edit-profile';
 
   // COMMUNITY
   static const community = '/reader/getAllProfiles';

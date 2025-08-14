@@ -52,7 +52,10 @@ class SetupProfileHeader extends StatelessWidget {
                   onTap: () => _showImagePickerDialog(context, cubit),
                   child: Stack(
                     children: [
-                      ProfileCircleAvatar(imageFile: selectedImage, picture: cubit.pictureUrl,),
+                      ProfileCircleAvatar(
+                        imageFile: selectedImage,
+                        picture: cubit.pictureUrl ?? '',
+                      ),
                       Positioned(
                         bottom: 0,
                         right: 0,

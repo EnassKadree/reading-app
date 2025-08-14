@@ -33,13 +33,14 @@ class MainLayout extends StatelessWidget {
 }
 
 class MainLayoutWrapper extends StatelessWidget {
-  const MainLayoutWrapper({super.key});
+  const MainLayoutWrapper({super.key, this.init});
+  final int? init;
 
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(providers: [
       BlocProvider(
-        create: (context) => BottomNavCubit(),
+        create: (context) => BottomNavCubit(init: init ?? 2),
       ),
     ], child: const MainLayout());
   }

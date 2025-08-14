@@ -26,8 +26,7 @@ class SetupProfileScreen extends StatelessWidget {
           if (isSetup) {
             context.pushAndRemoveAll(const MainLayoutWrapper());
           } else {
-            context.pop();
-            // ToDo: request new profile data
+            context.pushAndRemoveAll(const MainLayoutWrapper(init: 4,));
           }
         } else if (state is SetupProfileFailure) {
           Functions().showSnackBar(context, state.message);
@@ -42,7 +41,7 @@ class SetupProfileScreen extends StatelessWidget {
             radius: 16,
             onPressed: () {
               if (cubit.formKey.currentState!.validate()) {
-                cubit.submit();
+                cubit.submit(isSetup);
               }
             },
           ).mainPadding,
@@ -75,8 +74,8 @@ class SetupProfileScreenWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-        providers: [BlocProvider(create: (context) => SetupProfileCubit(profile)..loadData())],
-        child: SetupProfileScreen(isSetup: isSetup));
+    return MultiBlocProvider(providers: [
+      BlocProvider(create: (context) => SetupProfileCubit(profile)..loadData()),
+    ], child: SetupProfileScreen(isSetup: isSetup));
   }
 }

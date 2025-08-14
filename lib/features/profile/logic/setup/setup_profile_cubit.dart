@@ -14,8 +14,9 @@ class SetupProfileCubit extends BaseCubit<SetupProfileState> {
   SetupProfileCubit(this.profile) : super(SetupProfileInitial());
 
   final ProfileModel? profile;
-  final String setupProfileEndPoint =
-      '${EndPoint.baseUrl}${EndPoint.setupProfile}';
+  final String setupProfileEndPoint = '${EndPoint.baseUrl}/auth/setup-profile';
+  final String editProfileEndPoint =
+      '${EndPoint.baseUrl}${EndPoint.editProfile}';
   final formKey = GlobalKey<FormState>();
   final TextEditingController firstNameController = TextEditingController();
   final TextEditingController lastNameController = TextEditingController();
@@ -72,7 +73,7 @@ class SetupProfileCubit extends BaseCubit<SetupProfileState> {
     }
   }
 
-  Future<void> submit() async {
+  Future<void> submit(bool isSetup) async {
     emit(SetupProfileLoading());
     await executeWithCatch(
         action: () async {
@@ -93,16 +94,18 @@ class SetupProfileCubit extends BaseCubit<SetupProfileState> {
             files['picture'] = selectedImage!;
           }
 
+          String url = isSetup ? setupProfileEndPoint : editProfileEndPoint;
+
           if (files.isNotEmpty) {
             await Api().postWithFile(
-              url: setupProfileEndPoint,
+              url: url,
               fields: fields,
               files: files,
               token: user.accessToken,
             );
           } else {
             await Api().post(
-              url: setupProfileEndPoint,
+              url: url,
               body: fields,
               token: user.accessToken,
             );
