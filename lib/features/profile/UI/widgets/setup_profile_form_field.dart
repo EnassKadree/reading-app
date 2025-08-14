@@ -10,13 +10,15 @@ class SetupProfileFormField extends StatelessWidget {
     this.maxLines = 1,
     required this.hint,
     required this.icon,
-    this.type = TextInputType.name,
+    this.type = TextInputType.name, 
+    this.onFieldSubmitted,
   });
   final TextEditingController controller;
   final int maxLines;
   final String hint;
   final IconData icon;
   final TextInputType type;
+  final void Function(String)? onFieldSubmitted;
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +35,7 @@ class SetupProfileFormField extends StatelessWidget {
           }
           return null;
         },
+        onFieldSubmitted: onFieldSubmitted,
         decoration: InputDecoration(
             hintText: hint,
             prefixIcon: Icon(

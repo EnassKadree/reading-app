@@ -18,7 +18,7 @@ import '../widgets/profile_surface_container.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key, this.userId});
-  final String? userId;
+  final int? userId;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class ProfileScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     ProfileHeader(
-                      editable: userId != null,
+                      editable: userId == null,
                       profile: data,
                     ),
                     Padding(
@@ -90,7 +90,7 @@ class ProfileScreen extends StatelessWidget {
 
 class ProfileScreenWrapper extends StatelessWidget {
   const ProfileScreenWrapper({super.key, this.userId});
-  final String? userId;
+  final int? userId;
 
   @override
   Widget build(BuildContext context) {

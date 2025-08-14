@@ -1,9 +1,9 @@
 abstract class EndPoint {
   static const baseUrl = 'https://reading-app.up.railway.app/api';
+  static const domainName = 'reading-app.up.railway.app';
   static const booksBaseUrl = '$baseUrl/mobile/books';
   static const register = '/register';
   static const login = '/login';
-  static const setupProfile = '/profile';
   //home
   static const userChallenges = '/getchallenges';
   static const categories = '/category/getCategories';
@@ -23,6 +23,10 @@ abstract class EndPoint {
 
   // PROFILE
   static const profile = '/mobile/reader/showProfile';
+  static const setupProfile = '/profile';
+
+  // COMMUNITY
+  static const community = '/reader/getAllProfiles';
 
 //BOOK DETAILS
   static const bookChallenge = '/mobile/books/GetBookChallenge/';

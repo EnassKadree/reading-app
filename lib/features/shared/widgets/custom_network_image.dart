@@ -14,7 +14,7 @@ class CustomNetworkImage extends StatelessWidget {
     required this.imageUrl,
     this.width = 95,
     this.height = 120,
-    this.fit = BoxFit.fill,
+    this.fit = BoxFit.cover,
   });
 
   @override
@@ -38,8 +38,8 @@ class CustomNetworkImage extends StatelessWidget {
             width: width,
             height: height,
             color: Colors.grey[100],
-            child:
-                const Icon(Iconsax.picture_frame, color: Colors.grey, size: 40),
+            child: Icon(Iconsax.picture_frame,
+                color: Colors.grey, size: height / 3),
           );
         },
       ),

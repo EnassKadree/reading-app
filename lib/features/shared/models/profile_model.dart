@@ -1,6 +1,7 @@
 import 'badge_model.dart';
 
 class ProfileModel {
+  final int userId;
   final String firstName;
   final String lastName;
   final String picture;
@@ -14,6 +15,7 @@ class ProfileModel {
   final List<BadgeModel> badges;
 
   ProfileModel({
+    required this.userId,
     required this.firstName,
     required this.lastName,
     required this.picture,
@@ -29,6 +31,7 @@ class ProfileModel {
 
   factory ProfileModel.fromJson(Map<String, dynamic> json) {
     return ProfileModel(
+      userId: json['id'] ?? 0,
       firstName: json['first_name'] ?? '',
       lastName: json['last_name'] ?? '',
       picture: json['picture'] ?? '',
@@ -45,6 +48,7 @@ class ProfileModel {
 
   Map<String, dynamic> toJson() {
     return {
+      'id': userId,
       'first_name': firstName,
       'last_name': lastName,
       'picture': picture,
@@ -65,13 +69,14 @@ class ProfileModel {
 
   @override
   String toString() {
-    return 'ProfileModel(firstName: $firstName, lastName: $lastName, picture: $picture, nickname: $nickname, bio: $bio, quote: $quote, booksNumber: $booksNumber, countriesNumber: $countriesNumber, challengesNumber: $challengesNumber, totalPoints: $totalPoints, badges: $badges)';
+    return 'ProfileModel(id: $userId, firstName: $firstName, lastName: $lastName, picture: $picture, nickname: $nickname, bio: $bio, quote: $quote, booksNumber: $booksNumber, countriesNumber: $countriesNumber, challengesNumber: $challengesNumber, totalPoints: $totalPoints, badges: $badges)';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     return other is ProfileModel &&
+        other.userId == userId &&
         other.firstName == firstName &&
         other.lastName == lastName &&
         other.picture == picture &&
@@ -87,7 +92,8 @@ class ProfileModel {
 
   @override
   int get hashCode {
-    return firstName.hashCode ^
+    return userId.hashCode ^
+        firstName.hashCode ^
         lastName.hashCode ^
         picture.hashCode ^
         nickname.hashCode ^
@@ -101,6 +107,7 @@ class ProfileModel {
   }
 
   ProfileModel copyWith({
+    int? userId,
     String? firstName,
     String? lastName,
     String? picture,
@@ -114,6 +121,7 @@ class ProfileModel {
     List<BadgeModel>? badges,
   }) {
     return ProfileModel(
+      userId: userId ?? this.userId,
       firstName: firstName ?? this.firstName,
       lastName: lastName ?? this.firstName,
       picture: picture ?? this.picture,

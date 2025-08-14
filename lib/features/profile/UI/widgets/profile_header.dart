@@ -39,26 +39,28 @@ class ProfileHeader extends StatelessWidget {
                     style: StylesConsts.f18W600Black.copyWith(
                       color: Colors.white,
                       fontSize: 20,
-                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.2),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: IconButton(
-                      onPressed: () => context.push(SetupProfileScreenWrapper(
-                        isSetup: false,
-                        profile: profile,
-                      )),
-                      icon: const Icon(
-                        Iconsax.edit,
-                        color: Colors.white,
-                        size: 18,
-                      ),
-                    ),
-                  ),
+                  editable
+                      ? Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white.withOpacity(0.2),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: IconButton(
+                            onPressed: () =>
+                                context.push(SetupProfileScreenWrapper(
+                              isSetup: false,
+                              profile: profile,
+                            )),
+                            icon: const Icon(
+                              Iconsax.edit,
+                              color: Colors.white,
+                              size: 18,
+                            ),
+                          ),
+                        )
+                      : 0.spaceH,
                 ],
               ),
               16.spaceH,

@@ -14,7 +14,7 @@ class ProfileCubit extends BaseCubit<ProfileState> {
   ProfileCubit() : super(ProfileInitial());
   final String endPoint = '${EndPoint.baseUrl}${EndPoint.profile}';
 
-  Future getProfile({String? userId}) async {
+  Future getProfile({int? userId}) async {
     executeWithCatch(
         action: () async {
           emit(ProfileLoading());
@@ -22,8 +22,14 @@ class ProfileCubit extends BaseCubit<ProfileState> {
           if (user == null) {
             throw Exception(JsonConsts.pleaseLogIn.tr());
           }
+          String url;
+          if (userId != null) {
+            url = '$endPoint/$userId';
+          } else {
+            url = endPoint;
+          }
           Map<String, dynamic> response =
-              await Api().getWithToken(url: endPoint, token: user.accessToken);
+              await Api().getWithToken(url: url, token: user.accessToken);
           ProfileModel profile = ProfileModel.fromJson(response['data']);
           emit(ProfileSuccess(profile));
         },

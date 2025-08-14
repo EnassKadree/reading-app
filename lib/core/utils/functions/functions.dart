@@ -23,6 +23,7 @@ part 'localization.dart';
 part 'stagger_list.dart';
 part 'build_home_screen.dart';
 part 'show_settings_dialog.dart';
+part 'formatter.dart';
 
 class Functions {
   // String locale = DataSource().getLocale() ?? 'ar';

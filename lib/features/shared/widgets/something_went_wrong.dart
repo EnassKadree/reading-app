@@ -11,30 +11,32 @@ class SomeThingWentWrongWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          'حدث خطأ ما!',
-          style: Theme.of(context)
-              .textTheme
-              .bodyLarge!
-              .copyWith(color: ColorsConsts.purple),
-        ),
-        TextButton(
-          onPressed: onPressed,
-          style: TextButton.styleFrom(
-            backgroundColor: Colors.transparent,
-          ),
-          child: Text(
-            'إعادة المحاولة',
+    return Center(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            'حدث خطأ ما!',
             style: Theme.of(context)
                 .textTheme
                 .bodyLarge!
-                .copyWith(color: Colors.blue),
+                .copyWith(color: ColorsConsts.purple),
           ),
-        ),
-      ],
+          TextButton(
+            onPressed: onPressed,
+            style: TextButton.styleFrom(
+              backgroundColor: Colors.transparent,
+            ),
+            child: Text(
+              'إعادة المحاولة',
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyLarge!
+                  .copyWith(color: Colors.blue),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

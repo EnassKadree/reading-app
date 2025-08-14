@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
+import 'package:reading_app/features/shared/widgets/custom_white_container.dart';
 
 import '../../../../core/utils/constants/styles_consts.dart';
 
@@ -19,21 +19,7 @@ class ProfileSurfaceContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: context.colorScheme.surface,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
-            spreadRadius: 1,
-            blurRadius: 10,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
+    return CustomWhiteContainer(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

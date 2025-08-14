@@ -46,6 +46,8 @@ abstract class JsonConsts {
   static const String categories = 'categories';
   static const String authors = 'authors';
   static const String mostRatedBooks = 'most_rated_books';
+  static const String search = 'search';
+  static const String noData = 'noData';
   //MY LIBRARY
   static const String myLibrary = 'library';
   //MYLIBRARY Book download failed

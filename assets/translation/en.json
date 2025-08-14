@@ -60,5 +60,7 @@
   "logout": "Logout",
   "home": "Home", 
   "library": "Library", 
-  "community": "Community"
+  "community": "Community",
+  "search" : "search...",
+  "noData" : "No Data yet! 😁"
 }

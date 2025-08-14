@@ -10,38 +10,46 @@ class ProfileCircleAvatar extends StatelessWidget {
     super.key,
     this.imageFile,
     this.picture,
+    this.height = 104,
+    this.margin = 5,
+    this.borderColor,
   });
 
   final File? imageFile;
   final String? picture;
+  final double height;
+  final double margin;
+  final Color? borderColor;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 104,
+      height: height,
+      width: height,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         border: Border.all(
           width: 5,
-          color: context.colorScheme.surface.withOpacity(.2),
+          color: borderColor?.withOpacity(.2) ??
+              context.colorScheme.surface.withOpacity(.2),
         ),
       ),
       child: Container(
-        margin: const EdgeInsets.all(5),
+        margin: EdgeInsets.all(margin),
         decoration: const BoxDecoration(
           color: Colors.transparent,
           shape: BoxShape.circle,
         ),
         child: CircleAvatar(
           backgroundColor: context.colorScheme.surface.withOpacity(.7),
-          radius: 41,
+          radius: height / 2.5,
           child: ClipOval(
             child: imageFile != null
                 ? Image.file(
                     imageFile!,
                     fit: BoxFit.cover,
-                    width: 82,
-                    height: 82,
+                    width: height / 1.2,
+                    height: height / 1.2,
                     errorBuilder: (context, error, stackTrace) {
                       return Icon(
                         Iconsax.user,
@@ -50,7 +58,11 @@ class ProfileCircleAvatar extends StatelessWidget {
                     },
                   )
                 : picture != null && picture != ''
-                    ? CustomNetworkImage(imageUrl: picture!)
+                    ? CustomNetworkImage(
+                        imageUrl: picture!,
+                        height: height,
+                        width: height,
+                      )
                     : Icon(
                         Iconsax.user,
                         color: context.colorScheme.primary,
