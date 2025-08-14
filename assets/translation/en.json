@@ -62,5 +62,20 @@
   "library": "Library", 
   "community": "Community",
   "search" : "search...",
-  "noData" : "No Data yet! 😁"
+  "noData" : "No Data yet! 😁",
+  "connectWithAdmins" : "Connect with admins",
+  "suggestOrComplaint" : "suggest or complaint",
+  "yourPlace" : "Here where you can add your touch on our platform",
+  "subject" : "subject",
+  "desc" : "description",
+  "title" : "title",
+  "authorName" : "author name",
+  "note" : "other notes",
+  "send" : "send",
+  "complaintSentSuccessfully" : "complaint sent successfully! thanks for contribution 💜",
+  "suggestionSentSuccessfully" : "suggestion sent successfully! thanks for contribution 💜",
+  "suggestNewBook": "Suggest new book",
+  "complaintAProblem": "Complaint a problem",
+  "suggestions": "Suggestions",
+  "complaints": "Complaints"  
 }

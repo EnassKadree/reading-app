@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:reading_app/core/utils/constants/fonts_consts.dart';
+import 'package:reading_app/core/utils/extensions/context_extension.dart';
 
 import '../../../core/utils/constants/colors_consts.dart';
 
@@ -13,7 +14,7 @@ class AppTheme {
   static late Color primaryContainer;
   static late Color tertiaryColor;
 
-  static ThemeData get lightTheme {
+  static ThemeData lightTheme(BuildContext context) {
     // colors
     const primaryColor = ColorsConsts.purple;
     const secondaryColor = ColorsConsts.gold;
@@ -26,7 +27,7 @@ class AppTheme {
 
     // theme light
     return ThemeData(
-        fontFamily: FontsConsts.cairo,
+        fontFamily: FontsConsts.poppins,
         scaffoldBackgroundColor: scaffoldBackgroundColor,
         iconTheme: const IconThemeData(size: 28, color: primaryColor),
         // color system
@@ -44,7 +45,7 @@ class AppTheme {
           shadowColor: Colors.black,
           backgroundColor: scaffoldBackgroundColor,
           surfaceTintColor: Colors.white,
-          centerTitle: true,
+          centerTitle: false,
           iconTheme: const IconThemeData(color: Colors.black),
           titleTextStyle: const TextStyle(
             color: Colors.black,
@@ -111,7 +112,29 @@ class AppTheme {
             unselectedIconTheme: const IconThemeData(size: 24),
             showSelectedLabels: true,
             showUnselectedLabels: true,
-            type: BottomNavigationBarType.fixed));
+            type: BottomNavigationBarType.fixed),
+      dividerTheme: DividerThemeData(
+        color: secondaryColor.withOpacity(.2),
+        thickness: 1,
+        space: 15,
+      ),
+      tabBarTheme: TabBarThemeData
+      (
+        indicator: BoxDecoration(
+        color: primaryColor,
+        borderRadius: BorderRadius.circular(8),
+        ),
+        indicatorColor: Colors.transparent,
+        dividerColor: Colors.transparent,
+        labelPadding: EdgeInsets.zero,
+        indicatorSize: TabBarIndicatorSize.tab,
+        labelColor: context.theme.colorScheme.surface,
+        unselectedLabelColor: context.theme.colorScheme.onSurface,
+        unselectedLabelStyle: const TextStyle(
+          fontWeight: FontWeight.normal,
+        ),
+      )
+    );
   }
 
   // theme dark

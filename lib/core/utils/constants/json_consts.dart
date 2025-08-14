@@ -84,4 +84,21 @@ abstract class JsonConsts {
   static const String home = 'home';
   static const String library = 'library';
   static const String community = 'community';
+
+  // COMPLAINTS
+  static const String connectWithAdmins = 'connectWithAdmins';
+  static const String suggestOrComplaint = 'suggestOrComplaint';
+  static const String yourPlace = 'yourPlace';
+  static const String subject = 'subject';
+  static const String desc = 'desc';
+  static const String title = 'title';
+  static const String authorName = 'authorName';
+  static const String note = 'note';
+  static const String send = 'send';
+  static const String complaintSentSuccessfully = 'complaintSentSuccessfully';
+  static const String suggestionSentSuccessfully = 'suggestionSentSuccessfully';
+  static const String suggestNewBook = 'suggestNewBook';
+  static const String complaintAProblem = 'complaintAProblem';
+  static const String suggestions = 'suggestions';
+  static const String complaints = 'complaints';
 }

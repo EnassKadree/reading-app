@@ -55,17 +55,21 @@ class BadgesContainer extends StatelessWidget {
             ],
           ),
           20.spaceH,
-          SizedBox(
-            height: 120,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: badges.length,
-              itemBuilder: (context, index) {
-                final badge = badges[index];
-                return _buildBadgeItem(context, badge);
-              },
-            ),
-          ),
+          badges.isNotEmpty
+              ? SizedBox(
+                  height: 120,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: badges.length,
+                    itemBuilder: (context, index) {
+                      final badge = badges[index];
+                      return _buildBadgeItem(context, badge);
+                    },
+                  ),
+                )
+              : Center(
+                  child: Text(JsonConsts.noData.t(context)),
+                ),
         ],
       ),
     );

@@ -66,6 +66,16 @@ extension ShowSettingsDialog on Functions {
                     ),
                     ListTile(
                       title: Text(
+                        JsonConsts.connectWithAdmins.t(context),
+                        style: StylesConsts.f18W600Black,
+                      ),
+                      leading: const Icon(Iconsax.security_user),
+                      onTap: () {
+                        context.push(const ComplaintsScreenWrapper());
+                      },
+                    ),
+                    ListTile(
+                      title: Text(
                         JsonConsts.logout.t(context),
                         style: StylesConsts.f18W600Black
                             .copyWith(color: Colors.red[800]!),
