@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:reading_app/core/utils/constants/colors_consts.dart';
+import 'package:reading_app/core/utils/constants/json_consts.dart';
+import 'package:reading_app/core/utils/extensions/string_extension.dart';
 
 class SomeThingWentWrongWidget extends StatelessWidget {
   const SomeThingWentWrongWidget({
@@ -16,7 +18,7 @@ class SomeThingWentWrongWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'حدث خطأ ما!',
+            JsonConsts.someThingWentWrong.t(context),
             style: Theme.of(context)
                 .textTheme
                 .bodyLarge!
@@ -28,7 +30,7 @@ class SomeThingWentWrongWidget extends StatelessWidget {
               backgroundColor: Colors.transparent,
             ),
             child: Text(
-              'إعادة المحاولة',
+              JsonConsts.tryAgain.t(context),
               style: Theme.of(context)
                   .textTheme
                   .bodyLarge!

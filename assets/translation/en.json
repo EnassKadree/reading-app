@@ -63,7 +63,7 @@
   "community": "Community",
   "search" : "search...",
   "noData" : "No Data yet! 😁",
-  "connectWithAdmins" : "Connect with admins",
+  "connectWithAdmins" : "Contact Admins",
   "suggestOrComplaint" : "suggest or complaint",
   "yourPlace" : "Here where you can add your touch on our platform",
   "subject" : "subject",
@@ -77,5 +77,7 @@
   "suggestNewBook": "Suggest new book",
   "complaintAProblem": "Complaint a problem",
   "suggestions": "Suggestions",
-  "complaints": "Complaints"  
+  "complaints": "Complaints"  ,
+  "someThingWentWrong" : "some thing went wrong!",
+  "tryAgain" : "try again"
 }

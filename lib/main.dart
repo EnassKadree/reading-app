@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reading_app/core/utils/functions/functions.dart';
-import 'package:reading_app/features/complaints/UI/screens/complaints_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'features/shared/data/data_source.dart';
@@ -64,7 +63,7 @@ class MyApp extends StatelessWidget {
               builder: (context, locale) {
                 return MaterialApp(
                   debugShowCheckedModeBanner: false,
-                  theme: AppTheme.lightTheme(context),
+                  theme: AppTheme.lightTheme(context, locale),
                   darkTheme: AppTheme.darkTheme,
                   themeMode:
                       theme == Themes.dark ? ThemeMode.dark : ThemeMode.light,

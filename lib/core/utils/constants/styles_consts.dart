@@ -5,8 +5,8 @@ import 'package:reading_app/core/utils/constants/fonts_consts.dart';
 import 'colors_consts.dart';
 
 abstract class StylesConsts {
-  static TextStyle f18W600Black = TextStyle(
-      fontSize: 18.sp, fontWeight: FontWeight.w600, color: Colors.black);
+  static TextStyle f18W600Black =
+      TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w600);
 
   static TextStyle f18W400grey = TextStyle(
     color: Colors.grey,
@@ -19,8 +19,10 @@ abstract class StylesConsts {
   static TextStyle f30W500White = TextStyle(
       fontSize: 26.sp, color: Colors.white, fontWeight: FontWeight.w600);
 
-  static TextStyle f16W600Black = TextStyle(
-      fontSize: 16.sp, fontWeight: FontWeight.w600, color: Colors.black);
+  static TextStyle f16W600Black =
+      TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w600);
+  static TextStyle f14W600Black =
+      TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w600);
 
   static TextStyle headerTxt = TextStyle(
       fontSize: 48.sp,

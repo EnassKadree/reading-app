@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:reading_app/core/utils/constants/fonts_consts.dart';
-import 'package:reading_app/core/utils/extensions/context_extension.dart';
 
 import '../../../core/utils/constants/colors_consts.dart';
 
@@ -14,7 +13,9 @@ class AppTheme {
   static late Color primaryContainer;
   static late Color tertiaryColor;
 
-  static ThemeData lightTheme(BuildContext context) {
+  static ThemeData lightTheme(BuildContext context, Locale locale) {
+    final isArabic = locale.languageCode == 'ar';
+    final fontFamily = isArabic ? FontsConsts.cairo : FontsConsts.poppins;
     // colors
     const primaryColor = ColorsConsts.purple;
     const secondaryColor = ColorsConsts.gold;
@@ -23,11 +24,11 @@ class AppTheme {
     const surfaceContainer = Colors.white;
     const primaryContainer = Color(0xffD5D5D5);
     const secondaryContainer = Color(0xff888888);
-    const pink = ColorsConsts.pink;
+    //const pink = ColorsConsts.pink;
 
     // theme light
     return ThemeData(
-        fontFamily: FontsConsts.poppins,
+        fontFamily: fontFamily,
         scaffoldBackgroundColor: scaffoldBackgroundColor,
         iconTheme: const IconThemeData(size: 28, color: primaryColor),
         // color system
@@ -47,10 +48,10 @@ class AppTheme {
           surfaceTintColor: Colors.white,
           centerTitle: false,
           iconTheme: const IconThemeData(color: Colors.black),
-          titleTextStyle: const TextStyle(
+          titleTextStyle: TextStyle(
             color: Colors.black,
             fontSize: 20,
-            fontFamily: FontsConsts.poppins,
+            fontFamily: fontFamily,
           ),
         ),
 
@@ -104,37 +105,36 @@ class AppTheme {
           shape: CircleBorder(),
         ),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
+            selectedLabelStyle: const TextStyle(fontSize: 12),
+            unselectedLabelStyle: const TextStyle(fontSize: 12),
             backgroundColor: surfaceContainer,
             elevation: 10,
             unselectedItemColor: primaryColor.withAlpha(100),
             selectedItemColor: primaryColor,
-            selectedIconTheme: const IconThemeData(size: 24),
-            unselectedIconTheme: const IconThemeData(size: 24),
+            selectedIconTheme: const IconThemeData(size: 22),
+            unselectedIconTheme: const IconThemeData(size: 22),
             showSelectedLabels: true,
             showUnselectedLabels: true,
             type: BottomNavigationBarType.fixed),
-      dividerTheme: DividerThemeData(
-        color: secondaryColor.withOpacity(.2),
-        thickness: 1,
-        space: 15,
-      ),
-      tabBarTheme: TabBarThemeData
-      (
-        indicator: BoxDecoration(
-        color: primaryColor,
-        borderRadius: BorderRadius.circular(8),
+        dividerTheme: DividerThemeData(
+          color: secondaryColor.withOpacity(.2),
+          thickness: 1,
+          space: 15,
         ),
-        indicatorColor: Colors.transparent,
-        dividerColor: Colors.transparent,
-        labelPadding: EdgeInsets.zero,
-        indicatorSize: TabBarIndicatorSize.tab,
-        labelColor: context.theme.colorScheme.surface,
-        unselectedLabelColor: context.theme.colorScheme.onSurface,
-        unselectedLabelStyle: const TextStyle(
-          fontWeight: FontWeight.normal,
-        ),
-      )
-    );
+        tabBarTheme: TabBarThemeData(
+          indicator: BoxDecoration(
+            color: primaryColor,
+            borderRadius: BorderRadius.circular(8),
+          ),
+          indicatorColor: Colors.transparent,
+          dividerColor: Colors.transparent,
+          labelPadding: EdgeInsets.zero,
+          indicatorSize: TabBarIndicatorSize.tab,
+          labelColor: surfaceContainer,
+          unselectedLabelStyle: const TextStyle(
+            fontWeight: FontWeight.normal,
+          ),
+        ));
   }
 
   // theme dark
