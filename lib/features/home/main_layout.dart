@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:reading_app/features/challenges/challenges_screen.dart';
+import 'package:reading_app/features/challenges/UI/screens/challenges_screen.dart';
 import 'package:reading_app/features/home/services/navigationBar/navigation_bar_cubit.dart';
 import 'package:reading_app/features/home/view/components/navigation_bar.dart';
 import 'package:reading_app/features/home/view/home_wrapper.dart';
@@ -13,7 +13,7 @@ class MainLayout extends StatelessWidget {
 
   static const _pages = [
     MyLibraryPage(),
-    ChallengesScreen(),
+    ChallengesScreenWrapper(),
     HomeWrapper(),
     CommunityScreenWrapper(),
     ProfileScreenWrapper()

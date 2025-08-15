@@ -79,5 +79,11 @@
   "suggestions": "Suggestions",
   "complaints": "Complaints"  ,
   "someThingWentWrong" : "some thing went wrong!",
-  "tryAgain" : "try again"
+  "tryAgain" : "try again",
+  "pts": "Pts",
+  "days": "Days",
+  "booksInChallenge": "Books in challenge",
+  "pages": "pages",
+  "noBooks": "This challenge does not specify book names.",
+  "by" : "by"
 }

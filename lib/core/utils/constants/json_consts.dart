@@ -103,4 +103,12 @@ abstract class JsonConsts {
   static const String complaintAProblem = 'complaintAProblem';
   static const String suggestions = 'suggestions';
   static const String complaints = 'complaints';
+
+  // CHALLENGES
+  static const String pts = 'pts';
+  static const String days = 'days';
+  static const String booksInChallenge = 'booksInChallenge';
+  static const String pages = 'pages';
+  static const String noBooks = 'noBooks';
+  static const String by = 'by';
 }

@@ -79,5 +79,11 @@
   "suggestions": "الاقتراحات",
   "complaints": "الشكاوي" ,
   "someThingWentWrong" : "حدث خطأ ما!",
-  "tryAgain" : "إعادة المحاولة"
+  "tryAgain" : "إعادة المحاولة",
+  "pts": "نقاط",
+  "days": "أيام",
+  "booksInChallenge": "كتب التحدي",
+  "pages": "صفحات",
+  "noBooks": "هذا التحدي لا يحدد أسماء كتب معينة",
+  "by" : "لـ"
 }
