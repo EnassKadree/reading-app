@@ -29,6 +29,10 @@ abstract class EndPoint {
   // COMMUNITY
   static const community = '/reader/getAllProfiles';
 
+  // COMPLAINTS
+  static const complaints = '/complaint/store';
+  static const suggestions = '/suggestion/store';
+
 //BOOK DETAILS
   static const bookChallenge = '/mobile/books/GetBookChallenge/';
   //

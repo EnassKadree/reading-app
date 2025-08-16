@@ -72,8 +72,8 @@
   "authorName" : "author name",
   "note" : "other notes",
   "send" : "send",
-  "complaintSentSuccessfully" : "complaint sent successfully! thanks for contribution 💜",
-  "suggestionSentSuccessfully" : "suggestion sent successfully! thanks for contribution 💜",
+  "complaintSentSuccessfully" : "Complaint Sent 🎉",
+  "suggestionSentSuccessfully" : "Suggestion Sent 🎉",
   "suggestNewBook": "Suggest new book",
   "complaintAProblem": "Complaint a problem",
   "suggestions": "Suggestions",
@@ -93,5 +93,8 @@
   "noNotificationsYet": "No notifications yet!",
   "tryAdjustSearch": "Try adjusting your search terms",
   "youLlSeeNotifications": "You'll see notifications about your reading progress, challenges, and more here",
-  "settings" : "Settings"
+  "settings" : "Settings",
+  "searchResults" : "search results",
+  "clear" : "clear",
+  "noResults": "No search results found"
 }

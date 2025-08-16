@@ -122,4 +122,9 @@ abstract class JsonConsts {
   static const String noNotificationsYet = 'noNotificationsYet';
   static const String tryAdjustSearch = 'tryAdjustSearch';
   static const String youLlSeeNotifications = 'youLlSeeNotifications';
+
+  // COMMUNITY
+  static const String searchResults = 'searchResults';
+  static const String clear = 'clear';
+  static const String noResults = 'noResults';
 }

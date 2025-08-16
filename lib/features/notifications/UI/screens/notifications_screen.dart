@@ -10,9 +10,8 @@ class NotificationsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey[50],
-      body: const SafeArea(
+    return const Scaffold(
+      body: SafeArea(
         child: Column(
           children: [
             // Header Section

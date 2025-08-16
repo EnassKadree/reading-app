@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 import '../../../core/utils/base/base_cubit.dart';
 import '../models/notification_model.dart';
 import '../../../core/lists/dummy_notifications.dart';
@@ -6,6 +8,7 @@ part 'notifications_state.dart';
 
 class NotificationsCubit extends BaseCubit<NotificationsState> {
   NotificationsCubit() : super(const NotificationsState());
+  final TextEditingController searchController = TextEditingController();
 
   void initializeNotifications() {
     emit(state.copyWith(
@@ -40,6 +43,7 @@ class NotificationsCubit extends BaseCubit<NotificationsState> {
       filteredNotifications: state.notifications,
       isSearching: false,
     ));
+    searchController.text = '';
   }
 
   void markNotificationAsRead(int notificationId) {

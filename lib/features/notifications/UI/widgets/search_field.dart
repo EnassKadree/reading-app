@@ -19,6 +19,7 @@ class SearchField extends StatelessWidget {
       child: BlocBuilder<NotificationsCubit, NotificationsState>(
         builder: (context, state) {
           return TextField(
+            controller: context.read<NotificationsCubit>().searchController,
             onChanged: (query) {
               context.read<NotificationsCubit>().searchNotifications(query);
             },

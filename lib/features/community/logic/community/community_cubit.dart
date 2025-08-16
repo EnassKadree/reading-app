@@ -34,10 +34,56 @@ class CommunityCubit extends BaseCubit<CommunityState> {
           List<ProfileModel> profile = parseResponse<ProfileModel>(
               response: response,
               fromJson: (data) => ProfileModel.fromJson(data));
-          emit(CommunitySuccess(profile));
+          emit(CommunitySuccess(profiles: profile));
         },
         emit: emit,
         failureStateBuilder: (message) => CommunityFailure(message));
+  }
+
+  void searchLocally(String query) {
+    if (state is CommunitySuccess) {
+      final currentState = state as CommunitySuccess;
+
+      if (query.isEmpty) {
+        // If search is empty, show all profiles and reset search state
+        emit(currentState.copyWith(
+          filteredProfiles: [],
+          searchQuery: '',
+          isSearching: false,
+        ));
+        isArranged = true; // Reset arrangement when search is cleared
+      } else {
+        // Filter profiles locally based on search query
+        final filteredProfiles = currentState.profiles.where((profile) {
+          final searchLower = query.toLowerCase();
+          final fullName =
+              '${profile.firstName} ${profile.lastName}'.toLowerCase();
+          return fullName.contains(searchLower) ||
+              profile.nickname.toLowerCase().contains(searchLower) ||
+              profile.bio.toLowerCase().contains(searchLower);
+        }).toList();
+
+        emit(currentState.copyWith(
+          filteredProfiles: filteredProfiles,
+          searchQuery: query,
+          isSearching: true,
+        ));
+        isArranged = false; // Set arrangement to false while searching
+      }
+    }
+  }
+
+  void clearSearch() {
+    if (state is CommunitySuccess) {
+      final currentState = state as CommunitySuccess;
+      emit(currentState.copyWith(
+        filteredProfiles: [],
+        searchQuery: '',
+        isSearching: false,
+      ));
+      isArranged = true; // Reset arrangement when search is cleared
+      searchController.clear();
+    }
   }
 
   String _handleParams(String? search) {
@@ -50,5 +96,11 @@ class CommunityCubit extends BaseCubit<CommunityState> {
     final Uri uri =
         Uri.https(EndPoint.domainName, '/api${EndPoint.community}', params);
     return uri.toString();
+  }
+
+  @override
+  Future<void> close() {
+    searchController.dispose();
+    return super.close();
   }
 }

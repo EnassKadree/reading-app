@@ -101,8 +101,14 @@ class Api {
       'Accept-Language': locale,
       if (token != null) 'Authorization': 'Bearer $token',
     };
+    print('--------------------------------url');
+    print(url);
 
     http.Response response = await http.get(Uri.parse(url), headers: headers);
+
+    print('===========================response');
+    print(response.body);
+    print(response.request?.url.toString() ?? '');
 
     if (response.statusCode == 200 || response.statusCode == 202) {
       return jsonDecode(response.body);

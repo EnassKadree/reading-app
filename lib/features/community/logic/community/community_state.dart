@@ -15,6 +15,28 @@ final class CommunityFailure extends CommunityState {
 
 final class CommunitySuccess extends CommunityState {
   final List<ProfileModel> profiles;
+  final List<ProfileModel> filteredProfiles;
+  final String searchQuery;
+  final bool isSearching;
 
-  CommunitySuccess(this.profiles);
+  CommunitySuccess({
+    required this.profiles,
+    this.filteredProfiles = const [],
+    this.searchQuery = '',
+    this.isSearching = false,
+  });
+
+  CommunitySuccess copyWith({
+    List<ProfileModel>? profiles,
+    List<ProfileModel>? filteredProfiles,
+    String? searchQuery,
+    bool? isSearching,
+  }) {
+    return CommunitySuccess(
+      profiles: profiles ?? this.profiles,
+      filteredProfiles: filteredProfiles ?? this.filteredProfiles,
+      searchQuery: searchQuery ?? this.searchQuery,
+      isSearching: isSearching ?? this.isSearching,
+    );
+  }
 }

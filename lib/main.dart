@@ -64,7 +64,7 @@ class MyApp extends StatelessWidget {
                 return MaterialApp(
                   debugShowCheckedModeBanner: false,
                   theme: AppTheme.lightTheme(context, locale),
-                  darkTheme: AppTheme.darkTheme,
+                  darkTheme: AppTheme.darkTheme(context, locale),
                   themeMode:
                       theme == Themes.dark ? ThemeMode.dark : ThemeMode.light,
                   localizationsDelegates: const [

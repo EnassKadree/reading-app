@@ -8,7 +8,7 @@ import 'package:reading_app/core/utils/extensions/space_extension.dart';
 import 'package:reading_app/core/utils/extensions/string_extension.dart';
 import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/features/community/UI/widgets/leaderboard_widget.dart';
-import 'package:reading_app/features/community/UI/widgets/list_tile_card.dart';
+import 'package:reading_app/features/community/UI/widgets/profiles_list.dart';
 import 'package:reading_app/features/community/logic/community/community_cubit.dart';
 import 'package:reading_app/features/profile/UI/widgets/setup_profile_form_field.dart';
 import 'package:reading_app/features/shared/models/profile_model.dart';
@@ -21,19 +21,22 @@ class CommunityScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cubit = context.read<CommunityCubit>();
     return Scaffold(
       body: BlocBuilder<CommunityCubit, CommunityState>(
         builder: (context, state) {
           if (state is CommunityFailure) {
             return Center(
-              child: SomeThingWentWrongWidget(onPressed: () {
-                context.read<CommunityCubit>().getCommunity();
-              }),
+              child: SomeThingWentWrongWidget(
+                onPressed: () {
+                  context.read<CommunityCubit>().getCommunity();
+                },
+              ),
             );
           }
+
           List<ProfileModel> data =
               state is CommunitySuccess ? state.profiles : dummyProfileList;
+
           if (data.isEmpty) {
             return Center(
               child: Text(
@@ -42,6 +45,7 @@ class CommunityScreen extends StatelessWidget {
               ),
             );
           }
+
           return SingleChildScrollView(
             child: Skeletonizer(
               enabled: state is CommunityLoading,
@@ -51,30 +55,24 @@ class CommunityScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 32),
                     child: LeaderboardWidget(
-                      profiles: data,
+                      profiles: data, // Leaderboard always shows original data
                     ),
                   ),
+                  // search field
                   SetupProfileFormField(
                     hint: JsonConsts.search.t(context),
-                    controller: TextEditingController(),
+                    controller: context.read<CommunityCubit>().searchController,
                     type: TextInputType.text,
                     icon: Iconsax.search_normal,
+                    onChanged: (value) {
+                      context.read<CommunityCubit>().searchLocally(value);
+                    },
                     onFieldSubmitted: (value) {
-                      cubit.isArranged = false;
-                      cubit.getCommunity(value);
+                      context.read<CommunityCubit>().searchLocally(value);
                     },
                   ),
-                  ListView.builder(
-                      physics: const NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      itemCount: data.length,
-                      itemBuilder: (context, index) {
-                        return ListTileCard(
-                          index: index + 1,
-                          profile: data[index],
-                          isArranged: cubit.isArranged,
-                        );
-                      }),
+                  // Search results or all profiles
+                  ProfilesList(state: state),
                   32.spaceH
                 ],
               ),

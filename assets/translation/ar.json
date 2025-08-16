@@ -93,5 +93,8 @@
   "noNotificationsYet": "لا يوجد إشعارات بعد!",
   "tryAdjustSearch": "حاول تغيير القيم التي تبحث عنها",
   "youLlSeeNotifications": "ستشاهد إشعارات حول تقدمك في القراءة والتحديات والمزيد هنا",
-  "settings" : "الإعدادات"
+  "settings" : "الإعدادات",
+  "searchResults" : "نتائج البحث",
+  "clear" : "مسح",
+  "noResults": "لا يوجد نتائج"
 }

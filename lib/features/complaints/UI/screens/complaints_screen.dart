@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
 import 'package:reading_app/core/utils/extensions/string_extension.dart';
 import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/features/complaints/UI/widgets/complaint_card.dart';
+import 'package:reading_app/features/complaints/logic/complaints/complaints_cubit.dart';
 
+import '../../logic/suggestions/suggestion_cubit.dart';
 import '../widgets/custom_tab_bar.dart';
 import '../widgets/suggestion_card.dart';
 
@@ -54,15 +57,9 @@ class ComplaintsScreenWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return
-        // MultiBlocProvider
-        // (
-        //   providers:
-        //   [
-        //     BlocProvider(create: (context) => ),
-        //   ],
-        // child:
-        const ComplaintsScreen();
-    // );
+    return MultiBlocProvider(providers: [
+      BlocProvider(create: (context) => SuggestionCubit()),
+      BlocProvider(create: (context) => ComplaintsCubit()),
+    ], child: const ComplaintsScreen());
   }
 }
