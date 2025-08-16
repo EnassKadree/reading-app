@@ -8,8 +8,9 @@ plugins {
 android {
     namespace = "com.example.reading_app"
 
-    compileSdk = flutter.compileSdkVersion
-    ndkVersion = "27.0.12077973"
+
+    compileSdk = 35
+    ndkVersion = "26.2.11394342"
 
 
 
