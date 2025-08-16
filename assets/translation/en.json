@@ -85,5 +85,13 @@
   "booksInChallenge": "Books in challenge",
   "pages": "pages",
   "noBooks": "This challenge does not specify book names.",
-  "by" : "by"
+  "by" : "by",
+  "notifications" : "Notifications",
+  "unReadNotifications": "unread notifications",
+  "searchNotifications": "Search notifications...",
+  "noNotificationsFound": "No notifications found",
+  "noNotificationsYet": "No notifications yet!",
+  "tryAdjustSearch": "Try adjusting your search terms",
+  "youLlSeeNotifications": "You'll see notifications about your reading progress, challenges, and more here",
+  "settings" : "Settings"
 }

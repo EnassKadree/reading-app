@@ -12,6 +12,7 @@ import 'package:reading_app/features/complaints/UI/screens/complaints_screen.dar
 import 'package:reading_app/features/home/main_layout.dart';
 import 'package:reading_app/features/shared/user/user_cubit.dart';
 import 'package:reading_app/features/shared/user/user_model.dart';
+import '../../../features/notifications/UI/screens/notifications_screen.dart';
 import '../../../features/shared/data/data_source.dart';
 import '../../../features/shared/localization/locale_cubit.dart';
 import '../../../features/shared/theme/theme_cubit.dart';

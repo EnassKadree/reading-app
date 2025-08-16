@@ -77,6 +77,7 @@ abstract class JsonConsts {
   static const String badges = 'badges';
 
   // SETTINGS
+  static const String settings = 'settings';
   static const String darkMode = 'darkMode';
   static const String language = 'language';
   static const String currentLanguage = 'currentLanguage';
@@ -111,4 +112,14 @@ abstract class JsonConsts {
   static const String pages = 'pages';
   static const String noBooks = 'noBooks';
   static const String by = 'by';
+
+  // NOTIFICATIONS
+  static const String notifications = 'notifications';
+  static const String unReadNotifications = 'unReadNotifications';
+  static const String searchNotifications = 'searchNotifications';
+  static const String ago = 'ago';
+  static const String noNotificationsFound = 'noNotificationsFound';
+  static const String noNotificationsYet = 'noNotificationsYet';
+  static const String tryAdjustSearch = 'tryAdjustSearch';
+  static const String youLlSeeNotifications = 'youLlSeeNotifications';
 }

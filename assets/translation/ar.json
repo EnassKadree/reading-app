@@ -85,5 +85,13 @@
   "booksInChallenge": "كتب التحدي",
   "pages": "صفحات",
   "noBooks": "هذا التحدي لا يحدد أسماء كتب معينة",
-  "by" : "لـ"
+  "by" : "لـ",
+  "notifications" : "الإشعارات",
+  "unReadNotifications": "الإشعارات غير المقروءة",
+  "searchNotifications": "ابحث عن إشعارات",
+  "noNotificationsFound": "لم يتم إيجاد إشعارات",
+  "noNotificationsYet": "لا يوجد إشعارات بعد!",
+  "tryAdjustSearch": "حاول تغيير القيم التي تبحث عنها",
+  "youLlSeeNotifications": "ستشاهد إشعارات حول تقدمك في القراءة والتحديات والمزيد هنا",
+  "settings" : "الإعدادات"
 }
