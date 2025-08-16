@@ -1,8 +1,8 @@
 abstract class EndPoint
 {
-  static const baseUrl = 'https://reading-app-laravel-production.up.railway.app/api';
+  static const baseUrl = 'https://reading-app.up.railway.app/api';
   static const booksBaseUrl =
-      'https://reading-app-laravel-production.up.railway.app/api/mobile/books';
+      'https://reading-app.up.railway.app/api/mobile/books';
   static const register = '/register';
   static const login = '/login';
   //home
