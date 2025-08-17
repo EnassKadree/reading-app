@@ -12,7 +12,7 @@ abstract class EndPoint {
   static const authorBooks = '/mobile/books/author-books/';
   static const mostRatedBooks = '/mobile/books/most-rated';
 
-  //Mylibary 
+  //Mylibary
   static const toRead = '/toread';
   static const favorites = '/favorites';
   static const inRead = '/inread';
@@ -20,6 +20,7 @@ abstract class EndPoint {
   static const bookpdf = '/book/getBookFile/';
   static const countryBook = '/country/get-trips';
   static const bookPdf = '/book/getBookFile/';
+  static const progress = '/book/update-reading-progress/';
 
   // PROFILE
   static const profile = '/mobile/reader/showProfile';

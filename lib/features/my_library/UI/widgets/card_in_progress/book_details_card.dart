@@ -26,7 +26,7 @@ class BookDetailsCard extends StatelessWidget {
             final lastPage = await context.push(
               PdfReaderScreen(
                 filePath: pdf.pdfUrl,
-                lastReadPage: book.currentPage ?? 10,
+                lastReadPage: book.currentPage ?? 1,
               ),
             );
 

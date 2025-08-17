@@ -5,7 +5,7 @@ import 'package:reading_app/core/utils/functions/functions.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 class PdfReaderBody extends StatefulWidget {
-  final String filePath; // رابط PDF من الإنترنت
+  final String filePath;
   final int lastReadPage;
 
   const PdfReaderBody({
@@ -13,6 +13,10 @@ class PdfReaderBody extends StatefulWidget {
     required this.filePath,
     required this.lastReadPage,
   });
+  // ignore: library_private_types_in_public_api
+  static _PdfReaderBodyState? of(BuildContext context) {
+    return context.findAncestorStateOfType<_PdfReaderBodyState>();
+  }
 
   @override
   State<PdfReaderBody> createState() => _PdfReaderBodyState();
@@ -39,6 +43,7 @@ class _PdfReaderBodyState extends State<PdfReaderBody> {
           onPageChanged: (details) {
             setState(() {
               currentPage = details.newPageNumber;
+              print("===================number:$currentPage");
             });
           },
           onDocumentLoaded: (details) {
