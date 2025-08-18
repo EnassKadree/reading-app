@@ -13,7 +13,7 @@ class BookModel {
   final int numberOfPages;
   final bool isFavourite;
   final bool isInLibrary;
-  final int? currentPage;
+  final int? progress;
 
   BookModel({
     required this.id,
@@ -30,7 +30,7 @@ class BookModel {
     required this.numberOfPages,
     required this.isFavourite,
     required this.isInLibrary,
-    this.currentPage,
+    this.progress,
   });
 
   factory BookModel.fromJson(Map<String, dynamic> json) {
@@ -49,7 +49,7 @@ class BookModel {
       numberOfPages: json['number_of_pages'] ?? 0,
       isFavourite: json['is_favourite'] ?? false,
       isInLibrary: json['is_in_library'] ?? false,
-      currentPage: json['current_page'],
+      progress: json['progress'],
     );
   }
 
@@ -69,11 +69,33 @@ class BookModel {
       'number_of_pages': numberOfPages,
       'is_favourite': isFavourite,
       'is_in_library': isInLibrary,
-      if (currentPage != null) 'current_page': currentPage,
+      if (progress != null) 'progress': progress,
     };
   }
 
   static List<BookModel> fromList(List<dynamic> data) {
     return data.map((item) => BookModel.fromJson(item)).toList();
   }
+  BookModel copyWith({
+    int? progress,
+  }) {
+    return BookModel(
+      id: id,
+      title: title,
+      description: description,
+      authorName: authorName,
+      countryFlag: countryFlag,
+      publishDate: publishDate,
+      coverImage: coverImage,
+      starRate: starRate,
+      readersCount: readersCount,
+      categoryName: categoryName,
+      sizeCategoryName: sizeCategoryName,
+      numberOfPages: numberOfPages,
+      isFavourite: isFavourite,
+      isInLibrary: isInLibrary,
+      progress: progress ?? this.progress,
+    );
+  }
+
 }

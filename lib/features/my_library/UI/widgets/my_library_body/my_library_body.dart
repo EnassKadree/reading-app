@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:reading_app/core/utils/constants/json_consts.dart';
+import 'package:reading_app/core/utils/extensions/string_extension.dart';
 import 'package:reading_app/features/my_library/UI/widgets/my_library_body/sliver_book_card_grid.dart';
 import 'package:reading_app/features/my_library/UI/widgets/my_library_body/sliver_map_container.dart';
 import 'package:reading_app/features/my_library/UI/widgets/my_library_body/sliver_visited_countries_text.dart';
@@ -9,17 +11,17 @@ class MyLibraryBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CustomScrollView(
+    return  CustomScrollView(
       slivers: [
         SliverBar(
-          title: "My Library",
+          title:JsonConsts.myLibrary.t(context),
           searchVisibility: false,
 
         ),
-        SliverBookCardGrid(),
-        SliverVisitedCountriesText(),
-        SliverMapContainer(),
-        SliverToBoxAdapter(child: SizedBox(height: 24)),
+        const SliverBookCardGrid(),
+        const SliverVisitedCountriesText(),
+        const SliverMapContainer(),
+        const SliverToBoxAdapter(child: SizedBox(height: 24)),
       ],
     );
   }

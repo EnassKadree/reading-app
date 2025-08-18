@@ -96,5 +96,6 @@
   "settings" : "Settings",
   "searchResults" : "search results",
   "clear" : "clear",
-  "noResults": "No search results found"
+  "noResults": "No search results found",
+   "theBookFailedToLoad":"The book failed to load"
 }

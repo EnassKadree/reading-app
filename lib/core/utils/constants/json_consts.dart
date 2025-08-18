@@ -52,13 +52,14 @@ abstract class JsonConsts {
   static const String tryAgain = 'tryAgain';
   //MY LIBRARY
   static const String myLibrary = 'library';
-  //MYLIBRARY Book download failed
+  //MYLIBRARY 
   static const String mylibrary = 'mylibrary';
   static const String bookInProgress = 'bookInProgress';
   static const String favoriteBooks = 'favoriteBooks';
   static const String completedBooks = 'completedBooks';
   static const String booksToRead = 'booksToRead';
   static const String iHaveVisited = 'iHaveVisited';
+  static const String theBookFailedToLoad = 'theBookFailedToLoad';
   static const String countriesInALiteraryWay = 'countriesInALiteraryWay';
   //Exception
   static const String pleaseLogIn = 'please_log_in_first';

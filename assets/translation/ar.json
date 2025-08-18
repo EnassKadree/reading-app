@@ -96,5 +96,6 @@
   "settings" : "الإعدادات",
   "searchResults" : "نتائج البحث",
   "clear" : "مسح",
-  "noResults": "لا يوجد نتائج"
+  "noResults": "لا يوجد نتائج",
+  "theBookFailedToLoad":"فشل تحميل الكتاب"
 }
