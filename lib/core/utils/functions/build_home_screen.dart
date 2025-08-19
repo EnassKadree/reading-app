@@ -2,14 +2,14 @@ part of 'functions.dart';
 
 
 extension BuildHomeScreen on Functions {
-  Builder buildHomeScreen() {
-    return Builder(builder: (context) {
-      final user = context.read<UserCubit>().state;
-      if (user != null) {
-        return const MainLayoutWrapper();
-      } else {
+  Widget buildHomeScreen() {
+    return BlocBuilder<UserCubit, User?>(
+      builder: (context, user) {
+        if (user != null) {
+          return const MainLayoutWrapper();
+        }
         return const LoginPage();
-      }
-    });
+      },
+    );
   }
 }
