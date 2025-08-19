@@ -1,66 +1,73 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:reading_app/core/utils/extensions/context_extension.dart';
+import 'package:reading_app/core/utils/constants/styles_consts.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
 
+import '../../../../core/utils/constants/colors_consts.dart';
+import '../../../profile/UI/widgets/profile_circle_avatar.dart';
 import '../../../shared/models/author.dart';
 
 class ImageNameContainer extends StatelessWidget {
-  const ImageNameContainer({required this.author,super.key});
+  const ImageNameContainer({required this.author, super.key});
+
   final Author author;
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(16.h),
-      height: 250.h,
-      decoration: BoxDecoration(
-        color: context.colorScheme.primary,
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(40.r),
-          bottomRight: Radius.circular(40.r),
-        ),
+    return  Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: ColorsConsts.gradientColors),
       ),
-      child: Container(
-        height: 220.h,
-        decoration: BoxDecoration(
-          color: context.colorScheme.surfaceContainer,
-          borderRadius: BorderRadius.all(
-            Radius.circular(40.r),
+      child: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  ProfileCircleAvatar(picture: author.image),
+                  12.spaceW,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        author.name,
+                        style: StylesConsts.f18W600Black.copyWith(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                      4.spaceH,
+                      Row(
+                        children: [
+                          Text(
+                            author.countryName,
+                            style: StylesConsts.f15W400Grey.copyWith(
+                              color: Colors.white.withOpacity(0.8),
+                              fontSize: 14,
+                            ),
+                          ),
+                          30.spaceW,
+                          Text(
+                              "${ author.numberOfBooks.toString() } book",
+                            style: StylesConsts.f15W400Grey.copyWith(
+                              color: Colors.white.withOpacity(0.8),
+                              fontSize: 14,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ],
           ),
         ),
-        child: Row(
-           children: [
-             30.spaceW,
-            Stack(
-              children: [
-                Container(
-                  width: 120.w,
-                  height: 120.h,
-                  decoration: BoxDecoration(
-                    color: context.colorScheme.secondary.withAlpha(130),
-                    shape: BoxShape.circle,
-                  ),
-                ),
-                ClipOval(
-                  child: Container(
-                    width: 120.w,
-                    height: 120.h,
-                    decoration:  const BoxDecoration(
-                      shape: BoxShape.circle,
-                    ),
-                    child: CachedNetworkImage(
-                      imageUrl: author.image,
-                      fit: BoxFit.cover,
-                      errorWidget: (context, url, error) =>  Image.asset("assets/images/png/Adonis.png"),
-
-                    ),
-                  ),
-                ),
-              ],
-            ), ],
-        ),
       ),
-    );
+    );;
   }
 }
