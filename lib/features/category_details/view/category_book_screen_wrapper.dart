@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:reading_app/features/category_details/service/follow_category/follow_category_cubit.dart';
 
 import '../../shared/models/category.dart';
 import '../service/category_books/category_books_cubit.dart';
@@ -12,10 +13,17 @@ class CategoryBooksScreenWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
       create: (BuildContext context) {
         return CategoryBooksCubit()..getCategoryBook(category.id);
-      },
+      },),
+        BlocProvider(
+          create: (BuildContext context) {
+            return FollowUnFollowCategoryCubit(isFollowed:category.isFollowed);
+          },)
+      ],
       child: CategoryBooksScreen(categoryModel: category),
     );
   }
