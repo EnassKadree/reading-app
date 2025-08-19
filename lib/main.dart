@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reading_app/features/home/main_layout.dart';
+import 'package:reading_app/features/splash_screen/splash_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'features/shared/data/data_source.dart';
@@ -11,6 +12,7 @@ import 'features/shared/theme/theme.dart';
 import 'features/shared/theme/theme_cubit.dart';
 import 'features/shared/user/user_cubit.dart';
 import 'features/shared/user/user_model.dart';
+import 'features/home/view/home_wrapper.dart';
 
 late SharedPreferences prefs;
 
@@ -63,8 +65,8 @@ class MyApp extends StatelessWidget {
               builder: (context, locale) {
                 return MaterialApp(
                   debugShowCheckedModeBanner: false,
-                  theme: AppTheme.lightTheme,
-                  darkTheme: AppTheme.darkTheme,
+                  theme: AppTheme.lightTheme(context, locale),
+                  darkTheme: AppTheme.darkTheme(context, locale),
                   themeMode:
                       theme == Themes.dark ? ThemeMode.dark : ThemeMode.light,
                   localizationsDelegates: const [
@@ -94,7 +96,7 @@ class MyApp extends StatelessWidget {
           },
         ),
       ),
-      child: const MainLayoutWrapper()
+      child: const SplashScreen()
     );
   }
 }
