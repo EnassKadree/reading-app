@@ -16,3 +16,4 @@ key.properties
 /app/build.gradle
 /settings.gradle
 /gradle/wrapper/gradle-wrapper.properties
+/gradle.properties

@@ -4,7 +4,7 @@ import 'package:reading_app/features/home/services/active_challenges/user_challe
 import 'package:reading_app/features/home/services/authors/authors_cubit.dart';
 import 'package:reading_app/features/home/services/books/books_cubit.dart';
 import 'package:reading_app/features/home/services/categories/categories_cubit.dart';
-import 'package:reading_app/features/home/view/home_screen.dart';
+import 'package:reading_app/features/home/view/home_screen_builder.dart';
 
 class HomeWrapper extends StatelessWidget {
   const HomeWrapper({super.key});
@@ -13,7 +13,7 @@ class HomeWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(providers: [
       BlocProvider(create: (BuildContext context) {
-        return UserChallengesCubit();
+        return UserChallengesCubit()..getActiveChallenges();
       },
       ),
       BlocProvider(create: (BuildContext context) {
@@ -31,6 +31,6 @@ class HomeWrapper extends StatelessWidget {
         return BooksCubit()..getBooks();
       },
       ),
-          ], child: const HomeScreen());
+          ], child: const HomeScreenBuilder( ));
   }
 }
