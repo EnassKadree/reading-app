@@ -25,7 +25,7 @@ class CustomNetworkImage extends StatelessWidget {
         width: width,
         height: height,
         fit: fit,
-        placeholder: 
+        placeholder:
               (context, url) => Skeletonizer(
             child: Container(
               width:width,
@@ -34,11 +34,14 @@ class CustomNetworkImage extends StatelessWidget {
             ),
           ),
         errorWidget:  (context, url, error) {
-          return Container(
-            width: width,
-            height: height,
-            color: Colors.grey[100],
-            child: const Icon(Icons.broken_image, color: Colors.grey, size: 40),
+          return Skeletonizer(
+            child: Container(
+              width: width,
+              height: height,
+              color: Colors.grey[100],
+
+            //  child: const Icon(Icons.broken_image, color: Colors.grey, size: 40),
+            ),
           );
         },
       ),

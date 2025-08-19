@@ -30,7 +30,7 @@ class BookCard extends StatelessWidget {
                 top: 115.h,
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color:context.colorScheme.surfaceContainer,
                     borderRadius: BorderRadius.circular(20.r),
                     boxShadow: [
                       BoxShadow(

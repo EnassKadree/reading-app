@@ -17,15 +17,15 @@ class HaveAnAccountWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row
+    return Column
     (
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: 
       [
         Text
         (
           (isRegister? JsonConsts.haveAnAccount : JsonConsts.dontHaveAnAccount).t(context),
-          style: StylesConsts.descTxt,
+          style: StylesConsts.f15W400Grey.copyWith(fontWeight: FontWeight.bold),
         ),
         8.spaceW,
         InkWell
@@ -36,8 +36,8 @@ class HaveAnAccountWidget extends StatelessWidget {
           },
           child: Text
           (
-            (isRegister? JsonConsts.login : JsonConsts.register).t(context),
-            style: StylesConsts.descTxt.copyWith(color: Colors.blue),
+            (isRegister? JsonConsts.login.toUpperCase() : JsonConsts.register.toUpperCase()).t(context),
+            style: StylesConsts.f15W400Grey.copyWith(color: context.colorScheme.primary,fontWeight: FontWeight.bold),
           ),
         )
       ],

@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
-import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 
 import 'package:reading_app/features/auth/UI/widgets/auth_screen_body.dart';
 import 'package:reading_app/features/auth/logic/password/password_visibility_cubit.dart';
 import 'package:reading_app/features/auth/logic/register/register_cubit.dart';
-import 'package:reading_app/features/shared/widgets/custom_button.dart';
 
 import '../../../../core/utils/constants/assets_consts.dart';
 import '../../../../core/utils/constants/json_consts.dart';
-import '../../../../core/utils/functions/functions.dart';
-import '../../../home/main_layout.dart';
+import '../../../profile/UI/screens/setup_profile_screen.dart';
 
 
 class RegisterPage extends StatelessWidget {
@@ -29,23 +26,11 @@ class RegisterPage extends StatelessWidget {
         ],
         child: Scaffold
           (
-            bottomNavigationBar: Builder(
-                builder: (context)
-                {
-                  return CustomOutlinedButton
-                    (
-                    title: JsonConsts.register,
-                    onPressed: ()
-                    {context.read<RegisterCubit>().submit(isRegister: true);},
-                  ).mainPadding.staggerListVertical(0);
-                }
-            ),
             body: AuthScreenBody
               (
               greeting: JsonConsts.welcome,
               lottieAsset: AssetsConsts.registerAsset,
-              onSuccess: (){Functions().showSnackBar(context, 'success');
-                context.pushReplacement(const MainLayoutWrapper());},
+              onSuccess: (){context.pushReplacement(const SetupProfileScreenWrapper(isSetup: true,));},
             )
         )
     );

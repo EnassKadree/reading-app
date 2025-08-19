@@ -14,27 +14,18 @@ class AuthorsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          JsonConsts.authors.t(context),
-          style: StylesConsts.f18W600Black.copyWith(fontSize: 23),
-        ).verticalPadding.horizontalPadding,
-        SizedBox(
-          height: 120.h,
-          child: AnimationLimiter(
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: authors.length,
-              itemBuilder: (BuildContext context, index) {
-                return AuthorWidget(author: authors[index])
-                    .staggerListVertical(index);
-              },
-            ),
-          ),
-        )
-      ],
+    return SizedBox(
+      height: 120.h,
+      child: AnimationLimiter(
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: authors.length,
+          itemBuilder: (BuildContext context, index) {
+            return AuthorWidget(author: authors[index])
+                .staggerListVertical(index);
+          },
+        ),
+      ),
     );
   }
 }

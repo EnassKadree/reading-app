@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:reading_app/core/utils/constants/colors_consts.dart';
+import 'package:reading_app/core/utils/constants/json_consts.dart';
+import 'package:reading_app/core/utils/extensions/string_extension.dart';
 
 class SomeThingWentWrongWidget extends StatelessWidget {
   const SomeThingWentWrongWidget({
@@ -11,30 +13,32 @@ class SomeThingWentWrongWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          'حدث خطأ ما!',
-          style: Theme.of(context)
-              .textTheme
-              .bodyLarge!
-              .copyWith(color: ColorsConsts.purple),
-        ),
-        TextButton(
-          onPressed: onPressed,
-          style: TextButton.styleFrom(
-            backgroundColor: Colors.transparent,
-          ),
-          child: Text(
-            'إعادة المحاولة',
+    return Center(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            JsonConsts.someThingWentWrong.t(context),
             style: Theme.of(context)
                 .textTheme
                 .bodyLarge!
-                .copyWith(color: Colors.blue),
+                .copyWith(color: ColorsConsts.purple),
           ),
-        ),
-      ],
+          TextButton(
+            onPressed: onPressed,
+            style: TextButton.styleFrom(
+              backgroundColor: Colors.transparent,
+            ),
+            child: Text(
+              JsonConsts.tryAgain.t(context),
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyLarge!
+                  .copyWith(color: Colors.blue),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

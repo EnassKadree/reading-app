@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
+import 'package:reading_app/core/utils/extensions/string_extension.dart';
+import '../../../../core/utils/constants/json_consts.dart';
 import '../../services/navigationBar/navigation_bar_cubit.dart';
 
 class CustomNavigationBar extends StatelessWidget {
@@ -12,23 +14,28 @@ class CustomNavigationBar extends StatelessWidget {
     return BlocBuilder<BottomNavCubit, int>(
       builder: (context, state) {
         return BottomNavigationBar(
-          unselectedItemColor: context.colorScheme.primary.withAlpha(100),
-          selectedItemColor:  context.colorScheme.primary,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
           currentIndex: state,
           onTap: (index) => context.read<BottomNavCubit>().updateTab(index),
           items: [
-            BottomNavigationBarItem( backgroundColor:context.colorScheme.surfaceContainer,icon: const Icon(Iconsax.home), label: ""),
-             BottomNavigationBarItem(backgroundColor:context.colorScheme.surfaceContainer,icon: const Icon(Iconsax.book_square), label: "."),
-             BottomNavigationBarItem(backgroundColor:context.colorScheme.surfaceContainer,icon: const Icon(Iconsax.medal), label: ".."),
-             BottomNavigationBarItem(backgroundColor:context.colorScheme.surfaceContainer,icon: const Icon(Iconsax.people), label: "...."),
-              BottomNavigationBarItem(backgroundColor:context.colorScheme.surfaceContainer,icon: const Icon(Iconsax.profile_add), label: "..."),
-
+            BottomNavigationBarItem(
+                icon: const Icon(Iconsax.archive_book),
+                label: JsonConsts.library.t(context)),
+            BottomNavigationBarItem(
+                icon: const Icon(Iconsax.cup),
+                label: JsonConsts.challenges.t(context)),
+            BottomNavigationBarItem(
+                icon: const Icon(Iconsax.home_2,),
+                backgroundColor: context.colorScheme.primary,
+                label: JsonConsts.home.t(context)),
+            BottomNavigationBarItem(
+                icon: const Icon(Iconsax.profile_2user),
+                label: JsonConsts.community.t(context)),
+            BottomNavigationBarItem(
+                icon: const Icon(Iconsax.user_octagon),
+                label: JsonConsts.profile.t(context)),
           ],
         );
       },
     );
   }
 }
-

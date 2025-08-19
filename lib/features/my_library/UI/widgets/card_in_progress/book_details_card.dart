@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reading_app/core/utils/constants/colors_consts.dart';
+import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/constants/styles_consts.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
+import 'package:reading_app/core/utils/extensions/string_extension.dart';
 import 'package:reading_app/core/utils/functions/functions.dart';
-import 'package:reading_app/features/my_library/UI/screens/pdf_reader_screen.dart';
+import 'package:reading_app/features/shared/widgets/pdf%20books/pdf_reader_screen.dart';
 import 'package:reading_app/features/my_library/services/book_pdf/book_pdf_cubit.dart';
 import 'package:reading_app/features/shared/models/book.dart';
 
@@ -19,29 +21,28 @@ class BookDetailsCard extends StatelessWidget {
         onTap: () async {
           final cubit = context.read<BookPdfCubit>();
           await cubit.getBookPdf(book.id);
-
           final state = cubit.state;
           if (state is BookPdfSuccess) {
             final pdf = state.bookPdf;
+
             // ignore: use_build_context_synchronously
-            final lastPage = await context.push(
+            await context.push(
               PdfReaderScreen(
                 filePath: pdf.pdfUrl,
-                lastReadPage: book.currentPage ?? 1,
+                lastReadPage: book.progress ?? 1,
+                bookId: book.id,
               ),
             );
-
-            if (lastPage != null) {
-              print('User stopped at page: $lastPage');
-            }
           } else if (state is BookPdfFailure) {
             // ignore: use_build_context_synchronously
-            Functions().showSnackBar(context, 'فشل تحميل الكتاب');
+            Functions().showSnackBar(
+              // ignore: use_build_context_synchronously
+                context, JsonConsts.theBookFailedToLoad.t(context));
           }
         },
         child: Container(
           padding:
-              const EdgeInsets.only(left: 130, right: 16, top: 6, bottom: 16),
+          const EdgeInsets.only(left: 130, right: 16, top: 6, bottom: 16),
           decoration: BoxDecoration(
             color: ColorsConsts.white,
             borderRadius: BorderRadius.circular(14),
@@ -64,7 +65,7 @@ class BookDetailsCard extends StatelessWidget {
               Row(
                 children: List.generate(
                   5,
-                  (index) => Icon(
+                      (index) => Icon(
                     index < book.starRate.round()
                         ? Icons.star
                         : Icons.star_border,
@@ -75,10 +76,9 @@ class BookDetailsCard extends StatelessWidget {
               ),
               8.spaceH,
               LinearProgressIndicator(
-                
                 value: (book.numberOfPages > 0)
-                    ? ((book.currentPage ?? 1) / book.numberOfPages.toDouble())
-                        .clamp(0.0, 1.0)
+                    ? ((book.progress ?? 1) / book.numberOfPages.toDouble())
+                    .clamp(0.0, 1.0)
                     : 0.0,
                 backgroundColor: Colors.grey.shade200,
                 color: ColorsConsts.purple,
@@ -89,7 +89,7 @@ class BookDetailsCard extends StatelessWidget {
               Align(
                 alignment: Alignment.centerRight,
                 child: Text(
-                  '${book.currentPage ?? 1} / ${book.numberOfPages}',
+                  '${book.progress ?? 1} / ${book.numberOfPages}',
                   style: TextStyle(
                     fontSize: 12,
                     color: Colors.grey[600],
