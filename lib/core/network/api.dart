@@ -13,7 +13,7 @@ class Api {
     Map<String, String> headers = {
       'Accept': 'application/json',
       'Content-Type': 'application/x-www-form-urlencoded',
-      'Accept-Language': locale,
+      'lang': locale,
       if (token != null) 'Authorization': 'Bearer $token',
     };
 
@@ -50,7 +50,7 @@ class Api {
     Map<String, String> headers = {
       'Accept': 'application/json',
       'Content-Type': 'application/x-www-form-urlencoded',
-      'Accept-Language': locale,
+      'lang': locale,
       if (token != null) 'Authorization': 'Bearer $token',
     };
 

@@ -98,5 +98,7 @@
   "searchResults" : "search results",
   "clear" : "clear",
   "noResults": "No search results found",
-   "theBookFailedToLoad":"The book failed to load"
+   "theBookFailedToLoad":"The book failed to load",
+  "comments_on_this_book": "Comments on this book",
+  "description": "Description"
 }

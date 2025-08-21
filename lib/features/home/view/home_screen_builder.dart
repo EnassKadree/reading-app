@@ -84,6 +84,7 @@ class _HomeScreenBuilderState extends State<HomeScreenBuilder> {
                               showCustomErrorDialog(
                                 onPressed: () {
                                   Navigator.pop(context);
+                                  context .read<UserChallengesCubit>().getActiveChallenges();
                                   context.read<BooksCubit>().getBooks();
                                   context.read<AuthorsCubit>().getAuthors();
                                   context.read<CategoriesCubit>().getCategories();
@@ -95,7 +96,9 @@ class _HomeScreenBuilderState extends State<HomeScreenBuilder> {
                             return const SizedBox();  // Return an empty widget to continue the UI flow
                           }
 
-                         else return SizedBox();
+                         else {
+                            return const  SizedBox();
+                          }
                         }
                     );
                   });

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:reading_app/features/book_details/service/book_comments/book_comments_cubit.dart';
 import 'package:reading_app/features/book_details/service/join_book_challenge/join_book_challenge_cubit.dart';
 import 'package:reading_app/features/book_details/service/rate_the_book/rate_the_book_cubit.dart';
 import 'package:reading_app/features/book_details/view/book_details_screen.dart';
@@ -21,6 +22,9 @@ class BookDetailsWrapper extends StatelessWidget {
     }),
         BlocProvider(create: (BuildContext context){
           return RateTheBookCubit();
+        }),
+        BlocProvider(create: (BuildContext context){
+          return BookCommentsCubit()..getBookComments(book.id);
         }),
       ],
         child:

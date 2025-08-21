@@ -1,5 +1,4 @@
 abstract class JsonConsts {
-
   // AUTH
   // AUTH -> register
 
@@ -10,6 +9,7 @@ abstract class JsonConsts {
   static const String register = 'register';
   static const String haveAnAccount = 'haveAnAccount';
   static const String registerAccount = 'registerAccount';
+
   // AUTH -> login
   static const String next = 'next';
   static const String login = 'login';
@@ -51,9 +51,11 @@ abstract class JsonConsts {
   static const String noData = 'noData';
   static const String someThingWentWrong = 'someThingWentWrong';
   static const String tryAgain = 'tryAgain';
+
   //MY LIBRARY
   static const String myLibrary = 'library';
-  //MYLIBRARY 
+
+  //MYLIBRARY
   static const String mylibrary = 'mylibrary';
   static const String bookInProgress = 'bookInProgress';
   static const String favoriteBooks = 'favoriteBooks';
@@ -62,13 +64,14 @@ abstract class JsonConsts {
   static const String iHaveVisited = 'iHaveVisited';
   static const String theBookFailedToLoad = 'theBookFailedToLoad';
   static const String countriesInALiteraryWay = 'countriesInALiteraryWay';
-  //Exception
-  static const String pleaseLogIn ='please_log_in_first';
-   static const String thereAreNoBooksCurrently = 'ThereAreNoBooksCurrently';
-    static const String bookDownloadFailed = 'bookDownloadFailed';
 
-    static const String follow='follow';
-  static const String unFollow='unfollow';
+  //Exception
+  static const String pleaseLogIn = 'please_log_in_first';
+  static const String thereAreNoBooksCurrently = 'ThereAreNoBooksCurrently';
+  static const String bookDownloadFailed = 'bookDownloadFailed';
+
+  static const String follow = 'follow';
+  static const String unFollow = 'unfollow';
 
   // PROFILE
   static const String profile = 'profile';
@@ -132,4 +135,7 @@ abstract class JsonConsts {
   static const String searchResults = 'searchResults';
   static const String clear = 'clear';
   static const String noResults = 'noResults';
+
+  //BOOK DETAILS
+ static const String commentOnThisBook='comments_on_this_book';
 }

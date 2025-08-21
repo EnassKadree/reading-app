@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
+import 'package:reading_app/core/utils/extensions/string_extension.dart';
 import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import '../../../../core/utils/constants/styles_consts.dart' show StylesConsts;
 
@@ -32,7 +33,7 @@ class _ScrollableDescriptionWidgetState
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "description".tr(),
+          "description".t(context),
           style: StylesConsts.f24BoldBlack,
         ),
         10.spaceH,

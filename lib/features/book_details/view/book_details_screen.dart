@@ -7,6 +7,7 @@ import 'package:reading_app/core/utils/extensions/space_extension.dart';
 import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/features/book_details/view/components/book_challenge_builder.dart';
 import 'package:reading_app/features/book_details/view/components/book_image_shader_mask.dart';
+import 'package:reading_app/features/book_details/view/components/comments_section.dart';
 import 'package:reading_app/features/book_details/view/components/scrollable_description_widget.dart';
 import '../../shared/models/book.dart';
 import '../../shared/widgets/custom_network_image.dart';
@@ -103,28 +104,6 @@ class BookDetailsScreen extends StatelessWidget {
                         ],
                       ),
 
-                      // Padding(
-                      //   padding:  EdgeInsets.symmetric(horizontal: 100.0.w),
-                      //   child: ElevatedButton(
-                      //         onPressed: () {
-                      //           // Add your onPressed functionality here
-                      //         },
-                      //         style: ElevatedButton.styleFrom(
-                      //           backgroundColor: context.colorScheme.surfaceContainer,
-                      //           side: BorderSide(color: Colors.black, width: 1),
-                      //           shape: RoundedRectangleBorder(
-                      //             borderRadius: BorderRadius.circular(30),
-                      //           ),
-                      //         ),
-                      //         child: Text(
-                      //           '    Start Reading    ',
-                      //           style: TextStyle(
-                      //               fontSize: 14,
-                      //             color: Colors.black
-                      //           ),
-                      //         ),
-                      //       ),
-                      // ),
                       30.spaceH,
                       BookNumbersSection(book: book),
                       40.spaceH,
@@ -139,7 +118,9 @@ class BookDetailsScreen extends StatelessWidget {
                       RateTheBookContainer(
                         book: book,
                       ),
-                      70.spaceH,
+                      30.spaceH,
+                      CommentsSection(),
+                      70.spaceH
                     ],
                   ),
                 )

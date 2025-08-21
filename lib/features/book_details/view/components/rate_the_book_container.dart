@@ -22,7 +22,7 @@ class RateTheBookContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double rate = 0;
-    bool ignore = ((book.progress * 100) / book.numberOfPages) > 70;
+    bool ignore = ((book.progress * 100) / book.numberOfPages)<70;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -35,7 +35,8 @@ class RateTheBookContainer extends StatelessWidget {
         IgnorePointer(
           ignoring: ignore,
           child: AnimatedOpacity(
-            duration: Duration(seconds: 1),
+
+            duration: Duration(seconds: 2),
             opacity: (ignore) ? 0.35 : 1,
             child: Container(
               width: 1.sw,

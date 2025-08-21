@@ -10,7 +10,7 @@ android {
 
 
     compileSdk = 35
-    ndkVersion = "26.2.11394342"
+    ndkVersion = "27.0.11718014"
 
 
 

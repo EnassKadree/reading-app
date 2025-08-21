@@ -99,5 +99,7 @@
   "searchResults" : "نتائج البحث",
   "clear" : "مسح",
   "noResults": "لا يوجد نتائج",
-  "theBookFailedToLoad":"فشل تحميل الكتاب"
+  "theBookFailedToLoad":"فشل تحميل الكتاب",
+  "comments_on_this_book": "التعليقات",
+  "description": "الوصف"
 }

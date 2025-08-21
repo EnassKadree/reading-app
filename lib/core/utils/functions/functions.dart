@@ -14,6 +14,7 @@ import '../../../features/notifications/UI/screens/notifications_screen.dart';
 import '../../../features/shared/data/data_source.dart';
 import '../../../features/shared/localization/locale_cubit.dart';
 import '../../../features/shared/theme/theme_cubit.dart';
+import '../../../features/shared/user/user_model.dart';
 import '../../../features/splash_screen/splash_screen.dart';
 import '../constants/colors_consts.dart';
 import '../constants/json_consts.dart';

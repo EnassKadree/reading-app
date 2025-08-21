@@ -30,7 +30,8 @@ class BookDetailsCard extends StatelessWidget {
               PdfReaderScreen(
                 filePath: pdf.pdfUrl,
                 lastReadPage: book.progress ?? 1,
-                bookId: book.id,
+
+                bookModel: book,
               ),
             );
           } else if (state is BookPdfFailure) {
