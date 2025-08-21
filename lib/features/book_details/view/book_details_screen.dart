@@ -15,11 +15,30 @@ import '../helpers/share_plus_function.dart';
 import 'components/book_numbers_section.dart';
 import 'components/rate_the_book_container.dart';
 
-class BookDetailsScreen extends StatelessWidget {
-  const BookDetailsScreen({required this.book, super.key});
+class BookDetailsScreen extends StatefulWidget {
+  const BookDetailsScreen({required this.book, this.newProgress,  required this.scrollToIndex, super.key});
 
   final BookModel book;
+  final  int  scrollToIndex;
+   final int ? newProgress;
+  @override
+  State<BookDetailsScreen> createState() => _BookDetailsScreenState();
+}
 
+class _BookDetailsScreenState extends State<BookDetailsScreen> {
+  late ScrollController _scrollController;
+  void _scrollToIndex(int index) {
+    double offset = index *80;
+    _scrollController.jumpTo(offset); // or use _scrollController.animateTo() for smooth scroll
+  }
+  @override
+  void initState() {
+    super.initState();
+    _scrollController = ScrollController();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _scrollToIndex(widget.scrollToIndex); // Scroll after the screen is built
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,6 +46,7 @@ class BookDetailsScreen extends StatelessWidget {
         children: [
           Expanded(
             child: CustomScrollView(
+              controller: _scrollController,
               slivers: [
                 SliverList(
                   delegate: SliverChildListDelegate(
@@ -36,7 +56,7 @@ class BookDetailsScreen extends StatelessWidget {
                           SizedBox(
                               height: 460.h,
                               child: BookImageShaderMask(
-                                bookImage: book.coverImage,
+                                bookImage: widget.book.coverImage,
                               )),
                           Positioned(
                             top: 40.h,
@@ -44,9 +64,9 @@ class BookDetailsScreen extends StatelessWidget {
                             child: GestureDetector(
                               onTap: () {
                                 shareBookDetails(
-                                  image: book.coverImage,
-                                  title: book.title,
-                                  author: book.authorName,
+                                  image: widget.book.coverImage,
+                                  title: widget.book.title,
+                                  author: widget.book.authorName,
                                   appLink: EndPoint.appLink,
                                 );
                               },
@@ -82,19 +102,19 @@ class BookDetailsScreen extends StatelessWidget {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(24.r),
                                       child: CustomNetworkImage(
-                                        imageUrl: book.coverImage,
+                                        imageUrl: widget.book.coverImage,
                                         fit: BoxFit.fill,
                                       ),
                                     ),
                                   ),
                                   10.spaceH,
                                   Text(
-                                    book.title,
+                                    widget.book.title,
                                     style: StylesConsts.f24BoldBlack,
                                   ).horizontalPadding,
                                   10.spaceH,
                                   Text(
-                                    book.authorName,
+                                    widget.book.authorName,
                                     style: StylesConsts.f18W400grey,
                                   ).horizontalPadding
                                 ],
@@ -103,23 +123,23 @@ class BookDetailsScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-
                       30.spaceH,
-                      BookNumbersSection(book: book),
+                      BookNumbersSection(book: widget.book),
                       40.spaceH,
                       ScrollableDescriptionWidget(
-                        description: book.description,
+                        description: widget.book.description,
                       ),
                       40.spaceH,
                       BookChallengeBuilder(
-                        book: book,
+                        book: widget.book,
                       ),
                       30.spaceH,
                       RateTheBookContainer(
-                        book: book,
+                        book: widget.book,
+                        newProgress: widget.newProgress,
                       ),
                       30.spaceH,
-                      CommentsSection(),
+                      const CommentsSection(),
                       70.spaceH
                     ],
                   ),
