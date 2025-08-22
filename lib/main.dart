@@ -2,6 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:reading_app/core/utils/base/local_notifications_service.dart';
+import 'package:reading_app/core/utils/base/push_notifications_service.dart';
 import 'package:reading_app/core/utils/functions/functions.dart';
 import 'package:reading_app/firebase_options.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -17,10 +19,14 @@ import 'features/shared/user/user_model.dart';
 late SharedPreferences prefs;
 
 void main() async {
-  
   WidgetsFlutterBinding.ensureInitialized();
 
- await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Future.wait([
+ PushNotificationsService.init(),
+LocalNotificationService.init(),
+  ]);
+
   prefs = await SharedPreferences.getInstance();
 
   final User? user = DataSource().getUser();
@@ -50,7 +56,7 @@ void main() async {
     ),
   );
 }
-
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -66,7 +72,7 @@ class MyApp extends StatelessWidget {
           builder: (context, theme) {
             return BlocBuilder<LocaleCubit, Locale>(
               builder: (context, locale) {
-                return MaterialApp(
+                return MaterialApp( navigatorKey: navigatorKey, 
                   debugShowCheckedModeBanner: false,
                   theme: AppTheme.lightTheme(context, locale),
                   darkTheme: AppTheme.darkTheme(context, locale),
