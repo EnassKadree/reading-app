@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "275612905612",
+    "project_id": "push-notifications-reading-app",
+    "storage_bucket": "push-notifications-reading-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:275612905612:android:a912238aba24beabf8cba9",
+        "android_client_info": {
+          "package_name": "com.example.reading_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAk3wVvDPmhIf5Ww3Zi-VlE9yX3mJr2E4M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

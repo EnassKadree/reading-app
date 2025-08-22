@@ -1,7 +1,9 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reading_app/core/utils/functions/functions.dart';
+import 'package:reading_app/firebase_options.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'features/shared/data/data_source.dart';
@@ -15,7 +17,10 @@ import 'features/shared/user/user_model.dart';
 late SharedPreferences prefs;
 
 void main() async {
+  
   WidgetsFlutterBinding.ensureInitialized();
+
+ await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   prefs = await SharedPreferences.getInstance();
 
   final User? user = DataSource().getUser();

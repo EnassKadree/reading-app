@@ -1,6 +1,5 @@
 {
-    "java.configuration.updateBuildConfiguration": "interactive",
-    "cSpell.words": [
-        "sansita"
-    ]
+  "java.configuration.updateBuildConfiguration": "interactive",
+  "cSpell.words": ["sansita"],
+  "cmake.sourceDirectory": "C:/Users/iamgh/Documents/Projects/reading-app/linux"
 }
