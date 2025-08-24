@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:reading_app/core/utils/constants/colors_consts.dart';
 import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/constants/styles_consts.dart';
@@ -16,37 +17,33 @@ class SliverVisitedCountriesText extends StatelessWidget {
       child: BlocProvider(
         create: (_) => CountryBookCountCubit()..getCountryBook(),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           child: Row(
             children: [
-              const Icon(Icons.airplanemode_active_outlined),
-              6.spaceW,
+              Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: ColorsConsts.purple.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: const Icon(
+                  Iconsax.airplane,
+                  color: ColorsConsts.purple,
+                  size: 24,
+                ),
+              ),
+              16.spaceW,
               Expanded(
                 child:
                     BlocBuilder<CountryBookCountCubit, CountryBookCountState>(
                   builder: (context, state) {
                     if (state is CountryBookCountFailure) {
-                      print(state.message);
-                      return Text(
-                        maxLines: 2,
-                        "${JsonConsts.iHaveVisited.t(context)} 0 ${JsonConsts.countriesInALiteraryWay.t(context)}",
-                        style: StylesConsts.introText.copyWith(
-                          color: ColorsConsts.purple,
-                          fontStyle: FontStyle.normal,
-                        ),
-                      );
+                      return _buildText(context, 0);
                     }
                     final count = state is CountryBookCountSuccess
                         ? state.country.length
                         : 0;
-                    return Text(
-                      maxLines: 2,
-                      "${JsonConsts.iHaveVisited.t(context)} $count ${JsonConsts.countriesInALiteraryWay.t(context)}",
-                      style: StylesConsts.introText.copyWith(
-                        color: ColorsConsts.purple,
-                        fontStyle: FontStyle.normal,
-                      ),
-                    );
+                    return _buildText(context, count);
                   },
                 ),
               ),
@@ -54,6 +51,32 @@ class SliverVisitedCountriesText extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildText(BuildContext context, int count) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "${JsonConsts.iHaveVisited.t(context)} $count ${JsonConsts.countriesInALiteraryWay.t(context)}",
+          style: StylesConsts.f16W600Black.copyWith(
+            color: ColorsConsts.purple,
+            fontSize: 17,
+            fontWeight: FontWeight.w600,
+            height: 1.3,
+          ),
+        ),
+        8.spaceH,
+        Text(
+          "Explore the world through literature",
+          style: StylesConsts.f15W400Grey.copyWith(
+            fontSize: 14,
+            color: Colors.grey[600],
+            fontStyle: FontStyle.italic,
+          ),
+        ),
+      ],
     );
   }
 }

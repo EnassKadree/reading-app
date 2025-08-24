@@ -24,6 +24,7 @@ class PdfReaderBody extends StatelessWidget {
       builder: (context, currentPage) {
         return Stack(
           children: [
+           
             SfPdfViewer.network(
               filePath,
               controller: controller,

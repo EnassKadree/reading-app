@@ -11,17 +11,22 @@ class SliverMapContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
       child: Container(
-        width: MediaQuery.of(context).size.width * 0.9,
-        height: MediaQuery.of(context).size.height * 0.25,
+        width: MediaQuery.of(context).size.width * 0.92,
+        height: MediaQuery.of(context).size.height * 0.28,
         margin: const EdgeInsets.symmetric(horizontal: 16),
         decoration: BoxDecoration(
           color: ColorsConsts.white,
           borderRadius: BorderRadius.circular(24),
-          boxShadow: const [
+          border: Border.all(
+            color: ColorsConsts.purple.withOpacity(0.2),
+            width: 1.5,
+          ),
+          boxShadow: [
             BoxShadow(
-              color: Colors.black12,
-              blurRadius: 6,
-              offset: Offset(0, 6),
+              color: ColorsConsts.purple.withOpacity(0.1),
+              blurRadius: 20,
+              offset: const Offset(0, 10),
+              spreadRadius: 2,
             ),
           ],
         ),
