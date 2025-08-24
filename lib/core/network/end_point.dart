@@ -24,7 +24,7 @@ abstract class EndPoint {
   static const progress = '/book/update-reading-progress/';
 
   // PROFILE
-  static const profile = '/mobile/reader/showProfile';
+  static const profile = '/reader/showProfile';
   static const setupProfile = '/auth/setup-profile';
   static const editProfile = '/auth/edit-profile';
 

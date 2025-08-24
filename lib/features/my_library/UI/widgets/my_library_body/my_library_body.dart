@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:reading_app/features/my_library/UI/widgets/my_library_body/sliver_book_card_grid.dart';
 import 'package:reading_app/features/my_library/UI/widgets/my_library_body/sliver_library_stats.dart';
 import 'package:reading_app/features/my_library/UI/widgets/my_library_body/sliver_map_container.dart';
-import 'package:reading_app/features/my_library/UI/widgets/my_library_body/Sliver_myLibrary.dart';
+import 'package:reading_app/features/my_library/UI/widgets/my_library_body/sliver_my_library.dart';
 import 'package:reading_app/features/my_library/UI/widgets/my_library_body/sliver_visited_countries_text.dart';
 
 class MyLibraryBody extends StatelessWidget {

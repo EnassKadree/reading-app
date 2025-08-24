@@ -25,7 +25,10 @@ class SliverLibraryStats extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const LabelLabraryStats(),
+            LibrarySectionLabel(
+              title: JsonConsts.readingProgress.t(context),
+              icon: Iconsax.status_up,
+            ),
             18.spaceH,
             Container(
               padding: const EdgeInsets.all(20),

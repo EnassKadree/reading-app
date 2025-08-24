@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:reading_app/core/utils/constants/colors_consts.dart';
+
 import 'package:reading_app/core/utils/constants/json_consts.dart';
-import 'package:reading_app/core/utils/constants/styles_consts.dart';
+
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
 import 'package:reading_app/core/utils/extensions/string_extension.dart';
@@ -12,6 +12,7 @@ import 'package:reading_app/features/my_library/UI/screens/books_to_read.dart';
 import 'package:reading_app/features/my_library/UI/screens/completed_books.dart';
 import 'package:reading_app/features/my_library/UI/screens/favorite_books.dart';
 import 'package:reading_app/features/my_library/UI/widgets/my_library_body/build_my_library.dart';
+import 'package:reading_app/features/my_library/UI/widgets/my_library_body/label_labrary_stats.dart';
 import 'package:reading_app/features/my_library/services/book_pdf/book_pdf_cubit.dart';
 import 'package:reading_app/features/my_library/services/complered_books/completed_books_cubit.dart';
 import 'package:reading_app/features/my_library/services/favorite_books/favorite_books_cubit.dart';
@@ -31,32 +32,13 @@ class SlivermyLibrary extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 4, bottom: 12),
-                child: Row(
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        color: ColorsConsts.purple.withOpacity(0.1),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: const Icon(
-                        Iconsax.folder_favorite,
-                        color: ColorsConsts.purple,
-                        size: 20,
-                      ),
-                    ),
-                    12.spaceW,
-                    Text(
-                      JsonConsts.mylibrary.t(context),
-                      style: StylesConsts.f16W600Black.copyWith(
-                        color: ColorsConsts.purple,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ],
+                padding: const EdgeInsets.all(8.0),
+                child: LibrarySectionLabel(
+                  title: JsonConsts.mylibrary.t(context),
+                  icon: Iconsax.folder_favorite,
                 ),
               ),
+              4.spaceH,
               Row(
                 children: [
                   Expanded(
