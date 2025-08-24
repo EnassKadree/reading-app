@@ -41,25 +41,26 @@ class BookModel {
   // Factory method to convert JSON to Book object
   factory BookModel.fromJson(Map<String, dynamic> json) {
     return BookModel(
-      id: json['id'],
-      title: json['title'],
-      description: json['description'],
-      authorName: json['author_name'],
-      countryFlag: json['country_flag'],
-      publishDate: json['publish_date'],
-      coverImage: json['cover_image'],
-      points: json['points'],
-      starRate: json['star_rate'].toDouble(),
-      readersCount: json['readers_count'],
-      categoryName: json['category_name'],
-      sizeCategoryName: json['size_category_name'],
-      numberOfPages: json['number_of_pages'],
-      progress: json['progress'],
-      isFavourite: json['is_favourite'],
-      isChallenged: json['is_challenged'],
-      isInLibrary: json['is_in_library'],
+      id: json['id'] ?? 0,
+      title: json['title'] ?? '',
+      description: json['description'] ?? '',
+      authorName: json['author_name'] ?? 'Unknown',
+      countryFlag: json['country_flag'] ?? '',
+      publishDate: json['publish_date'] ?? '',
+      coverImage: json['cover_image'] ?? '',
+      points: json['points'] ?? 0,
+      starRate: (json['star_rate'] ?? 0).toDouble(),
+      readersCount: json['readers_count'] ?? 0,
+      categoryName: json['category_name'] ?? '',
+      sizeCategoryName: json['size_category_name'] ?? '',
+      numberOfPages: json['number_of_pages'] ?? 0,
+      progress: json['progress'] ?? 0,
+      isFavourite: json['is_favourite'] ?? false,
+      isChallenged: json['is_challenged'] ?? false,
+      isInLibrary: json['is_in_library'] ?? false,
     );
   }
+
 
   // Method to convert Book object to JSON
   Map<String, dynamic> toJson() {
