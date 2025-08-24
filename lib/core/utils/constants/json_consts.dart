@@ -52,16 +52,20 @@ abstract class JsonConsts {
   static const String tryAgain = 'tryAgain';
   //MY LIBRARY
   static const String myLibrary = 'library';
-  //MYLIBRARY
+  //MYLIBRARY 
   static const String mylibrary = 'mylibrary';
   static const String bookInProgress = 'bookInProgress';
   static const String favoriteBooks = 'favoriteBooks';
-
   static const String finishedBooks = 'finishedBooks';
   static const String booksToRead = 'booksToRead';
   static const String iHaveVisited = 'iHaveVisited';
+  static const String booksDiscovered = 'booksDiscovered';
+  static const String hoursRead = 'hoursRead';
+  static const String avgRating = 'avgRating';
+  static const String readingProgress = 'readingProgress';
   static const String theBookFailedToLoad = 'theBookFailedToLoad';
   static const String countriesInALiteraryWay = 'countriesInALiteraryWay';
+    static const String exploreTheWorldThroughLiterature = 'exploreTheWorldThroughLiterature';
   //Exception
   static const String pleaseLogIn = 'please_log_in_first';
   static const String thereAreNoBooksCurrently = 'ThereAreNoBooksCurrently';

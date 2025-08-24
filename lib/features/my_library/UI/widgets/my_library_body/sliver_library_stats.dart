@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:reading_app/core/services/screen_time_tracker.dart';
 import 'package:reading_app/core/utils/constants/colors_consts.dart';
+import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/constants/styles_consts.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
+import 'package:reading_app/core/utils/extensions/string_extension.dart';
 import 'package:reading_app/core/utils/functions/functions.dart';
+import 'package:reading_app/features/my_library/UI/widgets/my_library_body/build_stat_item.dart';
 
 class SliverLibraryStats extends StatelessWidget {
   const SliverLibraryStats({super.key});
@@ -14,48 +17,9 @@ class SliverLibraryStats extends StatelessWidget {
     return SliverToBoxAdapter(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-        child:
-            //  Container(
-            //   padding: const EdgeInsets.all(20),
-            //   decoration: BoxDecoration(
-            //     color: Colors.white,
-            //     boxShadow: [
-            //       BoxShadow(
-            //         color: Colors.grey.withOpacity(0.1),
-            //         spreadRadius: 1,
-            //         blurRadius: 10,
-            //         offset: const Offset(0, 4),
-            //       ),
-            //     ],
-            //     borderRadius: BorderRadius.circular(20),
-            //     border: Border.all(
-            //       color: ColorsConsts.purple.withOpacity(0.15),
-            //       width: 1,
-            //     ),
-            //   ),
-            //   child:
-            Column(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Container(
-            //   padding: const EdgeInsets.all(20),
-            //   decoration: BoxDecoration(
-            //     color: Colors.white,
-            //     boxShadow: [
-            //       BoxShadow(
-            //         color: Colors.grey.withOpacity(0.1),
-            //         spreadRadius: 1,
-            //         blurRadius: 10,
-            //         offset: const Offset(0, 4),
-            //       ),
-            //     ],
-            //     borderRadius: BorderRadius.circular(20),
-            //     border: Border.all(
-            //       color: ColorsConsts.purple.withOpacity(0.15),
-            //       width: 1,
-            //     ),
-            //   ),
-            //   child:
             Row(
               children: [
                 Container(
@@ -72,7 +36,7 @@ class SliverLibraryStats extends StatelessWidget {
                 ),
                 12.spaceW,
                 Text(
-                  "Reading Progress",
+                  JsonConsts.readingProgress.t(context),
                   style: StylesConsts.f16W600Black.copyWith(
                     color: ColorsConsts.purple,
                     fontSize: 18,
@@ -103,10 +67,10 @@ class SliverLibraryStats extends StatelessWidget {
               child: Row(
                 children: [
                   Expanded(
-                    child: _buildStatItem(
+                    child: buildStatItem(
                       icon: Iconsax.book_square,
                       value: Functions().formatPoints(120),
-                      label: "Books discovered",
+                      label: JsonConsts.booksDiscovered.t(context),
                       color: Colors.blue[600]!,
                     ),
                   ),
@@ -117,23 +81,23 @@ class SliverLibraryStats extends StatelessWidget {
                       builder: (context, snapshot) {
                         final minutes = snapshot.data ?? 0;
                         final formatted =
-                            ScreenTimeTracker.formatHoursInt(minutes);
+                            ScreenTimeTracker.formatHours(minutes);
 
-                        return _buildStatItem(
+                        return buildStatItem(
                           icon: Iconsax.timer_start,
-                          value: Functions().formatPoints(formatted),
-                          label: "Hours Read",
-                          color: Colors.green[600]!,
+                          value: formatted,
+                          label: JsonConsts.hoursRead.t(context),
+                          color: Colors.pink[300]!,
                         );
                       },
                     ),
                   ),
                   16.spaceW,
                   Expanded(
-                    child: _buildStatItem(
+                    child: buildStatItem(
                       icon: Iconsax.star,
                       value: "4.2",
-                      label: "Avg   Rating",
+                      label: JsonConsts.avgRating.t(context),
                       color: Colors.amber[600]!,
                     ),
                   ),
@@ -144,76 +108,6 @@ class SliverLibraryStats extends StatelessWidget {
         ),
       ),
       //   ),
-    );
-  }
-
-  Widget _buildStatItem({
-    required IconData icon,
-    required String value,
-    required String label,
-    required Color color,
-  }) {
-    return Column(
-      children: [
-        // Container(
-        //   padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
-        //   decoration: BoxDecoration(
-        //     boxShadow: [
-        //       BoxShadow(
-        //         color: color.withOpacity(0.1),
-        //         blurRadius: 8,
-        //         offset: const Offset(0, 4),
-        //         spreadRadius: 1,
-        //       ),
-        //     ],
-        //     color: Colors.white.withOpacity(0.7).withOpacity(0.1),
-        //     borderRadius: BorderRadius.circular(12),
-        //     border: Border.all(
-        //       color: color.withOpacity(0.2),
-        //       width: 1,
-        //     ),
-        //   ),
-        //   child:
-        Column(
-          children: [
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              decoration: BoxDecoration(
-                color: color.withOpacity(0.1),
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Icon(
-                icon,
-                color: color,
-                size: 25,
-              ),
-            ),
-            8.spaceH,
-            Text(
-              value,
-              style: StylesConsts.f16W600Black.copyWith(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: color,
-              ),
-            ),
-          ],
-        ),
-        // ),
-        8.spaceH,
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 11),
-          child: Text(
-            label,
-            style: StylesConsts.f15W400Grey.copyWith(
-              fontSize: 12,
-              color: Colors.grey[600],
-              fontWeight: FontWeight.w500,
-            ),
-            textAlign: TextAlign.center,
-          ),
-        ),
-      ],
     );
   }
 }

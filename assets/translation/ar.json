@@ -97,5 +97,10 @@
   "searchResults" : "نتائج البحث",
   "clear" : "مسح",
   "noResults": "لا يوجد نتائج",
-  "theBookFailedToLoad":"فشل تحميل الكتاب"
+  "theBookFailedToLoad":"فشل تحميل الكتاب",
+  "readingProgress":"تقدم القراءة"
+  ,"booksDiscovered":"الكتب المكتشفة",
+  "hoursRead":"ساعات القراءة",
+  "avgRating":"متوسط ​ ​التقييم",
+  "exploreTheWorldThroughLiterature":"استكشف العالم من خلال الأدب"
 }

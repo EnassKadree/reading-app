@@ -75,8 +75,7 @@ class ScreenTimeTracker {
   }
 
   // تحويل الدقايق إلى ساعات (مع كسور)
-// لو بدك integer بس بالأقرب (مثلاً 1.5 → 2)
-static int formatHoursInt(int minutes) {
-  return ((minutes / 60.0).round()); // 1.5 → 2
-}
+  static String formatHours(int minutes) {
+    return (minutes / 60).toStringAsFixed(1); // مثال: "1.5"
+  }
 }

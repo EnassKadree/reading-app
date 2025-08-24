@@ -11,6 +11,7 @@ import 'package:reading_app/features/my_library/UI/screens/book_in_progrees.dart
 import 'package:reading_app/features/my_library/UI/screens/books_to_read.dart';
 import 'package:reading_app/features/my_library/UI/screens/completed_books.dart';
 import 'package:reading_app/features/my_library/UI/screens/favorite_books.dart';
+import 'package:reading_app/features/my_library/UI/widgets/my_library_body/build_my_library.dart';
 import 'package:reading_app/features/my_library/services/book_pdf/book_pdf_cubit.dart';
 import 'package:reading_app/features/my_library/services/complered_books/completed_books_cubit.dart';
 import 'package:reading_app/features/my_library/services/favorite_books/favorite_books_cubit.dart';
@@ -59,7 +60,7 @@ class SlivermyLibrary extends StatelessWidget {
               Row(
                 children: [
                   Expanded(
-                    child: _buildmyLibrary(
+                    child: buildmyLibrary(
                       icon: Iconsax.bookmark,
                       label: JsonConsts.bookInProgress.t(context),
                       color: Colors.blue[600]!,
@@ -80,10 +81,10 @@ class SlivermyLibrary extends StatelessWidget {
                   ),
                   12.spaceW,
                   Expanded(
-                    child: _buildmyLibrary(
+                    child: buildmyLibrary(
                       icon: Iconsax.heart,
                       label: JsonConsts.favoriteBooks.t(context),
-                      color: Colors.green[600]!,
+                      color: Colors.pink[300]!,
                       onTap: () {
                         context.push(
                           BlocProvider(
@@ -97,10 +98,10 @@ class SlivermyLibrary extends StatelessWidget {
                   ),
                   12.spaceW,
                   Expanded(
-                    child: _buildmyLibrary(
+                    child: buildmyLibrary(
                       icon: Iconsax.book,
                       label: JsonConsts.booksToRead.t(context),
-                      color: Colors.orange[600]!,
+                      color: Colors.amber[600]!,
                       onTap: () {
                         context.push(
                           BlocProvider(
@@ -113,7 +114,7 @@ class SlivermyLibrary extends StatelessWidget {
                   ),
                   12.spaceW,
                   Expanded(
-                    child: _buildmyLibrary(
+                    child: buildmyLibrary(
                       icon: Iconsax.book_saved,
                       label: JsonConsts.finishedBooks.t(context),
                       color: Colors.purple[600]!,
@@ -132,62 +133,6 @@ class SlivermyLibrary extends StatelessWidget {
               ),
             ],
           ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildmyLibrary({
-    required IconData icon,
-    required String label,
-    required Color color,
-    required VoidCallback onTap,
-  }) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(16),
-          border: Border.all(
-            color: color.withOpacity(0.2),
-            width: 1.5,
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: color.withOpacity(0.1),
-              blurRadius: 8,
-              offset: const Offset(0, 4),
-              spreadRadius: 1,
-            ),
-          ],
-        ),
-        child: Column(
-          children: [
-            Container(
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: color.withOpacity(0.1),
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Icon(
-                icon,
-                color: color,
-                size: 24,
-              ),
-            ),
-            8.spaceH,
-            Text(
-              label,
-              style: StylesConsts.f15W400Grey.copyWith(
-                fontSize: 12,
-                color: color,
-                fontWeight: FontWeight.w600,
-              ),
-              textAlign: TextAlign.center,
-            ),
-          ],
         ),
       ),
     );

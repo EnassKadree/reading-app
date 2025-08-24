@@ -97,5 +97,11 @@
   "searchResults" : "search results",
   "clear" : "clear",
   "noResults": "No search results found",
-   "theBookFailedToLoad":"The book failed to load"
+   "theBookFailedToLoad":"The book failed to load",
+   "readingProgress":"Reading Progress",
+   "booksDiscovered":"Books Discovered",
+   "hoursRead":"Hours Read",
+   "avgRating":"Avg   Rating",
+   "exploreTheWorldThroughLiterature":"Explore the world through literature"
+   
 }
