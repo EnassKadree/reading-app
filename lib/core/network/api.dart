@@ -60,8 +60,6 @@ class Api {
       return jsonDecode(response.body);
 
     } else {
-      print("_______________________________________________________________________________________________________________________________________________________________________________");
-      print(response.body);
       throw Exception('message: ${response.body}');
     }
   }

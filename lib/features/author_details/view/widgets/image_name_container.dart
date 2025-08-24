@@ -68,6 +68,6 @@ class ImageNameContainer extends StatelessWidget {
           ),
         ),
       ),
-    );;
+    );
   }
 }

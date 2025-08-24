@@ -7,7 +7,7 @@ import 'package:reading_app/core/utils/extensions/space_extension.dart';
 import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/features/book_details/view/components/book_challenge_builder.dart';
 import 'package:reading_app/features/book_details/view/components/book_image_shader_mask.dart';
-import 'package:reading_app/features/book_details/view/components/comments_section.dart';
+import 'package:reading_app/features/book_details/view/components/book_comments_builder.dart';
 import 'package:reading_app/features/book_details/view/components/scrollable_description_widget.dart';
 import '../../shared/models/book.dart';
 import '../../shared/widgets/custom_network_image.dart';
@@ -129,7 +129,7 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
                       ScrollableDescriptionWidget(
                         description: widget.book.description,
                       ),
-                      40.spaceH,
+                      30.spaceH,
                       BookChallengeBuilder(
                         book: widget.book,
                       ),

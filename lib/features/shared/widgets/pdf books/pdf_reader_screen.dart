@@ -56,8 +56,10 @@ class PdfReaderScreen extends StatelessWidget {
                         book: bookModel,
                         scrollToIndex: 10,
                         newProgress: currentPage,
-                      ));
-                    });
+                      ),
+                      );
+                    },
+                );
               } else {
                 Navigator.pushAndRemoveUntil(
                   context,

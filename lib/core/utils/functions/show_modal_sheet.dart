@@ -6,11 +6,15 @@ extension ShowModalSheet on Functions
   {
     showModalBottomSheet
     (
-      
+      constraints: BoxConstraints(
+        minHeight: 600.h,
+        maxHeight: 1.sh,
+      ),
       context: context,
       isScrollControlled: true, 
-      isDismissible: false,
-      enableDrag: false,
+      isDismissible: true,
+      enableDrag: true,
+      showDragHandle: true,
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       builder: (BuildContext context) 
       {

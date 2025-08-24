@@ -25,9 +25,10 @@ class BookCommentsCubit extends BaseCubit<BookCommentsStates>
         throw Exception(JsonConsts.pleaseLogIn.tr());
       }
       Map<String, dynamic> response = await Api().get(url:"$endPoint$id", token: user.accessToken);
+      print(response);
       List<Comment> comments =parseResponse<Comment>(
           response: response,
-          fromJson: (data) => Comment.fromJson(data));
+          fromJson: (comments) => Comment.fromJson(comments));
       emit(SuccessBookCommentsStates(comments));
 
     }, emit: emit,

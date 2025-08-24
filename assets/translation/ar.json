@@ -101,5 +101,7 @@
   "noResults": "لا يوجد نتائج",
   "theBookFailedToLoad":"فشل تحميل الكتاب",
   "comments_on_this_book": "التعليقات",
-  "description": "الوصف"
+  "description": "الوصف",
+  "view_all": "عرض الكل",
+  "this_book_has_no_comments": "لا يوجد تعليقات على هذا الكتاب كن أول المعلقين"
 }

@@ -100,5 +100,7 @@
   "noResults": "No search results found",
    "theBookFailedToLoad":"The book failed to load",
   "comments_on_this_book": "Comments on this book",
-  "description": "Description"
+  "description": "Description",
+  "view_all":"View all",
+  "this_book_has_no_comments": "This book has no comments be the first to add one"
 }
