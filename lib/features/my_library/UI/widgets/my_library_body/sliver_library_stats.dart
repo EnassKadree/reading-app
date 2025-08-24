@@ -4,10 +4,9 @@ import 'package:iconsax/iconsax.dart';
 import 'package:reading_app/core/services/screen_time_tracker.dart';
 import 'package:reading_app/core/utils/constants/colors_consts.dart';
 import 'package:reading_app/core/utils/constants/json_consts.dart';
-import 'package:reading_app/core/utils/constants/styles_consts.dart';
+import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
 import 'package:reading_app/core/utils/extensions/string_extension.dart';
-import 'package:reading_app/core/utils/functions/functions.dart';
 import 'package:reading_app/features/my_library/UI/widgets/my_library_body/build_stat_item.dart';
 import 'package:reading_app/features/my_library/UI/widgets/my_library_body/label_labrary_stats.dart';
 import 'package:reading_app/features/my_library/services/library_stats/library_stats_cubit.dart';
@@ -33,7 +32,7 @@ class SliverLibraryStats extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: context.colorScheme.surface,
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.1),

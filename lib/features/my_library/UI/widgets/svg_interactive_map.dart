@@ -38,6 +38,7 @@ class SvgInteractiveMap extends StatelessWidget {
                     countryPaths: state.paths,
                     highlightedCountries: highlightedCountries,
                     assignedColors: state.colors,
+                     isDarkMode: Theme.of(context).brightness == Brightness.dark
                   ),
                 ),
               ),

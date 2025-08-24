@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:reading_app/core/utils/constants/colors_consts.dart';
-import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/constants/styles_consts.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
-import 'package:reading_app/core/utils/extensions/string_extension.dart';
 
 
 

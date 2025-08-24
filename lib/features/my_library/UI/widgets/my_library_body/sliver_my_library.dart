@@ -42,7 +42,7 @@ class SlivermyLibrary extends StatelessWidget {
               Row(
                 children: [
                   Expanded(
-                    child: buildmyLibrary(
+                    child: BuildMyLibrary(
                       icon: Iconsax.bookmark,
                       label: JsonConsts.bookInProgress.t(context),
                       color: Colors.blue[600]!,
@@ -63,7 +63,7 @@ class SlivermyLibrary extends StatelessWidget {
                   ),
                   12.spaceW,
                   Expanded(
-                    child: buildmyLibrary(
+                    child: BuildMyLibrary(
                       icon: Iconsax.heart,
                       label: JsonConsts.favoriteBooks.t(context),
                       color: Colors.pink[300]!,
@@ -80,7 +80,7 @@ class SlivermyLibrary extends StatelessWidget {
                   ),
                   12.spaceW,
                   Expanded(
-                    child: buildmyLibrary(
+                    child: BuildMyLibrary(
                       icon: Iconsax.book,
                       label: JsonConsts.booksToRead.t(context),
                       color: Colors.amber[600]!,
@@ -96,7 +96,7 @@ class SlivermyLibrary extends StatelessWidget {
                   ),
                   12.spaceW,
                   Expanded(
-                    child: buildmyLibrary(
+                    child: BuildMyLibrary(
                       icon: Iconsax.book_saved,
                       label: JsonConsts.finishedBooks.t(context),
                       color: Colors.purple[600]!,

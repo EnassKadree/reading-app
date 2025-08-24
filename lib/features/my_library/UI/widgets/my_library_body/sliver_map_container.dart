@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reading_app/core/utils/constants/colors_consts.dart';
+import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/features/my_library/UI/widgets/map_builder.dart';
 import 'package:reading_app/features/my_library/services/country_book_count/country_book_count_cubit.dart';
 
@@ -15,7 +16,7 @@ class SliverMapContainer extends StatelessWidget {
         height: MediaQuery.of(context).size.height * 0.28,
         margin: const EdgeInsets.symmetric(horizontal: 16),
         decoration: BoxDecoration(
-          color: ColorsConsts.white,
+          color: context.colorScheme.surface,
           borderRadius: BorderRadius.circular(24),
           border: Border.all(
             color: ColorsConsts.purple.withOpacity(0.2),

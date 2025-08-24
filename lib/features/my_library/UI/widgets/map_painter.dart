@@ -5,11 +5,12 @@ class MapPainter extends CustomPainter {
   final Map<String, int> highlightedCountries;
 
   final Map<String, Color> assignedColors;
-
+  final bool isDarkMode;
   MapPainter({
     required this.countryPaths,
     required this.highlightedCountries,
     required this.assignedColors,
+    required this.isDarkMode,
   });
 
   @override
@@ -26,7 +27,9 @@ class MapPainter extends CustomPainter {
 
       paint.color = isHighlighted
           ? assignedColors[entry.key] ?? Colors.orange
-          : Colors.grey[300]!;
+          : isDarkMode
+              ? Colors.grey
+              : Colors.grey[300]!;
 
       canvas.drawPath(path, paint);
 
