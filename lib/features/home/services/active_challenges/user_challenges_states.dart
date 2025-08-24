@@ -13,7 +13,7 @@ class UserChallengeSuccess extends UserChallengesStates {
   UserChallengeSuccess(this.userChallenges);
 }
 
-class ActiveChallengeError extends UserChallengesStates {
+class UserChallengeError extends UserChallengesStates {
 final String errorMessage;
-ActiveChallengeError(this.errorMessage);
+UserChallengeError(this.errorMessage);
 }

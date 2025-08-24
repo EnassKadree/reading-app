@@ -7,4 +7,5 @@ abstract class AssetsConsts {
   static const bookChallengeAsset =
       'assets/images/lottie/Win Icon Animation.json';
   static const starAsset = 'assets/images/png/star.png';
+  static const slashScreenLottie='assets/images/lottie/Book opening.json';
 }

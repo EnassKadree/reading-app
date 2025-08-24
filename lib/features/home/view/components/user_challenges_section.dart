@@ -1,37 +1,31 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:reading_app/features/home/services/active_challenges/user_challenges_cubit.dart';
-import 'package:reading_app/features/home/services/active_challenges/user_challenges_states.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
+import 'package:reading_app/features/home/view/components/no_challenges_container.dart';
 import 'package:reading_app/features/home/view/components/user_challenge_card.dart';
 import 'package:reading_app/features/shared/models/user_challenge.dart';
 
 class UserChallengesSection extends StatelessWidget {
-  const UserChallengesSection({super.key});
-
+  const UserChallengesSection({ required this.userChallenges,super.key});
+ final List<UserChallenge>userChallenges;
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UserChallengesCubit, UserChallengesStates>(
-      builder: (BuildContext context, UserChallengesStates state) {
-        return ListView.builder(
-          scrollDirection: Axis.horizontal,
-            itemBuilder: (BuildContext context, index) {
-             if (state  is UserChallengeSuccess)
-               {
-                 List<UserChallenge>userChallenges=state.userChallenges;
-                 if(userChallenges.isNotEmpty) {
-                   return  ActiveChallengeCard(userChallenge: UserChallenge(percentage :30,title: "Art challenge",points: 100,description: "mmmmm",timeLeft: 3,id: 5));
-                 }
-                 else {
-                   return Container();
-                 }
-               }
-           else {
-               return  ActiveChallengeCard(userChallenge: UserChallenge(percentage :30,title: "Art challenge",points: 100,description: "mmmmm",timeLeft: 3,id: 5));
-             }
+        {
 
-            },
-            itemCount: 4);
-      },
-    );
+          if (userChallenges.isNotEmpty) {
+            return SizedBox(
+              height: 140.h,
+              child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (BuildContext context, index) {
+                    return ActiveChallengeCard(userChallenge:userChallenges[index]);
+                  },
+                  itemCount: userChallenges.length),
+            );
+          }
+          else {
+            return const NoChallengesContainer();
+          }
+        }
   }
 }

@@ -4,10 +4,8 @@ import 'package:reading_app/core/utils/constants/styles_consts.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
 import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
+import 'package:reading_app/features/author_details/view/author_details_wrapper.dart';
 import 'package:reading_app/features/shared/models/author.dart';
-
-import '../../../author_details/view/author_details_screen.dart';
-
 class AuthorWidget extends StatelessWidget {
   const AuthorWidget({ required this.author,super.key});
 final Author author;
@@ -15,7 +13,7 @@ final Author author;
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        Context(context).push( AuthorDetailsScreen(author: author,));
+        Context(context).push( AuthorDetailsWrapper(author: author,));
       },
       child: Column(
         children: [

@@ -13,7 +13,7 @@ import 'author_books_states.dart';
 class AuthorBooksCubit extends BaseCubit<AuthorBooksStates>
 {
   AuthorBooksCubit():super(AuthorBooksInitial());
-  final String endPoint = '${EndPoint.baseUrl}${EndPoint.categoryBooks}';
+  final String endPoint = '${EndPoint.baseUrl}${EndPoint.authorBooks}';
 
   Future  getAuthorBooks( int id)async
   {

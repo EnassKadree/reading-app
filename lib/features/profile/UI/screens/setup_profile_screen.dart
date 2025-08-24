@@ -5,12 +5,12 @@ import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/string_extension.dart';
 import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/core/utils/functions/functions.dart';
-import 'package:reading_app/features/home/main_layout.dart';
 import 'package:reading_app/features/profile/UI/widgets/setup_profile_header.dart';
 import 'package:reading_app/features/profile/logic/setup/setup_profile_cubit.dart';
 import 'package:reading_app/features/shared/models/profile_model.dart';
 import 'package:reading_app/features/shared/widgets/custom_button.dart';
 import 'package:reading_app/features/shared/widgets/custom_progress_indicator.dart';
+import 'package:reading_app/features/splash_screen/splash_screen.dart';
 
 import '../widgets/setup_profile_form.dart';
 
@@ -24,9 +24,9 @@ class SetupProfileScreen extends StatelessWidget {
       listener: (context, state) {
         if (state is SetupProfileSuccess) {
           if (isSetup) {
-            context.pushAndRemoveAll(const MainLayoutWrapper());
+            context.pushAndRemoveAll(const SplashScreen());
           } else {
-            context.pushAndRemoveAll(const MainLayoutWrapper(init: 4,));
+            context.pushAndRemoveAll(const SplashScreen());
           }
         } else if (state is SetupProfileFailure) {
           Functions().showSnackBar(context, state.message);

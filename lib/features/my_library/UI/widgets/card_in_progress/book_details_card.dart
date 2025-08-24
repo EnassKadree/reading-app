@@ -30,19 +30,20 @@ class BookDetailsCard extends StatelessWidget {
               PdfReaderScreen(
                 filePath: pdf.pdfUrl,
                 lastReadPage: book.progress ?? 1,
-                bookId: book.id,
+
+                bookModel: book,
               ),
             );
           } else if (state is BookPdfFailure) {
             // ignore: use_build_context_synchronously
             Functions().showSnackBar(
-                // ignore: use_build_context_synchronously
+              // ignore: use_build_context_synchronously
                 context, JsonConsts.theBookFailedToLoad.t(context));
           }
         },
         child: Container(
           padding:
-              const EdgeInsets.only(left: 130, right: 16, top: 6, bottom: 16),
+          const EdgeInsets.only(left: 130, right: 16, top: 6, bottom: 16),
           decoration: BoxDecoration(
             color: ColorsConsts.white,
             borderRadius: BorderRadius.circular(14),
@@ -65,7 +66,7 @@ class BookDetailsCard extends StatelessWidget {
               Row(
                 children: List.generate(
                   5,
-                  (index) => Icon(
+                      (index) => Icon(
                     index < book.starRate.round()
                         ? Icons.star
                         : Icons.star_border,
@@ -78,7 +79,7 @@ class BookDetailsCard extends StatelessWidget {
               LinearProgressIndicator(
                 value: (book.numberOfPages > 0)
                     ? ((book.progress ?? 1) / book.numberOfPages.toDouble())
-                        .clamp(0.0, 1.0)
+                    .clamp(0.0, 1.0)
                     : 0.0,
                 backgroundColor: Colors.grey.shade200,
                 color: ColorsConsts.purple,

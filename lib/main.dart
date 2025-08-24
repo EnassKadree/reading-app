@@ -2,10 +2,15 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:reading_app/core/utils/base/local_notifications_service.dart';
 import 'package:reading_app/core/utils/base/push_notifications_service.dart';
 import 'package:reading_app/core/utils/functions/functions.dart';
 import 'package:reading_app/firebase_options.dart';
+
+import 'package:reading_app/features/home/main_layout.dart';
+import 'package:reading_app/features/splash_screen/splash_screen.dart';
+
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'features/shared/data/data_source.dart';
@@ -15,6 +20,7 @@ import 'features/shared/theme/theme.dart';
 import 'features/shared/theme/theme_cubit.dart';
 import 'features/shared/user/user_cubit.dart';
 import 'features/shared/user/user_model.dart';
+import 'features/home/view/home_wrapper.dart';
 
 late SharedPreferences prefs;
 
@@ -105,7 +111,7 @@ class MyApp extends StatelessWidget {
           },
         ),
       ),
-      child: Functions().buildHomeScreen(),
+      child: const SplashScreen()
     );
   }
 }

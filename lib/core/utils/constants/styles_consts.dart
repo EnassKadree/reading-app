@@ -39,8 +39,18 @@ abstract class StylesConsts {
       color: Colors.grey.shade500);
   static TextStyle f23W600Yellow = TextStyle(
       fontSize: 23.sp, fontWeight: FontWeight.w600, color: ColorsConsts.gold);
+  static TextStyle f20W600Yellow = TextStyle(
+      fontSize: 20.sp, fontWeight: FontWeight.w600, color: ColorsConsts.gold);
+
+  static TextStyle f15W600Grey = TextStyle(
+      fontSize: 15.sp, fontWeight: FontWeight.w600, color: ColorsConsts.grey);
   static TextStyle introText = TextStyle(
     color: ColorsConsts.white,
     fontSize: 20.sp,
+  );
+  static TextStyle f14W400Black =  TextStyle(
+  fontSize: 14.0.sp,
+  fontWeight: FontWeight.w400,
+
   );
 }

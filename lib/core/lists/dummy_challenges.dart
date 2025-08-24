@@ -34,7 +34,9 @@ final List<ChallengeModel> dummyChallenges = [
         sizeCategoryName: 'Medium Books',
         numberOfPages: 180,
         isFavourite: false,
-        isInLibrary: false,
+        isInLibrary: false,    isChallenged: true,
+        progress: 30,
+        points: 100,
       ),
       BookModel(
         id: 2,
@@ -53,6 +55,9 @@ final List<ChallengeModel> dummyChallenges = [
         numberOfPages: 281,
         isFavourite: false,
         isInLibrary: false,
+        isChallenged: true,
+        progress: 30,
+        points: 100,
       ),
     ],
   ),
@@ -75,6 +80,7 @@ final List<ChallengeModel> dummyChallenges = [
       BookModel(
         id: 3,
         title: 'Dune',
+
         description:
             'An epic science fiction novel set on the desert planet Arrakis.',
         authorName: 'Frank Herbert',
@@ -89,6 +95,9 @@ final List<ChallengeModel> dummyChallenges = [
         numberOfPages: 688,
         isFavourite: false,
         isInLibrary: false,
+        isChallenged: true,
+        progress: 30,
+        points: 100,
       ),
     ],
   ),
@@ -127,6 +136,9 @@ final List<ChallengeModel> dummyChallenges = [
     books: [
       BookModel(
         id: 4,
+        isChallenged: true,
+        progress: 30,
+        points: 100,
         title: 'The Book Thief',
         description: 'A story set in Nazi Germany narrated by Death.',
         authorName: 'Markus Zusak',
@@ -144,6 +156,9 @@ final List<ChallengeModel> dummyChallenges = [
       ),
       BookModel(
         id: 5,
+        isChallenged: true,
+        progress: 30,
+        points: 100,
         title: 'All the Light We Cannot See',
         description:
             'A Pulitzer Prize-winning novel about a blind French girl and a German boy.',

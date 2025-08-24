@@ -9,7 +9,7 @@ import 'package:reading_app/features/auth/logic/register/register_cubit.dart';
 import '../../../../core/utils/constants/assets_consts.dart';
 import '../../../../core/utils/constants/json_consts.dart';
 import '../../../../core/utils/functions/functions.dart';
-import '../../../home/main_layout.dart';
+import '../../../splash_screen/splash_screen.dart';
 
 
 class LoginPage extends StatelessWidget {
@@ -33,7 +33,7 @@ class LoginPage extends StatelessWidget {
               greeting: JsonConsts.welcomeBack,
               lottieAsset: AssetsConsts.registerAsset,
               onSuccess: (){Functions().showSnackBar(context, 'success');
-              context.pushReplacement(const MainLayoutWrapper());},
+              context.pushReplacement(const SplashScreen());},
             )
         )
     );

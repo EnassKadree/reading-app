@@ -20,8 +20,8 @@ class ActiveChallengeCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(20.r),
       ),
       padding: EdgeInsets.only(right: 16.w, top: 16.h, bottom: 16.h),
-      margin: EdgeInsets.symmetric(horizontal: 16.w),
-      // width: 310,
+     margin: EdgeInsets.symmetric(horizontal: 16.w),
+      width: 330,
       child: Row(
         children: [
           Lottie.asset(
@@ -34,10 +34,15 @@ class ActiveChallengeCard extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-               Text(
-               userChallenge.title,
-                style: StylesConsts.f18W600Black,
-              ),
+               SizedBox(
+                 width: 160.w,
+                 child: Text(
+                 userChallenge.title,
+                  style: StylesConsts.f18W600Black.copyWith(fontSize: 16.sp),
+                   maxLines: 2,
+                   overflow: TextOverflow.ellipsis,
+                               ),
+               ),
               10.spaceH,
               SizedBox(
                 width: 170.w,
@@ -46,6 +51,7 @@ class ActiveChallengeCard extends StatelessWidget {
                   backgroundColor: Colors.grey[350],
                   color: context.colorScheme.tertiary,
                   minHeight: 5,
+                  borderRadius: BorderRadius.circular(16.r),
                 ),
               ),
               15.spaceH,

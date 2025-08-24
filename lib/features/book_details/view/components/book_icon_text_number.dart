@@ -18,13 +18,13 @@ class BookIconTextNumber extends StatelessWidget {
           boxShadow: [
             BoxShadow(
               blurRadius: 6,
-              color: Colors.grey.shade200
+              color: context.colorScheme.secondaryContainer.withAlpha(50)
                   ,
               spreadRadius: 1,
 
             )
           ],
-          color: Colors.white,
+          color:context.colorScheme.surfaceContainer,
           borderRadius: BorderRadius.circular(8.0.r),
          // border: Border.all(color:context.colorScheme.secondary,width: 1.5),
         ),
@@ -44,11 +44,7 @@ class BookIconTextNumber extends StatelessWidget {
           2.spaceH,
                 Text(
                   info,
-                  style: TextStyle(
-                    fontSize: 14.0.sp,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.black,
-                  ),
+                  style:StylesConsts.f14W400Black
                 ),
               ],
             ),

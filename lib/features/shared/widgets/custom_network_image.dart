@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class CustomNetworkImage extends StatelessWidget {
@@ -14,7 +13,7 @@ class CustomNetworkImage extends StatelessWidget {
     required this.imageUrl,
     this.width = 95,
     this.height = 120,
-    this.fit = BoxFit.cover,
+    this.fit = BoxFit.fill,
   });
 
   @override
@@ -22,24 +21,27 @@ class CustomNetworkImage extends StatelessWidget {
     return ClipRRect(
       borderRadius: const BorderRadius.all(Radius.circular(10)),
       child: CachedNetworkImage(
-        imageUrl: imageUrl,
+       imageUrl:  imageUrl ,
         width: width,
         height: height,
         fit: fit,
-        placeholder: (context, url) => Skeletonizer(
-          child: Container(
-            width: width,
-            height: height,
-            color: Colors.white,
+        placeholder:
+              (context, url) => Skeletonizer(
+            child: Container(
+              width:width,
+              height: height,
+              color: Colors.white,
+            ),
           ),
-        ),
-        errorWidget: (context, url, error) {
-          return Container(
-            width: width,
-            height: height,
-            color: Colors.grey[100],
-            child: Icon(Iconsax.picture_frame,
-                color: Colors.grey, size: height / 3),
+        errorWidget:  (context, url, error) {
+          return Skeletonizer(
+            child: Container(
+              width: width,
+              height: height,
+              color: Colors.grey[100],
+
+            //  child: const Icon(Icons.broken_image, color: Colors.grey, size: 40),
+            ),
           );
         },
       ),
