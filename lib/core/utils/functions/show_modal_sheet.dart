@@ -8,7 +8,7 @@ extension ShowModalSheet on Functions
     (
       constraints: BoxConstraints(
         minHeight: 600.h,
-        maxHeight: 1.sh,
+        maxHeight: 0.9.sh,
       ),
       context: context,
       isScrollControlled: true, 

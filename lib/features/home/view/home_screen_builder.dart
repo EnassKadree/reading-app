@@ -79,15 +79,7 @@ class _HomeScreenBuilderState extends State<HomeScreenBuilder> {
                               authorState is AuthorsError ||
                               categoriesState is CategoriesError||
                               challengesState is UserChallengeError) {
-                            if(booksState is BooksError )
-                              print("book error : ${booksState.errorMessage}");
-                            if(authorState is AuthorsError )
-                              print("book error : ${authorState.errorMessage}");
-                            if(categoriesState is CategoriesError )
-                              print("book error : ${categoriesState.errorMessage}");
-                            if(challengesState is UserChallengeError )
-                              print("book error : ${challengesState.errorMessage}");
-                            WidgetsBinding.instance.addPostFrameCallback((_) {
+                              WidgetsBinding.instance.addPostFrameCallback((_) {
                               if (!mounted) return;
                               showCustomErrorDialog(
                                 onPressed: () {

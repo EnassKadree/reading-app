@@ -95,7 +95,7 @@ class Api {
     String? token,
   }) async
   {
-    String locale = DataSource().getLocale() ?? 'ar';
+    String locale = DataSource().getLocale() ?? 'en';
 
     var request = http.MultipartRequest('POST', Uri.parse(url));
 

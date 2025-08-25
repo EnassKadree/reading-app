@@ -139,7 +139,7 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
                         newProgress: widget.newProgress,
                       ),
                       30.spaceH,
-                      const CommentsSection(),
+                       CommentsSection(),
                       70.spaceH
                     ],
                   ),

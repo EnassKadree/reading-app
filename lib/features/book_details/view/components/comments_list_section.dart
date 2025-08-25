@@ -14,6 +14,7 @@ final List<Comment>comments;
   Widget build(BuildContext context) {
     if(comments.isNotEmpty) {
       return ListView.separated(
+        scrollDirection: Axis.vertical,
               itemBuilder: (BuildContext context, index) {
                 return CommentWidget(comment: comments[index]);
               },

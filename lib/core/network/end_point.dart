@@ -1,7 +1,7 @@
 abstract class EndPoint
 {
-  static const baseUrl = 'https://reading-app.up.railway.app/api';
-  static const booksBaseUrl = 'https://reading-app.up.railway.app/api/mobile/books';
+  static const baseUrl = 'http://192.168.1.4:8000/api';
+  static const booksBaseUrl = 'http://192.168.1.4:8000/api/mobile/books';
   static const register = '/register';
   static const login = '/login';
   static const domainName = 'reading-app.up.railway.app';
@@ -12,7 +12,7 @@ abstract class EndPoint
   static const authorBooks='/mobile/books/author-books/';
   static const mostRatedBooks='/mobile/books/most-rated';
 
-  //Mylibary
+
   //category
   static const categoryBooks='/mobile/books/category-books/';
   static const followCategory='/categories/follow/';

@@ -113,13 +113,13 @@ class RateTheBookContainer extends StatelessWidget {
                                     boxShadow: [
                                       BoxShadow(
                                         color:
-                                        context.colorScheme.tertiary.withAlpha(120),
+                                        context.colorScheme.primary.withAlpha(120),
                                         spreadRadius: 1,
                                         blurRadius: 1,
                                       ),
                                     ],
                                     border: Border.all(
-                                        color: context.colorScheme.tertiary, width: 1.7),
+                                        color: context.colorScheme.primary, width: 1.7),
                                     borderRadius: BorderRadius.circular(15.r),
                                   ),
                                   child: BlocConsumer<RateTheBookCubit, RateState>(

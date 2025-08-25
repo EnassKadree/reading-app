@@ -20,7 +20,7 @@ class CategoriesCubit extends BaseCubit<CategoriesStates> {
         throw Exception(JsonConsts.pleaseLogIn.tr());
       }
        Map<String, dynamic> response = await Api().get(url: endPoint, token: user.accessToken);
-
+print(response);
         List<CategoryModel> categories =parseResponse<CategoryModel>(
             response: response,
             fromJson: (data) => CategoryModel.fromJson(data));
