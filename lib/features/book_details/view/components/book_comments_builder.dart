@@ -17,10 +17,19 @@ import '../../service/book_comments/book_comments_cubit.dart';
 import '../../service/book_comments/book_comments_states.dart';
 
 class CommentsSection extends StatelessWidget {
-   const CommentsSection({ required this.bookId,super.key});
-   final int bookId;
+  const CommentsSection(
+      {required this.currentPage,
+      required this.bookPages,
+      required this.bookId,
+      super.key});
+
+  final int bookId;
+  final int currentPage;
+  final int bookPages;
+
   @override
   Widget build(BuildContext context) {
+    bool canComment = ((currentPage * 100) / bookPages) > 70;
     return BlocConsumer<BookCommentsCubit, BookCommentsStates>(
       builder: (BuildContext context, BookCommentsStates state) {
         return SizedBox(
@@ -41,8 +50,10 @@ class CommentsSection extends StatelessWidget {
                         onTap: () {
                           Functions().showSheet(
                               context,
-                             BottomSheetContent(comments: state.comments,bookId: bookId,)
-                          );
+                              BottomSheetContent(
+                                  canComment: canComment,
+                                  comments: state.comments,
+                                  bookId: bookId));
                         },
                         child: Text(
                           JsonConsts.viewAll.t(context),
@@ -60,54 +71,51 @@ class CommentsSection extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      height:170.h,
+                      height: 180.h,
                       child: (state is SuccessBookCommentsStates)
                           ? CommentsListSection(
                               comments: (state.comments.isNotEmpty)
-                                  ?( (state.comments.length>=3)?state.comments.sublist(0, 3):state.comments)
-                                  : []
-                      )
+                                  ? ((state.comments.length >= 3)
+                                      ? state.comments.sublist(0, 3)
+                                      : state.comments)
+                                  : [])
                           : Skeletonizer(
-                              child: CommentsListSection(comments: dummyComments),
+                              child:
+                                  CommentsListSection(comments: dummyComments),
                             ),
                     ),
-                    TextButton(
-                        onPressed: (){
-                      Functions().showSheet(
-                        context,
-                       BottomSheetContent(comments: (state is SuccessBookCommentsStates)?state.comments:[],bookId: bookId,)
-                      );
-                      }, child: Text("Add a Comment",style: StylesConsts.f20W600Yellow.copyWith(color: context.colorScheme.primary,fontSize: 17.sp),))
-
+                    (canComment)
+                        ? TextButton(
+                            onPressed: () {
+                              Functions().showSheet(
+                                  context,
+                                  BottomSheetContent(
+                                    canComment: canComment,
+                                    comments:
+                                        (state is SuccessBookCommentsStates)
+                                            ? state.comments
+                                            : [],
+                                    bookId: bookId,
+                                  ));
+                            },
+                            child: Text(
+                              "Add a Comment",
+                              style: StylesConsts.f20W600Yellow.copyWith(
+                                  color: context.colorScheme.primary,
+                                  fontSize: 17.sp),
+                            ),
+                          )
+                        : Text(
+                            "can't comment on the book until reading 70% of it",
+                            style: StylesConsts.f20W600Yellow.copyWith(
+                                color: context.colorScheme.primary,
+                                fontSize: 10.sp),
+                          ).mainPadding
                   ],
                 ),
               ),
               20.spaceH,
-              // Center(
-              //   child: GestureDetector(
-              //       onTap: () {},
-              //       child: Container(
-              //           padding: EdgeInsets.symmetric(horizontal: 5.w),
-              //           height: 30.h,
-              //           width: 260.w,
-              //           decoration: BoxDecoration(
-              //             boxShadow: [
-              //               BoxShadow(
-              //                 color: context.colorScheme.primary.withAlpha(120),
-              //                 spreadRadius: 1,
-              //                 blurRadius: 1,
-              //               ),
-              //             ],
-              //             border: Border.all(
-              //                 color: context.colorScheme.primary, width: 1.7),
-              //             borderRadius: BorderRadius.circular(15.r),
-              //           ),
-              //           child: Center(
-              //                   child: Text('Add a Comment ',
-              //                       style: StylesConsts.f18W600White))
-              //               .horizontalPadding)),
-              // ),
-               ],
+            ],
           ).horizontalPadding,
         );
       },

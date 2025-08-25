@@ -2,8 +2,11 @@ part of 'functions.dart';
 
 extension ShowModalSheet on Functions
 {
-  void showSheet(BuildContext context, Widget sheet) 
+
+
+  void showSheet(BuildContext context,Widget sheet)
   {
+    final TextEditingController commentController = TextEditingController();
     showModalBottomSheet
     (
       constraints: BoxConstraints(
@@ -20,8 +23,8 @@ extension ShowModalSheet on Functions
       {
         return PopScope
         (
-          canPop: false,
-          child: sheet
+          canPop:true,
+          child:  sheet
         );
       }
     );

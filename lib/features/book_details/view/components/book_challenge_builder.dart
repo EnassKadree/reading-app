@@ -29,11 +29,12 @@ class BookChallengeBuilder extends StatelessWidget {
               book: book,
             ).verticalPadding;
           } else if (state is BookChallengeLoading) {
-            return Center(
+            return Padding(
+              padding: EdgeInsets.symmetric(horizontal: 90.w,vertical: 70.h),
               child: SizedBox(
                   height: 70.h,
                   width: 70.w,
-                  child: Lottie.asset(AssetsConsts.loadingAsset)),
+                  child: Lottie.asset(AssetsConsts.loadingAsset),),
             );
           }
 

@@ -12,7 +12,6 @@ import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/features/book_details/service/rate_abillity/rate_abillity_cubit.dart';
 import 'package:reading_app/features/book_details/service/rate_abillity/rate_abillity_states.dart';
 import 'package:reading_app/features/book_details/service/rate_the_book/rate_the_book_cubit.dart';
-import 'package:reading_app/features/book_details/service/rate_the_book/rate_the_book_states.dart';
 import 'package:reading_app/features/book_details/view/components/book_details_button.dart';
 import 'package:reading_app/features/shared/models/book.dart';
 import 'package:reading_app/features/shared/widgets/custom_white_container.dart';
