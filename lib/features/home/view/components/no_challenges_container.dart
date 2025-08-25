@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
@@ -30,16 +31,22 @@ class NoChallengesContainer extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
-                'Yet No Challenges?',
-                style: StylesConsts.f20W600Yellow,
-                maxLines: 3,
+              SizedBox(
+                width: 200.w,
+                child: AutoSizeText(
+                  'Yet No Challenges?',
+                  style: StylesConsts.f20W600Yellow,
+                  maxLines: 3,
+                ),
               ),
-              Text(
-                '''Boost Your points and claim 
+              SizedBox(
+                width: 230.w,
+                child: AutoSizeText(
+                  '''Boost Your points and claim 
         your spot at the top''',
-                style: StylesConsts.f14W400Black,
-                maxLines: 3,
+                  style: StylesConsts.f14W400Black,
+                  maxLines: 3,
+                ),
               ),
               20.spaceH,
               GestureDetector(

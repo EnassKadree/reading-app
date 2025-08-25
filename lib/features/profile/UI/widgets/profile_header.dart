@@ -1,4 +1,6 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
@@ -36,10 +38,7 @@ class ProfileHeader extends StatelessWidget {
                 children: [
                   Text(
                     JsonConsts.profile.t(context),
-                    style: StylesConsts.f18W600Black.copyWith(
-                      color: Colors.white,
-                      fontSize: 20,
-                    ),
+                    style: StylesConsts.f20BoldWhite
                   ),
                   editable
                       ? Container(
@@ -71,12 +70,11 @@ class ProfileHeader extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        '${profile.firstName} ${profile.lastName}',
-                        style: StylesConsts.f18W600Black.copyWith(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                      SizedBox(
+                        width: 200.w,
+                        child: AutoSizeText(
+                          '${profile.firstName} ${profile.lastName}',
+                          style: StylesConsts.f20BoldWhite
                         ),
                       ),
                       4.spaceH,
@@ -84,7 +82,7 @@ class ProfileHeader extends StatelessWidget {
                         '@${profile.nickname}',
                         style: StylesConsts.f15W400Grey.copyWith(
                           color: Colors.white.withOpacity(0.8),
-                          fontSize: 14,
+                          fontSize: 14.sp,
                         ),
                       ),
                     ],

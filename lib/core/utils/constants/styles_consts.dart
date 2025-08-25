@@ -53,4 +53,9 @@ abstract class StylesConsts {
   fontWeight: FontWeight.w400,
 
   );
+  static TextStyle  f20BoldWhite=
+      TextStyle(
+          fontSize: 20.sp,
+        fontWeight: FontWeight.bold,
+        color: Colors.white);
 }

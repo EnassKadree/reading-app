@@ -1,4 +1,6 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reading_app/core/utils/constants/styles_consts.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
 
@@ -32,12 +34,12 @@ class ImageNameContainer extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        author.name,
-                        style: StylesConsts.f18W600Black.copyWith(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                      SizedBox(
+                        width: 200.w,
+                        child: AutoSizeText(
+                          author.name,
+                          maxLines: 2,
+                          style: StylesConsts.f20BoldWhite,
                         ),
                       ),
                       4.spaceH,
