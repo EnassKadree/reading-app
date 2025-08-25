@@ -13,7 +13,9 @@ import 'package:reading_app/features/book_details/service/rate_abillity/rate_abi
 import 'package:reading_app/features/book_details/service/rate_abillity/rate_abillity_states.dart';
 import 'package:reading_app/features/book_details/service/rate_the_book/rate_the_book_cubit.dart';
 import 'package:reading_app/features/book_details/service/rate_the_book/rate_the_book_states.dart';
+import 'package:reading_app/features/book_details/view/components/book_details_button.dart';
 import 'package:reading_app/features/shared/models/book.dart';
+import 'package:reading_app/features/shared/widgets/custom_white_container.dart';
 
 import '../../../../core/utils/functions/functions.dart';
 
@@ -60,22 +62,9 @@ class RateTheBookContainer extends StatelessWidget {
                     ignoring: !state.canRate,
                     child: AnimatedOpacity(
                       duration: const Duration(milliseconds:1500),
-                      opacity: (!state.canRate) ? 0.30 : 1,
-                      child: Container(
-                        width: 1.sw,
-                        constraints:
-                        BoxConstraints(minHeight: 70.h, maxHeight: 80.h),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16.r),
-                          color: context.colorScheme.surfaceContainer,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.shade300,
-                              spreadRadius: 1,
-                              blurRadius: 7,
-                            )
-                          ],
-                        ),
+                      opacity: (!state.canRate) ?0.35: 1,
+                      child: CustomWhiteContainer(
+                        padding:EdgeInsets.zero,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -105,40 +94,7 @@ class RateTheBookContainer extends StatelessWidget {
                                     .read<RateTheBookCubit>()
                                     .rateTheBook(book.id, rate);
                               },
-                              child: Container(
-                                  padding: EdgeInsets.symmetric(horizontal: 5.w),
-                                  height: 30.h,
-                                  width: 90.w,
-                                  decoration: BoxDecoration(
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color:
-                                        context.colorScheme.primary.withAlpha(120),
-                                        spreadRadius: 1,
-                                        blurRadius: 1,
-                                      ),
-                                    ],
-                                    border: Border.all(
-                                        color: context.colorScheme.primary, width: 1.7),
-                                    borderRadius: BorderRadius.circular(15.r),
-                                  ),
-                                  child: BlocConsumer<RateTheBookCubit, RateState>(
-                                    builder: (BuildContext context, RateState state) {
-                                      if (state is LoadingRateState) {
-                                        return Lottie.asset(AssetsConsts.loadingAsset);
-                                      } else {
-                                        return Center(
-                                            child: Text('Rate',
-                                                style: StylesConsts.f18W600White))
-                                            .horizontalPadding;
-                                      }
-                                    },
-                                    listener: (BuildContext context, RateState state) {
-                                      if (state is ErrorRateState) {
-                                        Functions().showSnackBar(context, state.errorMessage);
-                                      }
-                                    },
-                                  )),
+                              child: const BookDetailsButton(buttonText: 'Rate'),
                             ),
                           ],
                         ).mainPadding,

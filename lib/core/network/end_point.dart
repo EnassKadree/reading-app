@@ -47,6 +47,6 @@ abstract class EndPoint
  static const rateTheBook='/book/RateBook/';
  static const bookComments='/book/getBookComments/';
   static const appLink= "https://play.google.com/store/apps/details?id=com.example.reading_app";
-
+   static const commentOnBook='/book/AddCommentToTheBook/';
 
   }

@@ -7,10 +7,9 @@ import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
 import 'package:reading_app/core/utils/extensions/string_extension.dart';
 import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
-import 'package:reading_app/features/auth/UI/widgets/custom_text_form_field.dart';
+import 'package:reading_app/features/book_details/view/components/bottom_sheet_content.dart';
 import 'package:reading_app/features/book_details/view/components/comments_list_section.dart';
-import 'package:reading_app/features/profile/UI/widgets/setup_profile_form.dart';
-import 'package:reading_app/features/profile/UI/widgets/setup_profile_form_field.dart';
+import 'package:reading_app/features/shared/widgets/custom_white_container.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import '../../../../core/utils/constants/styles_consts.dart';
 import '../../../../core/utils/functions/functions.dart';
@@ -18,8 +17,8 @@ import '../../service/book_comments/book_comments_cubit.dart';
 import '../../service/book_comments/book_comments_states.dart';
 
 class CommentsSection extends StatelessWidget {
-   CommentsSection({super.key});
-final TextEditingController commentController=TextEditingController();
+   const CommentsSection({ required this.bookId,super.key});
+   final int bookId;
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<BookCommentsCubit, BookCommentsStates>(
@@ -42,19 +41,7 @@ final TextEditingController commentController=TextEditingController();
                         onTap: () {
                           Functions().showSheet(
                               context,
-                              Column(
-                                children: [
-                                  Container(
-                                      padding: EdgeInsets.symmetric(vertical: 30.h),
-                                      height: 0.6.sh,
-                                      child: CommentsListSection(
-                                          comments: dummyComments),
-                                  ),
-                                  SizedBox(
-                                    height: 40.h,
-                                      width: 0.8.sw,
-                                      child:SetupProfileFormField(controller: commentController, hint: "comment", icon: Icons.add_card))   ],
-                              ),
+                             BottomSheetContent(comments: state.comments,bookId: bookId,)
                           );
                         },
                         child: Text(
@@ -66,19 +53,8 @@ final TextEditingController commentController=TextEditingController();
                 ],
               ).horizontalPadding,
               10.spaceH,
-              Container(
-                width: 1.sw,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16.r),
-                  color: context.colorScheme.surfaceContainer,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.shade200,
-                      spreadRadius: 1,
-                      blurRadius: 7,
-                    )
-                  ],
-                ),
+              CustomWhiteContainer(
+                padding: EdgeInsets.zero,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -88,29 +64,20 @@ final TextEditingController commentController=TextEditingController();
                       child: (state is SuccessBookCommentsStates)
                           ? CommentsListSection(
                               comments: (state.comments.isNotEmpty)
-                                  ? state.comments.sublist(0, 3)
-                                  : [])
+                                  ?( (state.comments.length>=3)?state.comments.sublist(0, 3):state.comments)
+                                  : []
+                      )
                           : Skeletonizer(
                               child: CommentsListSection(comments: dummyComments),
                             ),
                     ),
-                    TextButton(onPressed: (){
+                    TextButton(
+                        onPressed: (){
                       Functions().showSheet(
                         context,
-                        Column(
-                          children: [
-                            Container(
-                              padding: EdgeInsets.symmetric(vertical: 30.h),
-                              height: 0.7.sh,
-                              child: CommentsListSection(
-                                  comments: dummyComments),
-                            ),
-                            SizedBox(
-                                height: 40.h,
-                                width: 0.8.sw,
-                                child:SetupProfileFormField(controller: commentController, hint: "comment", icon: Icons.add_card))   ],
-                        ),
-                      );}, child: Text("Add a Comment",style: StylesConsts.f20W600Yellow.copyWith(color: context.colorScheme.primary,fontSize: 17.sp),))
+                       BottomSheetContent(comments: (state is SuccessBookCommentsStates)?state.comments:[],bookId: bookId,)
+                      );
+                      }, child: Text("Add a Comment",style: StylesConsts.f20W600Yellow.copyWith(color: context.colorScheme.primary,fontSize: 17.sp),))
 
                   ],
                 ),

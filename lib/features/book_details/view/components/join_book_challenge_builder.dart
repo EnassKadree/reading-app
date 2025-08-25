@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
+import 'package:reading_app/features/book_details/view/components/book_details_button.dart';
 
 import '../../../../core/utils/constants/assets_consts.dart';
 import '../../../../core/utils/constants/styles_consts.dart';
@@ -21,22 +22,7 @@ class JoinBookChallengeBuilder extends StatelessWidget {
           return GestureDetector(
             onTap: (){
               context.read<JoinBookChallengeCubit>().joinBookChallenge(bookId);},
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 5.w),
-              height: 30.h,
-              width: 90.w,
-              decoration: BoxDecoration(
-                boxShadow:[
-                  BoxShadow(
-                  color: context.colorScheme.tertiary.withAlpha(150),
-                  spreadRadius: 1,
-                  blurRadius: 1,
-                )],
-                border: Border.all(color: context.colorScheme.tertiary, width: 1.7),
-                borderRadius: BorderRadius.circular(15.r),
-              ),
-              child: Center(child: Text('Join',style: StylesConsts.f18W600White)),
-            ),
+            child: const BookDetailsButton(buttonText: 'join'),
           );
         }
         else if (state is JoinBookChallengeLoading) {
@@ -45,22 +31,7 @@ class JoinBookChallengeBuilder extends StatelessWidget {
         }
         else
         {
-          return Container(
-            padding: EdgeInsets.symmetric(horizontal: 5.w),
-            height: 30.h,
-            width: 90.w,
-            decoration: BoxDecoration(
-              boxShadow:[ BoxShadow(
-                color: context.colorScheme.secondary,
-                spreadRadius: 1,
-                blurRadius: 1,
-              )],
-              color: context.colorScheme.secondary.withAlpha(150),
-              border: Border.all(color: context.colorScheme.secondary, width: 1.7),
-              borderRadius: BorderRadius.circular(15.r),
-            ),
-            child: Center(child: Text('Joined',style: StylesConsts.f18W600White)),
-          );
+          return const BookDetailsButton(buttonText: 'joined');
         }
 
       }

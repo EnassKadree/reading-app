@@ -14,10 +14,10 @@ class Comment {
   // Factory constructor from JSON
   factory Comment.fromJson(Map<String, dynamic> json) {
     return Comment(
-      readerName: json['reader_name'],
-      readerImage: json['reader_image'],
-      readerNickname: json['reader_nickname'],
-      comment: json['comment'],
+      readerName: json['reader_name']??'',
+      readerImage: json['reader_image']??'',
+      readerNickname: json['reader_nickname']??'',
+      comment: json['comment']??'',
     );
   }
 
