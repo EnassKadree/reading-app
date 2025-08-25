@@ -8,7 +8,7 @@ import 'package:reading_app/features/my_library/UI/screens/book_in_progrees.dart
 import 'package:reading_app/features/my_library/UI/screens/books_to_read.dart';
 import 'package:reading_app/features/my_library/UI/screens/completed_books.dart';
 import 'package:reading_app/features/my_library/UI/screens/favorite_books.dart';
-import 'package:reading_app/features/my_library/UI/widgets/book_card_mylib.dart';
+import 'package:reading_app/features/my_library/UI/widgets/my_library_body/book_card_mylib.dart';
 import 'package:reading_app/features/my_library/services/book_pdf/book_pdf_cubit.dart';
 import 'package:reading_app/features/my_library/services/complered_books/completed_books_cubit.dart';
 import 'package:reading_app/features/my_library/services/favorite_books/favorite_books_cubit.dart';
@@ -63,7 +63,7 @@ class SliverBookCardGrid extends StatelessWidget {
         },
       ).staggeredGrid(2),
       MyLibraryCard(
-        title: JsonConsts.completedBooks.t(context),
+        title: JsonConsts.finishedBooks.t(context),
         icon: Icons.emoji_events_outlined,
         onTap: () {
           context.push(

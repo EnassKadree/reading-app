@@ -29,23 +29,23 @@ class BookDetailsCard extends StatelessWidget {
             await context.push(
               PdfReaderScreen(
                 filePath: pdf.pdfUrl,
-                lastReadPage: book.progress ?? 1,
-
+                lastReadPage: book.progress,
                 bookModel: book,
               ),
             );
           } else if (state is BookPdfFailure) {
             // ignore: use_build_context_synchronously
             Functions().showSnackBar(
-              // ignore: use_build_context_synchronously
-                context, JsonConsts.theBookFailedToLoad.t(context));
+                // ignore: use_build_context_synchronously
+                context,
+                JsonConsts.theBookFailedToLoad.t(context));
           }
         },
         child: Container(
           padding:
-          const EdgeInsets.only(left: 130, right: 16, top: 6, bottom: 16),
+              const EdgeInsets.only(left: 130, right: 16, top: 6, bottom: 16),
           decoration: BoxDecoration(
-            color: ColorsConsts.white,
+            color: context.colorScheme.surface,
             borderRadius: BorderRadius.circular(14),
             boxShadow: [
               BoxShadow(
@@ -66,7 +66,7 @@ class BookDetailsCard extends StatelessWidget {
               Row(
                 children: List.generate(
                   5,
-                      (index) => Icon(
+                  (index) => Icon(
                     index < book.starRate.round()
                         ? Icons.star
                         : Icons.star_border,
@@ -78,10 +78,10 @@ class BookDetailsCard extends StatelessWidget {
               8.spaceH,
               LinearProgressIndicator(
                 value: (book.numberOfPages > 0)
-                    ? ((book.progress ?? 1) / book.numberOfPages.toDouble())
-                    .clamp(0.0, 1.0)
+                    ? ((book.progress) / book.numberOfPages.toDouble())
+                        .clamp(0.0, 1.0)
                     : 0.0,
-                backgroundColor: Colors.grey.shade200,
+                backgroundColor: context.colorScheme.surface,
                 color: ColorsConsts.purple,
                 minHeight: 6,
                 borderRadius: BorderRadius.circular(8),
@@ -90,7 +90,7 @@ class BookDetailsCard extends StatelessWidget {
               Align(
                 alignment: Alignment.centerRight,
                 child: Text(
-                  '${book.progress ?? 1} / ${book.numberOfPages}',
+                  '${book.progress} / ${book.numberOfPages}',
                   style: TextStyle(
                     fontSize: 12,
                     color: Colors.grey[600],

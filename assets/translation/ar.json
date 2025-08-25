@@ -29,7 +29,7 @@
   "mylibrary":"مكتبتي",
   "bookInProgress":"التقدم في قرائتي",
   "favoriteBooks":"الكتب المفضلة",
-  "completedBooks":"الكتب المنجزة",
+  "finishedBooks":"الكتب المنجزة",
   "booksToRead":"كتب للقراءة",
   "iHaveVisited":"لقد زرت",
   "countriesInALiteraryWay":"دولٍ أدبيًا",
@@ -100,6 +100,13 @@
   "clear" : "مسح",
   "noResults": "لا يوجد نتائج",
   "theBookFailedToLoad":"فشل تحميل الكتاب",
+
+  "readingProgress":"تقدم القراءة"
+  ,"booksDiscovered":"الكتب المكتشفة",
+  "hoursRead":"ساعات القراءة",
+  "avgRating":"متوسط ​ ​التقييم",
+  "exploreTheWorldThroughLiterature":"استكشف العالم من خلال الأدب",
+
   "comments_on_this_book": "التعليقات",
   "description": "الوصف",
   "view_all": "عرض الكل",

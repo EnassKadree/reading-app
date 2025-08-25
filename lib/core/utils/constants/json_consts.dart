@@ -59,11 +59,18 @@ abstract class JsonConsts {
   static const String mylibrary = 'mylibrary';
   static const String bookInProgress = 'bookInProgress';
   static const String favoriteBooks = 'favoriteBooks';
-  static const String completedBooks = 'completedBooks';
+  static const String finishedBooks = 'finishedBooks';
   static const String booksToRead = 'booksToRead';
   static const String iHaveVisited = 'iHaveVisited';
+  static const String booksDiscovered = 'booksDiscovered';
+  static const String hoursRead = 'hoursRead';
+  static const String avgRating = 'avgRating';
+  static const String readingProgress = 'readingProgress';
   static const String theBookFailedToLoad = 'theBookFailedToLoad';
   static const String countriesInALiteraryWay = 'countriesInALiteraryWay';
+
+  static const String exploreTheWorldThroughLiterature =
+      'exploreTheWorldThroughLiterature';
 
   //Exception
   static const String pleaseLogIn = 'please_log_in_first';
@@ -140,4 +147,5 @@ abstract class JsonConsts {
  static const String commentOnThisBook='comments_on_this_book';
  static const String  viewAll='view_all';
  static const String noCommentsYet='this_book_has_no_comments';
+  static const String commentOnThisBook = 'comments_on_this_book';
 }

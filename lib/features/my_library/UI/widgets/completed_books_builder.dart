@@ -16,7 +16,7 @@ class CompletedBooksBuilder extends StatelessWidget {
         if (state is CompletedBooksLoading) {
           return
             ListOfBooksScreen(
-                title: JsonConsts.completedBooks.t(context),
+                title: JsonConsts.finishedBooks.t(context),
                 bookList: dummyBook,
           );
         }
@@ -25,7 +25,7 @@ class CompletedBooksBuilder extends StatelessWidget {
         {
           final books = state.books;
           return ListOfBooksScreen(
-            title: JsonConsts.completedBooks.t(context),
+            title: JsonConsts.finishedBooks.t(context),
               bookList: books,
                     );
         }

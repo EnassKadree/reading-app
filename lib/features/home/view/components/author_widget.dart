@@ -48,7 +48,7 @@ final Author author;
           5.spaceH,
            Text(
            author.name,
-            style: StylesConsts.f16W600Black,
+            style: StylesConsts.f14W400Black,
           )
         ],
       ).horizontalPadding,

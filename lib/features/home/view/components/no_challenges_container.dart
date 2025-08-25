@@ -13,13 +13,12 @@ class NoChallengesContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-
       decoration: BoxDecoration(
         color: context.colorScheme.surfaceContainer,
         borderRadius: BorderRadius.circular(20.r),
       ),
       padding: EdgeInsets.only(right: 16.w, top: 16.h, bottom: 16.h),
-     margin: EdgeInsets.symmetric(horizontal: 16.w),
+      margin: EdgeInsets.symmetric(horizontal: 16.w),
       child: Row(
         children: [
           Lottie.asset(
@@ -32,14 +31,14 @@ class NoChallengesContainer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                  'Yet No Challenges?',
-                  style: StylesConsts.f20W600Yellow,
+                'Yet No Challenges?',
+                style: StylesConsts.f20W600Yellow,
                 maxLines: 3,
               ),
               Text(
                 '''Boost Your points and claim 
         your spot at the top''',
-                style: StylesConsts.f15W600Grey,
+                style: StylesConsts.f14W400Black,
                 maxLines: 3,
               ),
               20.spaceH,
@@ -50,17 +49,14 @@ class NoChallengesContainer extends StatelessWidget {
                 child: Container(
                   width: 100,
                   padding: EdgeInsets.symmetric(horizontal: 5.w),
-
-
                   decoration: BoxDecoration(
-
-                       color: context.colorScheme.tertiary.withAlpha(150),
-                    border: Border.all(color: context.colorScheme.tertiary, width: 1.7),
+                    color: context.colorScheme.tertiary.withAlpha(150),
+                    border: Border.all(
+                        color: context.colorScheme.tertiary, width: 1.7),
                     borderRadius: BorderRadius.circular(15.r),
                   ),
                   child: Center(
-                    child: Text('Join',
-                        style: StylesConsts.f18W600White),
+                    child: Text('Join', style: StylesConsts.f18W600White),
                   ),
                 ),
               )
