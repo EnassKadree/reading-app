@@ -16,6 +16,7 @@ class BookModel {
   final bool isFavourite;
   final bool isChallenged;
   final bool isInLibrary;
+  final String summary;
 
   BookModel({
     required this.id,
@@ -35,7 +36,7 @@ class BookModel {
     required this.isFavourite,
     required this.isChallenged,
     required this.isInLibrary,
-
+    this.summary=''
   });
 
   // Factory method to convert JSON to Book object
@@ -58,6 +59,7 @@ class BookModel {
       isFavourite: json['is_favourite'] ?? false,
       isChallenged: json['is_challenged'] ?? false,
       isInLibrary: json['is_in_library'] ?? false,
+      summary: json['summary']??''
     );
   }
 
@@ -82,6 +84,7 @@ class BookModel {
       'is_favourite': isFavourite,
       'is_challenged': isChallenged,
       'is_in_library': isInLibrary,
+      'summary':summary
     };
   }
   static List<BookModel> fromList(List<dynamic> data) {
