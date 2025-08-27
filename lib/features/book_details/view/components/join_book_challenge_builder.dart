@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
+import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/features/book_details/view/components/book_details_button.dart';
 
 import '../../../../core/utils/constants/assets_consts.dart';
@@ -20,13 +21,19 @@ class JoinBookChallengeBuilder extends StatelessWidget {
       builder: (BuildContext context,JoinBookChallengeStates state ) {
         if(state is JoinBookChallengeInitial || state is JoinBookChallengeError ) {
           return  BookDetailsButton(
+              color: context.colorScheme.tertiary.withAlpha(120),
               function: (){
                 context.read<JoinBookChallengeCubit>().joinBookChallenge(bookId);},
               buttonText: 'join');
         }
         else if (state is JoinBookChallengeLoading) {
-          return Lottie.asset(AssetsConsts.loadingAsset,
-              height: 40, width: 40);
+          return  BookDetailsButton(
+            color: context.colorScheme.tertiary.withAlpha(120),
+              function: (){},
+              buttonText: '',
+              child: Lottie.asset(AssetsConsts.loadingAsset,
+                  height: 40, width: 40)
+              ).horizontalPadding;
         }
         else
         {

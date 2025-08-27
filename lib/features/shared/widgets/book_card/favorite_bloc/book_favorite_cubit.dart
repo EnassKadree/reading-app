@@ -1,53 +1,46 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:reading_app/features/shared/widgets/book_card/favorite_bloc/book_favorite_states.dart';
 import '../../../../../core/network/api.dart';
 import '../../../../../core/network/end_point.dart';
 import '../../../../../core/utils/base/base_cubit.dart';
 import '../../../../../core/utils/constants/json_consts.dart';
 import '../../../data/data_source.dart';
 import '../../../user/user_model.dart';
+import 'book_favorite_states.dart';
 
 
 class BookFavoriteCubit extends BaseCubit<BookFavoriteStates> {
-  BookFavoriteCubit({bool isFavourite = false}): super(InitialFavoriteState(isFavourite));
+  BookFavoriteCubit() : super(BookFavoriteStates.initial());
 
   final String addTOFavoriteEndPoint = '${EndPoint.baseUrl}${EndPoint.addTOFavorite}';
   final String removeFromFavoriteEndPoint = '${EndPoint.baseUrl}${EndPoint.removeFromFavorite}';
 
-  Future<void> addToFavorite(int id) async {
-    emit(LoadingFavoriteState(false));
+
+  Future<void> toggleFavorite(int bookId) async {
+    // الحالة الحالية: إذا موجودة استخدمها، إذا لا اعتبر false
+    bool currentState = state.favorites[bookId] ?? false;
+
+    emit(LoadingFavoriteState(bookId, currentState));
+
     await executeWithCatch(
       action: () async {
         User? user = DataSource().getUser();
-        if (user == null) {
-          throw Exception(JsonConsts.pleaseLogIn.tr());
-        }
-        await Api().get(
-            url: "$addTOFavoriteEndPoint$id", token: user.accessToken);
+        if (user == null) throw Exception(JsonConsts.pleaseLogIn.tr());
 
-        emit(SuccessFavoriteState( true));
+        if (!currentState) {
+          await Api().get(url: "$addTOFavoriteEndPoint$bookId", token: user.accessToken);
+        } else {
+          await Api().fullPost(url: "$removeFromFavoriteEndPoint$bookId", token: user.accessToken);
+        }
+
+        // تحديث فقط الكتاب المحدد
+        final newFavorites = Map<int, bool>.from(state.favorites);
+        newFavorites[bookId] = !currentState;
+
+        emit(BookFavoriteStates(newFavorites));
       },
       emit: emit,
-      failureStateBuilder: (message) => ErrorFavoriteState(message, false),
+      failureStateBuilder: (message) => ErrorFavoriteState(bookId, message, currentState),
     );
   }
 
-  Future<void> removeFromFavorite(int id) async {
-    print("rrrrrrrrrrrrrrrrrrrrrrrrrrrreeeeeeeeeeeeeeeeeeeeeeemmmmmmmmmmmmmmmmooooooove");
-    emit(LoadingFavoriteState( true));
-    await executeWithCatch(
-      action: () async {
-        User? user = DataSource().getUser();
-        if (user == null) {
-          throw Exception(JsonConsts.pleaseLogIn.tr());
-        }
-        await Api().fullPost(
-            url: "$removeFromFavoriteEndPoint$id", token: user.accessToken);
-
-        emit(SuccessFavoriteState(false));
-      },
-      emit: emit,
-      failureStateBuilder: (message) => ErrorFavoriteState(message, true),
-    );
-  }
 }

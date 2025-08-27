@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reading_app/core/utils/constants/styles_consts.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
+import 'package:reading_app/core/utils/extensions/string_extension.dart';
 import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/features/home/view/components/user_challenges_section.dart';
 import 'package:reading_app/features/shared/models/user_challenge.dart';
@@ -29,7 +30,7 @@ final bool loading ;
        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
            Text(
-            JsonConsts.activeChallenges.tr(),
+            JsonConsts.activeChallenges.t(context),
              style:StylesConsts.f30W500White,
              textAlign: TextAlign.start,
            ).horizontalPadding,

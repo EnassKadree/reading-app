@@ -1,21 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
-import 'package:reading_app/core/utils/extensions/string_extension.dart';
-import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/features/shared/models/book.dart';
-import 'package:url_launcher/url_launcher.dart';
-
-import '../../../../core/network/end_point.dart';
-import '../../../../core/utils/constants/json_consts.dart';
+ import '../../../../core/network/end_point.dart';
 import '../../../../core/utils/constants/styles_consts.dart';
-import '../../../../core/utils/functions/functions.dart';
-import '../../../my_library/services/book_pdf/book_pdf_cubit.dart';
 import '../../../shared/widgets/custom_network_image.dart';
-import '../../../shared/widgets/pdf books/pdf_reader_screen.dart';
 import '../../helpers/share_plus_function.dart';
 import 'book_image_shader_mask.dart';
 
@@ -27,15 +18,17 @@ class BookDetailsHeader extends StatelessWidget {
     return Stack(
       children: [
         SizedBox(
-            height: 460.h,
+            height: 480.h,
             child: BookImageShaderMask(
               bookImage: book.coverImage,
-            )),
+            ),
+        ),
         Positioned(
-          top: 40.h,
-          right: 30.w,
-          child: GestureDetector(
-            onTap: () {
+          top: 35.h,
+          right: 15.w,
+          child: IconButton(
+            icon: Icon(Iconsax.share, color: context.colorScheme.onPrimary),
+            onPressed: () {
               shareBookDetails(
                 image: book.coverImage,
                 title: book.title,
@@ -43,100 +36,77 @@ class BookDetailsHeader extends StatelessWidget {
                 appLink: EndPoint.appLink,
               );
             },
-            child:  Icon(
-              Icons.share_outlined,
-              color: context.colorScheme.onPrimary,
-
-
-            ),
           ),
         ),
         Positioned(
-          top: 40.h,
-          left: 30.w,
-          child: GestureDetector(
-            onTap: () {
+          top: 35.h,
+          left: 10.w,
+          child: IconButton(
+            icon: Icon(Iconsax.arrow_left_2,color: context.colorScheme.onPrimary,),
+            onPressed: () {
               context.pop();
             },
-            child:  Icon(
-              Iconsax.arrow_left,
-              color: context.colorScheme.onPrimary,
-            ),
           ),
         ),
         Positioned(
-          top: 70.h,
+          top: 100.h,
           child: SizedBox(
             width: 1.sw,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                SizedBox(
-                  width: 180.w,
-                  height: 290.h,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(24.r),
-                    child: CustomNetworkImage(
-                      imageUrl: book.coverImage,
-                      fit: BoxFit.fill,
+                Hero(
+                  tag: book.id,
+                  flightShuttleBuilder: (flightContext, animation, flightDirection, fromHeroContext, toHeroContext) {
+                    return SlideTransition(
+                      position: Tween<Offset>(
+                        begin: const Offset(0, -1), // من فوق
+                        end: Offset.zero,
+                      ).animate(animation),
+                      child: toHeroContext.widget,
+                    );
+
+                  },
+                  child: Container(
+                    width: 200.w,
+                    height: 300.h,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(28.r),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.3),
+                          blurRadius: 7,
+                          offset: const Offset(0, 5),
+                        ),
+                      ],
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(28.r),
+                      child: CustomNetworkImage(
+                        imageUrl: book.coverImage,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ),
-                10.spaceH,
+                22.spaceH,
                 Text(
-               book.title,
+                  book.title,
                   style: StylesConsts.f24BoldBlack,
-                ).horizontalPadding,
-                10.spaceH,
+                  textAlign: TextAlign.center,
+                ),
+                2.spaceH,
                 Text(
                   book.authorName,
                   style: StylesConsts.f18W400grey,
-                ).horizontalPadding
+                  textAlign: TextAlign.center,
+                ),
               ],
             ),
           ),
         ),
-        if  (book.summary!='')
-          Positioned(
-            bottom: 30.h,
-            right: 20.w,
-            child: GestureDetector(
-                onTap: ()async{ final Uri uri = Uri.parse(book.summary);
-
-                if (await canLaunchUrl(uri)) {
-                  await launchUrl(uri, mode: LaunchMode.externalApplication);
-                } else {
-                  throw 'Could not launch ';
-                }},
-                child: Icon(Iconsax.link_25,color: context.colorScheme.onPrimary,size: 25,weight: 10,)),
-          ),
-        Positioned(
-          bottom: 30.h,
-          left: 20.w,
-          child: GestureDetector(
-              onTap: ()async {
-                final cubit = context.read<BookPdfCubit>();
-                await cubit.getBookPdf(book.id);
-                final state = cubit.state;
-                if (state is BookPdfSuccess) {
-                  final pdf = state.bookPdf;
-                  // ignore: use_build_context_synchronously
-                  await context.push(
-                    PdfReaderScreen(
-                      filePath: pdf.pdfUrl,
-                      lastReadPage: book.progress ?? 1,
-                      bookModel: book,
-                    ),
-                  );
-                } else if (state is BookPdfFailure) {
-                  // ignore: use_build_context_synchronously
-                  Functions().showSnackBar(
-                      context, JsonConsts.theBookFailedToLoad.t(context));
-                }
-              },
-              child: Icon(Iconsax.folder_open,color: context.colorScheme.onPrimary,size: 25,)),
-        ),
       ],
     );
   }
+
+
 }

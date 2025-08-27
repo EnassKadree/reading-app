@@ -17,10 +17,12 @@ import 'package:reading_app/features/book_details/view/components/book_details_h
 import 'package:reading_app/features/book_details/view/components/book_image_shader_mask.dart';
 import 'package:reading_app/features/book_details/view/components/book_comments_builder.dart';
 import 'package:reading_app/features/book_details/view/components/scrollable_description_widget.dart';
+import 'package:reading_app/features/book_details/view/components/user_action_buttons.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../../core/utils/constants/colors_consts.dart';
 import '../../../../core/utils/constants/json_consts.dart';
 import '../../../../core/utils/functions/functions.dart';
+import '../../../my_library/UI/widgets/my_library_body/build_my_library.dart';
 import '../../../my_library/services/book_pdf/book_pdf_cubit.dart';
 import '../../../shared/models/book.dart';
 import '../../../shared/widgets/book_card/favorite_bloc/book_favorite_cubit.dart';
@@ -51,8 +53,7 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
 
   void _scrollToIndex(int index) {
     double offset = index * 80;
-    _scrollController.jumpTo(
-        offset); // or use _scrollController.animateTo() for smooth scroll
+    _scrollController.jumpTo(offset);
   }
 
   @override
@@ -60,13 +61,14 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
     super.initState();
     _scrollController = ScrollController();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      _scrollToIndex(widget.scrollToIndex); // Scroll after the screen is built
+      _scrollToIndex(widget.scrollToIndex);
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: context.colorScheme.surface,
       body: Column(
         children: [
           Expanded(
@@ -77,74 +79,29 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
                   delegate: SliverChildListDelegate(
                     [
                       BookDetailsHeader(book: widget.book),
-                      20.spaceH,
+                      25.spaceH,
                       BookNumbersSection(book: widget.book),
-                      40.spaceH,
+                      30.spaceH,
                       ScrollableDescriptionWidget(
-                        description: widget.book.description,
+                        description: widget.book.description+widget.book.description+widget.book.description,
                       ),
+                      UserActionButtons(book:widget.book,),
                       30.spaceH,
                       BookChallengeBuilder(
                         book: widget.book,
                       ),
-                      30.spaceH,
-                      RateTheBookContainer(
+                      40.spaceH,
+                      RateTheBookWrapper(
                         book: widget.book,
                         newProgress: widget.newProgress,
                       ),
-                      30.spaceH,
+                      40.spaceH,
                       CommentsSection(
+                        parentContext:context,
                           currentPage: widget.book.progress,
                           bookPages: widget.book.numberOfPages,
                           bookId: widget.book.id),
-                      10.spaceH,
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          BlocConsumer<BookFavoriteCubit,BookFavoriteStates>(
-                              builder: (BuildContext context ,BookFavoriteStates state) {
-                                widget.book.isFavourite=state.isFavorite;
-                                bool favorite= widget.book.isFavourite;
-                              return BookDetailsButton(
-                                function: (){
-                                  (!favorite)? context.read<BookFavoriteCubit>().addToFavorite(widget.book.id):
-                                  context.read<BookFavoriteCubit>().removeFromFavorite(widget.book.id);
-                                  },
-                                buttonText: "favorite",
-                                borderColoR: context.colorScheme.primary.withAlpha(150),
-                                color: (favorite)?context.colorScheme.primary.withAlpha(120):null,
-                                textColor: (favorite)?context.colorScheme.surfaceContainer:context.colorScheme.primary,
-                              ).horizontalPadding;
-                            }, listener: (BuildContext context ,BookFavoriteStates state) {
-                                if(state is ErrorFavoriteState) {
-                                Functions()
-                                    .showSnackBar(context, state.errorMessage);
-                              }
-                            },
-                          ),
-
-                          BlocConsumer<AddToReadCubit,AddToReadStates>(
-                            builder: (BuildContext context ,AddToReadStates state) {
-                              if(state is SuccessAddToReadState) {
-                                bool isInLibrary=widget.book.isInLibrary;
-                                widget.book.isInLibrary = !isInLibrary;
-                              }
-                              bool inLibrary= widget.book.isInLibrary;
-                              return BookDetailsButton(
-                                function: (){
-                                 context.read<AddToReadCubit>().addBookToRead(widget.book.id);
-
-                                },
-                                buttonText: "to read",
-                                borderColoR: context.colorScheme.primary.withAlpha(150),
-                                color: (inLibrary)?context.colorScheme.primary.withAlpha(120):null,
-                                textColor: (inLibrary)?context.colorScheme.surfaceContainer:context.colorScheme.primary,
-                              ).horizontalPadding;
-                            }, listener: (BuildContext context ,AddToReadStates state) {  },
-                          ),
-                        ],
-                      ),
-                      30.spaceH,
+                      20.spaceH,
                     ],
                   ),
                 )

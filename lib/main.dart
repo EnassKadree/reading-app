@@ -13,6 +13,8 @@ import 'package:reading_app/features/splash_screen/splash_screen.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'features/book_details/service/book_comments/book_comments_cubit.dart';
+import 'features/book_details/service/comment_on_book/comment_on_book_cubit.dart';
 import 'features/shared/data/data_source.dart';
 import 'features/shared/localization/app_localization.dart';
 import 'features/shared/localization/locale_cubit.dart';
@@ -30,8 +32,8 @@ void main() async {
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await Future.wait([
- PushNotificationsService.init(),
-LocalNotificationService.init(),
+    PushNotificationsService.init(),
+    LocalNotificationService.init(),
   ]);
 
   prefs = await SharedPreferences.getInstance();
@@ -58,65 +60,75 @@ LocalNotificationService.init(),
           create: (context) => ThemeCubit(theme),
         ),
         BlocProvider(create: (context) => userCubit),
-  BlocProvider(
-  create: (BuildContext context) {
-  return BookFavoriteCubit();
-  },)
+        BlocProvider(
+          create: (BuildContext context) {
+            return BookFavoriteCubit();
+          },
+        ),
+        BlocProvider(
+          create: (BuildContext context) {
+            return CommentOnBookCubit();
+          },
+        ),
       ],
       child: const MyApp(),
     ),
   );
 }
+
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(402, 874),
-      builder: (context, child) => BlocListener<LocaleCubit, Locale>(
-        listener: (context, state) {
-          WidgetsBinding.instance.addPostFrameCallback((_) {});
-        },
-        child: BlocBuilder<ThemeCubit, Themes>(
-          builder: (context, theme) {
-            return BlocBuilder<LocaleCubit, Locale>(
-              builder: (context, locale) {
-                return MaterialApp( navigatorKey: navigatorKey, 
-                  debugShowCheckedModeBanner: false,
-                  theme: AppTheme.lightTheme(context, locale),
-                  darkTheme: AppTheme.darkTheme(context, locale),
-                  themeMode:
-                      theme == Themes.dark ? ThemeMode.dark : ThemeMode.light,
-                  localizationsDelegates: const [
-                    AppLocalizations.delegate,
-                    GlobalMaterialLocalizations.delegate,
-                    GlobalWidgetsLocalizations.delegate,
-                    GlobalCupertinoLocalizations.delegate,
-                  ],
-                  supportedLocales: const [
-                    Locale('en', ''),
-                    Locale('ar', ''),
-                  ],
-                  locale: locale,
-                  localeResolutionCallback: (locale, supportedLocales) {
-                    if (locale == null) return supportedLocales.first;
-                    for (var supportedLocale in supportedLocales) {
-                      if (supportedLocale.languageCode == locale.languageCode) {
-                        return supportedLocale;
-                      }
-                    }
-                    return supportedLocales.first;
-                  },
-                  home: child,
-                );
+        designSize: const Size(402, 874),
+        builder: (context, child) => BlocListener<LocaleCubit, Locale>(
+              listener: (context, state) {
+                WidgetsBinding.instance.addPostFrameCallback((_) {});
               },
-            );
-          },
-        ),
-      ),
-      child: const SplashScreen()
-    );
+              child: BlocBuilder<ThemeCubit, Themes>(
+                builder: (context, theme) {
+                  return BlocBuilder<LocaleCubit, Locale>(
+                    builder: (context, locale) {
+                      return MaterialApp(
+                        navigatorKey: navigatorKey,
+                        debugShowCheckedModeBanner: false,
+                        theme: AppTheme.lightTheme(context, locale),
+                        darkTheme: AppTheme.darkTheme(context, locale),
+                        themeMode: theme == Themes.dark
+                            ? ThemeMode.dark
+                            : ThemeMode.light,
+                        localizationsDelegates: const [
+                          AppLocalizations.delegate,
+                          GlobalMaterialLocalizations.delegate,
+                          GlobalWidgetsLocalizations.delegate,
+                          GlobalCupertinoLocalizations.delegate,
+                        ],
+                        supportedLocales: const [
+                          Locale('en', ''),
+                          Locale('ar', ''),
+                        ],
+                        locale: locale,
+                        localeResolutionCallback: (locale, supportedLocales) {
+                          if (locale == null) return supportedLocales.first;
+                          for (var supportedLocale in supportedLocales) {
+                            if (supportedLocale.languageCode ==
+                                locale.languageCode) {
+                              return supportedLocale;
+                            }
+                          }
+                          return supportedLocales.first;
+                        },
+                        home: child,
+                      );
+                    },
+                  );
+                },
+              ),
+            ),
+        child: const SplashScreen());
   }
 }

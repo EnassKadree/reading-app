@@ -17,7 +17,9 @@ class BookCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap:(){
-          context.push(BookDetailsWrapper(book: bookModel));
+          context.push(
+               BookDetailsWrapper(book: bookModel),
+          );
           },
         child: Container(
           alignment: Alignment.center,
@@ -43,22 +45,34 @@ class BookCard extends StatelessWidget {
               ),
               Positioned(
                 left: 8.w,
-                child: Container(
-                  height: 210.h,
-                  width: 150.w,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20.r),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withAlpha(160),
-                        blurRadius: 10,
-                        offset: const Offset(0, 3),
-                      ),
-                    ],
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20.r),
-                    child: CustomNetworkImage(imageUrl: bookModel.coverImage,fit: BoxFit.fill,)
+                child: Hero(
+                  tag: bookModel.id,
+                  flightShuttleBuilder: (flightContext, animation, flightDirection, fromHeroContext, toHeroContext) {
+                    return SlideTransition(
+                      position: Tween<Offset>(
+                        begin: const Offset(0, -1),
+                        end: Offset.zero,
+                      ).animate(animation),
+                      child: toHeroContext.widget,
+                    );
+                  },
+                  child: Container(
+                    height: 210.h,
+                    width: 150.w,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20.r),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withAlpha(160),
+                          blurRadius: 10,
+                          offset: const Offset(0, 3),
+                        ),
+                      ],
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20.r),
+                      child: CustomNetworkImage(imageUrl: bookModel.coverImage,fit: BoxFit.fill,)
+                    ),
                   ),
                 ),
               ),
@@ -84,15 +98,13 @@ class BookCard extends StatelessWidget {
                         20.spaceW,
                         BlocConsumer<BookFavoriteCubit,BookFavoriteStates>(
                             builder: (BuildContext context ,BookFavoriteStates state) {
-                              bookModel.isFavourite=state.isFavorite;
+                              bool isFavorite = state.favorites[bookModel.id] ?? bookModel.isFavourite;
                               return GestureDetector(
                                 onTap: (){
-
-                                  (!bookModel.isFavourite)? context.read<BookFavoriteCubit>().addToFavorite(bookModel.id):
-                                  context.read<BookFavoriteCubit>().removeFromFavorite(bookModel.id);
+                                context.read<BookFavoriteCubit>().toggleFavorite(bookModel.id);
                                 },
                                 child: Icon(
-                                  (bookModel.isFavourite)?
+                                  (isFavorite)?
                                   Icons.favorite:
                                   Icons.favorite_border_outlined,
                                   color: context.colorScheme.tertiary,
@@ -130,3 +142,4 @@ class BookCard extends StatelessWidget {
     );
   }
 }
+

@@ -1,4 +1,6 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reading_app/core/utils/constants/styles_consts.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
@@ -6,6 +8,7 @@ import 'package:reading_app/core/utils/extensions/space_extension.dart';
 class BuildMyLibrary extends StatelessWidget {
   const BuildMyLibrary({
     super.key,
+    this.opacity=0.2,
     required this.icon,
     required this.label,
     required this.color,
@@ -15,17 +18,19 @@ class BuildMyLibrary extends StatelessWidget {
   final String label;
   final Color color;
   final VoidCallback onTap;
+  final double opacity;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
+        height: 160.h,
         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
         decoration: BoxDecoration(
           color: context.colorScheme.surface,
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
-            color: color.withOpacity(0.2),
+            color: color.withOpacity(opacity),
             width: 1.5,
           ),
           boxShadow: [
@@ -52,14 +57,17 @@ class BuildMyLibrary extends StatelessWidget {
               ),
             ),
             8.spaceH,
-            Text(
-              label,
-              style: StylesConsts.f15W400Grey.copyWith(
-                fontSize: 12,
-                color: color,
-                fontWeight: FontWeight.w600,
+            SizedBox(
+
+              child: AutoSizeText(
+                label,
+                style: StylesConsts.f15W400Grey.copyWith(
+                  fontSize: 12,
+                  color: color,
+                  fontWeight: FontWeight.w600,
+                ),
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
             ),
           ],
         ),

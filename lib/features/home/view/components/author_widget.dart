@@ -35,12 +35,12 @@ final Author author;
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                   ),
-                   child:CustomNetworkImage(imageUrl: author.image)
-                   //Image.asset(
-                  //   "assets/images/png/Adonis.png",
-                  // //  author.image,
-                  //   fit: BoxFit.cover,
-                  // ),
+                   child://CustomNetworkImage(imageUrl: author.image)
+                   Image.asset(
+                    "assets/images/png/Adonis.png",
+                  //  author.image,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ],

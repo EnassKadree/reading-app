@@ -22,18 +22,18 @@ class IconTextWidget extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 5.w),
       height: 30.h,
       decoration: BoxDecoration(
-        border: Border.all(color:(!whiteColor)? context.colorScheme.secondary: context.colorScheme.surfaceContainer, width: 1.7),
+        border: Border.all(color: context.colorScheme.secondary, width: 1.7),
         borderRadius: BorderRadius.circular(15.r),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         //  spacing: 5,
         children: [
-          Icon(icon, size: iconSize, color:(!whiteColor)? context.colorScheme.secondary: context.colorScheme.surfaceContainer),
+          Icon(icon, size: iconSize, color: context.colorScheme.secondary),
           4.spaceW,
           Text(
             text,
-            style:(whiteColor)? StylesConsts.f16W600Black.copyWith(color:context.colorScheme.surfaceContainer):StylesConsts.f16W600Black,
+            style:StylesConsts.f16W600Black.copyWith(fontSize: 14.sp),
           ),
         ],
       ),

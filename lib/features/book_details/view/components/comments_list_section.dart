@@ -26,7 +26,7 @@ final List<Comment>comments;
     }
     else {
       return Center(
-        child: Text(JsonConsts.noCommentsYet.t(context),style: StylesConsts.f20W600Yellow,).horizontalPadding,
+        child: Text(JsonConsts.noCommentsYet.t(context),textAlign:TextAlign.center,style: StylesConsts.f15W400Grey,).horizontalPadding,
       );
     }
   }

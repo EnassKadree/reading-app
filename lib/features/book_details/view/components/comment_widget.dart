@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
@@ -7,7 +8,8 @@ import '../../../profile/UI/widgets/profile_circle_avatar.dart';
 import '../../../shared/models/comment.dart';
 
 class CommentWidget extends StatelessWidget {
-  const CommentWidget({required this.comment,super.key});
+  const CommentWidget({required this.comment, super.key});
+
   final Comment comment;
 
   @override
@@ -28,7 +30,8 @@ class CommentWidget extends StatelessWidget {
               children: [
                 Text(
                   comment.readerName,
-                  style: StylesConsts.f16W600Black.copyWith(color: context.colorScheme.primary),
+                  style: StylesConsts.f16W600Black
+                      .copyWith(color: context.colorScheme.primary),
                 ),
                 2.spaceW,
                 Text(
@@ -42,19 +45,16 @@ class CommentWidget extends StatelessWidget {
             ),
             3.spaceH,
             SizedBox(
-              width: 265.w,
-              child: Text(
-               // maxLines: 10,
-               // overflow: TextOverflow.ellipsis,
+              width: 245.w,
+              child: AutoSizeText(
+                 maxLines: 10,
+                 overflow: TextOverflow.ellipsis,
                 comment.comment,
                 style: StylesConsts.f14W400Black,
               ),
             ),
-
           ],
         ),
-
-
       ],
     );
   }

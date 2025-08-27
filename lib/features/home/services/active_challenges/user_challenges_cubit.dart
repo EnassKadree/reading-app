@@ -23,6 +23,7 @@ class UserChallengesCubit extends BaseCubit<UserChallengesStates> {
       if (user == null) {
         throw Exception(JsonConsts.pleaseLogIn.tr());
       }
+      print('user challenges');
       print(user.accessToken);
       Map<String, dynamic> response = await Api().get(url: endPoint, token: user.accessToken);
       List<UserChallenge> userChallenges =parseResponse<UserChallenge>(

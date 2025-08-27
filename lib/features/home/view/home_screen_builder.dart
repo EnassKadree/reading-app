@@ -12,7 +12,6 @@ import 'package:reading_app/features/home/view/components/home_screen_body.dart'
 import 'package:reading_app/features/shared/models/author.dart';
 import 'package:reading_app/features/shared/models/book.dart';
 import 'package:reading_app/features/shared/models/category.dart';
-import 'package:reading_app/features/shared/widgets/error_dialog.dart';
 import 'package:reading_app/features/shared/widgets/something_went_wrong.dart';
 import '../../../core/lists/dummy_categories.dart';
 import '../../../core/lists/dummy_user_challenges.dart';
@@ -97,8 +96,11 @@ class _HomeScreenBuilderState extends State<HomeScreenBuilder> {
                     }
                   },
                   listener: (BuildContext context, BooksStates booksState){
-                    if (booksState is BooksError )
-                      Functions().showSnackBar(context,booksState.errorMessage );
+                    if (booksState is BooksError ) {
+                      print(booksState.errorMessage);
+                      Functions()
+                          .showSnackBar(context, booksState.errorMessage);
+                    }
                   },
                 );
               },

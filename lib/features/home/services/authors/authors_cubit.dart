@@ -22,6 +22,7 @@ class AuthorsCubit extends BaseCubit<AuthorsStates>
       if (user == null) {
         throw Exception(JsonConsts.pleaseLogIn.tr());
       }
+      print('authors');
       print(user.accessToken);
       Map<String, dynamic> response = await Api().get(url: endPoint, token: user.accessToken);
       List<Author> authors =parseResponse<Author>(

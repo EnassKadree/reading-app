@@ -21,7 +21,7 @@ final List<BookModel> dummyBook = [
     isInLibrary: false,
   ),
   BookModel(
-    id: 0,
+    id: 1,
     title: '',
     description: '',
     authorName: '',
@@ -40,7 +40,7 @@ final List<BookModel> dummyBook = [
     isInLibrary: false,
   ),
   BookModel(
-    id: 0,
+    id: 2,
     title: '',
     description: '',
     authorName: '',

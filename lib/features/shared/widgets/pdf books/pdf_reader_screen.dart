@@ -56,21 +56,10 @@ class _PdfReaderScreenState extends State<PdfReaderScreen> {
           return WillPopScope(
             onWillPop: () async {
               final currentPage = context.read<PdfReaderCubit>().state;
-
-              // تحديث التقدم
               context.read<ReadingProgressCubit>().updateProgress(
                     bookId: widget.bookModel.id,
                     currentPage: currentPage,
                   );
-
-              print("📖 User exited at page: $currentPage");
-
-              Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: (_) => const MyLibraryPage()),
-                (route) => false,
-              );
-
               context.read<ReadingProgressCubit>().updateProgress(
                     bookId: widget.bookModel.id,
                     currentPage: currentPage,
@@ -79,17 +68,13 @@ class _PdfReaderScreenState extends State<PdfReaderScreen> {
               if ((currentPage * 100) / widget.bookModel.numberOfPages >= 70) {
                 showReadingExitDialog(
                     onExitAnyway: () {
-                      Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(
-                            builder: (_) => const MyLibraryPage()),
-                        (route) => false,
-                      );
+                     context.pop();
                     },
                     context: context,
                     bookTitle: widget.bookModel.title,
                     onRatePressed: () {
-                      context.pushReplacement(BookDetailsWrapper(
+                      context.pushReplacement(
+                        BookDetailsWrapper(
                         book: widget.bookModel,
                         scrollToIndex: 10,
                         newProgress: currentPage,
@@ -97,13 +82,8 @@ class _PdfReaderScreenState extends State<PdfReaderScreen> {
                       );
                     },
                 );
-              } else {
-                Navigator.pushAndRemoveUntil(
-                  context,
-                  MaterialPageRoute(builder: (_) => const MyLibraryPage()),
-                  (route) => false,
-                );
               }
+              else context.pop();
               return false;
             },
             child: Scaffold(

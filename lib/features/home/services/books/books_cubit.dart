@@ -20,6 +20,7 @@ class BooksCubit extends BaseCubit<BooksStates> {
           if (user == null) {
             throw Exception(JsonConsts.pleaseLogIn.tr());
           }
+          print('books');
           Map<String, dynamic> response =
               await Api().getWithToken(url: endPoint, token: user.accessToken);
           List<BookModel> mostRatedBooks = parseResponse<BookModel>(

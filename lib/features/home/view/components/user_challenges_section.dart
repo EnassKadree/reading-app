@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/features/home/view/components/no_challenges_container.dart';
 import 'package:reading_app/features/home/view/components/user_challenge_card.dart';
 import 'package:reading_app/features/shared/models/user_challenge.dart';

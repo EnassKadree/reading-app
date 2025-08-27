@@ -6,7 +6,6 @@ extension ShowModalSheet on Functions
 
   void showSheet(BuildContext context,Widget sheet)
   {
-    final TextEditingController commentController = TextEditingController();
     showModalBottomSheet
     (
       constraints: BoxConstraints(
@@ -22,9 +21,11 @@ extension ShowModalSheet on Functions
       builder: (BuildContext context) 
       {
         return PopScope
-        (
-          canPop:true,
-          child:  sheet
+          (
+
+            canPop:true,
+            child:  sheet
+
         );
       }
     );

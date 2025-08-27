@@ -47,6 +47,7 @@ class BookDetailsWrapper extends StatelessWidget {
             return BookCommentsCubit()..getBookComments(book.id);
           },
         ),
+
         BlocProvider(
           create: (BuildContext context) {
             return BookPdfCubit();

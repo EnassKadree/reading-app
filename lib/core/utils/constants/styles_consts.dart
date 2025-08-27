@@ -14,7 +14,7 @@ abstract class StylesConsts {
   );
   static TextStyle f24BoldBlack = TextStyle(
     fontSize: 20.sp,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w700,
   );
   static TextStyle f30W500White = TextStyle(
       fontSize: 26.sp, color: Colors.white, fontWeight: FontWeight.w600);
