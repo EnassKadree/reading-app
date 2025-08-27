@@ -13,9 +13,9 @@ class BookModel {
   final String sizeCategoryName;
   final int numberOfPages;
   final int progress;
-  final bool isFavourite;
+   bool isFavourite;
   final bool isChallenged;
-  final bool isInLibrary;
+   bool isInLibrary;
   final String summary;
 
   BookModel({

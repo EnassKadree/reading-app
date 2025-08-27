@@ -87,14 +87,14 @@ class RateTheBookContainer extends StatelessWidget {
                                 rate = rating;
                               },
                             ),
-                            GestureDetector(
-                              onTap: () {
-                                context
-                                    .read<RateTheBookCubit>()
-                                    .rateTheBook(book.id, rate);
-                              },
-                              child: const BookDetailsButton(buttonText: 'Rate'),
-                            ),
+                            BookDetailsButton(
+                              
+                                function:() {
+                                  context
+                                      .read<RateTheBookCubit>()
+                                      .rateTheBook(book.id, rate);
+                                },color: context.colorScheme.tertiary.withAlpha(120)
+                                ,buttonText: 'Rate'),
                           ],
                         ).mainPadding,
                       ),

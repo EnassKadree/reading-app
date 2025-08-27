@@ -4,21 +4,18 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reading_app/core/utils/constants/styles_consts.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
+import 'package:reading_app/core/utils/functions/functions.dart';
 import 'package:reading_app/features/shared/models/book.dart';
 import 'package:reading_app/features/shared/widgets/book_card/favorite_bloc/book_favorite_cubit.dart';
 import 'package:reading_app/features/shared/widgets/book_card/favorite_bloc/book_favorite_states.dart';
 import 'package:reading_app/features/shared/widgets/custom_network_image.dart';
-import '../../../book_details/view/book_details_wrapper.dart';
+import '../../../book_details/view/screens/book_details_wrapper.dart';
 class BookCard extends StatelessWidget {
-  const BookCard({required this.bookModel, super.key});
-  final BookModel bookModel;
+   BookCard({required this.bookModel, super.key});
+   BookModel bookModel;
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (BuildContext context) {
-        return BookFavoriteCubit();
-      },
-      child: GestureDetector(
+    return GestureDetector(
         onTap:(){
           context.push(BookDetailsWrapper(book: bookModel));
           },
@@ -85,20 +82,27 @@ class BookCard extends StatelessWidget {
                           ),
                         ),
                         20.spaceW,
-                        BlocBuilder<BookFavoriteCubit,BookFavoriteStates>(
+                        BlocConsumer<BookFavoriteCubit,BookFavoriteStates>(
                             builder: (BuildContext context ,BookFavoriteStates state) {
+                              bookModel.isFavourite=state.isFavorite;
                               return GestureDetector(
                                 onTap: (){
-                                  context.read<BookFavoriteCubit>().addBookToFavorites();
+
+                                  (!bookModel.isFavourite)? context.read<BookFavoriteCubit>().addToFavorite(bookModel.id):
+                                  context.read<BookFavoriteCubit>().removeFromFavorite(bookModel.id);
                                 },
                                 child: Icon(
                                   (bookModel.isFavourite)?
                                   Icons.favorite:
                                   Icons.favorite_border_outlined,
-                                  color: Colors.redAccent.withAlpha(180),
+                                  color: context.colorScheme.tertiary,
                                 ),
                               );
-                            }
+                            },
+                          listener: (BuildContext context ,BookFavoriteStates state){
+                              if(state is ErrorFavoriteState)
+                                Functions().showSnackBar(context, state.errorMessage);
+                          },
                         ),
                       ],
                     ),
@@ -122,7 +126,7 @@ class BookCard extends StatelessWidget {
             ],
           ),
         ),
-      ),
+
     );
   }
 }

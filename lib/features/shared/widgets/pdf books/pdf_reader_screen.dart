@@ -4,7 +4,7 @@ import 'package:reading_app/core/services/screen_time_tracker.dart';
 import 'package:reading_app/core/utils/constants/colors_consts.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/functions/functions.dart';
-import 'package:reading_app/features/book_details/view/book_details_wrapper.dart';
+import 'package:reading_app/features/book_details/view/screens/book_details_wrapper.dart';
 import 'package:reading_app/features/my_library/UI/screens/my_library.dart';
 import 'package:reading_app/features/shared/models/book.dart';
 import 'package:reading_app/features/shared/widgets/pdf%20books/pdf_reader_body.dart';

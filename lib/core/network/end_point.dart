@@ -1,7 +1,7 @@
 abstract class EndPoint
 {
-  static const baseUrl = 'http://192.168.1.3:8000/api';
-  static const booksBaseUrl = 'http://192.168.1.3:8000/api/mobile/books';
+  static const baseUrl = 'http://192.168.1.4:8000/api';
+  static const booksBaseUrl = 'http://192.168.1.4:8000/api/mobile/books';
   static const register = '/register';
   static const login = '/login';
   static const domainName = 'reading-app.up.railway.app';
@@ -48,5 +48,7 @@ abstract class EndPoint
  static const bookComments='/book/getBookComments/';
   static const appLink= "https://play.google.com/store/apps/details?id=com.example.reading_app";
    static const commentOnBook='/book/AddCommentToTheBook/';
-
+   static const addToRead='/book/AddBookToDoList/';
+   static const  addTOFavorite='/book/AddBookToFavorite/';
+  static const  removeFromFavorite='/book/remove-from-favorites/';
   }

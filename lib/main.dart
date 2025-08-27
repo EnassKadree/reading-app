@@ -21,6 +21,7 @@ import 'features/shared/theme/theme_cubit.dart';
 import 'features/shared/user/user_cubit.dart';
 import 'features/shared/user/user_model.dart';
 import 'features/home/view/home_wrapper.dart';
+import 'features/shared/widgets/book_card/favorite_bloc/book_favorite_cubit.dart';
 
 late SharedPreferences prefs;
 
@@ -57,6 +58,10 @@ LocalNotificationService.init(),
           create: (context) => ThemeCubit(theme),
         ),
         BlocProvider(create: (context) => userCubit),
+  BlocProvider(
+  create: (BuildContext context) {
+  return BookFavoriteCubit();
+  },)
       ],
       child: const MyApp(),
     ),

@@ -33,7 +33,7 @@ class LoginPage extends StatelessWidget {
               isRegister: false,
               greeting: JsonConsts.welcomeBack,
               lottieAsset: AssetsConsts.registerAsset,
-              onSuccess: (){Functions().showSnackBar(context, 'success');
+              onSuccess: (){
               context.pushReplacement(const MainLayoutWrapper());},
             )
         )

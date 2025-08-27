@@ -19,11 +19,10 @@ class JoinBookChallengeBuilder extends StatelessWidget {
     return BlocConsumer<JoinBookChallengeCubit,JoinBookChallengeStates>(
       builder: (BuildContext context,JoinBookChallengeStates state ) {
         if(state is JoinBookChallengeInitial || state is JoinBookChallengeError ) {
-          return GestureDetector(
-            onTap: (){
-              context.read<JoinBookChallengeCubit>().joinBookChallenge(bookId);},
-            child: const BookDetailsButton(buttonText: 'join'),
-          );
+          return  BookDetailsButton(
+              function: (){
+                context.read<JoinBookChallengeCubit>().joinBookChallenge(bookId);},
+              buttonText: 'join');
         }
         else if (state is JoinBookChallengeLoading) {
           return Lottie.asset(AssetsConsts.loadingAsset,
@@ -31,7 +30,10 @@ class JoinBookChallengeBuilder extends StatelessWidget {
         }
         else
         {
-          return const BookDetailsButton(buttonText: 'joined');
+          return  BookDetailsButton(
+              color: context.colorScheme.tertiary.withAlpha(120),
+            function: (){},
+              buttonText: 'joined');
         }
 
       }
