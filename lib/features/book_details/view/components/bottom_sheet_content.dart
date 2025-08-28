@@ -30,72 +30,77 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
 
   @override
   Widget build(BuildContext context) {
-    return   SingleChildScrollView(
-          child: Column(
-            children: [
-              BlocConsumer<BookCommentsCubit, BookCommentsStates>(
-                  builder: (context, BookCommentsStates commentsState) {
-                    if (commentsState is SuccessBookCommentsStates) {
-                      widget.comments = commentsState.comments;
-                    }
-                    return Container(
-                      padding: EdgeInsets.symmetric(vertical: 30.h),
-                      height: 0.7.sh,
-                      child: CommentsListSection(
-                          comments:
-                              (commentsState is SuccessBookCommentsStates)
-                                  ? commentsState.comments
-                                  : widget.comments),
-                    );
-                  },
-                  listener: (context, BookCommentsStates commentsState) {}),
-              Visibility(
-                visible: (widget.canComment),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    SizedBox(
-                        height: 60.h,
-                        width: 0.7.sw,
-                        child: SetupProfileFormField(
-                            maxLines: 6,
-                            controller: commentController,
-                            hint: "comment",
-                            icon: Iconsax.message_text_1)),
-                    BlocConsumer<CommentOnBookCubit, CommentOnBookStates>(
-                      builder: (context, CommentOnBookStates state) {
-                        if (state is LoadingCommentOnBookStates) {
-                          return CircularProgressIndicator(
-                            color: context.colorScheme.primary,
-                          );
-                        } else {
-                          return GestureDetector(
-                            onTap: () {
-                              context.read<CommentOnBookCubit>().commentOnBook(
-                                  widget.bookId, commentController.text);
-                            },
-                            child: const Icon(Iconsax.send_14),
-                          );
-                        }
-                      },
-                      listener: (context, CommentOnBookStates state) {
-                        if (state is ErrorCommentOnBookStates) {
-                          Functions().showSnackBar(context, state.errorMessage);
-                        }
-                        if(state is SuccessCommentOnBookStates)
-                          {
-                            context
-                                .read<BookCommentsCubit>()
-                                .getBookComments(widget.bookId);
-                            commentController.clear();
+    return   BlocProvider(
+      create: (BuildContext context){
+        return BookCommentsCubit();
+      },
+      child: SingleChildScrollView(
+            child: Column(
+              children: [
+                BlocConsumer<BookCommentsCubit, BookCommentsStates>(
+                    builder: (context, BookCommentsStates commentsState) {
+                      if (commentsState is SuccessBookCommentsStates) {
+                        widget.comments = commentsState.comments;
+                      }
+                      return Container(
+                        padding: EdgeInsets.symmetric(vertical: 30.h),
+                        height: 0.7.sh,
+                        child: CommentsListSection(
+                            comments:
+                                (commentsState is SuccessBookCommentsStates)
+                                    ? commentsState.comments
+                                    : widget.comments),
+                      );
+                    },
+                    listener: (context, BookCommentsStates commentsState) {}),
+                Visibility(
+                  visible: (widget.canComment),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      SizedBox(
+                          height: 60.h,
+                          width: 0.7.sw,
+                          child: SetupProfileFormField(
+                              maxLines: 6,
+                              controller: commentController,
+                              hint: "comment",
+                              icon: Iconsax.message_text_1)),
+                      BlocConsumer<CommentOnBookCubit, CommentOnBookStates>(
+                        builder: (context, CommentOnBookStates state) {
+                          if (state is LoadingCommentOnBookStates) {
+                            return CircularProgressIndicator(
+                              color: context.colorScheme.primary,
+                            );
+                          } else {
+                            return GestureDetector(
+                              onTap: () {
+                                context.read<CommentOnBookCubit>().commentOnBook(
+                                    widget.bookId, commentController.text);
+                              },
+                              child: const Icon(Iconsax.send_14),
+                            );
                           }
-                      },
-                    )
-                  ],
-                ),
-              )
-            ],
-          ),
+                        },
+                        listener: (context, CommentOnBookStates state) {
+                          if (state is ErrorCommentOnBookStates) {
+                            Functions().showSnackBar(context, state.errorMessage);
+                          }
+                          if(state is SuccessCommentOnBookStates)
+                            {
+                              context
+                                  .read<BookCommentsCubit>()
+                                  .getBookComments(widget.bookId);
+                              commentController.clear();
+                            }
+                        },
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+      ),
     )
     ;
   }

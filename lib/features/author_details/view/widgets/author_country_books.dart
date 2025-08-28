@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
 import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
@@ -23,7 +22,7 @@ class TwoSectionsInfos extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(
-            Iconsax.location,
+            Icons.location_pin,
             color: context.colorScheme.surfaceContainer,
           ).mainPadding,
           Text(
@@ -38,7 +37,7 @@ class TwoSectionsInfos extends StatelessWidget {
           ).mainPadding,
           20.spaceW,
           Icon(
-            Iconsax.book_1,
+            Icons.menu_book_outlined,
             color: context.colorScheme.surfaceContainer,
           ),
           Text(

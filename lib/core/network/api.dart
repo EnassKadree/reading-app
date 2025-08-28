@@ -44,7 +44,11 @@ class Api {
     return fullPost(url: url, body: body, token: token);
   }
 
-  Future<dynamic> get({required String url, String? token}) async {
+  Future<dynamic> get({
+    required String url,
+    String? token,
+    String? search,
+  }) async {
     String locale = DataSource().getLocale() ?? 'ar';
 
     Map<String, String> headers = {
@@ -54,14 +58,20 @@ class Api {
       if (token != null) 'Authorization': 'Bearer $token',
     };
 
-    http.Response response = await http.get(Uri.parse(url), headers: headers);
+
+    if (search != null && search.isNotEmpty) {
+      url = '$url?search=$search';
+    }
+
+    final response = await http.get(Uri.parse(url), headers: headers);
+
     if (response.statusCode == 200 || response.statusCode == 202) {
       return jsonDecode(response.body);
-
     } else {
       throw Exception('message: ${response.body}');
     }
   }
+
 
   Future<dynamic> getWithToken(
       {required String url, required String token}) async {

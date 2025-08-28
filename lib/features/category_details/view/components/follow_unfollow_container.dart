@@ -42,7 +42,10 @@ class FollowUnfollowContainer extends StatelessWidget {
           ),
           15.spaceW
         ],
-      ):SizedBox(height:5,width:5,child: CircularProgressIndicator(color: context.colorScheme.surfaceContainer,)),
+      ):SizedBox(height:5,width:5,child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 14),
+        child: CircularProgressIndicator(color: context.colorScheme.surfaceContainer,),
+      )),
     );
   }
 }

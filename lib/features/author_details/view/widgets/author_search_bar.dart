@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
+import 'package:reading_app/features/author_details/service/author_books_cubit.dart';
 
 class AuthorSearchBar extends StatefulWidget {
   const AuthorSearchBar({
@@ -23,8 +25,7 @@ class _AuthorSearchBarState extends State<AuthorSearchBar> {
   }
 
   void _onSearchChanged(String query) {
-    // هنا رح تستدعي API بناءً على قيمة query
-    // TODO: Implement search functionality for author books
+    context.read<AuthorBooksCubit>().getAuthorBooks(widget.authorId,search: _searchController.text);
   }
 
   @override
