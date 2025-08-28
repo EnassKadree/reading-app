@@ -24,7 +24,7 @@ class CommentOnBookCubit extends BaseCubit<CommentOnBookStates>
           {
             throw Exception(JsonConsts.pleaseLogIn.tr());
           }
-          Map<String,dynamic>response =  await Api().fullPost(url: "$endPoint$id",body: {"comment":comment} ,token: user.accessToken);
+          await Api().fullPost(url: "$endPoint$id",body: {"comment":comment} ,token: user.accessToken);
           emit(SuccessCommentOnBookStates(comment));
         },
         emit: emit,

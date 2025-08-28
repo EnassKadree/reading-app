@@ -2,18 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reading_app/core/lists/dummy_comments.dart';
-import 'package:reading_app/core/utils/constants/json_consts.dart';
-import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
-import 'package:reading_app/core/utils/extensions/string_extension.dart';
 import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
-import 'package:reading_app/features/book_details/service/comment_on_book/comment_on_book_cubit.dart';
 import 'package:reading_app/features/book_details/view/components/add_a_comment_button.dart';
 import 'package:reading_app/features/book_details/view/components/book_details_white_container.dart';
 import 'package:reading_app/features/book_details/view/components/bottom_sheet_content.dart';
 import 'package:reading_app/features/book_details/view/components/cant_rate_or_comment.dart';
 import 'package:reading_app/features/book_details/view/components/comments_list_section.dart';
-import 'package:reading_app/features/shared/widgets/custom_white_container.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import '../../../../core/utils/constants/styles_consts.dart';
 import '../../../../core/utils/functions/functions.dart';
@@ -96,7 +91,7 @@ class CommentsSection extends StatelessWidget {
                                   CommentsListSection(comments: dummyComments),
                             ),
                     ),
-                    if (!canComment)
+                    if (canComment)
                       Container(
                         width: double.infinity,
                         padding: EdgeInsets.all(20.w),
@@ -104,7 +99,7 @@ class CommentsSection extends StatelessWidget {
                           Functions().showSheet(
                           parentContext,
                           BottomSheetContent(
-                            canComment: !canComment,
+                            canComment: canComment,
                             comments: (state is SuccessBookCommentsStates)
                                 ? state.comments
                                 : [],

@@ -3,8 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
 
 import '../../../../core/utils/constants/styles_consts.dart';
-import '../../../../core/utils/functions/functions.dart';
-import 'bottom_sheet_content.dart';
 
 class AddACommentButton extends StatelessWidget {
   const AddACommentButton({ required this.function,super.key});

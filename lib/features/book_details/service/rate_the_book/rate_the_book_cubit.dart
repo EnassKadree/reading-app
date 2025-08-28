@@ -25,7 +25,7 @@ class RateTheBookCubit extends BaseCubit<RateState>
           {
             throw Exception(JsonConsts.pleaseLogIn.tr());
           }
-          Map<String,dynamic>response =  await Api().fullPost(url: "$endPoint$id",body: {"rate":rate.round().toString()} ,token: user.accessToken);
+           await Api().fullPost(url: "$endPoint$id",body: {"rate":rate.round().toString()} ,token: user.accessToken);
             emit(SuccessRateState());
         },
         emit: emit,

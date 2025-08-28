@@ -1,6 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:reading_app/features/book_details/service/book_comments/book_comments_states.dart';
-import 'package:reading_app/features/shared/models/author.dart';
 
 import '../../../../core/network/api.dart';
 import '../../../../core/network/end_point.dart';

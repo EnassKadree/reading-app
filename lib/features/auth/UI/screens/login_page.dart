@@ -9,8 +9,6 @@ import 'package:reading_app/features/home/main_layout.dart';
 
 import '../../../../core/utils/constants/assets_consts.dart';
 import '../../../../core/utils/constants/json_consts.dart';
-import '../../../../core/utils/functions/functions.dart';
-import '../../../splash_screen/splash_screen.dart';
 
 
 class LoginPage extends StatelessWidget {

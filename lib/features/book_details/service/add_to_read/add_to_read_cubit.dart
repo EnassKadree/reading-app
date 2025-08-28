@@ -1,7 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:reading_app/features/book_details/service/add_to_read/add_to_read_states.dart';
-import 'package:reading_app/features/category_details/service/follow_category/follow_category_states.dart';
-
 import '../../../../core/network/api.dart';
 import '../../../../core/network/end_point.dart';
 import '../../../../core/utils/base/base_cubit.dart';

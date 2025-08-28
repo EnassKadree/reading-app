@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/features/shared/models/comment.dart';
-import 'package:reading_app/features/shared/user/user_cubit.dart';
 
 import '../../../../core/utils/functions/functions.dart';
 import '../../../profile/UI/widgets/setup_profile_form_field.dart';
