@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/string_extension.dart';
 import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/features/shared/widgets/sliver_app_bar.dart';
@@ -28,7 +29,8 @@ final bool isLoading;
             backButtonVisibility: true,
             title: title,
           ),
-          if (bookList.isNotEmpty) SliverPadding(
+          if (bookList.isNotEmpty)
+            SliverPadding(
             padding: EdgeInsets.symmetric(vertical: 30.h, horizontal: 16.w),
             sliver: AnimationLimiter(
               child: SliverGrid(
@@ -52,14 +54,15 @@ final bool isLoading;
                 ),
               ),
             ),
-          ) else SliverFillRemaining(
+          )
+          else SliverFillRemaining(
             child: SizedBox(
               height: 200,
               width: 500.w,
               child: Center(
                 child: Text(
                   JsonConsts.thereAreNoBooksCurrently.t(context),
-                  style: StylesConsts.f18W600Black.copyWith(color: ColorsConsts.purple),
+                  style: StylesConsts.f18W600Black.copyWith(color: context.colorScheme.primary),
                 ),
               ),
             ),

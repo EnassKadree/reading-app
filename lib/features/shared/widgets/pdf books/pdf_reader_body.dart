@@ -25,13 +25,13 @@ class PdfReaderBody extends StatelessWidget {
         return Stack(
           children: [
             SfPdfViewer.network(
-              filePath,
+             'assets/pdf/book1.pdf',
+              //filePath,
               controller: controller,
               onPageChanged: (details) {
                 context
                     .read<PdfReaderCubit>()
                     .updatePage(details.newPageNumber);
-    
                 print("===================number:$currentPage");
               },
               onDocumentLoaded: (details) {

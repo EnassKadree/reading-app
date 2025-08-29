@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
+import 'package:reading_app/core/utils/extensions/string_extension.dart';
 import 'package:reading_app/features/book_details/view/components/book_details_white_container.dart';
 import '../../../../core/utils/constants/styles_consts.dart' show StylesConsts;
 
@@ -33,8 +35,8 @@ class _ScrollableDescriptionWidgetState
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Description",
-            style: StylesConsts.f24BoldBlack.copyWith(
+            JsonConsts.description.t(context),
+            style: StylesConsts.f20BoldBlack.copyWith(
               fontSize: 22.sp,
               fontWeight: FontWeight.w700,
               color: context.colorScheme.onSurface,

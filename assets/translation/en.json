@@ -107,5 +107,28 @@
   "comments_on_this_book": "Comments on this book",
   "description": "Description",
   "view_all":"View all",
-  "this_book_has_no_comments": "This book has no comments yet be the first to add one"
+  "this_book_has_no_comments": "This book has no comments yet be the first to add one",
+  "yet_no_challenges": "No challenges yet",
+  "boost_points": "Boost your points and claim your spot at the top",
+  "join": "Join",
+  "add_a_comment": "Add a comment",
+  "challenge_yourself": "Challenge Yourself",
+  "joined": "Joined",
+  "search_author_books": "Search author books...",
+  "reads":"Reads",
+  "rate":"Rate",
+  "date":"Date",
+  "read":"Reads",
+  "size":"Size",
+  "category":"Category",
+  "favorite":"Favorite",
+  "to_read":"To Read",
+  "cant_comment_on_book": "Can't comment until you've read 70% of the book",
+  "comments": "Comments",
+  "cannot_rate_the_book": "Can't rate the book until you've read 70%",
+  "rate_the_book": "Rate The Book",
+  "summary": "Sum",
+  "comment": "Comment"
+
+
 }

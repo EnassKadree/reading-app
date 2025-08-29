@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reading_app/core/lists/dummy_comments.dart';
+import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
+import 'package:reading_app/core/utils/extensions/string_extension.dart';
 import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/features/book_details/view/components/add_a_comment_button.dart';
 import 'package:reading_app/features/book_details/view/components/book_details_white_container.dart';
@@ -42,8 +44,8 @@ class CommentsSection extends StatelessWidget {
                  crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(
-                    'Comments',
-                    style: StylesConsts.f24BoldBlack
+                    JsonConsts.comments.t(context),
+                    style: StylesConsts.f20BoldBlack
                   ),
                   if (state is SuccessBookCommentsStates)
                     if (state.comments.isNotEmpty && state.comments.length >3)
@@ -61,7 +63,7 @@ class CommentsSection extends StatelessWidget {
                         },
                         child: Text(
                           textAlign: TextAlign.end,
-                          'View All',
+                          JsonConsts.viewAll.t(context),
                           style: StylesConsts.f20W600Yellow.copyWith(
                             fontSize: 14.sp
                           ),
@@ -109,9 +111,8 @@ class CommentsSection extends StatelessWidget {
                           );}),
                       )
                     else
-                      const CantRateOrComment(
-                        cantString:
-                            "Can't comment until you've read 70% of the book",
+                       CantRateOrComment(
+                        cantString:JsonConsts.cannotCommentOnBook.t(context),
                       ).mainPadding,
                   ],
                 ),

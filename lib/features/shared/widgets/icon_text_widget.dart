@@ -19,7 +19,7 @@ class IconTextWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 5.w),
+      padding: EdgeInsets.symmetric(horizontal: 10.w),
       height: 30.h,
       decoration: BoxDecoration(
         border: Border.all(color: context.colorScheme.secondary, width: 1.7),

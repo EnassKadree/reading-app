@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
+import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
+import 'package:reading_app/core/utils/extensions/string_extension.dart';
 
 import '../../../../core/utils/constants/assets_consts.dart';
 import '../../../../core/utils/functions/functions.dart';
@@ -34,14 +36,18 @@ class RateButtonBuilder extends StatelessWidget {
             },
             borderColoR:context.colorScheme.primary.withAlpha(150),
             color: context.colorScheme.primary.withAlpha(120) ,
-            buttonText: 'Rate',
+            buttonText:JsonConsts.rate.t(context),
           );
 
         },
         listener:(BuildContext context,RateState state){
-          if(state is ErrorRateState)
-            Functions().showSnackBar(context, "could'nt rate try agin ");
-        }
+          if(state is ErrorRateState) {
+        Functions().showSnackBar(
+          context,
+          JsonConsts.someThingWentWrong.t(context),
+        );
+      }
+    }
     );
   }
 }

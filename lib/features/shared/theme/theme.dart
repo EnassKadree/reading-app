@@ -32,7 +32,7 @@ class AppTheme {
         scaffoldBackgroundColor: scaffoldBackgroundColor,
         iconTheme: const IconThemeData(size: 28, color: primaryColor),
         // color system
-        colorScheme: const ColorScheme.light(
+        colorScheme:  ColorScheme.light(
           primary: primaryColor,
           tertiary: tertiaryColor,
           secondary: secondaryColor,
@@ -40,7 +40,8 @@ class AppTheme {
           brightness: Brightness.light,
           secondaryContainer: secondaryContainer,
           primaryContainer: primaryContainer,
-          onPrimary: Colors.black
+          onPrimary: Colors.black,
+         onTertiary: scaffoldBackgroundColor
         ),
         // appbar
         appBarTheme: AppBarTheme(
@@ -159,7 +160,7 @@ class AppTheme {
       scaffoldBackgroundColor: scaffoldBackgroundColor,
       iconTheme: const IconThemeData(size: 28, color: primaryColor),
       // color system
-      colorScheme: const ColorScheme.dark(
+      colorScheme:  ColorScheme.dark(
         primary: primaryColor,
         tertiary: tertiaryColor,
         secondary: secondaryColor,
@@ -172,7 +173,7 @@ class AppTheme {
         onSurface: Colors.white,
         onPrimary: Colors.white,
         onSecondary: Colors.black,
-        onTertiary: Colors.white,
+        onTertiary: scaffoldBackgroundColor,
       ),
       // appbar
       appBarTheme: AppBarTheme(
