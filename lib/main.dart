@@ -5,10 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:reading_app/core/utils/base/local_notifications_service.dart';
 import 'package:reading_app/core/utils/base/push_notifications_service.dart';
-import 'package:reading_app/core/utils/functions/functions.dart';
 import 'package:reading_app/firebase_options.dart';
 
-import 'package:reading_app/features/home/main_layout.dart';
 import 'package:reading_app/features/splash_screen/splash_screen.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
