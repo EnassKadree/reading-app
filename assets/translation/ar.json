@@ -119,5 +119,6 @@
   "checkBackLaterForNewReadingChallenges": "تحقق لاحقًا من تحديات القراءة الجديدة",
   "refresh": "تحديث",
   "join": "انضمام",
-  "joined": "منضم"  
+  "joined": "منضم"  ,
+  "checkYourConnection" : "يرجى التحقق من اتصالك والمحاولة مرة أخرى"
 }

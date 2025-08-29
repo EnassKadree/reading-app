@@ -116,5 +116,6 @@
   "checkBackLaterForNewReadingChallenges": "Check back later for new reading challenges",
   "refresh": "Refresh",
   "join": "join",
-  "joined": "joined"
+  "joined": "joined",
+  "checkYourConnection" :"Please check your connection and try again"
 }
