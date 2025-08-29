@@ -2,16 +2,16 @@ part of 'challenge_cubit.dart';
 
 class ChallengeState {
   final List<int> expandedChallenges;
-  final List<int> joinedChallenges;
+  final Map<int, bool> joinedChallenges;
 
   const ChallengeState({
     this.expandedChallenges = const [],
-    this.joinedChallenges = const [],
+    this.joinedChallenges = const {},
   });
 
   ChallengeState copyWith({
     List<int>? expandedChallenges,
-    List<int>? joinedChallenges,
+    Map<int, bool>? joinedChallenges,
   }) {
     return ChallengeState(
       expandedChallenges: expandedChallenges ?? this.expandedChallenges,

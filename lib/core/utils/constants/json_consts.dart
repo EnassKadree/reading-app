@@ -127,6 +127,16 @@ abstract class JsonConsts {
   static const String pages = 'pages';
   static const String noBooks = 'noBooks';
   static const String by = 'by';
+  static const String completed = 'completed';
+  static const String general = 'general';
+  static const String noCompletedChallenges = 'noCompletedChallenges';
+  static const String noChallengesAvailable = 'noChallengesAvailable';
+  static const String completeYourFirstChallengeToSeeItHere = 'completeYourFirstChallengeToSeeItHere';
+  static const String checkBackLaterForNewReadingChallenges = 'checkBackLaterForNewReadingChallenges';
+  static const String refresh = 'refresh';
+  static const String join = 'join';
+  static const String joined = 'joined';
+
 
   // NOTIFICATIONS
   static const String notifications = 'notifications';

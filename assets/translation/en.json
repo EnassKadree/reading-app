@@ -107,5 +107,14 @@
   "comments_on_this_book": "Comments on this book",
   "description": "Description",
   "view_all":"View all",
-  "this_book_has_no_comments": "This book has no comments yet be the first to add one"
+  "this_book_has_no_comments": "This book has no comments yet be the first to add one",
+  "completed":"Completed",
+  "general":"General",
+  "noCompletedChallenges": "No Completed Challenges yet",
+  "noChallengesAvailable": "No Challenges Available",
+  "completeYourFirstChallengeToSeeItHere": "Complete your first challenge to see it here",
+  "checkBackLaterForNewReadingChallenges": "Check back later for new reading challenges",
+  "refresh": "Refresh",
+  "join": "join",
+  "joined": "joined"
 }

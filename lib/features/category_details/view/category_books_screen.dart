@@ -21,14 +21,20 @@ class CategoryBooksScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('====================================================');
+    print(categoryModel.id);
     return Stack(
       children: [
         BlocConsumer<CategoryBooksCubit, CategoryBooksStates>(
           builder: (BuildContext context, CategoryBooksStates state) {
             if (state is CategoryBooksLoading) {
-              return Skeletonizer(child: ListOfBooksScreen(title: categoryModel.name, bookList: dummyBook,isLoading: true,));
-            }
-            else if (state is CategoryBooksSuccess) {
+              return Skeletonizer(
+                  child: ListOfBooksScreen(
+                title: categoryModel.name,
+                bookList: dummyBook,
+                isLoading: true,
+              ));
+            } else if (state is CategoryBooksSuccess) {
               return ListOfBooksScreen(
                 title: categoryModel.name,
                 bookList: state.categoryBooks,
@@ -55,40 +61,45 @@ class CategoryBooksScreen extends StatelessWidget {
         Positioned(
           right: 3.w,
           bottom: 30.h,
-          child: BlocConsumer<FollowUnFollowCategoryCubit,FollowUnFollowCategoryStates>(
-              builder: ( BuildContext context,FollowUnFollowCategoryStates state) {
-                if(state is FollowUnFollowCategoryInitial||state is FollowUnFollowCategorySuccess) {
-                  if(state is FollowUnFollowCategorySuccess) {
+          child: BlocConsumer<FollowUnFollowCategoryCubit,
+              FollowUnFollowCategoryStates>(
+            builder:
+                (BuildContext context, FollowUnFollowCategoryStates state) {
+              if (state is FollowUnFollowCategoryInitial ||
+                  state is FollowUnFollowCategorySuccess) {
+                if (state is FollowUnFollowCategorySuccess) {
                   categoryModel.isFollowed = state.isFollowed;
                 }
                 return GestureDetector(
-                    onTap: () {
-                      if(!categoryModel.isFollowed) {
+                  onTap: () {
+                    if (!categoryModel.isFollowed) {
                       context
                           .read<FollowUnFollowCategoryCubit>()
                           .followCategory(categoryModel.id);
-                    }
-                      else {
+                    } else {
                       context
                           .read<FollowUnFollowCategoryCubit>()
                           .unFollowCategory(categoryModel.id);
                     }
                   },
-                    child: FollowUnfollowContainer(isFollowed: categoryModel.isFollowed),
-                  );
-                }
-                if(state is FollowUnFollowCategoryLoading) {
-                  return FollowUnfollowContainer(isLoading: true,isFollowed: state.isFollowed,);
-                }
-                else {
-                  return const SizedBox();
-                }
-              },
-            listener:( BuildContext context,FollowUnFollowCategoryStates state){
-                if (state is FollowUnFollowCategoryError)
-                  Functions().showSnackBar(context, state.errorMessage);
-
-          },
+                  child: FollowUnfollowContainer(
+                      isFollowed: categoryModel.isFollowed),
+                );
+              }
+              if (state is FollowUnFollowCategoryLoading) {
+                return FollowUnfollowContainer(
+                  isLoading: true,
+                  isFollowed: state.isFollowed,
+                );
+              } else {
+                return const SizedBox();
+              }
+            },
+            listener:
+                (BuildContext context, FollowUnFollowCategoryStates state) {
+              if (state is FollowUnFollowCategoryError)
+                Functions().showSnackBar(context, state.errorMessage);
+            },
           ),
         )
       ],

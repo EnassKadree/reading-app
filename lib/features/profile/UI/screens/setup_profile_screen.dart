@@ -37,7 +37,6 @@ class SetupProfileScreen extends StatelessWidget {
       builder: (context, state) {
         final cubit = context.read<SetupProfileCubit>();
         return Scaffold(
-          backgroundColor: Colors.grey[50],
           bottomNavigationBar: CustomButton(
             title: JsonConsts.save.t(context),
             radius: 16,

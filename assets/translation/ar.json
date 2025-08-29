@@ -110,5 +110,14 @@
   "comments_on_this_book": "التعليقات",
   "description": "الوصف",
   "view_all": "عرض الكل",
-  "this_book_has_no_comments": "لا يوجد تعليقات على هذا الكتاب كن أول المعلقين"
+  "this_book_has_no_comments": "لا يوجد تعليقات على هذا الكتاب كن أول المعلقين",
+  "completed":"التحديات المكتملة",
+  "general":"التحديات العامة",
+  "noCompletedChallenges": "لا توجد تحديات مكتملة بعد",
+  "noChallengesAvailable": "لا توجد تحديات متاحة",
+  "completeYourFirstChallengeToSeeItHere": "أكمل التحدي الأول لتراه هنا",
+  "checkBackLaterForNewReadingChallenges": "تحقق لاحقًا من تحديات القراءة الجديدة",
+  "refresh": "تحديث",
+  "join": "انضمام",
+  "joined": "منضم"  
 }

@@ -33,15 +33,14 @@ class AppTheme {
         iconTheme: const IconThemeData(size: 28, color: primaryColor),
         // color system
         colorScheme: const ColorScheme.light(
-          primary: primaryColor,
-          tertiary: tertiaryColor,
-          secondary: secondaryColor,
-          surfaceContainer: surfaceContainer,
-          brightness: Brightness.light,
-          secondaryContainer: secondaryContainer,
-          primaryContainer: primaryContainer,
-          onPrimary: Colors.black
-        ),
+            primary: primaryColor,
+            tertiary: tertiaryColor,
+            secondary: secondaryColor,
+            surfaceContainer: surfaceContainer,
+            brightness: Brightness.light,
+            secondaryContainer: secondaryContainer,
+            primaryContainer: primaryContainer,
+            onPrimary: Colors.black),
         // appbar
         appBarTheme: AppBarTheme(
           shadowColor: Colors.black,
@@ -132,9 +131,8 @@ class AppTheme {
           labelPadding: EdgeInsets.zero,
           indicatorSize: TabBarIndicatorSize.tab,
           labelColor: surfaceContainer,
-          unselectedLabelStyle: const TextStyle(
-            fontWeight: FontWeight.normal,
-          ),
+          unselectedLabelStyle:
+              TextStyle(fontWeight: FontWeight.normal, fontFamily: fontFamily),
         ));
   }
 
@@ -268,9 +266,8 @@ class AppTheme {
         labelPadding: EdgeInsets.zero,
         indicatorSize: TabBarIndicatorSize.tab,
         labelColor: surfaceContainer,
-        unselectedLabelStyle: const TextStyle(
-          fontWeight: FontWeight.normal,
-        ),
+        unselectedLabelStyle:
+            TextStyle(fontWeight: FontWeight.normal, fontFamily: fontFamily),
       ),
 
       // Additional dark theme specific styles
