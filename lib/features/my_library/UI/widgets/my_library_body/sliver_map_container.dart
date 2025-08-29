@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reading_app/core/utils/constants/colors_consts.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
+import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/features/my_library/UI/widgets/map_builder.dart';
 import 'package:reading_app/features/my_library/services/country_book_count/country_book_count_cubit.dart';
 
@@ -36,7 +37,7 @@ class SliverMapContainer extends StatelessWidget {
           create: (context) => CountryBookCountCubit()..getCountryBook(),
           child: const MapBuilder(),
         ),
-      ),
+      ).staggerListVertical(0),
     );
   }
 }

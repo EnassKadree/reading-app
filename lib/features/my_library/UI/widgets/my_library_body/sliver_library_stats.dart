@@ -7,6 +7,7 @@ import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
 import 'package:reading_app/core/utils/extensions/string_extension.dart';
+import 'package:reading_app/core/utils/functions/functions.dart';
 import 'package:reading_app/features/my_library/UI/widgets/my_library_body/build_stat_item.dart';
 import 'package:reading_app/features/my_library/UI/widgets/my_library_body/label_labrary_stats.dart';
 import 'package:reading_app/features/my_library/services/library_stats/library_stats_cubit.dart';
@@ -23,7 +24,7 @@ class SliverLibraryStats extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+          children: Functions().staggeredList([
             LibrarySectionLabel(
               title: JsonConsts.readingProgress.t(context),
               icon: Iconsax.status_up,
@@ -138,7 +139,7 @@ class SliverLibraryStats extends StatelessWidget {
                 },
               ),
             )
-          ],
+          ]),
         ),
       ),
     );

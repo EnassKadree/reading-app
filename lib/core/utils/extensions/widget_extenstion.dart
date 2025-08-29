@@ -34,7 +34,8 @@ extension WidgetExtension on Widget {
         columnCount: 2,
         position: index,
         duration: const Duration(milliseconds: 500),
-        child: ScaleAnimation(child: this),
+        child: SlideAnimation(
+            verticalOffset: 50, child: FadeInAnimation(child: this)),
       );
 
   Widget get horizontalPadding => Padding(

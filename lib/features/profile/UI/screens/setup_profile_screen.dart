@@ -26,7 +26,9 @@ class SetupProfileScreen extends StatelessWidget {
           if (isSetup) {
             context.pushAndRemoveAll(const MainLayoutWrapper());
           } else {
-            context.pushAndRemoveAll(const MainLayoutWrapper(init: 4,));
+            context.pushAndRemoveAll(const MainLayoutWrapper(
+              init: 4,
+            ));
           }
         } else if (state is SetupProfileFailure) {
           Functions().showSnackBar(context, state.message);
