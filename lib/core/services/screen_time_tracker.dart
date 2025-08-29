@@ -79,3 +79,4 @@ class ScreenTimeTracker {
     return (minutes / 60).toStringAsFixed(1); // مثال: "1.5"
   }
 }
+
