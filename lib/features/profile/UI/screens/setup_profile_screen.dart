@@ -10,7 +10,6 @@ import 'package:reading_app/features/profile/logic/setup/setup_profile_cubit.dar
 import 'package:reading_app/features/shared/models/profile_model.dart';
 import 'package:reading_app/features/shared/widgets/custom_button.dart';
 import 'package:reading_app/features/shared/widgets/custom_progress_indicator.dart';
-import 'package:reading_app/features/splash_screen/splash_screen.dart';
 
 import '../../../home/main_layout.dart';
 import '../widgets/setup_profile_form.dart';

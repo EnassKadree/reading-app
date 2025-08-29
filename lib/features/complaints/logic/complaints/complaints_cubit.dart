@@ -21,11 +21,11 @@ class ComplaintsCubit extends BaseCubit<ComplaintsState> {
         action: () async {
           User user = await requireUser();
           Map<String, dynamic> body = {
-            'title': subject.text,
-            'author_name': description.text,
+            'subject': subject.text,
+            'description': description.text,
           };
-          Map<String, dynamic> response =
-              await Api().post(url: endPoint, body: body, token: user.accessToken);
+          Map<String, dynamic> response = await Api()
+              .post(url: endPoint, body: body, token: user.accessToken);
           emit(ComplaintsSuccess(response['message']));
         },
         emit: emit,
