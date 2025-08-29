@@ -12,7 +12,7 @@ class AuthorsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 120.h,
+      height: 140.h,
       child: AnimationLimiter(
         child: ListView.builder(
           scrollDirection: Axis.horizontal,

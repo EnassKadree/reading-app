@@ -14,7 +14,7 @@ class AuthorsCubit extends BaseCubit<AuthorsStates>
   AuthorsCubit():super(AuthorsInitial());
   final String endPoint = '${EndPoint.baseUrl}${EndPoint.authors}';
 
-  Future  getAuthors()async
+  Future  getAuthors({String ? search})async
   {
     executeWithCatch(action:() async{
       emit(AuthorsLoading());
@@ -22,9 +22,7 @@ class AuthorsCubit extends BaseCubit<AuthorsStates>
       if (user == null) {
         throw Exception(JsonConsts.pleaseLogIn.tr());
       }
-      print('authors');
-      print(user.accessToken);
-      Map<String, dynamic> response = await Api().get(url: endPoint, token: user.accessToken);
+      Map<String, dynamic> response = await Api().get(url: endPoint, token: user.accessToken,search: search);
       List<Author> authors =parseResponse<Author>(
           response: response,
           fromJson: (data) => Author.fromJson(data));
