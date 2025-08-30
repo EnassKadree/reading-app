@@ -14,10 +14,10 @@ class CategoryModel {
   // Factory method to create a Category from JSON
   factory CategoryModel.fromJson(Map<String, dynamic> json) {
     return CategoryModel(
-      id: json['id'],
-      name: json['name'],
-      icon: json['icon'],
-      isFollowed: json['is_followed'],
+      id: json['id'] ?? 0,
+      name: json['name'] ?? '',
+      icon: json['icon'] ?? '',
+      isFollowed: json['is_followed'] ?? false, // <-- FIX
     );
   }
 

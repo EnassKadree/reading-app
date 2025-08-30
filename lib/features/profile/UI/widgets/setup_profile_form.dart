@@ -16,7 +16,7 @@ class SetupProfileForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(24.0),
+      padding: const EdgeInsets.symmetric(horizontal: 24.0),
       child: Form(
         key: cubit.formKey,
         child: Column(
@@ -49,7 +49,7 @@ class SetupProfileForm extends StatelessWidget {
               hint: JsonConsts.bio.t(context),
               icon: Iconsax.paperclip,
               maxLines: 2,
-              type: TextInputType.multiline,
+              type: TextInputType.text,
             ),
             16.spaceH,
             SetupProfileFormField(
@@ -57,8 +57,9 @@ class SetupProfileForm extends StatelessWidget {
               hint: JsonConsts.favoriteQuote.t(context),
               icon: Iconsax.quote_down,
               maxLines: 2,
-              type: TextInputType.multiline,
+              type: TextInputType.text,
             ),
+            32.spaceH
           ]),
         ),
       ),

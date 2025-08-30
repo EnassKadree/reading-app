@@ -37,7 +37,7 @@ class CategoryBooksScreen extends StatelessWidget {
           CustomScrollView(
             slivers: [
               SliverToBoxAdapter(
-                child: CategoryDetailsHeader(categoryName: categoryModel.name,)
+                  child: CategoryDetailsHeader(categoryName: categoryModel.name,)
               ),
               SliverToBoxAdapter(child: CategorySearchBar(categoryId: categoryModel.id)),
               BlocBuilder<CategoryBooksCubit, CategoryBooksStates>(
@@ -54,11 +54,11 @@ class CategoryBooksScreen extends StatelessWidget {
                   }
                   else {
                     return SliverToBoxAdapter(
-                    child: SomeThingWentWrongWidget(
-                        onPressed: () {
-                          context.read<CategoryBooksCubit>().getCategoryBook(
-                              categoryModel.id);
-                        }), );
+                      child: SomeThingWentWrongWidget(
+                          onPressed: () {
+                            context.read<CategoryBooksCubit>().getCategoryBook(
+                                categoryModel.id);
+                          }), );
                   }   },
 
               ),

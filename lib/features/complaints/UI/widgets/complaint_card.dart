@@ -24,6 +24,8 @@ class ComplaintCard extends StatelessWidget {
           Functions().showSnackBar(context, state.message);
         } else if (state is ComplaintsSuccess) {
           _showSuccessDialog(context, state.message);
+          cubit.subject.clear();
+          cubit.description.clear();
         }
       },
       builder: (context, state) {

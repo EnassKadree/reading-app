@@ -14,6 +14,7 @@ import 'package:reading_app/features/profile/UI/widgets/setup_profile_form_field
 import 'package:reading_app/features/shared/models/profile_model.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
+import '../../../../core/utils/functions/functions.dart';
 import '../../../shared/widgets/something_went_wrong.dart';
 
 class CommunityScreen extends StatelessWidget {
@@ -50,7 +51,7 @@ class CommunityScreen extends StatelessWidget {
             child: Skeletonizer(
               enabled: state is CommunityLoading,
               child: Column(
-                children: [
+                children: Functions().staggeredList([
                   16.spaceH,
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 32),
@@ -74,7 +75,7 @@ class CommunityScreen extends StatelessWidget {
                   // Search results or all profiles
                   ProfilesList(state: state),
                   32.spaceH
-                ],
+                ]),
               ),
             ),
           );

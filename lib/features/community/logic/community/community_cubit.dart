@@ -16,6 +16,7 @@ class CommunityCubit extends BaseCubit<CommunityState> {
   CommunityCubit() : super(CommunityInitial());
 
   final TextEditingController searchController = TextEditingController();
+  final String endPoint = '${EndPoint.baseUrl}${EndPoint.community}';
   bool isArranged = true;
 
   Future getCommunity([String? search]) async {
@@ -27,10 +28,8 @@ class CommunityCubit extends BaseCubit<CommunityState> {
             throw Exception(JsonConsts.pleaseLogIn.tr());
           }
 
-          String url = _handleParams(search);
-
           Map<String, dynamic> response =
-              await Api().getWithToken(url: url, token: user.accessToken);
+              await Api().getWithToken(url: endPoint, token: user.accessToken);
           List<ProfileModel> profile = parseResponse<ProfileModel>(
               response: response,
               fromJson: (data) => ProfileModel.fromJson(data));
@@ -84,18 +83,6 @@ class CommunityCubit extends BaseCubit<CommunityState> {
       isArranged = true; // Reset arrangement when search is cleared
       searchController.clear();
     }
-  }
-
-  String _handleParams(String? search) {
-    Map<String, dynamic> params = {};
-
-    if (search != null) {
-      params['search'] = search;
-    }
-
-    final Uri uri =
-        Uri.https(EndPoint.domainName, '/api${EndPoint.community}', params);
-    return uri.toString();
   }
 
   @override

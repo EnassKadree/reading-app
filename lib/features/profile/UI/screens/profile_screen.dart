@@ -5,7 +5,7 @@ import 'package:reading_app/core/lists/dummy_profile.dart';
 import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
 import 'package:reading_app/core/utils/extensions/string_extension.dart';
-import 'package:reading_app/features/profile/UI/widgets/stats_container.dart';
+import 'package:reading_app/features/profile/UI/widgets/stats_section.dart';
 import 'package:reading_app/features/profile/UI/widgets/badges_container.dart';
 import 'package:reading_app/features/shared/models/profile_model.dart';
 import 'package:reading_app/features/shared/widgets/something_went_wrong.dart';
@@ -44,7 +44,8 @@ class ProfileScreen extends StatelessWidget {
                       profile: data,
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(24.0),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 24.0, vertical: 12),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: Functions().staggeredList([
@@ -52,7 +53,7 @@ class ProfileScreen extends StatelessWidget {
                             icon: Icon(
                               Iconsax.quote_down,
                               color: Colors.blue[400],
-                              size: 24,
+                              size: 18,
                             ),
                             title: JsonConsts.favoriteQuote.t(context),
                             desc: data.quote,
@@ -63,15 +64,15 @@ class ProfileScreen extends StatelessWidget {
                               icon: Icon(
                                 Iconsax.user,
                                 color: Colors.purple[400],
-                                size: 24,
+                                size: 18,
                               ),
                               title: JsonConsts.bio.t(context),
                               desc: data.bio),
-                          24.spaceH,
-                          StatsContainer(
+                          28.spaceH,
+                          StatsSection(
                             profile: data,
                           ),
-                          24.spaceH,
+                          28.spaceH,
                           BadgesContainer(
                             badges: data.badges,
                           ),

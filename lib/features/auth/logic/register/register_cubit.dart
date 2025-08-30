@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:reading_app/features/shared/data/data_source.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../core/network/api.dart';
 import '../../../../core/network/end_point.dart';
 import '../../../../core/utils/base/base_cubit.dart';
@@ -20,12 +21,12 @@ class RegisterCubit extends BaseCubit<RegisterState> {
     emit(RegisterLoading());
     await executeWithCatch(
         action: () async {
-          // final prefs = await SharedPreferences.getInstance();
-          // String? fcmToken = prefs.getString('fcm_token');
+          final prefs = await SharedPreferences.getInstance();
+          String? fcmToken = prefs.getString('fcm_token');
           Map<String, dynamic> body = {
             'email': emailController.text,
             'password': passwordController.text,
-           // "fcm_token": fcmToken ?? " "
+            "fcm_token": fcmToken ?? " "
           };
           Map<String, dynamic> response = await Api().postWithoutTokenWithBody(
               url: isRegister ? registerEndPoint : loginEndPoint, body: body);

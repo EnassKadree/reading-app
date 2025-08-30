@@ -5,15 +5,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:reading_app/core/utils/base/local_notifications_service.dart';
 import 'package:reading_app/core/utils/base/push_notifications_service.dart';
-import 'package:reading_app/core/utils/functions/functions.dart';
 import 'package:reading_app/firebase_options.dart';
 
-import 'package:reading_app/features/home/main_layout.dart';
 import 'package:reading_app/features/splash_screen/splash_screen.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'features/book_details/service/book_comments/book_comments_cubit.dart';
 import 'features/book_details/service/comment_on_book/comment_on_book_cubit.dart';
 import 'features/shared/data/data_source.dart';
 import 'features/shared/localization/app_localization.dart';
@@ -21,8 +18,6 @@ import 'features/shared/localization/locale_cubit.dart';
 import 'features/shared/theme/theme.dart';
 import 'features/shared/theme/theme_cubit.dart';
 import 'features/shared/user/user_cubit.dart';
-import 'features/shared/user/user_model.dart';
-import 'features/home/view/screens/home_wrapper.dart';
 import 'features/shared/widgets/book_card/favorite_bloc/book_favorite_cubit.dart';
 
 late SharedPreferences prefs;
@@ -86,49 +81,49 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
         designSize: const Size(402, 874),
         builder: (context, child) => BlocListener<LocaleCubit, Locale>(
-              listener: (context, state) {
-                WidgetsBinding.instance.addPostFrameCallback((_) {});
-              },
-              child: BlocBuilder<ThemeCubit, Themes>(
-                builder: (context, theme) {
-                  return BlocBuilder<LocaleCubit, Locale>(
-                    builder: (context, locale) {
-                      return MaterialApp(
-                        navigatorKey: navigatorKey,
-                        debugShowCheckedModeBanner: false,
-                        theme: AppTheme.lightTheme(context, locale),
-                        darkTheme: AppTheme.darkTheme(context, locale),
-                        themeMode: theme == Themes.dark
-                            ? ThemeMode.dark
-                            : ThemeMode.light,
-                        localizationsDelegates: const [
-                          AppLocalizations.delegate,
-                          GlobalMaterialLocalizations.delegate,
-                          GlobalWidgetsLocalizations.delegate,
-                          GlobalCupertinoLocalizations.delegate,
-                        ],
-                        supportedLocales: const [
-                          Locale('en', ''),
-                          Locale('ar', ''),
-                        ],
-                        locale: locale,
-                        localeResolutionCallback: (locale, supportedLocales) {
-                          if (locale == null) return supportedLocales.first;
-                          for (var supportedLocale in supportedLocales) {
-                            if (supportedLocale.languageCode ==
-                                locale.languageCode) {
-                              return supportedLocale;
-                            }
-                          }
-                          return supportedLocales.first;
-                        },
-                        home: child,
-                      );
+          listener: (context, state) {
+            WidgetsBinding.instance.addPostFrameCallback((_) {});
+          },
+          child: BlocBuilder<ThemeCubit, Themes>(
+            builder: (context, theme) {
+              return BlocBuilder<LocaleCubit, Locale>(
+                builder: (context, locale) {
+                  return MaterialApp(
+                    navigatorKey: navigatorKey,
+                    debugShowCheckedModeBanner: false,
+                    theme: AppTheme.lightTheme(context, locale),
+                    darkTheme: AppTheme.darkTheme(context, locale),
+                    themeMode: theme == Themes.dark
+                        ? ThemeMode.dark
+                        : ThemeMode.light,
+                    localizationsDelegates: const [
+                      AppLocalizations.delegate,
+                      GlobalMaterialLocalizations.delegate,
+                      GlobalWidgetsLocalizations.delegate,
+                      GlobalCupertinoLocalizations.delegate,
+                    ],
+                    supportedLocales: const [
+                      Locale('en', ''),
+                      Locale('ar', ''),
+                    ],
+                    locale: locale,
+                    localeResolutionCallback: (locale, supportedLocales) {
+                      if (locale == null) return supportedLocales.first;
+                      for (var supportedLocale in supportedLocales) {
+                        if (supportedLocale.languageCode ==
+                            locale.languageCode) {
+                          return supportedLocale;
+                        }
+                      }
+                      return supportedLocales.first;
                     },
+                    home: child,
                   );
                 },
-              ),
-            ),
+              );
+            },
+          ),
+        ),
         child: const SplashScreen());
   }
 }

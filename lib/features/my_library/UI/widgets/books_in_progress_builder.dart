@@ -21,7 +21,7 @@ class BooksInProgressBuilder extends StatelessWidget {
         if (state is InReadLoading) {
           return SliverList(
             delegate: SliverChildBuilderDelegate(
-                  (context, index) => Skeletonizer(
+              (context, index) => Skeletonizer(
                 enabled: true,
                 child: CardInProgress(book: dummyBook[index]),
               ),
@@ -47,9 +47,9 @@ class BooksInProgressBuilder extends StatelessWidget {
 
           return SliverList(
             delegate: SliverChildBuilderDelegate(
-                  (context, index) {
+              (context, index) {
                 final book = books[index];
-                return CardInProgress(book: book).staggerListHorizontal(index);
+                return CardInProgress(book: book).staggerListVertical(index);
               },
               childCount: books.length,
             ),

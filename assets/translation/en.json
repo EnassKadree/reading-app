@@ -107,13 +107,10 @@
   "comments_on_this_book": "Comments on this book",
   "description": "Description",
   "view_all":"View all",
-  "this_book_has_no_comments": "This book has no comments yet be the first to add one",
   "yet_no_challenges": "No challenges yet",
   "boost_points": "Boost your points and claim your spot at the top",
-  "join": "Join",
   "add_a_comment": "Add a comment",
   "challenge_yourself": "Challenge Yourself",
-  "joined": "Joined",
   "search_author_books": "Search author books...",
   "reads":"Reads",
   "rate":"Rate",
@@ -134,4 +131,15 @@
   "exit": "Exit"
 
 
+  "this_book_has_no_comments": "This book has no comments yet be the first to add one",
+  "completed":"Completed",
+  "general":"General",
+  "noCompletedChallenges": "No Completed Challenges yet",
+  "noChallengesAvailable": "No Challenges Available",
+  "completeYourFirstChallengeToSeeItHere": "Complete your first challenge to see it here",
+  "checkBackLaterForNewReadingChallenges": "Check back later for new reading challenges",
+  "refresh": "Refresh",
+  "join": "join",
+  "joined": "joined",
+  "checkYourConnection" :"Please check your connection and try again"
 }

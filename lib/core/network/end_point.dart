@@ -1,12 +1,13 @@
-abstract class EndPoint
-{
-  static const baseUrl = 'http://192.168.1.4:8000/api';
-  static const booksBaseUrl = 'http://192.168.1.4:8000/api/mobile/books';
+abstract class EndPoint {
+  static const ip = '192.168.1.101';
+  static const port = 8000;
+  static const baseUrl = 'http://$ip:$port/api';
+  static const booksBaseUrl = 'http://$ip:$port/api/mobile/books';
   static const register = '/register';
   static const login = '/login';
-  static const domainName = 'reading-app.up.railway.app';
+  static const domainName = '$ip:$port';
   //home
-  static const userChallenges ='/mobile/challenge/getchallenges';
+  static const userChallenges = '/mobile/challenge/getchallenges';
   static const categories = '/category/getCategories';
   static const authors='/mobile/author/getAuthors';
   static const authorBooks='/mobile/books/author-books/';

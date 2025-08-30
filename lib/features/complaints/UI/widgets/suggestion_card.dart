@@ -24,6 +24,9 @@ class SuggestionCard extends StatelessWidget {
           Functions().showSnackBar(context, state.message);
         } else if (state is SuggestionSuccess) {
           _showSuccessDialog(context, state.message);
+          cubit.title.clear();
+          cubit.authorName.clear();
+          cubit.note.clear();
         }
       },
       builder: (context, state) {

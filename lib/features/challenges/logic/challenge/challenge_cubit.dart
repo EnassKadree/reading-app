@@ -1,9 +1,20 @@
 import '../../../../core/utils/base/base_cubit.dart';
+import '../../../shared/models/challenge_model.dart';
 
 part 'challenge_state.dart';
 
 class ChallengeCubit extends BaseCubit<ChallengeState> {
   ChallengeCubit() : super(const ChallengeState());
+
+  void loadJoinedChallenges(List<ChallengeModel> challenges) {
+    Map<int, bool> temp = {};
+    for (final challenge in challenges) {
+      temp[challenge.id] = challenge.isChallenged;
+    }
+    print('--------------------------my state-----------------------');
+    print(temp.toString());
+    emit(state.copyWith(joinedChallenges: temp));
+  }
 
   void toggleExpanded(int challengeId) {
     final currentExpandedChallenges = List<int>.from(state.expandedChallenges);
@@ -18,21 +29,11 @@ class ChallengeCubit extends BaseCubit<ChallengeState> {
   }
 
   void joinChallenge(int challengeId) {
-    final currentJoinedChallenges = List<int>.from(state.joinedChallenges);
-
-    if (!currentJoinedChallenges.contains(challengeId)) {
-      currentJoinedChallenges.add(challengeId);
-      emit(state.copyWith(joinedChallenges: currentJoinedChallenges));
-    }
-  }
-
-  void leaveChallenge(int challengeId) {
-    final currentJoinedChallenges = List<int>.from(state.joinedChallenges);
-
-    if (currentJoinedChallenges.contains(challengeId)) {
-      currentJoinedChallenges.remove(challengeId);
-      emit(state.copyWith(joinedChallenges: currentJoinedChallenges));
-    }
+    final currentJoinedChallenges = Map<int, bool>.from(state.joinedChallenges);
+    currentJoinedChallenges[challengeId] = true;
+    emit(state.copyWith(joinedChallenges: currentJoinedChallenges));
+    print('-------------------change');
+    print(state.joinedChallenges);
   }
 
   bool isExpanded(int challengeId) {
@@ -40,6 +41,6 @@ class ChallengeCubit extends BaseCubit<ChallengeState> {
   }
 
   bool isJoined(int challengeId) {
-    return state.joinedChallenges.contains(challengeId);
+    return state.joinedChallenges[challengeId] == true;
   }
 }

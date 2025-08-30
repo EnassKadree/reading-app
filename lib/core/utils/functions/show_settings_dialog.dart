@@ -38,7 +38,6 @@ extension ShowSettingsDialog on Functions {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          // Header with cute animation
                           AnimatedContainer(
                             duration: const Duration(milliseconds: 600),
                             curve: Curves.bounceOut,
@@ -74,7 +73,6 @@ extension ShowSettingsDialog on Functions {
 
                           const Divider(height: 1),
 
-                          // Animated ListTiles with staggered entrance
                           _buildAnimatedListTile(
                             context: context,
                             index: 0,
