@@ -7,7 +7,7 @@ import 'package:reading_app/core/utils/extensions/string_extension.dart';
 
 import '../../../../core/utils/constants/json_consts.dart';
 import '../../../../core/utils/constants/styles_consts.dart';
-import '../../logic/notifications_cubit.dart';
+import '../../logic/notifications/notifications_cubit.dart';
 
 class SearchField extends StatelessWidget {
   const SearchField({super.key});
@@ -55,7 +55,7 @@ class SearchField extends StatelessWidget {
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16),
                 borderSide: BorderSide(
-                  color: Colors.grey[200]!,
+                  color: Colors.grey.withOpacity(.2),
                   width: 1,
                 ),
               ),

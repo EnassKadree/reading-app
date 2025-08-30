@@ -14,9 +14,11 @@ class HomeWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(providers: [
-      BlocProvider(create: (BuildContext context) {
-        return UserChallengesCubit()..getActiveChallenges();
-      },
+      BlocProvider(
+        create: (BuildContext context) {
+          context.read<NotificationsCountCubit>().get();
+          return UserChallengesCubit()..getActiveChallenges();
+        },
       ),
       BlocProvider(create: (BuildContext context) {
 

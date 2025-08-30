@@ -57,4 +57,16 @@ abstract class EndPoint {
    static const addToRead='/book/AddBookToDoList/';
    static const  addTOFavorite='/book/AddBookToFavorite/';
   static const  removeFromFavorite='/book/remove-from-favorites/';
-  }
+
+  // NOTIFICATIONS
+  static const allNotifications = '/notifications';
+  static const markRead = '/notifications/mark/';
+  static const markAllRead = '/notifications/mark-all';
+  static const notificationsCount = '/notifications/unread-count';
+
+  // CHALLENGES
+  static const generalChallenges = '/challenge/getAllChallenges';
+  static const joinChallenge = '/challenge/JoinToChallenge/';
+  static const completedChallenges = '/challenge/getSuccessChallenge';
+
+}

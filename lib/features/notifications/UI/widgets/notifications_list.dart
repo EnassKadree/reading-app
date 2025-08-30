@@ -4,11 +4,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/features/notifications/UI/widgets/empty_state.dart';
 
-import '../../logic/notifications_cubit.dart';
+import '../../logic/notifications/notifications_cubit.dart';
 import 'notification_item.dart';
 
 class NotificationsList extends StatelessWidget {
-  const NotificationsList({super.key});
+  const NotificationsList({super.key,});
 
   @override
   Widget build(BuildContext context) {
@@ -24,16 +24,6 @@ class NotificationsList extends StatelessWidget {
             final notification = state.filteredNotifications[index];
             return NotificationItem(
               notification: notification,
-              onTap: () {
-                context
-                    .read<NotificationsCubit>()
-                    .markNotificationAsRead(notification.id);
-              },
-              onDismiss: () {
-                context
-                    .read<NotificationsCubit>()
-                    .dismissNotification(notification.id);
-              },
             ).staggerListVertical(index);
           },
         );

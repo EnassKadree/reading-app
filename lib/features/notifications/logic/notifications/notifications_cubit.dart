@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/utils/base/base_cubit.dart';
-import '../models/notification_model.dart';
-import '../../../core/lists/dummy_notifications.dart';
+import '../../../../core/utils/base/base_cubit.dart';
+import '../../../shared/models/notification_model.dart';
 
 part 'notifications_state.dart';
 
@@ -10,10 +9,10 @@ class NotificationsCubit extends BaseCubit<NotificationsState> {
   NotificationsCubit() : super(const NotificationsState());
   final TextEditingController searchController = TextEditingController();
 
-  void initializeNotifications() {
+  void initializeNotifications(List<NotificationModel> notifications) {
     emit(state.copyWith(
-      notifications: dummyNotifications,
-      filteredNotifications: dummyNotifications,
+      notifications: notifications,
+      filteredNotifications: notifications,
     ));
   }
 
@@ -46,7 +45,7 @@ class NotificationsCubit extends BaseCubit<NotificationsState> {
     searchController.text = '';
   }
 
-  void markNotificationAsRead(int notificationId) {
+  void markNotificationAsRead(String notificationId) {
     final updatedNotifications = state.notifications.map((notification) {
       if (notification.id == notificationId) {
         return notification.copyWith(isRead: true);
@@ -60,6 +59,22 @@ class NotificationsCubit extends BaseCubit<NotificationsState> {
         return notification.copyWith(isRead: true);
       }
       return notification;
+    }).toList();
+
+    emit(state.copyWith(
+      notifications: updatedNotifications,
+      filteredNotifications: updatedFilteredNotifications,
+    ));
+  }
+
+  void markAllNotificationsAsRead() {
+    final updatedNotifications = state.notifications.map((notification) {
+        return notification.copyWith(isRead: true);
+    }).toList();
+
+    final updatedFilteredNotifications =
+        state.filteredNotifications.map((notification) {
+        return notification.copyWith(isRead: true);
     }).toList();
 
     emit(state.copyWith(
