@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:reading_app/features/home/services/all_books/all_books_cubit.dart';
 import 'package:reading_app/features/home/services/navigationBar/navigation_bar_cubit.dart';
 import 'package:reading_app/features/home/view/components/navigation_bar.dart';
 import 'package:reading_app/features/home/view/screens/home_wrapper.dart';
@@ -50,6 +51,10 @@ class MainLayoutWrapper extends StatelessWidget {
         providers: [
           BlocProvider(
             create: (context) => BottomNavCubit(init: init ?? 2),
+          ),
+          BlocProvider(create: (BuildContext context) {
+            return AllBooksCubit();
+          },
           ),
         ],
         child: MainLayout());

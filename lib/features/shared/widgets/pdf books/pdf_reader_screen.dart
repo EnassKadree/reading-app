@@ -5,6 +5,7 @@ import 'package:reading_app/core/utils/constants/colors_consts.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/functions/functions.dart';
 import 'package:reading_app/features/book_details/view/screens/book_details_wrapper.dart';
+import 'package:reading_app/features/home/main_layout.dart';
 import 'package:reading_app/features/shared/models/book.dart';
 import 'package:reading_app/features/shared/widgets/pdf%20books/pdf_reader_body.dart';
 import 'package:reading_app/features/shared/widgets/pdf%20books/pdf_reader/pdf_reader_cubit.dart';
@@ -66,11 +67,12 @@ class _PdfReaderScreenState extends State<PdfReaderScreen> {
               if ((currentPage * 100) / widget.bookModel.numberOfPages >= 70) {
                 showReadingExitDialog(
                     onExitAnyway: () {
-                     context.pop();
+                      context.pushAndRemoveAll(const MainLayoutWrapper(init: 3,));
                     },
                     context: context,
                     bookTitle: widget.bookModel.title,
                     onRatePressed: () {
+                      context.pop();
                       context.pushReplacement(
                         BookDetailsWrapper(
                         book: widget.bookModel,
@@ -81,7 +83,7 @@ class _PdfReaderScreenState extends State<PdfReaderScreen> {
                     },
                 );
               }
-              else context.pop();
+              else context.pushAndRemoveAll(MainLayoutWrapper(init: 3,));
               return false;
             },
             child: Scaffold(

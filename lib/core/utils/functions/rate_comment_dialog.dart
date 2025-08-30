@@ -17,12 +17,7 @@ Future<void> showReadingExitDialog({
         child: Container(
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
-            // gradient: LinearGradient(
-            //   colors: ColorsConsts.gradientColors,
-            //   begin: Alignment.topLeft,
-            //   end: Alignment.bottomRight,
-            // ),
-            color: context.colorScheme.primary,
+            color: context.colorScheme.surfaceContainer,
             borderRadius: BorderRadius.circular(24),
           ),
           child: Column(
@@ -34,17 +29,13 @@ Future<void> showReadingExitDialog({
                   color: Colors.white.withOpacity(0.15),
                   shape: BoxShape.circle,
                 ),
-                child: const Icon(
-                  Iconsax.book,
-                  color: Colors.white,
-                  size: 48,
-                ),
+                child:Lottie.asset(AssetsConsts.successLottie)
               ),
               const SizedBox(height: 20),
               Text(
-                "Congratulations 🎉",
+                "congratulations".t(context),
                 style: TextStyle(
-                  color: Colors.white,
+                  color:Colors.green[300],
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1.2,
@@ -52,10 +43,10 @@ Future<void> showReadingExitDialog({
               ),
               const SizedBox(height: 12),
               Text(
-                "You’ve completed 70% of $bookTitle. Now you can rate or comment on it!",
+                "progressMessage".t(context),
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: Colors.white.withOpacity(0.9),
+                  color:context.colorScheme.onPrimary,
                   fontSize: 15,
                   height: 1.4,
                 ),
@@ -67,14 +58,15 @@ Future<void> showReadingExitDialog({
                     child: ElevatedButton(
                       onPressed: onRatePressed,
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
+                        backgroundColor: context.colorScheme.surfaceContainer,
                         foregroundColor: Colors.deepPurple,
+                        side: BorderSide(color:Colors.amber[500]! ,width: 2),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(16),
                         ),
                         padding: const EdgeInsets.symmetric(vertical: 14),
                       ),
-                      child: const Text("Rate"),
+                      child:  Text("rate".t(context),style: TextStyle(color: context.colorScheme.onPrimary),),
                     ),
                   ),
                   12.spaceW,
@@ -82,14 +74,16 @@ Future<void> showReadingExitDialog({
                     child: ElevatedButton(
                       onPressed: onExitAnyway,
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
+                        backgroundColor: context.colorScheme.surfaceContainer,
                         foregroundColor: Colors.deepPurple,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(16),
+
                         ),
+                        side: BorderSide(color:Colors.green[300]!,width:2 ),
                         padding: const EdgeInsets.symmetric(vertical: 14),
                       ),
-                      child: const Text("Exit"),
+                      child:  Text('exit'.t(context),style: TextStyle(color: context.colorScheme.onPrimary)),
                     ),
                   ),
                 ],

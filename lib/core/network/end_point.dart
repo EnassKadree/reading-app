@@ -1,5 +1,5 @@
 abstract class EndPoint {
-  static const ip = '192.168.1.101';
+  static const ip = '10.28.181.226';
   static const port = 8000;
   static const baseUrl = 'http://$ip:$port/api';
   static const booksBaseUrl = 'http://$ip:$port/api/mobile/books';
@@ -43,6 +43,10 @@ abstract class EndPoint {
   static const complaints = '/complaint/store';
   static const suggestions = '/suggestion/store';
 
+  // CHALLENGES
+  static const generalChallenges = '/challenge/getAllChallenges';
+  static const joinChallenge = '/challenge/JoinToChallenge/';
+  static const completedChallenges = '/challenge/getSuccessChallenge';
 //BOOK DETAILS
   static const bookChallenge= '/mobile/books/GetBookChallenge/';
   static const joinBookChallenge='/challenge/JoinToBookChallenge/';

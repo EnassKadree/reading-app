@@ -2,11 +2,14 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
+import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
+import 'package:reading_app/core/utils/extensions/string_extension.dart';
 import '../../../../core/utils/constants/assets_consts.dart';
 import '../../../../core/utils/constants/styles_consts.dart';
 import '../../../challenges/UI/screens/challenges_screen.dart';
+import '../../main_layout.dart';
 
 class NoChallengesContainer extends StatelessWidget {
   const NoChallengesContainer({super.key});
@@ -35,29 +38,30 @@ class NoChallengesContainer extends StatelessWidget {
             repeat: false,
           ),
           Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+
             children: [
               SizedBox(
                 width: 200.w,
                 child: AutoSizeText(
-                  'Yet No Challenges?',
-                  style: StylesConsts.f20W600Yellow,
+                  JsonConsts.yetNoChallenges.t(context),
+                  style: StylesConsts.f20W600Yellow.copyWith(fontSize: 18),
                   maxLines: 3,
+
                 ),
               ),
               SizedBox(
-                width: 230.w,
+                width: 220.w,
                 child: AutoSizeText(
-                  '''Boost Your points and claim 
-        your spot at the top''',
-                  style: StylesConsts.f14W400Black,
+                 JsonConsts.boostPoints.t(context),
+                  style: StylesConsts.f14W400Black.copyWith(color: Colors.grey.shade500),
                   maxLines: 3,
+                  textAlign: TextAlign.center,
                 ),
               ),
               20.spaceH,
               GestureDetector(
                 onTap: () {
-                  context.push(const ChallengesScreen());
+                  context.pushAndRemoveAll(const MainLayoutWrapper(init: 1,));
                 },
                 child: Container(
                   width: 100,
@@ -69,7 +73,7 @@ class NoChallengesContainer extends StatelessWidget {
                     borderRadius: BorderRadius.circular(15.r),
                   ),
                   child: Center(
-                    child: Text('Join', style: StylesConsts.f18W600White),
+                    child: Text(JsonConsts.join.t(context), style: StylesConsts.f18W600White),
                   ),
                 ),
               )

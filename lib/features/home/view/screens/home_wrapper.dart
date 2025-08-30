@@ -34,12 +34,6 @@ class HomeWrapper extends StatelessWidget {
       },
 
       ),
-      BlocProvider(create: (BuildContext context) {
-
-        return AllBooksCubit();
-      },
-
-      ),
 
     ], child: const HomeScreenBuilder( ));
   }

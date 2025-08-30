@@ -22,12 +22,13 @@ class ActiveChallengeCard extends StatelessWidget {
       spreadRadius: 1,
       blurRadius: 10,
       offset: const Offset(0, 4),
+
     ),],
         color: context.colorScheme.surfaceContainer,
         borderRadius: BorderRadius.circular(20.r),
       ),
       padding: EdgeInsets.only(right: 16.w, top: 16.h, bottom: 16.h),
-     margin: EdgeInsets.symmetric(horizontal: 16.w),
+     margin: EdgeInsets.symmetric(horizontal: 16.w,vertical: 10.h),
       width: 330,
       child: Row(
         children: [

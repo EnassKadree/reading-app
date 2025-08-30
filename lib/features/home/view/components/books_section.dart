@@ -28,7 +28,6 @@ class BooksSection extends StatelessWidget {
         ),
         gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          crossAxisSpacing: 10.w,
           mainAxisSpacing: 10.h,
           childAspectRatio: 0.6,
         ),

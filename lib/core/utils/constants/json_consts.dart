@@ -140,7 +140,6 @@ abstract class JsonConsts {
   static const String checkBackLaterForNewReadingChallenges =
       'checkBackLaterForNewReadingChallenges';
   static const String refresh = 'refresh';
-  static const String join = 'join';
   static const String joined = 'joined';
 
   // NOTIFICATIONS
@@ -164,7 +163,6 @@ abstract class JsonConsts {
  static const String noCommentsYet='this_book_has_no_comments';
  static const String addAComment='add_a_comment';
  static const String challengeYourSelf='challenge_yourself';
- static const String joined='joined';
   static const String searchAuthorBooks='search_author_books';
   static const String reads='reads';
   static const String rate='rate';

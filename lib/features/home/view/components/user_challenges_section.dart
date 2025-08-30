@@ -12,7 +12,7 @@ class UserChallengesSection extends StatelessWidget {
         {
           if (userChallenges.isNotEmpty) {
             return SizedBox(
-              height: 140.h,
+              height: 160.h,
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (BuildContext context, index) {
