@@ -64,8 +64,4 @@ abstract class EndPoint {
   static const markAllRead = '/notifications/mark-all';
   static const notificationsCount = '/notifications/unread-count';
 
-  // CHALLENGES
-  static const generalChallenges = '/challenge/getAllChallenges';
-  static const joinChallenge = '/challenge/JoinToChallenge/';
-  static const completedChallenges = '/challenge/getSuccessChallenge';
 }

@@ -27,8 +27,6 @@ class CategoryCard extends StatelessWidget {
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 6.w),
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
-        margin: EdgeInsets.symmetric(horizontal: 6.w),
-        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.r),
           border: Border.all(
@@ -44,7 +42,6 @@ class CategoryCard extends StatelessWidget {
           ],
         ),
         child: Row(
-          mainAxisSize: MainAxisSize.min,
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
