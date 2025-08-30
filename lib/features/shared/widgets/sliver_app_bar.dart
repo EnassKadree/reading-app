@@ -36,7 +36,7 @@ class SliverBar extends StatelessWidget {
             : context.colorScheme.primary,
         height: 120,
         child: Padding(
-          padding: EdgeInsets.only(top: 35.h, left: 40.w),
+          padding: EdgeInsetsDirectional.only(top: 35.h, start: 40.w),
           child: Row(
             children: [
               20.spaceW,
@@ -44,7 +44,7 @@ class SliverBar extends StatelessWidget {
                 title ?? "",
                 style: StylesConsts.f30W500White.copyWith(
                   color: (whiteColor != true)
-                      ? context.colorScheme.surfaceContainer
+                      ? context.colorScheme.onTertiary
                       : context.colorScheme.primary,
                 ),
               ),
@@ -85,7 +85,7 @@ class SliverBar extends StatelessWidget {
               Functions().showSettingsDialog(context);
             },
             child: Icon(
-              Iconsax.menu_1,
+              Iconsax.menu,
               color: (whiteColor != true)
                   ? context.colorScheme.surfaceContainer
                   : context.colorScheme.primary,

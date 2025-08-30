@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:reading_app/core/utils/constants/json_consts.dart';
+import 'package:reading_app/core/utils/extensions/string_extension.dart';
 import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/features/author_details/view/widgets/author_books_section.dart';
 import 'package:reading_app/features/author_details/view/widgets/image_name_container.dart';
@@ -30,32 +32,29 @@ class AuthorDetailsScreen extends StatelessWidget {
           ),
            SliverToBoxAdapter(
              child:
-             Container(
-               margin: EdgeInsets.only(bottom: 20.h),
-               child: Row(
-                 children: [
-                   Icon(
-                     Iconsax.book_1,
-                     color: context.colorScheme.primary,
-                     size: 20,
+             Row(
+               children: [
+                 Icon(
+                   Iconsax.book_1,
+                   color: context.colorScheme.primary,
+                   size: 20,
+                 ),
+                 SizedBox(width: 12.w),
+                 Text(
+                   JsonConsts.books.t(context),
+                   style: TextStyle(
+                     fontSize: 20.sp,
+                     fontWeight: FontWeight.w700,
+                     color: context.colorScheme.onSurface,
                    ),
-                   SizedBox(width: 12.w),
-                   Text(
-                     ' Books',
-                     style: TextStyle(
-                       fontSize: 20.sp,
-                       fontWeight: FontWeight.w700,
-                       color: context.colorScheme.onSurface,
-                     ),
-                   ),
+                 ),
 
-                 ],
-               ),
+               ],
              ).horizontalPadding,
            ),
           // Books section
           SliverPadding(
-            padding: EdgeInsets.only(left: 10.w,bottom: 20.h),
+            padding: EdgeInsetsDirectional.only(start: 20.w,top: 10.h,bottom: 10.h),
               sliver: AuthorBooksSection(authorId: author.id)),
         ],
       ),

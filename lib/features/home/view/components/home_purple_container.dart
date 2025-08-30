@@ -18,33 +18,12 @@ final bool loading ;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: context.colorScheme.primary,
-        borderRadius:  BorderRadius.only(
-          bottomLeft: Radius.circular(40.r),
-          bottomRight: Radius.circular(40.r),
-        ),
-      ),
-      child: Column(
-       crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-           Text(
-            JsonConsts.activeChallenges.t(context),
-             style:StylesConsts.f30W500White,
-             textAlign: TextAlign.start,
-           ).horizontalPadding,
-          5.spaceH,
-           Skeletonizer(
-          enabled :loading,
-             child: SizedBox(
-             // height: 130.h,
-              child:  UserChallengesSection(userChallenges: userChallenges,),
-                       ).verticalPadding,
-           ),
-          10.spaceH,
-        ],
-      ),
+    return Skeletonizer(
+            enabled :loading,
+      child: SizedBox(
+      // height: 130.h,
+       child:UserChallengesSection(userChallenges: userChallenges,),
+                ),
     );
   }
 }

@@ -6,18 +6,20 @@ import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/string_extension.dart';
 import 'package:reading_app/features/author_details/service/author_books_cubit.dart';
+import 'package:reading_app/features/category_details/service/category_books/category_books_cubit.dart';
 
-class AuthorSearchBar extends StatefulWidget {
-  const AuthorSearchBar({
+class CategorySearchBar extends StatefulWidget {
+  const CategorySearchBar({
     super.key,
-    required this.authorId,
+    required this.categoryId,
   });
-  final int authorId;
+  final int categoryId;
+
   @override
-  State<AuthorSearchBar> createState() => _AuthorSearchBarState();
+  State<CategorySearchBar> createState() => _CategorySearchBarState();
 }
 
-class _AuthorSearchBarState extends State<AuthorSearchBar> {
+class _CategorySearchBarState extends State<CategorySearchBar> {
   final TextEditingController _searchController = TextEditingController();
 
   @override
@@ -27,7 +29,10 @@ class _AuthorSearchBarState extends State<AuthorSearchBar> {
   }
 
   void _onSearchChanged(String query) {
-    context.read<AuthorBooksCubit>().getAuthorBooks(widget.authorId,search: _searchController.text);
+    context.read<CategoryBooksCubit>().getCategoryBook(
+      widget.categoryId,
+      search: _searchController.text,
+    );
   }
 
   @override
@@ -49,7 +54,7 @@ class _AuthorSearchBarState extends State<AuthorSearchBar> {
           controller: _searchController,
           onChanged: _onSearchChanged,
           decoration: InputDecoration(
-            hintText: JsonConsts.searchAuthorBooks.t(context),
+            hintText: JsonConsts.search.t(context),
             hintStyle: TextStyle(
               color: Colors.grey[500],
               fontSize: 16.sp,
@@ -67,7 +72,7 @@ class _AuthorSearchBarState extends State<AuthorSearchBar> {
             fillColor: context.colorScheme.surface,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
-              borderSide:  BorderSide.none
+              borderSide: BorderSide.none,
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
@@ -93,3 +98,4 @@ class _AuthorSearchBarState extends State<AuthorSearchBar> {
     );
   }
 }
+

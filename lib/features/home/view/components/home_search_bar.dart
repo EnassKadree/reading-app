@@ -5,19 +5,20 @@ import 'package:iconsax/iconsax.dart';
 import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/string_extension.dart';
-import 'package:reading_app/features/author_details/service/author_books_cubit.dart';
+import 'package:reading_app/features/home/services/authors/authors_cubit.dart';
+import 'package:reading_app/features/home/services/books/books_cubit.dart';
+import 'package:reading_app/features/home/services/categories/categories_cubit.dart';
 
-class AuthorSearchBar extends StatefulWidget {
-  const AuthorSearchBar({
+class HomeSearchBar extends StatefulWidget {
+  const HomeSearchBar({
     super.key,
-    required this.authorId,
   });
-  final int authorId;
+
   @override
-  State<AuthorSearchBar> createState() => _AuthorSearchBarState();
+  State<HomeSearchBar> createState() => HomeSearchBarState();
 }
 
-class _AuthorSearchBarState extends State<AuthorSearchBar> {
+class HomeSearchBarState extends State<HomeSearchBar> {
   final TextEditingController _searchController = TextEditingController();
 
   @override
@@ -27,7 +28,10 @@ class _AuthorSearchBarState extends State<AuthorSearchBar> {
   }
 
   void _onSearchChanged(String query) {
-    context.read<AuthorBooksCubit>().getAuthorBooks(widget.authorId,search: _searchController.text);
+    Future.delayed(Duration(milliseconds: 600));
+   context.read<AuthorsCubit>().getAuthors(search: _searchController.text);
+   context.read<BooksCubit>().getBooks(search: _searchController.text);
+   context.read<CategoriesCubit>().getCategories(search: _searchController.text);
   }
 
   @override
@@ -49,7 +53,7 @@ class _AuthorSearchBarState extends State<AuthorSearchBar> {
           controller: _searchController,
           onChanged: _onSearchChanged,
           decoration: InputDecoration(
-            hintText: JsonConsts.searchAuthorBooks.t(context),
+            hintText: JsonConsts.search.t(context),
             hintStyle: TextStyle(
               color: Colors.grey[500],
               fontSize: 16.sp,
@@ -67,7 +71,7 @@ class _AuthorSearchBarState extends State<AuthorSearchBar> {
             fillColor: context.colorScheme.surface,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
-              borderSide:  BorderSide.none
+              borderSide: BorderSide.none,
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
@@ -93,3 +97,4 @@ class _AuthorSearchBarState extends State<AuthorSearchBar> {
     );
   }
 }
+

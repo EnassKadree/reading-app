@@ -52,6 +52,9 @@ abstract class JsonConsts {
   static const String noData = 'noData';
   static const String someThingWentWrong = 'someThingWentWrong';
   static const String tryAgain = 'tryAgain';
+  static const String yetNoChallenges = 'yet_no_challenges';
+  static const String boostPoints = 'boost_points';
+  static const String join = 'join';
 
   //MY LIBRARY
   static const String myLibrary = 'library';
@@ -156,7 +159,26 @@ abstract class JsonConsts {
   static const String noResults = 'noResults';
 
   //BOOK DETAILS
-  static const String commentOnThisBook = 'comments_on_this_book';
-  static const String viewAll = 'view_all';
-  static const String noCommentsYet = 'this_book_has_no_comments';
+ static const String commentOnThisBook='comments_on_this_book';
+ static const String  viewAll='view_all';
+ static const String noCommentsYet='this_book_has_no_comments';
+ static const String addAComment='add_a_comment';
+ static const String challengeYourSelf='challenge_yourself';
+ static const String joined='joined';
+  static const String searchAuthorBooks='search_author_books';
+  static const String reads='reads';
+  static const String rate='rate';
+  static const String date='date';
+  static const String favorite='favorite';
+  static const String toRead='to_read';
+  static const String category='category';
+  static const String size='size';
+  static const String description='description';
+  static const String read='read';
+  static const String summary='summary';
+  static const String rateTheBook='rate_the_book';
+  static const String cannotRateTheBook='cannot_rate_the_book';
+  static const String comments='comments';
+  static const String cannotCommentOnBook='cant_comment_on_book';
+  static const String comment ='comment';
 }

@@ -6,27 +6,28 @@ import '../../../../core/utils/constants/json_consts.dart';
 import '../../../shared/data/data_source.dart';
 import '../../../shared/models/book.dart';
 import '../../../shared/user/user_model.dart';
-import 'books_states.dart';
+import 'all_books_states.dart';
 
-class BooksCubit extends BaseCubit<BooksStates> {
-  BooksCubit() : super(BooksInitial());
-  final String endPoint = '${EndPoint.baseUrl}${EndPoint.mostRatedBooks}';
 
-  Future getBooks({String? search}) async {
+class AllBooksCubit extends BaseCubit<AllBooksStates> {
+  AllBooksCubit() : super(AllBooksInitial());
+  final String endPoint = '${EndPoint.baseUrl}${EndPoint.getAllBooks}';
+
+  Future getAllBooks({String? search}) async {
     executeWithCatch(
         action: () async {
-          emit(BooksLoading());
+          emit(AllBooksLoading());
           User? user = DataSource().getUser();
           if (user == null) {
             throw Exception(JsonConsts.pleaseLogIn.tr());
           }
           Map<String, dynamic> response =
-              await Api().get(url: endPoint, token: user.accessToken,search: search);
+          await Api().get(url: endPoint, token: user.accessToken,search: search);
           List<BookModel> mostRatedBooks = parseResponse<BookModel>(
               response: response, fromJson: (data) => BookModel.fromJson(data));
-           emit(BooksSuccess(mostRatedBooks));
+          emit(AllBooksSuccess(mostRatedBooks));
         },
         emit: emit,
-        failureStateBuilder: (message) => BooksError(message));
+        failureStateBuilder: (message) => AllBooksError(message));
   }
 }

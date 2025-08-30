@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/constants/styles_consts.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
+import 'package:reading_app/core/utils/extensions/string_extension.dart';
 import 'package:reading_app/features/author_details/view/widgets/author_info_container.dart';
 import '../../../profile/UI/widgets/profile_circle_avatar.dart';
 import '../../../shared/models/author.dart';
@@ -21,7 +23,7 @@ class ImageNameContainer extends StatelessWidget {
         children: [
           35.spaceH,
           Row(
-           children: [IconButton(onPressed: (){context.pop();}, icon: Icon(Iconsax.arrow_left_2))],
+           children: [IconButton(onPressed: (){context.pop();}, icon: const Icon(Iconsax.arrow_left_2))],
           ),
           Hero(
             tag: author.id,
@@ -32,8 +34,8 @@ class ImageNameContainer extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 20.w),
             child: Text(
               author.name,
-              style: StylesConsts.f24BoldBlack.copyWith(
-                fontSize: 26.sp,
+              style: StylesConsts.f20BoldBlack.copyWith(
+                fontSize: 24.sp,
                 fontWeight: FontWeight.w700,
               ),
               textAlign: TextAlign.center,
@@ -50,7 +52,7 @@ class ImageNameContainer extends StatelessWidget {
               20.spaceW,
 
               // Books count info
-              AuthorInfoContainer(iconData: Iconsax.book_1, text:   "${author.numberOfBooks} book${author.numberOfBooks != 1 ? 's' : ''}"),
+              AuthorInfoContainer(iconData: Iconsax.book_1, text:"${author.numberOfBooks} ${JsonConsts.books.t(context)}"),
 
 
             ],

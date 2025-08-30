@@ -12,16 +12,14 @@ class CategoriesCubit extends BaseCubit<CategoriesStates> {
   CategoriesCubit() : super(CategoriesInitial());
   final String endPoint = '${EndPoint.baseUrl}${EndPoint.categories}';
 
-  Future getCategories() async {
+  Future getCategories({String? search}) async {
     emit(CategoriesLoading());
     try {
       User? user = DataSource().getUser();
       if (user == null) {
         throw Exception(JsonConsts.pleaseLogIn.tr());
       }
-      print("categories");
-       Map<String, dynamic> response = await Api().get(url: endPoint, token: user.accessToken);
-
+       Map<String, dynamic> response = await Api().get(url: endPoint, token: user.accessToken,search: search);
         List<CategoryModel> categories =parseResponse<CategoryModel>(
             response: response,
             fromJson: (data) => CategoryModel.fromJson(data));

@@ -4,13 +4,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:lottie/lottie.dart';
 import 'package:reading_app/core/utils/constants/assets_consts.dart';
+import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/constants/styles_consts.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
+import 'package:reading_app/core/utils/extensions/string_extension.dart';
 import 'package:reading_app/features/book_details/view/components/book_details_button.dart';
 import 'package:reading_app/features/book_details/view/components/join_book_challenge_builder.dart';
 import 'package:reading_app/features/shared/models/book_challenge.dart';
-
 import '../../../shared/models/book.dart';
 import '../../../shared/widgets/icon_text_widget.dart';
 
@@ -23,7 +24,6 @@ class BookChallengeContainer extends StatelessWidget {
   
   final BookChallenge bookChallenge;
   final BookModel book;
-  
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -36,7 +36,6 @@ class BookChallengeContainer extends StatelessWidget {
               AssetsConsts.bookChallengeAsset,
               width: 110.w
             ),
-
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,7 +43,7 @@ class BookChallengeContainer extends StatelessWidget {
                   20.spaceH,
                   AutoSizeText(
                     maxLines: 1,
-                    "Challenge Yourself",
+                    JsonConsts.challengeYourSelf.t(context),
                     style: StylesConsts.f23W600Yellow.copyWith(
                       fontSize: 22.sp,
                       fontWeight: FontWeight.w700,
@@ -72,17 +71,17 @@ class BookChallengeContainer extends StatelessWidget {
         24.spaceH,
 
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             IconTextWidget(
               whiteColor: false,
-              text: "${bookChallenge.duration} days",
+              text: bookChallenge.duration.toString()+JsonConsts.days.t(context),
               icon: Iconsax.timer
             ),
             10.spaceW,
             IconTextWidget(
               whiteColor: false,
-              text: "${bookChallenge.points} points",
+              text: bookChallenge.points.toString()+JsonConsts.points.t(context),
               icon: Iconsax.star4
             ),
             10.spaceW,
@@ -91,7 +90,7 @@ class BookChallengeContainer extends StatelessWidget {
               : BookDetailsButton(
                   color: context.colorScheme.tertiary.withAlpha(120),
                   function: () {},
-                  buttonText: 'Joined'
+                  buttonText: JsonConsts.joined.t(context)
                 )
           ],
         ),

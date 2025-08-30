@@ -91,7 +91,7 @@ class BookDetailsHeader extends StatelessWidget {
                 22.spaceH,
                 Text(
                   book.title,
-                  style: StylesConsts.f24BoldBlack,
+                  style: StylesConsts.f20BoldBlack,
                   textAlign: TextAlign.center,
                 ),
                 2.spaceH,

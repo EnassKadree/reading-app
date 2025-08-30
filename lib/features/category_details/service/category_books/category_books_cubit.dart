@@ -12,7 +12,7 @@ class CategoryBooksCubit extends BaseCubit<CategoryBooksStates> {
   CategoryBooksCubit() : super(CategoryBooksInitial());
   final String endPoint = '${EndPoint.baseUrl}${EndPoint.categoryBooks}';
 
-  Future<void> getCategoryBook(int id) async {
+  Future<void> getCategoryBook(int id, {String ? search}) async {
     emit(CategoryBooksLoading());
     await executeWithCatch(
       action: () async {
@@ -22,7 +22,7 @@ class CategoryBooksCubit extends BaseCubit<CategoryBooksStates> {
           throw Exception(JsonConsts.pleaseLogIn.tr());
         }
         Map<String, dynamic> response = await Api()
-            .getWithToken(url: "$endPoint$id", token: user.accessToken);
+            .get(url: "$endPoint$id", token: user.accessToken,search: search);
         List<BookModel> categoryBooks = parseResponse<BookModel>(
             response: response, fromJson: (data) => BookModel.fromJson(data));
         emit(CategoryBooksSuccess(categoryBooks));

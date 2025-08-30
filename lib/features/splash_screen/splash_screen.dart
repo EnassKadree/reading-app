@@ -18,7 +18,9 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState(){
     super.initState();
     Future.delayed(const Duration(milliseconds: 4750), () async{
-   context.pushReplacement(  Functions().buildHomeScreen());
+   context.pushReplacement(
+
+       Functions().buildHomeScreen());
     });
   }
   @override

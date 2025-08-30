@@ -4,8 +4,9 @@ import 'package:reading_app/features/home/services/active_challenges/user_challe
 import 'package:reading_app/features/home/services/authors/authors_cubit.dart';
 import 'package:reading_app/features/home/services/books/books_cubit.dart';
 import 'package:reading_app/features/home/services/categories/categories_cubit.dart';
-import 'package:reading_app/features/home/view/home_screen_builder.dart';
-import 'package:reading_app/features/notifications/logic/notifications_count/notifications_count_cubit.dart';
+
+import '../../../notifications/logic/notifications_count/notifications_count_cubit.dart';
+import 'home_screen_builder.dart';
 
 class HomeWrapper extends StatelessWidget {
   const HomeWrapper({super.key});
