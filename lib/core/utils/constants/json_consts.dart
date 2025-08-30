@@ -140,7 +140,7 @@ abstract class JsonConsts {
       'checkBackLaterForNewReadingChallenges';
   static const String refresh = 'refresh';
   static const String joined = 'joined';
-
+   static const String join ='join';
   // NOTIFICATIONS
   static const String notifications = 'notifications';
   static const String unReadNotifications = 'unReadNotifications';
