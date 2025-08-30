@@ -21,6 +21,7 @@ import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../core/lists/dummy_books.dart';
 import '../../shared/widgets/error_dialog.dart';
+import 'components/category_details_header.dart';
 
 class CategoryBooksScreen extends StatelessWidget {
   CategoryBooksScreen({required this.categoryModel, super.key});
@@ -36,26 +37,7 @@ class CategoryBooksScreen extends StatelessWidget {
           CustomScrollView(
             slivers: [
               SliverToBoxAdapter(
-                child: Padding(
-                  padding: EdgeInsetsDirectional.only(start: 12.w, top: 30.h),
-                  child: Row(
-                    children: [
-                      IconButton(
-                        onPressed: () => context.pop(),
-                        icon: DataSource().getLocale()=='ar'? Icon(Iconsax.arrow_right):Icon(Iconsax.arrow_square_left4),
-                      ),
-                      Expanded(
-                        child: Text(
-                          categoryModel.name,
-                          style: StylesConsts.f20W600Yellow.copyWith(
-                            color: context.colorScheme.primary,
-                          ),
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                child: CategoryDetailsHeader(categoryName: categoryModel.name,)
               ),
               SliverToBoxAdapter(child: CategorySearchBar(categoryId: categoryModel.id)),
               BlocBuilder<CategoryBooksCubit, CategoryBooksStates>(

@@ -13,12 +13,12 @@ import 'package:reading_app/features/shared/models/author.dart';
 import 'package:reading_app/features/shared/models/book.dart';
 import 'package:reading_app/features/shared/models/category.dart';
 import 'package:reading_app/features/shared/widgets/something_went_wrong.dart';
-import '../../../core/lists/dummy_categories.dart';
-import '../../../core/lists/dummy_user_challenges.dart';
-import '../../shared/models/user_challenge.dart';
-import '../services/active_challenges/user_challenges_cubit.dart';
-import '../services/active_challenges/user_challenges_states.dart';
-import '../services/authors/authors_cubit.dart';
+import '../../../../core/lists/dummy_categories.dart';
+import '../../../../core/lists/dummy_user_challenges.dart';
+import '../../../shared/models/user_challenge.dart';
+import '../../services/active_challenges/user_challenges_cubit.dart';
+import '../../services/active_challenges/user_challenges_states.dart';
+import '../../services/authors/authors_cubit.dart';
 
 class HomeScreenBuilder extends StatefulWidget {
   const HomeScreenBuilder({super.key});

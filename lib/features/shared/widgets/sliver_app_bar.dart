@@ -85,7 +85,7 @@ class SliverBar extends StatelessWidget {
               Functions().showSettingsDialog(context);
             },
             child: Icon(
-              Iconsax.menu_1,
+              Iconsax.menu,
               color: (whiteColor != true)
                   ? context.colorScheme.surfaceContainer
                   : context.colorScheme.primary,

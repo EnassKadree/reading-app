@@ -17,17 +17,22 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState(){
     super.initState();
-    Future.delayed(const Duration(milliseconds: 4750), () async{
-   context.pushReplacement(  Functions().buildHomeScreen());
-    });
+   //  Future.delayed(const Duration(milliseconds: 4750), () async{
+   // context.pushReplacement(
+   //
+   //     Functions().buildHomeScreen());
+   //  });
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: context.colorScheme.surfaceContainer,
-      body: Center(child:
-        Lottie.asset(AssetsConsts.slashScreenLottie),),
-
+    return Center(
+      child: IconButton(onPressed: (){showReadingExitDialog(context: context, bookTitle: '', onRatePressed: () {  }, onExitAnyway: () {  });}, icon: Icon(Icons.add_card)),
     );
+    // return Scaffold(
+    //   backgroundColor: context.colorScheme.surfaceContainer,
+    //   body: Center(child:
+    //     Lottie.asset(AssetsConsts.slashScreenLottie),),
+    //
+    // );
   }
 }
