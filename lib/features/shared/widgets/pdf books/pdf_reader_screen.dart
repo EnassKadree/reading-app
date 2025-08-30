@@ -4,7 +4,7 @@ import 'package:reading_app/core/services/screen_time_tracker.dart';
 import 'package:reading_app/core/utils/constants/colors_consts.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/functions/functions.dart';
-import 'package:reading_app/features/book_details/view/book_details_wrapper.dart';
+import 'package:reading_app/features/book_details/view/screens/book_details_wrapper.dart';
 import 'package:reading_app/features/my_library/UI/screens/my_library.dart';
 import 'package:reading_app/features/shared/models/book.dart';
 import 'package:reading_app/features/shared/widgets/pdf%20books/pdf_reader_body.dart';
@@ -56,21 +56,10 @@ class _PdfReaderScreenState extends State<PdfReaderScreen> {
           return WillPopScope(
             onWillPop: () async {
               final currentPage = context.read<PdfReaderCubit>().state;
-
-              // تحديث التقدم
               context.read<ReadingProgressCubit>().updateProgress(
                     bookId: widget.bookModel.id,
                     currentPage: currentPage,
                   );
-
-              print("📖 User exited at page: $currentPage");
-
-              Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: (_) => const MyLibraryPage()),
-                (route) => false,
-              );
-
               context.read<ReadingProgressCubit>().updateProgress(
                     bookId: widget.bookModel.id,
                     currentPage: currentPage,
@@ -79,29 +68,22 @@ class _PdfReaderScreenState extends State<PdfReaderScreen> {
               if ((currentPage * 100) / widget.bookModel.numberOfPages >= 70) {
                 showReadingExitDialog(
                     onExitAnyway: () {
-                      Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(
-                            builder: (_) => const MyLibraryPage()),
-                        (route) => false,
-                      );
+                     context.pop();
                     },
                     context: context,
                     bookTitle: widget.bookModel.title,
                     onRatePressed: () {
-                      context.pushReplacement(BookDetailsWrapper(
+                      context.pushReplacement(
+                        BookDetailsWrapper(
                         book: widget.bookModel,
                         scrollToIndex: 10,
                         newProgress: currentPage,
-                      ));
-                    });
-              } else {
-                Navigator.pushAndRemoveUntil(
-                  context,
-                  MaterialPageRoute(builder: (_) => const MyLibraryPage()),
-                  (route) => false,
+                      ),
+                      );
+                    },
                 );
               }
+              else context.pop();
               return false;
             },
             child: Scaffold(

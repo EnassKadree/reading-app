@@ -5,6 +5,7 @@ import 'package:reading_app/core/utils/extensions/space_extension.dart';
 import 'package:reading_app/features/shared/models/category.dart';
 import '../../../../core/utils/constants/styles_consts.dart';
 import '../../../category_details/view/category_book_screen_wrapper.dart';
+import '../../../shared/widgets/custom_network_image.dart';
 
 class CategoryCard extends StatelessWidget {
   const CategoryCard({required this.category, super.key});
@@ -36,7 +37,8 @@ class CategoryCard extends StatelessWidget {
               size: 15,
               color: context.colorScheme.secondary,
             ),
-            // CachedNetworkImage(height: 15.h,width: 15.h,
+            // CustomNetworkImage(
+            //   height: 21.h,width: 21.h,
             //   imageUrl: category.icon,
             // ),
             2.spaceW,

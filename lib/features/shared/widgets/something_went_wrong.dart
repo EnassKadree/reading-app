@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:reading_app/core/utils/constants/colors_consts.dart';
 import 'package:reading_app/core/utils/constants/json_consts.dart';
+import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/string_extension.dart';
 
 class SomeThingWentWrongWidget extends StatelessWidget {
@@ -34,7 +35,7 @@ class SomeThingWentWrongWidget extends StatelessWidget {
               style: Theme.of(context)
                   .textTheme
                   .bodyLarge!
-                  .copyWith(color: Colors.blue),
+                  .copyWith(color:context.colorScheme.tertiary),
             ),
           ),
         ],

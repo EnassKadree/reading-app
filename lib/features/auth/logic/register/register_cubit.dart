@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:reading_app/features/shared/data/data_source.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
 import '../../../../core/network/api.dart';
 import '../../../../core/network/end_point.dart';
 import '../../../../core/utils/base/base_cubit.dart';

@@ -3,7 +3,7 @@ import 'package:reading_app/core/utils/base/base_cubit.dart';
 import 'package:reading_app/features/book_details/service/rate_abillity/rate_abillity_states.dart';
 
 class RateAbilityCubit extends BaseCubit<RateAbilityStates> {
-  RateAbilityCubit() : super( RateAbilityInitial(canRate: false));
+  RateAbilityCubit(bool ignore) : super( RateAbilityInitial(canRate: ignore));
 
   void updateCanRate(int progress, int numberOfPages) async {
     await Future.delayed(const Duration(milliseconds: 500));

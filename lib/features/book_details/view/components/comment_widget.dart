@@ -1,17 +1,15 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
-import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
-
 import '../../../../core/utils/constants/styles_consts.dart';
-import '../../../profile/UI/screens/profile_screen.dart';
 import '../../../profile/UI/widgets/profile_circle_avatar.dart';
 import '../../../shared/models/comment.dart';
-import '../../../shared/widgets/custom_white_container.dart';
 
 class CommentWidget extends StatelessWidget {
-  const CommentWidget({required this.comment,super.key});
+  const CommentWidget({required this.comment, super.key});
+
   final Comment comment;
 
   @override
@@ -32,33 +30,31 @@ class CommentWidget extends StatelessWidget {
               children: [
                 Text(
                   comment.readerName,
-                  style: StylesConsts.f16W600Black.copyWith(color: context.colorScheme.primary),
+                  style: StylesConsts.f16W600Black
+                      .copyWith(color: context.colorScheme.primary),
                 ),
                 2.spaceW,
                 Text(
                   comment.readerNickname,
                   style: StylesConsts.f15W400Grey.copyWith(
                     fontSize: 10.sp,
-                    color: context.colorScheme.primary.withOpacity(.5),
+                    color: context.colorScheme.secondary,
                   ),
                 ),
               ],
             ),
             3.spaceH,
             SizedBox(
-              width: 265.w,
-              child: Text(
-               // maxLines: 10,
-               // overflow: TextOverflow.ellipsis,
+              width: 245.w,
+              child: AutoSizeText(
+                 maxLines: 10,
+                 overflow: TextOverflow.ellipsis,
                 comment.comment,
                 style: StylesConsts.f14W400Black,
               ),
             ),
-
           ],
         ),
-
-
       ],
     );
   }

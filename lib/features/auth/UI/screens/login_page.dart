@@ -5,11 +5,10 @@ import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/features/auth/UI/widgets/auth_screen_body.dart';
 import 'package:reading_app/features/auth/logic/password/password_visibility_cubit.dart';
 import 'package:reading_app/features/auth/logic/register/register_cubit.dart';
+import 'package:reading_app/features/home/main_layout.dart';
 
 import '../../../../core/utils/constants/assets_consts.dart';
 import '../../../../core/utils/constants/json_consts.dart';
-import '../../../../core/utils/functions/functions.dart';
-import '../../../splash_screen/splash_screen.dart';
 
 
 class LoginPage extends StatelessWidget {
@@ -32,8 +31,8 @@ class LoginPage extends StatelessWidget {
               isRegister: false,
               greeting: JsonConsts.welcomeBack,
               lottieAsset: AssetsConsts.registerAsset,
-              onSuccess: (){Functions().showSnackBar(context, 'success');
-              context.pushReplacement(const SplashScreen());},
+              onSuccess: (){
+              context.pushReplacement(const MainLayoutWrapper());},
             )
         )
     );

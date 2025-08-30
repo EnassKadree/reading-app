@@ -40,6 +40,7 @@ class AppTheme {
           brightness: Brightness.light,
           secondaryContainer: secondaryContainer,
           primaryContainer: primaryContainer,
+          onPrimary: Colors.black
         ),
         // appbar
         appBarTheme: AppBarTheme(

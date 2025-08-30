@@ -144,5 +144,7 @@ abstract class JsonConsts {
   static const String noResults = 'noResults';
 
   //BOOK DETAILS
-  static const String commentOnThisBook = 'comments_on_this_book';
+ static const String commentOnThisBook='comments_on_this_book';
+ static const String  viewAll='view_all';
+ static const String noCommentsYet='this_book_has_no_comments';
 }

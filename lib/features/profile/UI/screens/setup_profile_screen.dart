@@ -12,6 +12,7 @@ import 'package:reading_app/features/shared/widgets/custom_button.dart';
 import 'package:reading_app/features/shared/widgets/custom_progress_indicator.dart';
 import 'package:reading_app/features/splash_screen/splash_screen.dart';
 
+import '../../../home/main_layout.dart';
 import '../widgets/setup_profile_form.dart';
 
 class SetupProfileScreen extends StatelessWidget {
@@ -24,9 +25,9 @@ class SetupProfileScreen extends StatelessWidget {
       listener: (context, state) {
         if (state is SetupProfileSuccess) {
           if (isSetup) {
-            context.pushAndRemoveAll(const SplashScreen());
+            context.pushAndRemoveAll(const MainLayoutWrapper());
           } else {
-            context.pushAndRemoveAll(const SplashScreen());
+            context.pushAndRemoveAll(const MainLayoutWrapper(init: 4,));
           }
         } else if (state is SetupProfileFailure) {
           Functions().showSnackBar(context, state.message);

@@ -2,7 +2,7 @@ import 'package:reading_app/features/shared/models/book.dart';
 
 final List<BookModel> dummyBook = [
   BookModel(
-    id: 0,
+    id: 1110,
     title: '',
     description: '',
     authorName: '',
@@ -21,7 +21,7 @@ final List<BookModel> dummyBook = [
     isInLibrary: false,
   ),
   BookModel(
-    id: 0,
+    id: 190,
     title: '',
     description: '',
     authorName: '',
@@ -40,7 +40,7 @@ final List<BookModel> dummyBook = [
     isInLibrary: false,
   ),
   BookModel(
-    id: 0,
+    id: 210,
     title: '',
     description: '',
     authorName: '',

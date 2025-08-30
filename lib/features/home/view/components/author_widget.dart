@@ -6,6 +6,8 @@ import 'package:reading_app/core/utils/extensions/space_extension.dart';
 import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/features/author_details/view/author_details_wrapper.dart';
 import 'package:reading_app/features/shared/models/author.dart';
+
+import '../../../shared/widgets/custom_network_image.dart';
 class AuthorWidget extends StatelessWidget {
   const AuthorWidget({ required this.author,super.key});
 final Author author;
@@ -34,11 +36,8 @@ final Author author;
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                   ),
-                  child: Image.asset(
-                    "assets/images/png/Adonis.png",
-                  //  author.image,
-                    fit: BoxFit.cover,
-                  ),
+                   child:CustomNetworkImage(imageUrl: author.image)
+
                 ),
               ),
             ],

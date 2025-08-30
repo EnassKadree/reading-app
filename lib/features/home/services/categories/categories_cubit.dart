@@ -19,6 +19,7 @@ class CategoriesCubit extends BaseCubit<CategoriesStates> {
       if (user == null) {
         throw Exception(JsonConsts.pleaseLogIn.tr());
       }
+      print("categories");
        Map<String, dynamic> response = await Api().get(url: endPoint, token: user.accessToken);
 
         List<CategoryModel> categories =parseResponse<CategoryModel>(
