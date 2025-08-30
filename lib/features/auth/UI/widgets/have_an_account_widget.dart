@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
@@ -11,33 +10,40 @@ import '../../../../core/utils/constants/styles_consts.dart';
 
 class HaveAnAccountWidget extends StatelessWidget {
   const HaveAnAccountWidget({
-    super.key, this.isRegister = true,
+    super.key,
+    this.isRegister = true,
   });
   final bool isRegister;
 
   @override
   Widget build(BuildContext context) {
-    return Column
-    (
+    return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: 
-      [
-        Text
-        (
-          (isRegister? JsonConsts.haveAnAccount : JsonConsts.dontHaveAnAccount).t(context),
+      children: [
+        Text(
+          (isRegister
+                  ? JsonConsts.haveAnAccount.t(context)
+                  : JsonConsts.dontHaveAnAccount)
+              .t(context),
           style: StylesConsts.f15W400Grey.copyWith(fontWeight: FontWeight.bold),
         ),
         8.spaceW,
-        InkWell
-        (
+        InkWell(
           onTap: () {
-            if(isRegister) {context.pushAndRemoveAll(const LoginPage());}
-            else {context.pushAndRemoveAll(const RegisterPage());}
+            if (isRegister) {
+              context.pushAndRemoveAll(const LoginPage());
+            } else {
+              context.pushAndRemoveAll(const RegisterPage());
+            }
           },
-          child: Text
-          (
-            (isRegister? JsonConsts.login.toUpperCase() : JsonConsts.register.toUpperCase()).t(context),
-            style: StylesConsts.f15W400Grey.copyWith(color: context.colorScheme.primary,fontWeight: FontWeight.bold),
+          child: Text(
+            (isRegister
+                    ? JsonConsts.login.toUpperCase().t(context)
+                    : JsonConsts.register.toUpperCase())
+                .t(context),
+            style: StylesConsts.f15W400Grey.copyWith(
+                color: context.colorScheme.primary,
+                fontWeight: FontWeight.bold),
           ),
         )
       ],

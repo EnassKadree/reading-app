@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/features/book_details/view/components/book_details_white_container.dart';
+import 'package:reading_app/features/shared/widgets/mini_some_thing_went_wrong_widget.dart';
 import 'package:reading_app/features/shared/widgets/something_went_wrong.dart';
 import '../../../../core/utils/constants/assets_consts.dart';
 import '../../../shared/models/book.dart';
@@ -18,7 +19,6 @@ class BookChallengeBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return BookDetailsWhiteContainer(
       maxHeight: 200.h,
-
       child: BlocBuilder<BookChallengeCubit, BookChallengeStates>(
         builder: (BuildContext context, BookChallengeStates state) {
           if (state is BookChallengeSuccess) {
@@ -26,8 +26,7 @@ class BookChallengeBuilder extends StatelessWidget {
               bookChallenge: state.bookChallenge,
               book: book,
             );
-          }
-          else if (state is BookChallengeLoading) {
+          } else if (state is BookChallengeLoading) {
             return Center(
               child: SizedBox(
                 height: 80.h,
@@ -36,11 +35,9 @@ class BookChallengeBuilder extends StatelessWidget {
               ),
             );
           }
-          return SomeThingWentWrongWidget(
-            onPressed: () {
-              context.read<BookChallengeCubit>().getBookChallenge(book.id);
-            }
-          );
+          return MiniSomeThingWentWrongWidget(onPressed: () {
+            context.read<BookChallengeCubit>().getBookChallenge(book.id);
+          });
         },
       ),
     ).horizontalPadding;

@@ -11,16 +11,20 @@ class AllBooksScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AllBooksCubit,AllBooksStates>(builder: (BuildContext context,AllBooksStates state){
-      if(state is AllBooksSuccess) {
-        return ListOfBooksScreen(title: "", bookList: state.books);
-      }
-      else if(state is AllBooksLoading)
-        {
-          return ListOfBooksScreen(title: "", bookList: dummyBook);
-        }
-      else
-        {return SomeThingWentWrongWidget(onPressed: (){context.read<AllBooksCubit>().getAllBooks();});}
-    },);
+    return Scaffold(
+      body: BlocBuilder<AllBooksCubit, AllBooksStates>(
+        builder: (BuildContext context, AllBooksStates state) {
+          if (state is AllBooksSuccess) {
+            return ListOfBooksScreen(title: "", bookList: state.books);
+          } else if (state is AllBooksLoading) {
+            return ListOfBooksScreen(title: "", bookList: dummyBook);
+          } else {
+            return SomeThingWentWrongWidget(onPressed: () {
+              context.read<AllBooksCubit>().getAllBooks();
+            });
+          }
+        },
+      ),
+    );
   }
 }

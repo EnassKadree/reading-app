@@ -90,18 +90,11 @@ class _HomeScreenBuilderState extends State<HomeScreenBuilder> {
                           context.read<CategoriesCubit>().getCategories();
                         },
                       );
-                    }
-                    else {
+                    } else {
                       return const SizedBox();
                     }
                   },
-                  listener: (BuildContext context, BooksStates booksState){
-                    if (booksState is BooksError ) {
-                      print(booksState.errorMessage);
-                      Functions()
-                          .showSnackBar(context, booksState.errorMessage);
-                    }
-                  },
+                  listener: (BuildContext context, BooksStates booksState) {},
                 );
               },
             );

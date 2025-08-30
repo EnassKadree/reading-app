@@ -1,5 +1,5 @@
 abstract class EndPoint {
-  static const ip = '192.168.1.101';
+  static const ip = '10.180.84.211';
   static const port = 8000;
   static const baseUrl = 'http://$ip:$port/api';
   static const booksBaseUrl = 'http://$ip:$port/api/mobile/books';
@@ -9,16 +9,15 @@ abstract class EndPoint {
   //home
   static const userChallenges = '/mobile/challenge/getchallenges';
   static const categories = '/category/getCategories';
-  static const authors='/mobile/author/getAuthors';
-  static const authorBooks='/mobile/books/author-books/';
-  static const mostRatedBooks='/mobile/books/most-rated';
-  static const getAllBooks='/mobile/book/getAllBook';
-
+  static const authors = '/mobile/author/getAuthors';
+  static const authorBooks = '/mobile/books/author-books/';
+  static const mostRatedBooks = '/mobile/books/most-rated';
+  static const getAllBooks = '/mobile/book/getAllBook';
 
   //category
-  static const categoryBooks='/mobile/books/category-books/';
-  static const followCategory='/categories/follow/';
-  static const unFollowCategory='/categories/unfollow/';
+  static const categoryBooks = '/mobile/books/category-books/';
+  static const followCategory = '/categories/follow/';
+  static const unFollowCategory = '/categories/unfollow/';
 
   //Mylibary /country/get-trips
   static const toRead = '/toread';
@@ -44,15 +43,16 @@ abstract class EndPoint {
   static const suggestions = '/suggestion/store';
 
 //BOOK DETAILS
-  static const bookChallenge= '/mobile/books/GetBookChallenge/';
-  static const joinBookChallenge='/challenge/JoinToBookChallenge/';
- static const rateTheBook='/book/RateBook/';
- static const bookComments='/book/getBookComments/';
-  static const appLink= "https://play.google.com/store/apps/details?id=com.example.reading_app";
-   static const commentOnBook='/book/AddCommentToTheBook/';
-   static const addToRead='/book/AddBookToDoList/';
-   static const  addTOFavorite='/book/AddBookToFavorite/';
-  static const  removeFromFavorite='/book/remove-from-favorites/';
+  static const bookChallenge = '/mobile/books/GetBookChallenge/';
+  static const joinBookChallenge = '/challenge/JoinToBookChallenge/';
+  static const rateTheBook = '/book/RateBook/';
+  static const bookComments = '/book/getBookComments/';
+  static const appLink =
+      "https://play.google.com/store/apps/details?id=com.example.reading_app";
+  static const commentOnBook = '/book/AddCommentToTheBook/';
+  static const addToRead = '/book/AddBookToDoList/';
+  static const addTOFavorite = '/book/AddBookToFavorite/';
+  static const removeFromFavorite = '/book/remove-from-favorites/';
 
   // NOTIFICATIONS
   static const allNotifications = '/notifications';
@@ -64,5 +64,4 @@ abstract class EndPoint {
   static const generalChallenges = '/challenge/getAllChallenges';
   static const joinChallenge = '/challenge/JoinToChallenge/';
   static const completedChallenges = '/challenge/getSuccessChallenge';
-
 }

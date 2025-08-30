@@ -29,6 +29,7 @@ class BookDetailsWrapper extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (BuildContext context) {
+            context.read<BookCommentsCubit>().getBookComments(book.id);
             return BookChallengeCubit()..getBookChallenge(book.id);
           },
         ),
@@ -42,12 +43,6 @@ class BookDetailsWrapper extends StatelessWidget {
             return RateTheBookCubit();
           },
         ),
-        BlocProvider(
-          create: (BuildContext context) {
-            return BookCommentsCubit()..getBookComments(book.id);
-          },
-        ),
-
         BlocProvider(
           create: (BuildContext context) {
             return BookPdfCubit();

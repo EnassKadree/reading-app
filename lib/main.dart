@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:reading_app/core/utils/base/local_notifications_service.dart';
 import 'package:reading_app/core/utils/base/push_notifications_service.dart';
+import 'package:reading_app/features/home/services/all_books/all_books_cubit.dart';
 import 'package:reading_app/features/notifications/logic/notifications_count/notifications_count_cubit.dart';
 import 'package:reading_app/firebase_options.dart';
 
@@ -12,6 +13,7 @@ import 'package:reading_app/features/splash_screen/splash_screen.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'features/book_details/service/book_comments/book_comments_cubit.dart';
 import 'features/book_details/service/comment_on_book/comment_on_book_cubit.dart';
 import 'features/shared/data/data_source.dart';
 import 'features/shared/localization/app_localization.dart';
@@ -60,6 +62,11 @@ void main() async {
           create: (context) => NotificationsCountCubit(),
         ),
         BlocProvider(create: (context) => userCubit),
+         BlocProvider(
+          create: (BuildContext context) {
+            return BookCommentsCubit();
+          },
+        ),
         BlocProvider(
           create: (BuildContext context) {
             return BookFavoriteCubit();
@@ -68,6 +75,11 @@ void main() async {
         BlocProvider(
           create: (BuildContext context) {
             return CommentOnBookCubit();
+          },
+        ),
+        BlocProvider(
+          create: (BuildContext context) {
+            return AllBooksCubit();
           },
         ),
       ],

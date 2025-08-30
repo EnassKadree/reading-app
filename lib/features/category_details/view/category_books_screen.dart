@@ -37,51 +37,58 @@ class CategoryBooksScreen extends StatelessWidget {
           CustomScrollView(
             slivers: [
               SliverToBoxAdapter(
-                  child: CategoryDetailsHeader(categoryName: categoryModel.name,)
-              ),
-              SliverToBoxAdapter(child: CategorySearchBar(categoryId: categoryModel.id)),
+                  child: CategoryDetailsHeader(
+                categoryName: categoryModel.name,
+              )),
+              SliverToBoxAdapter(
+                  child: CategorySearchBar(categoryId: categoryModel.id)),
               BlocBuilder<CategoryBooksCubit, CategoryBooksStates>(
                 builder: (BuildContext context, CategoryBooksStates state) {
-                  if (state is CategoryBooksSuccess)
-                  {
+                  if (state is CategoryBooksSuccess) {
                     return BooksGrid(
                       books: state.categoryBooks,
                     );
-                  }
-                  else if(state is CategoryBooksLoading )
-                  {
-                    return BooksGrid(loading:true,books: dummyBook);
-                  }
-                  else {
+                  } else if (state is CategoryBooksLoading) {
+                    return BooksGrid(loading: true, books: dummyBook);
+                  } else {
                     return SliverToBoxAdapter(
-                      child: SomeThingWentWrongWidget(
-                          onPressed: () {
-                            context.read<CategoryBooksCubit>().getCategoryBook(
-                                categoryModel.id);
-                          }), );
-                  }   },
-
+                      child: SomeThingWentWrongWidget(onPressed: () {
+                        context
+                            .read<CategoryBooksCubit>()
+                            .getCategoryBook(categoryModel.id);
+                      }),
+                    );
+                  }
+                },
               ),
             ],
           ),
           Positioned(
             right: 3.w,
             bottom: 30.h,
-            child: BlocConsumer<FollowUnFollowCategoryCubit, FollowUnFollowCategoryStates>(
-              builder: (BuildContext context, FollowUnFollowCategoryStates state) {
-                if (state is FollowUnFollowCategoryInitial || state is FollowUnFollowCategorySuccess) {
+            child: BlocConsumer<FollowUnFollowCategoryCubit,
+                FollowUnFollowCategoryStates>(
+              builder:
+                  (BuildContext context, FollowUnFollowCategoryStates state) {
+                if (state is FollowUnFollowCategoryInitial ||
+                    state is FollowUnFollowCategorySuccess) {
                   if (state is FollowUnFollowCategorySuccess) {
                     categoryModel.isFollowed = state.isFollowed;
                   }
                   return GestureDetector(
                     onTap: () {
                       if (!categoryModel.isFollowed) {
-                        context.read<FollowUnFollowCategoryCubit>().followCategory(categoryModel.id);
+                        context
+                            .read<FollowUnFollowCategoryCubit>()
+                            .followCategory(categoryModel.id);
                       } else {
-                        context.read<FollowUnFollowCategoryCubit>().unFollowCategory(categoryModel.id);
+                        context
+                            .read<FollowUnFollowCategoryCubit>()
+                            .unFollowCategory(categoryModel.id);
                       }
                     },
-                    child: FollowUnfollowContainer(isFollowed: categoryModel.isFollowed),
+                    child: FollowUnfollowContainer(
+                        isFollowed: categoryModel.isFollowed),
                   );
                 }
                 if (state is FollowUnFollowCategoryLoading) {
@@ -93,7 +100,8 @@ class CategoryBooksScreen extends StatelessWidget {
                   return const SizedBox();
                 }
               },
-              listener: (BuildContext context, FollowUnFollowCategoryStates state) {
+              listener:
+                  (BuildContext context, FollowUnFollowCategoryStates state) {
                 if (state is FollowUnFollowCategoryError) {
                   Functions().showSnackBar(context, state.errorMessage);
                 }
@@ -105,4 +113,3 @@ class CategoryBooksScreen extends StatelessWidget {
     );
   }
 }
-

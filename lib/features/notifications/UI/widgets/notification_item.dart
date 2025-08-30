@@ -20,8 +20,8 @@ class NotificationItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color color = _getTypeColor(context, notification.type);
-    IconData icon = _getTypeIcon(notification.type);
+    Color color = _getTypeColor(context, notification.category);
+    IconData icon = _getTypeIcon(notification.category);
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
       decoration: BoxDecoration(
@@ -202,9 +202,9 @@ class NotificationItem extends StatelessWidget {
 
   Color _getTypeColor(BuildContext context, String? type) {
     switch (type) {
-      case 'success':
+      case 'Badge awarded': case 'الحصول على شارة' :
         return Colors.purple[700]!;
-      case 'info':
+      case 'New book': case 'كتاب جديد':
       default:
         return Colors.blue[600]!;
     }
@@ -212,9 +212,9 @@ class NotificationItem extends StatelessWidget {
 
   IconData _getTypeIcon(String? type) {
     switch (type) {
-      case 'success':
+      case 'Badge awarded': case 'الحصول على شارة' :
         return Iconsax.tick_circle;
-      case 'info':
+      case 'New book': case 'كتاب جديد':
       default:
         return Iconsax.info_circle;
     }

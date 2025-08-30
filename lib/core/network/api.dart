@@ -7,8 +7,7 @@ import '../../features/shared/data/data_source.dart';
 
 class Api {
   Future<dynamic> fullPost(
-      {required String url, Map<String, dynamic>? body, String? token}) async
-  {
+      {required String url, Map<String, dynamic>? body, String? token}) async {
     String locale = DataSource().getLocale() ?? 'en';
     Map<String, String> headers = {
       'Accept': 'application/json',
@@ -58,7 +57,6 @@ class Api {
       if (token != null) 'Authorization': 'Bearer $token',
     };
 
-
     if (search != null && search.isNotEmpty) {
       url = '$url?search=$search';
     }
@@ -72,12 +70,11 @@ class Api {
     }
   }
 
-
   Future<dynamic> getWithToken(
       {required String url, required String token}) async {
     return get(url: url, token: token);
-
   }
+
   Future<dynamic> delete({required String url, String? token}) async {
     String locale = DataSource().getLocale() ?? 'en';
 
@@ -88,7 +85,8 @@ class Api {
       if (token != null) 'Authorization': 'Bearer $token',
     };
 
-    http.Response response = await http.delete(Uri.parse(url), headers: headers);
+    http.Response response =
+        await http.delete(Uri.parse(url), headers: headers);
 
     if (response.statusCode == 200 || response.statusCode == 204) {
       return response.body.isNotEmpty ? jsonDecode(response.body) : {};
@@ -102,8 +100,7 @@ class Api {
     required Map<String, String> fields,
     required Map<String, File> files,
     String? token,
-  }) async
-  {
+  }) async {
     String locale = DataSource().getLocale() ?? 'en';
 
     var request = http.MultipartRequest('POST', Uri.parse(url));
@@ -136,12 +133,10 @@ class Api {
 
     Map<String, dynamic> responseData = jsonDecode(response.body);
 
-
     if (response.statusCode == 200 || response.statusCode == 201) {
       return responseData;
     } else {
       throw Exception(responseData['message'] ?? 'Upload failed');
     }
   }
-
 }

@@ -3,7 +3,6 @@ class NotificationModel {
   final String title;
   final String category;
   final String description;
-  final String type;
   final bool isRead;
   final DateTime createdAt;
 
@@ -12,7 +11,6 @@ class NotificationModel {
     required this.title,
     required this.category,
     required this.description,
-    required this.type,
     required this.isRead,
     required this.createdAt,
   });
@@ -23,7 +21,6 @@ class NotificationModel {
       title: json['title'] ?? '',
       category: json['category'] ?? '',
       description: json['description'] ?? '',
-      type: json['type'] ?? '',
       isRead: json['is_read'] ?? false,
       createdAt: DateTime.tryParse(json['created_at'] ?? '') ?? DateTime.now(),
     );
@@ -35,7 +32,6 @@ class NotificationModel {
       'title': title,
       'category': category,
       'description': description,
-      'type': type,
       'is_read': isRead,
       'created_at': createdAt.toIso8601String(),
     };
@@ -55,7 +51,6 @@ class NotificationModel {
       title: title ?? this.title,
       category: category ?? this.category,
       description: description ?? this.description,
-      type: type ?? this.type,
       isRead: isRead ?? this.isRead,
       createdAt: createdAt ?? this.createdAt,
     );

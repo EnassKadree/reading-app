@@ -10,7 +10,6 @@ final List<NotificationModel> dummyNotifications = [
     createdAt: DateTime.now().subtract(const Duration(minutes: 5)),
     isRead: false,
     category: 'success',
-    type: '',
   ),
   NotificationModel(
     id: "2",
@@ -20,7 +19,6 @@ final List<NotificationModel> dummyNotifications = [
     createdAt: DateTime.now().subtract(const Duration(hours: 2)),
     isRead: false,
     category: 'info',
-    type: '',
   ),
   NotificationModel(
     id: "3",
@@ -30,7 +28,6 @@ final List<NotificationModel> dummyNotifications = [
     createdAt: DateTime.now().subtract(const Duration(hours: 6)),
     isRead: true,
     category: 'info',
-    type: '',
   ),
   NotificationModel(
     id: "4",
@@ -40,7 +37,6 @@ final List<NotificationModel> dummyNotifications = [
     createdAt: DateTime.now().subtract(const Duration(days: 1)),
     isRead: true,
     category: 'success',
-    type: '',
   ),
   NotificationModel(
     id: "5",
@@ -50,7 +46,6 @@ final List<NotificationModel> dummyNotifications = [
     createdAt: DateTime.now().subtract(const Duration(days: 1, hours: 3)),
     isRead: false,
     category: 'info',
-    type: '',
   ),
   NotificationModel(
     id: "6",
@@ -60,7 +55,6 @@ final List<NotificationModel> dummyNotifications = [
     createdAt: DateTime.now().subtract(const Duration(days: 2)),
     isRead: true,
     category: 'success',
-    type: '',
   ),
   NotificationModel(
     id: "7",
@@ -70,7 +64,6 @@ final List<NotificationModel> dummyNotifications = [
     createdAt: DateTime.now().subtract(const Duration(days: 3)),
     isRead: true,
     category: 'success',
-    type: '',
   ),
   NotificationModel(
     id: "8",
@@ -80,7 +73,6 @@ final List<NotificationModel> dummyNotifications = [
     createdAt: DateTime.now().subtract(const Duration(days: 4)),
     isRead: true,
     category: 'info',
-    type: '',
   ),
   NotificationModel(
     id: "9",
@@ -90,7 +82,6 @@ final List<NotificationModel> dummyNotifications = [
     createdAt: DateTime.now().subtract(const Duration(days: 5)),
     isRead: true,
     category: 'info',
-    type: '',
   ),
   NotificationModel(
     id: "10",
@@ -100,7 +91,6 @@ final List<NotificationModel> dummyNotifications = [
     createdAt: DateTime.now().subtract(const Duration(days: 6)),
     isRead: true,
     category: 'info',
-    type: '',
   ),
 ];
 

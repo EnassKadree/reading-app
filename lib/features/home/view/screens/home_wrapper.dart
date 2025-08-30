@@ -4,9 +4,10 @@ import 'package:reading_app/features/home/services/active_challenges/user_challe
 import 'package:reading_app/features/home/services/authors/authors_cubit.dart';
 import 'package:reading_app/features/home/services/books/books_cubit.dart';
 import 'package:reading_app/features/home/services/categories/categories_cubit.dart';
+import 'package:reading_app/features/home/view/screens/home_screen_builder.dart';
 
 import '../../../notifications/logic/notifications_count/notifications_count_cubit.dart';
-import 'home_screen_builder.dart';
+import '../../services/all_books/all_books_cubit.dart';
 
 class HomeWrapper extends StatelessWidget {
   const HomeWrapper({super.key});
@@ -20,21 +21,23 @@ class HomeWrapper extends StatelessWidget {
           return UserChallengesCubit()..getActiveChallenges();
         },
       ),
-      BlocProvider(
-        create: (BuildContext context) {
-          return CategoriesCubit()..getCategories();
-        },
+      BlocProvider(create: (BuildContext context) {
+
+        return CategoriesCubit()..getCategories();
+      },
       ),
-      BlocProvider(
-        create: (BuildContext context) {
-          return AuthorsCubit()..getAuthors();
-        },
+      BlocProvider(create: (BuildContext context) {
+
+        return AuthorsCubit()..getAuthors();
+      },
       ),
-      BlocProvider(
-        create: (BuildContext context) {
-          return BooksCubit()..getBooks();
-        },
+      BlocProvider(create: (BuildContext context) {
+
+        return BooksCubit()..getBooks();
+      },
+
       ),
-    ], child: const HomeScreenBuilder());
+
+    ], child: const HomeScreenBuilder( ));
   }
 }
