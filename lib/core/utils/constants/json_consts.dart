@@ -54,7 +54,6 @@ abstract class JsonConsts {
   static const String tryAgain = 'tryAgain';
   static const String yetNoChallenges = 'yet_no_challenges';
   static const String boostPoints = 'boost_points';
-  static const String join = 'join';
 
   //MY LIBRARY
   static const String myLibrary = 'library';
@@ -164,7 +163,6 @@ abstract class JsonConsts {
  static const String noCommentsYet='this_book_has_no_comments';
  static const String addAComment='add_a_comment';
  static const String challengeYourSelf='challenge_yourself';
- static const String joined='joined';
   static const String searchAuthorBooks='search_author_books';
   static const String reads='reads';
   static const String rate='rate';

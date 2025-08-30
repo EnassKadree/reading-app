@@ -19,6 +19,7 @@ import 'features/shared/localization/locale_cubit.dart';
 import 'features/shared/theme/theme.dart';
 import 'features/shared/theme/theme_cubit.dart';
 import 'features/shared/user/user_cubit.dart';
+import 'features/shared/user/user_model.dart';
 import 'features/shared/widgets/book_card/favorite_bloc/book_favorite_cubit.dart';
 
 late SharedPreferences prefs;

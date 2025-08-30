@@ -53,21 +53,16 @@ abstract class EndPoint {
    static const addToRead='/book/AddBookToDoList/';
    static const  addTOFavorite='/book/AddBookToFavorite/';
   static const  removeFromFavorite='/book/remove-from-favorites/';
-  }
-  static const bookChallenge = '/mobile/books/GetBookChallenge/';
-  static const joinBookChallenge = '/challenge/JoinToBookChallenge/';
-  static const rateTheBook = '/book/RateBook/';
-  static const bookComments = '/book/getBookComments/';
-  static const appLink =
-      "https://play.google.com/store/apps/details?id=com.example.reading_app";
-  static const commentOnBook = '/book/AddCommentToTheBook/';
-  static const addToRead = '/book/AddBookToDoList/';
-  static const addTOFavorite = '/book/AddBookToFavorite/';
-  static const removeFromFavorite = '/book/remove-from-favorites/';
 
   // NOTIFICATIONS
   static const allNotifications = '/notifications';
   static const markRead = '/notifications/mark/';
   static const markAllRead = '/notifications/mark-all';
   static const notificationsCount = '/notifications/unread-count';
+
+  // CHALLENGES
+  static const generalChallenges = '/challenge/getAllChallenges';
+  static const joinChallenge = '/challenge/JoinToChallenge/';
+  static const completedChallenges = '/challenge/getSuccessChallenge';
+
 }
