@@ -11,6 +11,7 @@ abstract class EndPoint
   static const authors='/mobile/author/getAuthors';
   static const authorBooks='/mobile/books/author-books/';
   static const mostRatedBooks='/mobile/books/most-rated';
+  static const getAllBooks='/mobile/book/getAllBook';
 
 
   //category

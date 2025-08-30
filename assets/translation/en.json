@@ -128,7 +128,10 @@
   "cannot_rate_the_book": "Can't rate the book until you've read 70%",
   "rate_the_book": "Rate The Book",
   "summary": "Sum",
-  "comment": "Comment"
+  "comment": "Comment",
+"congratulations": "Congratulations",
+  "progressMessage": "You’ve completed 70% of this book. Now you can rate or comment on it!",
+  "exit": "Exit"
 
 
 }
