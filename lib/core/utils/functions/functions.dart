@@ -8,6 +8,7 @@ import 'package:reading_app/core/utils/extensions/string_extension.dart';
 import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/features/auth/UI/screens/login_page.dart';
 import 'package:reading_app/features/home/main_layout.dart';
+import 'package:reading_app/features/notifications/logic/notifications_count/notifications_count_cubit.dart';
 import 'package:reading_app/features/shared/user/user_cubit.dart';
 import '../../../features/complaints/UI/screens/complaints_screen.dart';
 import '../../../features/notifications/UI/screens/notifications_screen.dart';

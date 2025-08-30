@@ -62,4 +62,5 @@ abstract class EndPoint {
   static const allNotifications = '/notifications';
   static const markRead = '/notifications/mark/';
   static const markAllRead = '/notifications/mark-all';
+  static const notificationsCount = '/notifications/unread-count';
 }

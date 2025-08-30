@@ -8,44 +8,48 @@ import 'package:reading_app/features/notifications/logic/all_notifications/all_n
 import 'package:reading_app/features/notifications/logic/mark_as_read/mark_as_read_cubit.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import '../../logic/notifications/notifications_cubit.dart';
+import '../../logic/notifications_count/notifications_count_cubit.dart';
 
 class NotificationsScreen extends StatelessWidget {
   const NotificationsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: BlocConsumer<AllNotificationsCubit, AllNotificationsState>(
-          listener: (context, state) {
-            if (state is AllNotificationsSuccess) {
-              context
-                  .read<NotificationsCubit>()
-                  .initializeNotifications(state.notifications.notifications);
-            }
-          },
-          builder: (context, state) {
-            final data = state is AllNotificationsSuccess
-                ? state.notifications
-                : dummyNotificationsResponse;
-            return Skeletonizer(
-              enabled: state is AllNotificationsLoading,
-              child: Column(
-                children: [
-                  // Header Section
-                  NotificationsHeader(
-                    unreadCount: data.unreadCount,
-                  ),
+    return PopScope(
+      onPopInvoked: (didPop) => context.read<NotificationsCountCubit>().get(),
+      child: Scaffold(
+        body: SafeArea(
+          child: BlocConsumer<AllNotificationsCubit, AllNotificationsState>(
+            listener: (context, state) {
+              if (state is AllNotificationsSuccess) {
+                context
+                    .read<NotificationsCubit>()
+                    .initializeNotifications(state.notifications.notifications);
+              }
+            },
+            builder: (context, state) {
+              final data = state is AllNotificationsSuccess
+                  ? state.notifications
+                  : dummyNotificationsResponse;
+              return Skeletonizer(
+                enabled: state is AllNotificationsLoading,
+                child: Column(
+                  children: [
+                    // Header Section
+                    NotificationsHeader(
+                      unreadCount: data.unreadCount,
+                    ),
 
-                  // Search Section
-                  const SearchField(),
+                    // Search Section
+                    const SearchField(),
 
-                  // Notifications List
-                  const Expanded(child: NotificationsList()),
-                ],
-              ),
-            );
-          },
+                    // Notifications List
+                    const Expanded(child: NotificationsList()),
+                  ],
+                ),
+              );
+            },
+          ),
         ),
       ),
     );

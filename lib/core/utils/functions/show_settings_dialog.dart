@@ -70,9 +70,7 @@ extension ShowSettingsDialog on Functions {
                               ],
                             ),
                           ),
-
                           const Divider(height: 1),
-
                           _buildAnimatedListTile(
                             context: context,
                             index: 0,
@@ -113,7 +111,6 @@ extension ShowSettingsDialog on Functions {
                               ),
                             ),
                           ),
-
                           _buildAnimatedListTile(
                             context: context,
                             index: 1,
@@ -144,26 +141,39 @@ extension ShowSettingsDialog on Functions {
                               },
                             ),
                           ),
-
                           _buildAnimatedListTile(
                             context: context,
                             index: 2,
-                            child: ListTile(
-                              title: Text(
-                                JsonConsts.notifications.t(context),
-                                style: StylesConsts.f14W600Black,
-                              ),
-                              leading: const Icon(
-                                Iconsax.notification,
-                                size: 22,
-                              ),
-                              onTap: () {
-                                context
-                                    .push(const NotificationsScreenWrapper());
+                            child: BlocBuilder<NotificationsCountCubit,
+                                NotificationsCountState>(
+                              builder: (context, state) {
+                                int count = state is NotificationsCountSuccess
+                                    ? state.count
+                                    : 0;
+                                return ListTile(
+                                  title: Text(
+                                    JsonConsts.notifications.t(context),
+                                    style: StylesConsts.f14W600Black,
+                                  ),
+                                  leading: Badge(
+                                      backgroundColor:
+                                          Colors.blue.withOpacity(.5),
+                                      smallSize: 12,
+                                      largeSize: 16,
+                                      isLabelVisible: count > 0,
+                                      label: Text(count.toString()),
+                                      child: const Icon(
+                                        Iconsax.notification,
+                                        size: 22,
+                                      )),
+                                  onTap: () {
+                                    context.push(
+                                        const NotificationsScreenWrapper());
+                                  },
+                                );
                               },
                             ),
                           ),
-
                           _buildAnimatedListTile(
                             context: context,
                             index: 3,
@@ -181,9 +191,7 @@ extension ShowSettingsDialog on Functions {
                               },
                             ),
                           ),
-
                           const Divider(height: 1),
-
                           _buildAnimatedListTile(
                             context: context,
                             index: 4,
