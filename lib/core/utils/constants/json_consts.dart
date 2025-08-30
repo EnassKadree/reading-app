@@ -139,9 +139,8 @@ abstract class JsonConsts {
   static const String checkBackLaterForNewReadingChallenges =
       'checkBackLaterForNewReadingChallenges';
   static const String refresh = 'refresh';
-  static const String join = 'join';
   static const String joined = 'joined';
-
+   static const String join ='join';
   // NOTIFICATIONS
   static const String notifications = 'notifications';
   static const String unReadNotifications = 'unReadNotifications';

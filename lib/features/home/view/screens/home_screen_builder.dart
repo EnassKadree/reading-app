@@ -69,8 +69,7 @@ class _HomeScreenBuilderState extends State<HomeScreenBuilder> {
                           challengesState.userChallenges;
                       List<BookModel> books = booksState.books;
                       List<Author> authors = authorState.authors;
-                      List<CategoryModel> categories =
-                          categoriesState.categories;
+                      List<CategoryModel> categories = categoriesState.categories;
                       return HomeScreenBody(
                           userChallenges: userChallenges,
                           authors: authors,

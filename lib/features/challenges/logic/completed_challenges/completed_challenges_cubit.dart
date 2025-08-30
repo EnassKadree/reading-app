@@ -24,7 +24,7 @@ class CompletedChallengesCubit extends BaseCubit<CompletedChallengesState> {
           }
 
           Map<String, dynamic> response =
-              await Api().getWithToken(url: endPoint, token: user.accessToken);
+          await Api().getWithToken(url: endPoint, token: user.accessToken);
           List<ChallengeModel> challenges = parseResponse<ChallengeModel>(
               response: response,
               fromJson: (data) => ChallengeModel.fromJson(data));

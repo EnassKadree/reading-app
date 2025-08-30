@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
+import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 import 'package:reading_app/features/shared/models/category.dart';
 import '../../../../core/utils/constants/styles_consts.dart';
+import '../../../../core/utils/constants/colors_consts.dart';
 import '../../../../core/utils/constants/colors_consts.dart';
 import '../../../category_details/view/category_book_screen_wrapper.dart';
 
@@ -24,6 +27,8 @@ class CategoryCard extends StatelessWidget {
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 6.w),
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+        margin: EdgeInsets.symmetric(horizontal: 6.w),
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.r),
           border: Border.all(
@@ -39,6 +44,7 @@ class CategoryCard extends StatelessWidget {
           ],
         ),
         child: Row(
+          mainAxisSize: MainAxisSize.min,
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(

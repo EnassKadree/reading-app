@@ -128,9 +128,7 @@
   "comment": "Comment",
 "congratulations": "Congratulations",
   "progressMessage": "You’ve completed 70% of this book. Now you can rate or comment on it!",
-  "exit": "Exit"
-
-
+  "exit": "Exit",
   "this_book_has_no_comments": "This book has no comments yet be the first to add one",
   "completed":"Completed",
   "general":"General",

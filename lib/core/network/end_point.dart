@@ -42,6 +42,10 @@ abstract class EndPoint {
   static const complaints = '/complaint/store';
   static const suggestions = '/suggestion/store';
 
+  // CHALLENGES
+  static const generalChallenges = '/challenge/getAllChallenges';
+  static const joinChallenge = '/challenge/JoinToChallenge/';
+  static const completedChallenges = '/challenge/getSuccessChallenge';
 //BOOK DETAILS
   static const bookChallenge = '/mobile/books/GetBookChallenge/';
   static const joinBookChallenge = '/challenge/JoinToBookChallenge/';
