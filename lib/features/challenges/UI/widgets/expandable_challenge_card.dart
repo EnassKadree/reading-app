@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:reading_app/core/utils/extensions/space_extension.dart';
 import 'package:reading_app/features/challenges/UI/widgets/challenge_card_expanded_content.dart';
 import 'package:reading_app/features/challenges/UI/widgets/challenge_card_header.dart';
 import 'package:reading_app/features/challenges/UI/widgets/join_button.dart';
@@ -9,10 +10,11 @@ import '../../logic/challenge/challenge_cubit.dart';
 
 class ExpandableChallengeCard extends StatelessWidget {
   final ChallengeModel challenge;
+  final bool joinEnabled;
 
   const ExpandableChallengeCard({
     super.key,
-    required this.challenge,
+    required this.challenge, this.joinEnabled = true,
   });
 
   @override
@@ -21,7 +23,6 @@ class ExpandableChallengeCard extends StatelessWidget {
       builder: (context, state) {
         final isExpanded =
             context.read<ChallengeCubit>().isExpanded(challenge.id);
-        final isJoined = context.read<ChallengeCubit>().isJoined(challenge.id);
 
         return Padding(
           padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 24),
@@ -51,10 +52,10 @@ class ExpandableChallengeCard extends StatelessWidget {
                   ],
                 ),
               ),
+              joinEnabled ? 
               JoinButton(
-                isJoined: isJoined,
                 challenge: challenge,
-              )
+              ) : 0.spaceH
             ],
           ),
         );

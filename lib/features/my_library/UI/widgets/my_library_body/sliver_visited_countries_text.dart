@@ -6,6 +6,8 @@ import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/constants/styles_consts.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
 import 'package:reading_app/core/utils/extensions/string_extension.dart';
+import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
+import 'package:reading_app/core/utils/functions/functions.dart';
 import 'package:reading_app/features/my_library/services/country_book_count/country_book_count_cubit.dart';
 
 class SliverVisitedCountriesText extends StatelessWidget {
@@ -32,7 +34,7 @@ class SliverVisitedCountriesText extends StatelessWidget {
                   color: ColorsConsts.purple,
                   size: 24,
                 ),
-              ),
+              ).staggerListVertical(0),
               16.spaceW,
               Expanded(
                 child:
@@ -58,7 +60,7 @@ class SliverVisitedCountriesText extends StatelessWidget {
   Widget _buildText(BuildContext context, int count) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
+      children: Functions().staggeredList([
         Text(
           "${JsonConsts.iHaveVisited.t(context)} $count ${JsonConsts.countriesInALiteraryWay.t(context)}",
           style: StylesConsts.f16W600Black.copyWith(
@@ -70,14 +72,14 @@ class SliverVisitedCountriesText extends StatelessWidget {
         ),
         8.spaceH,
         Text(
-         JsonConsts.exploreTheWorldThroughLiterature.t(context),
+          JsonConsts.exploreTheWorldThroughLiterature.t(context),
           style: StylesConsts.f15W400Grey.copyWith(
             fontSize: 14,
             color: Colors.grey[600],
             fontStyle: FontStyle.italic,
           ),
         ),
-      ],
+      ]),
     );
   }
 }

@@ -6,7 +6,6 @@ import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
 import 'package:reading_app/core/utils/extensions/string_extension.dart';
 
-import '../../../../core/utils/constants/colors_consts.dart';
 import '../../../../core/utils/constants/json_consts.dart';
 import '../../../../core/utils/constants/styles_consts.dart';
 import '../../../../core/utils/functions/functions.dart';
@@ -27,14 +26,8 @@ class SetupProfileHeader extends StatelessWidget {
           selectedImage = state.image;
         }
 
-        return Container(
+        return SizedBox(
           width: double.infinity,
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: ColorsConsts.gradientColors),
-          ),
           child: Padding(
             padding: const EdgeInsets.all(24.0),
             child: Column(
@@ -42,9 +35,9 @@ class SetupProfileHeader extends StatelessWidget {
                 Text(
                   JsonConsts.setupProfile.t(context),
                   style: StylesConsts.f18W600White.copyWith(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: context.colorScheme.onSurface),
                 ),
                 24.spaceH,
                 // Profile Picture Section
@@ -55,6 +48,7 @@ class SetupProfileHeader extends StatelessWidget {
                       ProfileCircleAvatar(
                         imageFile: selectedImage,
                         picture: cubit.pictureUrl ?? '',
+                        borderColor: context.colorScheme.primary,
                       ),
                       Positioned(
                         bottom: 0,
@@ -65,7 +59,7 @@ class SetupProfileHeader extends StatelessWidget {
                             color: context.colorScheme.tertiary.withOpacity(.9),
                             shape: BoxShape.circle,
                             border: Border.all(
-                              color: Colors.white,
+                              color: context.colorScheme.surface,
                               width: 2,
                             ),
                           ),
@@ -83,7 +77,7 @@ class SetupProfileHeader extends StatelessWidget {
                 Text(
                   JsonConsts.changePhoto.t(context),
                   style: StylesConsts.f15W400Grey.copyWith(
-                    color: Colors.white.withOpacity(0.8),
+                    color: Colors.grey.withOpacity(0.8),
                     fontSize: 14,
                   ),
                 ),

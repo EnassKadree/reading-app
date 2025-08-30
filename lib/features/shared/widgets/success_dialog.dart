@@ -66,7 +66,7 @@ class SuccessDialog extends StatelessWidget {
                       child: Opacity(
                         opacity: value.clamp(0.0, 1.0),
                         child: Text(
-                          JsonConsts.suggestionSentSuccessfully.t(context),
+                          title,
                           style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,

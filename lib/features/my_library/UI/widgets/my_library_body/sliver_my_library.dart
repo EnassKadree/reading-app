@@ -7,6 +7,7 @@ import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
 import 'package:reading_app/core/utils/extensions/string_extension.dart';
+import 'package:reading_app/core/utils/functions/functions.dart';
 import 'package:reading_app/features/my_library/UI/screens/book_in_progrees.dart';
 import 'package:reading_app/features/my_library/UI/screens/books_to_read.dart';
 import 'package:reading_app/features/my_library/UI/screens/completed_books.dart';
@@ -30,7 +31,7 @@ class SlivermyLibrary extends StatelessWidget {
         child: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children: Functions().staggeredList([
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: LibrarySectionLabel(
@@ -113,7 +114,7 @@ class SlivermyLibrary extends StatelessWidget {
                   ),
                 ],
               ),
-            ],
+            ]),
           ),
         ),
       ),

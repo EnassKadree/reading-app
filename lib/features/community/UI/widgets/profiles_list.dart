@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
 import 'package:reading_app/core/utils/extensions/string_extension.dart';
+import 'package:reading_app/core/utils/extensions/widget_extenstion.dart';
 
 import '../../../../core/lists/dummy_profile.dart';
 import '../../../../core/utils/constants/json_consts.dart';
@@ -88,7 +89,7 @@ Widget _buildProfilesList(BuildContext context, CommunityState state) {
                   index: index + 1,
                   profile: state.filteredProfiles[index],
                   isArranged: false, // Always false when searching
-                );
+                ).staggerListVertical(index);
               },
             ),
         ],

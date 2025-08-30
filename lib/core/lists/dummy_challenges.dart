@@ -8,7 +8,7 @@ final List<ChallengeModel> dummyChallenges = [
     title: 'Summer Reading Challenge',
     description:
         'Read 5 books during the summer months and earn bonus points for completing this seasonal challenge.',
-    pointsEarned: 150,
+    points: 150,
     duration: 90,
     numberOfBooks: 5,
     sizeCategoryName: 'Medium Books',
@@ -59,14 +59,14 @@ final List<ChallengeModel> dummyChallenges = [
         progress: 30,
         points: 100,
       ),
-    ],
+    ], isChallenged: false,
   ),
   ChallengeModel(
     id: 2,
     title: 'Science Fiction Marathon',
     description:
         'Dive into the world of science fiction with this 3-book challenge featuring classic and modern works.',
-    pointsEarned: 200,
+    points: 200,
     duration: 60,
     numberOfBooks: 3,
     sizeCategoryName: 'Big Books',
@@ -99,14 +99,14 @@ final List<ChallengeModel> dummyChallenges = [
         progress: 30,
         points: 100,
       ),
-    ],
+    ], isChallenged: false,
   ),
   ChallengeModel(
     id: 3,
     title: 'Quick Reads Challenge',
     description:
         'Perfect for busy readers! Complete 4 short books in just 30 days.',
-    pointsEarned: 100,
+    points: 100,
     duration: 30,
     numberOfBooks: 4,
     sizeCategoryName: 'Small Books',
@@ -117,13 +117,14 @@ final List<ChallengeModel> dummyChallenges = [
       isFollowed: false,
     ),
     books: null, // No books specified for this challenge
+    isChallenged: false
   ),
   ChallengeModel(
     id: 4,
     title: 'Historical Fiction Journey',
     description:
         'Travel through time with these carefully selected historical fiction novels.',
-    pointsEarned: 175,
+    points: 175,
     duration: 75,
     numberOfBooks: 3,
     sizeCategoryName: null, // No size category specified
@@ -175,18 +176,19 @@ final List<ChallengeModel> dummyChallenges = [
         isFavourite: false,
         isInLibrary: false,
       ),
-    ],
+    ], isChallenged: false,
   ),
   ChallengeModel(
     id: 5,
     title: 'Mystery & Thriller Challenge',
     description:
         'Solve mysteries and experience thrilling adventures with this 4-book challenge.',
-    pointsEarned: 125,
+    points: 125,
     duration: 45,
     numberOfBooks: 4,
     sizeCategoryName: null,
     category: null, // No category specified
-    books: null, // No books specified
+    books: null, 
+    isChallenged: false, // No books specified
   ),
 ];

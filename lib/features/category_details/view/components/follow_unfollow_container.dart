@@ -4,6 +4,7 @@ import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
 import 'package:reading_app/core/utils/extensions/string_extension.dart';
+import 'package:iconsax/iconsax.dart';
 
 class FollowUnfollowContainer extends StatelessWidget {
   const FollowUnfollowContainer({ this.isLoading=false,required this.isFollowed,super.key});
@@ -12,38 +13,52 @@ class FollowUnfollowContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 60.h,
+      height: 56.h,
       constraints: BoxConstraints(
-        minWidth: 100.w
+        minWidth: 110.w
       ),
       decoration: BoxDecoration(
-        color: context.colorScheme.primary.withAlpha(200),
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(20.r),
-          topLeft: Radius.circular(20.r),
+        gradient: LinearGradient(
+          colors: [
+            context.colorScheme.primary,
+            context.colorScheme.tertiary,
+          ],
         ),
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(18.r),
+          topLeft: Radius.circular(18.r),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.08),
+            blurRadius: 12,
+            offset: const Offset(0, 6),
+          )
+        ],
       ),
       child:(!isLoading)?
       Row(
         children: [
-          13.spaceW,
-          Icon(Icons.add_circle_outline,
-              size: 20,
-              color: context.colorScheme.surfaceContainer),
-          13.spaceW,
+          14.spaceW,
+          Icon(
+            isFollowed ? Iconsax.tick_circle : Iconsax.add_circle,
+            size: 20,
+            color: context.colorScheme.surfaceContainer,
+          ),
+          10.spaceW,
           Text(
-           isFollowed? JsonConsts.unFollow.t(context):JsonConsts.follow.t(context),
+            isFollowed? JsonConsts.unFollow.t(context):JsonConsts.follow.t(context),
             style: TextStyle(
-              letterSpacing: 0.6,
+              letterSpacing: 0.5,
               color: context.colorScheme.surfaceContainer,
-              fontSize: 16.sp,
+              fontSize: 15.sp,
               decoration: TextDecoration.none,
             ),
           ),
-          15.spaceW
+          16.spaceW
         ],
       ):SizedBox(height:5,width:5,child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 14),
+        padding: const EdgeInsets.symmetric(horizontal: 38,vertical: 14),
         child: CircularProgressIndicator(color: context.colorScheme.surfaceContainer,),
       )),
     );

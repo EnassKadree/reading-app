@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:reading_app/core/utils/constants/json_consts.dart';
-import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
 import 'package:reading_app/core/utils/extensions/string_extension.dart';
 import 'package:reading_app/features/shared/models/badge_model.dart';
@@ -15,64 +14,48 @@ class BadgesContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: context.colorScheme.surface,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
-            spreadRadius: 1,
-            blurRadius: 10,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Icon(
-                    Iconsax.medal,
-                    color: Colors.amber[400],
-                    size: 24,
-                  ),
-                  12.spaceW,
-                  Text(
-                    JsonConsts.badges.t(context),
-                    style: StylesConsts.f18W600Black.copyWith(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          20.spaceH,
-          badges.isNotEmpty
-              ? SizedBox(
-                  height: 120,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: badges.length,
-                    itemBuilder: (context, index) {
-                      final badge = badges[index];
-                      return _buildBadgeItem(context, badge);
-                    },
-                  ),
-                )
-              : Center(
-                  child: Text(JsonConsts.noData.t(context)),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                Icon(
+                  Iconsax.medal,
+                  color: Colors.amber[400],
+                  size: 18,
                 ),
-        ],
-      ),
+                12.spaceW,
+                Text(
+                  JsonConsts.badges.t(context),
+                  style: StylesConsts.f18W600Black.copyWith(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+        20.spaceH,
+        badges.isNotEmpty
+            ? SizedBox(
+                height: 120,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: badges.length,
+                  itemBuilder: (context, index) {
+                    final badge = badges[index];
+                    return _buildBadgeItem(context, badge);
+                  },
+                ),
+              )
+            : Center(
+                child: Text(JsonConsts.noData.t(context)),
+              ),
+      ],
     );
   }
 

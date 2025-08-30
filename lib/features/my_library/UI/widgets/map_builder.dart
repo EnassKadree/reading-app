@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reading_app/features/my_library/UI/widgets/svg_interactive_map.dart';
 import 'package:reading_app/features/my_library/services/country_book_count/country_book_count_cubit.dart';
-import 'package:reading_app/features/shared/widgets/something_went_wrong.dart';
+
+import '../../../shared/widgets/mini_some_thing_went_wrong_widget.dart';
 
 class MapBuilder extends StatelessWidget {
   const MapBuilder({super.key});
@@ -26,7 +27,7 @@ class MapBuilder extends StatelessWidget {
         );
       }
 
-    return  SomeThingWentWrongWidget(
+      return MiniSomeThingWentWrongWidget(
         onPressed: () => context.read<CountryBookCountCubit>().getCountryBook(),
       );
     });

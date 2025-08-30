@@ -12,7 +12,7 @@ abstract class StylesConsts {
     color: Colors.grey,
     fontSize: 18.sp,
   );
-  static TextStyle f24BoldBlack = TextStyle(
+  static TextStyle f20BoldBlack = TextStyle(
     fontSize: 20.sp,
     fontWeight: FontWeight.w700,
   );

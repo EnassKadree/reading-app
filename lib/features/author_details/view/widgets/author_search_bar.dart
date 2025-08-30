@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
+import 'package:reading_app/core/utils/extensions/string_extension.dart';
 import 'package:reading_app/features/author_details/service/author_books_cubit.dart';
 
 class AuthorSearchBar extends StatefulWidget {
@@ -47,7 +49,7 @@ class _AuthorSearchBarState extends State<AuthorSearchBar> {
           controller: _searchController,
           onChanged: _onSearchChanged,
           decoration: InputDecoration(
-            hintText: 'Search author books...',
+            hintText: JsonConsts.searchAuthorBooks.t(context),
             hintStyle: TextStyle(
               color: Colors.grey[500],
               fontSize: 16.sp,

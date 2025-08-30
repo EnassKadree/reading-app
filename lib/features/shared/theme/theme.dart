@@ -33,15 +33,14 @@ class AppTheme {
         iconTheme: const IconThemeData(size: 28, color: primaryColor),
         // color system
         colorScheme: const ColorScheme.light(
-          primary: primaryColor,
-          tertiary: tertiaryColor,
-          secondary: secondaryColor,
-          surfaceContainer: surfaceContainer,
-          brightness: Brightness.light,
-          secondaryContainer: secondaryContainer,
-          primaryContainer: primaryContainer,
-          onPrimary: Colors.black
-        ),
+            primary: primaryColor,
+            tertiary: tertiaryColor,
+            secondary: secondaryColor,
+            surfaceContainer: surfaceContainer,
+            brightness: Brightness.light,
+            secondaryContainer: secondaryContainer,
+            primaryContainer: primaryContainer,
+            onPrimary: Colors.black),
         // appbar
         appBarTheme: AppBarTheme(
           shadowColor: Colors.black,
@@ -60,16 +59,16 @@ class AppTheme {
         inputDecorationTheme: InputDecorationTheme(
           contentPadding: const EdgeInsets.symmetric(vertical: 12),
           hintStyle:
-              TextStyle(color: primaryColor.withOpacity(.7), fontSize: 14),
+          TextStyle(color: primaryColor.withOpacity(.7), fontSize: 14),
           floatingLabelStyle:
-              const TextStyle(color: primaryContainer, fontSize: 15),
+          const TextStyle(color: primaryContainer, fontSize: 15),
           suffixIconColor: secondaryContainer,
           disabledBorder: const UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.transparent, width: 0),
           ),
           enabledBorder: UnderlineInputBorder(
             borderSide:
-                BorderSide(color: Colors.grey.withOpacity(.5), width: 2),
+            BorderSide(color: Colors.grey.withOpacity(.5), width: 2),
           ),
           focusedBorder: const UnderlineInputBorder(
             borderSide: BorderSide(
@@ -132,9 +131,8 @@ class AppTheme {
           labelPadding: EdgeInsets.zero,
           indicatorSize: TabBarIndicatorSize.tab,
           labelColor: surfaceContainer,
-          unselectedLabelStyle: const TextStyle(
-            fontWeight: FontWeight.normal,
-          ),
+          unselectedLabelStyle:
+          TextStyle(fontWeight: FontWeight.normal, fontFamily: fontFamily),
         ));
   }
 
@@ -148,7 +146,7 @@ class AppTheme {
     const secondaryColor = ColorsConsts.gold;
     const tertiaryColor = ColorsConsts.pink;
     scaffoldBackgroundColor =
-        const Color(0xFF121212); // Material Design dark background
+    const Color(0xFF121212); // Material Design dark background
     const surfaceContainer = Color(0xFF1E1E1E); // Dark surface color
     const primaryContainer = Color(0xFF2D2D2D); // Dark primary container
     const secondaryContainer = Color(0xFF4A4A4A); // Dark secondary container
@@ -193,7 +191,7 @@ class AppTheme {
         contentPadding: const EdgeInsets.symmetric(vertical: 12),
         hintStyle: TextStyle(color: primaryColor.withOpacity(.7), fontSize: 14),
         floatingLabelStyle:
-            const TextStyle(color: primaryContainer, fontSize: 15),
+        const TextStyle(color: primaryContainer, fontSize: 15),
         suffixIconColor: secondaryContainer,
         disabledBorder: const UnderlineInputBorder(
           borderSide: BorderSide(color: Colors.transparent, width: 0),
@@ -268,9 +266,8 @@ class AppTheme {
         labelPadding: EdgeInsets.zero,
         indicatorSize: TabBarIndicatorSize.tab,
         labelColor: surfaceContainer,
-        unselectedLabelStyle: const TextStyle(
-          fontWeight: FontWeight.normal,
-        ),
+        unselectedLabelStyle:
+        TextStyle(fontWeight: FontWeight.normal, fontFamily: fontFamily),
       ),
 
       // Additional dark theme specific styles

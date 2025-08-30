@@ -10,7 +10,6 @@ class UserChallengesSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
         {
-
           if (userChallenges.isNotEmpty) {
             return SizedBox(
               height: 140.h,

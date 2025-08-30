@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
+import 'package:reading_app/core/utils/extensions/string_extension.dart';
 import 'package:reading_app/features/shared/models/comment.dart';
 
 import '../../../../core/utils/functions/functions.dart';
@@ -64,7 +66,7 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
                           child: SetupProfileFormField(
                               maxLines: 6,
                               controller: commentController,
-                              hint: "comment",
+                              hint: JsonConsts.comment.t(context),
                               icon: Iconsax.message_text_1)),
                       BlocConsumer<CommentOnBookCubit, CommentOnBookStates>(
                         builder: (context, CommentOnBookStates state) {

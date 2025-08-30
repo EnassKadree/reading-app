@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
+import 'package:reading_app/core/utils/extensions/string_extension.dart';
 
 import '../../../../core/utils/constants/styles_consts.dart';
 
@@ -27,7 +29,7 @@ class AddACommentButton extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: 12.h),
         child: Text(
-          "Add a Comment",
+          JsonConsts.addAComment.t(context),
           style: StylesConsts.f20W600Yellow.copyWith(
             color: context.colorScheme.primary,
             fontSize: 16.sp,

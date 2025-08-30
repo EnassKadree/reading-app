@@ -90,7 +90,7 @@ class ChallengeCardHeader extends StatelessWidget {
             children: [
               ChallengeStatItem(
                 icon: Iconsax.star,
-                text: '${challenge.pointsEarned} ${JsonConsts.pts.t(context)}',
+                text: '${challenge.points} ${JsonConsts.pts.t(context)}',
                 color: Colors.amber[600]!,
               ),
               24.spaceW,
