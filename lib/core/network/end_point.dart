@@ -1,23 +1,23 @@
 abstract class EndPoint {
-  static const baseUrl = 'http://10.0.2.2:8000/api';
-  static const booksBaseUrl = 'http://10.0.2.2:8000/api/mobile/books';
-  static const register = '/register';
+  static const baseUrl = 'http://192.168.0.110:8000/api';
+  static const booksBaseUrl = 'http://192.168.0.110:8000/api/mobile/books';
+   static const register = '/register';
   static const login = '/login';
   static const domainName = 'reading-app.up.railway.app';
   //home
-  static const userChallenges = '/mobile/challenge/getchallenges';
+  static const userChallenges ='/mobile/challenge/getchallenges';
   static const categories = '/category/getCategories';
-  static const authors = '/mobile/author/getAuthors';
-  static const authorBooks = '/mobile/books/author-books/';
-  static const mostRatedBooks = '/mobile/books/most-rated';
+  static const authors='/mobile/author/getAuthors';
+  static const authorBooks='/mobile/books/author-books/';
+  static const mostRatedBooks='/mobile/books/most-rated';
 
 
   //category
-  static const categoryBooks = '/mobile/books/category-books/';
-  static const followCategory = '/categories/follow/';
-  static const unFollowCategory = '/categories/unfollow/';
+  static const categoryBooks='/mobile/books/category-books/';
+  static const followCategory='/categories/follow/';
+  static const unFollowCategory='/categories/unfollow/';
 
-  //Mylibary /country/get-trips
+  //Mylibary 
   static const toRead = '/toread';
   static const favorites = '/favorites';
   static const inRead = '/inread';
@@ -41,10 +41,13 @@ abstract class EndPoint {
   static const suggestions = '/suggestion/store';
 
 //BOOK DETAILS
-  static const bookChallenge = '/mobile/books/GetBookChallenge/';
-  static const joinBookChallenge = '/challenge/JoinToBookChallenge/';
-  static const rateTheBook = '/book/RateBook/';
-  static const bookComments = '/book/getBookComments/';
-  static const appLink =
-      "https://play.google.com/store/apps/details?id=com.example.reading_app";
+  static const bookChallenge= '/mobile/books/GetBookChallenge/';
+  static const joinBookChallenge='/challenge/JoinToBookChallenge/';
+ static const rateTheBook='/book/RateBook/';
+ static const bookComments='/book/getBookComments/';
+  static const appLink= "https://play.google.com/store/apps/details?id=com.example.reading_app";
+   static const commentOnBook='/book/AddCommentToTheBook/';
+   static const addToRead='/book/AddBookToDoList/';
+   static const  addTOFavorite='/book/AddBookToFavorite/';
+  static const  removeFromFavorite='/book/remove-from-favorites/';
 }
