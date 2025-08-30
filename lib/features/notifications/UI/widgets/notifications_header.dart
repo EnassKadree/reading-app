@@ -6,26 +6,28 @@ import 'package:reading_app/core/utils/constants/json_consts.dart';
 import 'package:reading_app/core/utils/extensions/context_extension.dart';
 import 'package:reading_app/core/utils/extensions/space_extension.dart';
 import 'package:reading_app/core/utils/extensions/string_extension.dart';
+import 'package:reading_app/features/notifications/logic/mark_as_read/mark_as_read_cubit.dart';
 
 import '../../../../core/utils/constants/styles_consts.dart';
-import '../../logic/notifications_cubit.dart';
+import '../../logic/notifications/notifications_cubit.dart';
 
 class NotificationsHeader extends StatelessWidget {
-  const NotificationsHeader({super.key});
+  const NotificationsHeader({super.key, required this.unreadCount});
+  final int unreadCount;
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<NotificationsCubit, NotificationsState>(
       builder: (context, state) {
-        final unreadCount = context.read<NotificationsCubit>().unreadCount;
-
         return Container(
           padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
           decoration: BoxDecoration(
             color: context.colorScheme.surface,
             boxShadow: [
               BoxShadow(
-                color: Colors.grey.withOpacity(0.1),
+                color: context.isDarkMode
+                    ? Colors.black26
+                    : Colors.grey.withOpacity(0.1),
                 spreadRadius: 1,
                 blurRadius: 10,
                 offset: const Offset(0, 2),
@@ -64,6 +66,28 @@ class NotificationsHeader extends StatelessWidget {
                   ],
                 ),
               ),
+              InkWell(
+                onTap: () {
+                  context.read<MarkAsReadCubit>().markAll();
+                  context
+                      .read<NotificationsCubit>()
+                      .markAllNotificationsAsRead();
+                },
+                child: Column(
+                  children: [
+                    const Icon(
+                      size: 20,
+                      Iconsax.tick_circle,
+                      color: Colors.blue,
+                    ),
+                    6.spaceH,
+                    Text(
+                      'mark all read',
+                      style: StylesConsts.descTxt.copyWith(fontSize: 11),
+                    )
+                  ],
+                ),
+              )
             ],
           ),
         );

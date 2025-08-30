@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,8 +19,6 @@ import '../constants/colors_consts.dart';
 import '../constants/json_consts.dart';
 import '../constants/styles_consts.dart';
 
-
-
 part 'input_validator.dart';
 part 'show_error_dialog.dart';
 part 'show_modal_sheet.dart';
@@ -32,6 +29,7 @@ part 'build_home_screen.dart';
 part 'show_settings_dialog.dart';
 part 'formatter.dart';
 part 'rate_comment_dialog.dart';
+part 'calculator.dart';
 
 class Functions {
   // String locale = DataSource().getLocale() ?? 'ar';
